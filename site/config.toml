@@ -1,4 +1,4 @@
-baseurl = "https://example.org/"
+baseurl = "/"
 title = "R notes to myself"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
