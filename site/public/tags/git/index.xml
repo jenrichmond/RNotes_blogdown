@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R notes to myself</title>
-    <link>/</link>
-    <description>Recent content on R notes to myself</description>
+    <title>Git on R notes to myself</title>
+    <link>/tags/git/</link>
+    <description>Recent content in Git on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,15 +22,6 @@ To push to git you need to use the terminal from WITHIN R-Studio (who knew there
  git add .
  git commit -m &amp;ldquo;something that makes sense&amp;rdquo;
  git push</description>
-    </item>
-    
-    <item>
-      <title>My first post</title>
-      <link>/portfolio/work1/</link>
-      <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
-      
-      <guid>/portfolio/work1/</guid>
-      <description>Woot! It works!!</description>
     </item>
     
   </channel>

@@ -6,10 +6,23 @@
     <description>Recent content in Portfolios on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Nov 2016 18:25:22 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 17 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git thinking</title>
+      <link>/portfolio/git-thinking/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/git-thinking/</guid>
+      <description>The amazing Charles Gray was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.
+To push to git you need to use the terminal from WITHIN R-Studio (who knew there was such a thing, shortcut = alt-shift-t). You need to type command in sequence.
+ git add .
+ git commit -m &amp;ldquo;something that makes sense&amp;rdquo;
+ git push</description>
+    </item>
     
     <item>
       <title>My first post</title>
