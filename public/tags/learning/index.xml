@@ -17,9 +17,10 @@
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/sods18/</guid>
-      <description>Twitter is such a great R learning resource.
-The people who follow the #rstats hashtag are so generous with their time. You can post a qusetion/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.
-Other initiatives like #TidyTuesday provide datawrangling fodder for learners and then a forum to share success (and challenges). Every tuesday @thomas_mock posts a dataset to github, people download it, wrangle it, play with it, plot it and then post their results to twitter with the hashtag #tidytuesday.</description>
+      <description>&lt;p&gt;Twitter is such a great R learning resource.&lt;/p&gt;
+
+&lt;p&gt;The people who follow the #rstats hashtag are so generous with their time. You can post a qusetion/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.
+&lt;/p&gt;</description>
     </item>
     
   </channel>
