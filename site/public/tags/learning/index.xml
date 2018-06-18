@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on R notes to myself</title>
+    <link>/tags/learning/</link>
+    <description>Recent content in Learning on R notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>#SoDS18</title>
+      <link>/portfolio/sods18/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/sods18/</guid>
+      <description>Twitter is such a great R learning resource.
+The people who follow the #rstats hastag are so generous with their time. You can post a qusetion/problem with the hastag and someone will reply and try and help you within about 20 min. It is awesome.
+Other initiatives like #TidyTuesday provide datawrangling fodder for learners and then a forum to share success (and challenges). Every tuesday @thomas_mock posts a dataset to github, people download it, wrangle it, play with it, plot it and then post their results to twitter with the hashtag #tidytuesday.</description>
+    </item>
+    
+  </channel>
+</rss>
