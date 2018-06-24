@@ -3,12 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/portfolio/test/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/portfolio/curiouser/</loc>
+    <loc>/portfolio/curious-rmarkdown/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -35,6 +30,10 @@
   <url>
     <loc>/portfolio/2018-06-16-first-post/</loc>
     <lastmod>2016-11-05T18:25:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/portfolio/2018-06-24-curiouser/</loc>
   </url>
   
   <url>

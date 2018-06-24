@@ -12,23 +12,14 @@
     
     
     <item>
-      <title>Test</title>
-      <link>/portfolio/test/</link>
+      <title>Curious</title>
+      <link>/portfolio/curious-rmarkdown/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>curiouser </title>
-      <link>/portfolio/curiouser/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio/curiouser/</guid>
-      <description>&lt;p&gt;What a treat it was to finally meet &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>/portfolio/curious-rmarkdown/</guid>
+      <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
+ It was a “lets start at the very beginning” workshop and made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning.
+ Markdown tips for the R-Curious 1.</description>
     </item>
     
     <item>
@@ -61,6 +52,15 @@ The people who follow the #rstats hashtag are so generous with their time. You c
       
       <guid>/portfolio/2018-06-16-first-post/</guid>
       <description>Woot! It works!!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/portfolio/2018-06-24-curiouser/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/2018-06-24-curiouser/</guid>
+      <description></description>
     </item>
     
   </channel>
