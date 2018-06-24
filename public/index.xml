@@ -18,8 +18,8 @@
       
       <guid>/portfolio/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
- It was a “lets start at the very beginning” workshop and made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning.
- Markdown tips for the R-Curious 1.</description>
+ We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
+Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis.</description>
     </item>
     
     <item>
@@ -52,15 +52,6 @@ The people who follow the #rstats hashtag are so generous with their time. You c
       
       <guid>/portfolio/2018-06-16-first-post/</guid>
       <description>Woot! It works!!</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/portfolio/2018-06-24-curiouser/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio/2018-06-24-curiouser/</guid>
-      <description></description>
     </item>
     
   </channel>
