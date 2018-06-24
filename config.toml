@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://jenrichmond.rbind.io/"
 title = "R notes to myself"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"

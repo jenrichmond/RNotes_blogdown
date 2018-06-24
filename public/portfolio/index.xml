@@ -17,10 +17,10 @@
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/sods18/</guid>
-      <description>&lt;p&gt;Twitter is such a great R learning resource.&lt;/p&gt;
+      <description>&lt;p&gt;Twitter is such a great R learning resource.
+The people who follow the #rstats hashtag are so generous with their time. You can post a question/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.&lt;/p&gt;
 
-&lt;p&gt;The people who follow the #rstats hashtag are so generous with their time. You can post a qusetion/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.
-&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,10 +29,9 @@
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/git-thinking/</guid>
-      <description>The amazing Charles Gray was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.
-To push to git you need to use the terminal from WITHIN R-Studio (who knew there was such a thing? shortcut = alt-shift-t). You need to type these commands in sequence.
- git add .
- git commit -m &amp;ldquo;something that makes sense&amp;rdquo;</description>
+      <description>&lt;p&gt;The amazing &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
