@@ -2,8 +2,8 @@
 title: 'curiouser '
 author: Jen Richmond
 date: '2018-06-24'
-image = "img/portfolio/curious.jpeg"
-showonlyimage = false
+image: "img/portfolio/curious.jpeg"
+showonlyimage: false
 slug: curiouser
 categories: []
 tags: []

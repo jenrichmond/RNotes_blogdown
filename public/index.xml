@@ -12,12 +12,23 @@
     
     
     <item>
-      <title>curiouser </title>
-      <link>/portfolio-/curiouser/</link>
+      <title>Test</title>
+      <link>/portfolio/test/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio-/curiouser/</guid>
+      <guid>/portfolio/test/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>curiouser </title>
+      <link>/portfolio/curiouser/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/curiouser/</guid>
+      <description>&lt;p&gt;What a treat it was to finally meet &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
