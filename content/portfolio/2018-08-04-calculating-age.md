@@ -11,7 +11,7 @@ I have been playing with a new (not actually new, but new to R) dataset this wee
 
 #### Successes: 
 
-1. I loaded the data in using `read_csv`.
+1. I loaded the data in using `read_csv`. *** see ERRATUM below
 2. I fixed some weird data type assumptions. 
 
 * The interview group is listed as 1s and 2s in the file so R thought those were  integers. So I used `as.factor` to convert.
@@ -22,14 +22,19 @@ ___
 
 ___
 
-* `read_csv` did weird things with dates, importing them as factors. People say that `read_csv` makes fewer weird assumptions than `read.csv` but I am not yet convinced. I used `lubridate` package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. 
+* `read_csv` did weird things with dates, importing them as factors. People say that `read_csv` makes fewer weird assumptions than `read.csv` but I am not yet convinced. I used `lubridate` package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM
 
 ___
   
     mutate(DOB = dmy(DOB), Test_Date= dmy(Test_Date))
     
 ___
+
+##### ERRATUM
+My bad... the dates as factors issue was caused by `read.csv` NOT `read_csv`. When I posted this to twitter, [Alison Hill](https://twitter.com/apreshill) helpfully pointed out that there is no way to read in a factor by default in readr. So this is an example of how `read_csv` does a "better" job than `read.csv`. Better in the sense that is automatically imports everything that isn't a number as a character rather than assuming things are factors. I still need to use `lubridate` to convert character to dates (DOB Test_Date) and integers to factors (InterviewGroup) though.
   
+___
+
 #### Challenges
 
 Now that I have dates that are dates, I'd like to calculate how old these kids are. Just subtracting DOB from Test_Date does OK, except that it calculates age in Days. 

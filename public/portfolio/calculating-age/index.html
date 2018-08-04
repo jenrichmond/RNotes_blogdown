@@ -108,7 +108,7 @@
 <h4 id="successes">Successes:</h4>
 
 <ol>
-<li>I loaded the data in using <code>read_csv</code>.</li>
+<li>I loaded the data in using <code>read_csv</code>. *** see ERRATUM below</li>
 <li>I fixed some weird data type assumptions.</li>
 </ol>
 
@@ -124,13 +124,19 @@
 <hr />
 
 <ul>
-<li><code>read_csv</code> did weird things with dates, importing them as factors. People say that <code>read_csv</code> makes fewer weird assumptions than <code>read.csv</code> but I am not yet convinced. I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too.</li>
+<li><code>read_csv</code> did weird things with dates, importing them as factors. People say that <code>read_csv</code> makes fewer weird assumptions than <code>read.csv</code> but I am not yet convinced. I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM</li>
 </ul>
 
 <hr />
 
 <pre><code>mutate(DOB = dmy(DOB), Test_Date= dmy(Test_Date))
 </code></pre>
+
+<hr />
+
+<h5 id="erratum">ERRATUM</h5>
+
+<p>My bad&hellip; the dates as factors issue was caused by <code>read.csv</code> NOT <code>read_csv</code>. When I posted this to twitter, <a href="https://twitter.com/apreshill">Alison Hill</a> helpfully pointed out that there is no way to read in a factor by default in readr. So this is an example of how <code>read_csv</code> does a &ldquo;better&rdquo; job than <code>read.csv</code>. Better in the sense that is automatically imports everything that isn&rsquo;t a number as a character rather than assuming things are factors. I still need to use <code>lubridate</code> to convert character to dates (DOB Test_Date) and integers to factors (InterviewGroup) though.</p>
 
 <hr />
 
