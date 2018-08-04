@@ -213,6 +213,18 @@ period$year
 
 <p>I need help&hellip;</p>
 
+<h3 id="update">UPDATE</h3>
+
+<p>Twitter saves the day again! BIG thanks to <a href="https://twitter.com/apreshill">Alison Hill</a> for pointing me to this <a href="https://data.library.virginia.edu/working-with-dates-and-time-in-r-using-the-lubridate-package/">extra useful lubridate resource</a></p>
+
+<p>So what I really want to do is calculate an interval, which you do using %&ndash;%. Once you have an interval, you divide by months(1), using / if you want decimal places or modulus [%/% -I always wondered what that was] if you want whole months.</p>
+
+<pre><code>ageproblem2 &lt;- ageproblem %&gt;%
+    mutate(ageinterval = DOB %--% Test_Date) %&gt;%
+    mutate(agemons = ageinterval %/% months(1)) %&gt;%
+     mutate(ageweeks = ageinterval %/% weeks(1))
+</code></pre>
+
          
       </div>
     </div>

@@ -101,7 +101,16 @@ ___
 
 I need help...
 
+### UPDATE
 
+Twitter saves the day again! BIG thanks to [Alison Hill](https://twitter.com/apreshill) for pointing me to this [extra useful lubridate resource](https://data.library.virginia.edu/working-with-dates-and-time-in-r-using-the-lubridate-package/)
+
+So what I really want to do is calculate an interval, which you do using %--%. Once you have an interval, you divide by months(1), using / if you want decimal places or modulus [%/% -I always wondered what that was] if you want whole months. 
+
+    ageproblem2 <- ageproblem %>%
+        mutate(ageinterval = DOB %--% Test_Date) %>%
+        mutate(agemons = ageinterval %/% months(1)) %>%
+         mutate(ageweeks = ageinterval %/% weeks(1))
 
 
 
