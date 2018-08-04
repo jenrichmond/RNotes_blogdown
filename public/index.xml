@@ -6,18 +6,19 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ICIS18 workshop</title>
-      <link>/post/icis18-workshop/</link>
-      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      <title>calculating age</title>
+      <link>/portfolio/calculating-age/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/icis18-workshop/</guid>
-      <description></description>
+      <guid>/portfolio/calculating-age/</guid>
+      <description>I have been playing with a new (not actually new, but new to R) dataset this week.
+Successes:  I loaded the data in using read_csv. I fixed some weird data type assumptions.   The interview group is listed as 1s and 2s in the file so R thought those were integers. So I used as.factor to convert.  dataframe$variable &amp;lt;- as.factor(dataframe$variable)   read_csv did weird things with dates, importing them as factors.</description>
     </item>
     
     <item>
@@ -26,16 +27,9 @@
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/fomo-on-user2018/</guid>
-      <description>I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).</description>
-    </item>
-    
-    <item>
-      <title>practical solutions session</title>
-      <link>/portfolio-/practical-solutions-session/</link>
-      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio-/practical-solutions-session/</guid>
-      <description></description>
+      <description>&lt;p&gt;I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
