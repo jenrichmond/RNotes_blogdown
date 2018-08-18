@@ -1,15 +1,11 @@
-+++
-showonlyimage = false
+---
 title: cooking with datapasta
 author: ''
 date: '2018-08-09'
-image = "img/portfolio/pasta.jpg"
-weight = 0
 slug: cooking-with-datapasta
 categories: []
 tags: []
-+++
-
+---
 
 
 Another day... another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible. 

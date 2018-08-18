@@ -6,10 +6,24 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hotkeys</title>
+      <link>/portfolio/hotkeys/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/hotkeys/</guid>
+      <description>There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.
+Keyboard shortcuts are helpful (disclaimer: these mac versions).
+ Option-Command-i will open a new Rmarkdown code chunk.
+ Option - is a handy way of typing assignment (&amp;lt;-)
+ Shift-Command-M is a fast way of adding a pipe (%&amp;gt;%)
+  Any others I should know about?</description>
+    </item>
     
     <item>
       <title>cooking with datapasta</title>
