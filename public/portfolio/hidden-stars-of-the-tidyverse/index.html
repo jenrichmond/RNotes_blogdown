@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Portfolio-s</title>
+<title>hidden stars of the tidyverse</title>
 <meta name="description" content="R notes to myself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -28,9 +28,6 @@
 
 <link href="/css/custom.css" rel="stylesheet">
 <link rel="shortcut icon" href="/img/favicon.png">
-
-  <link href="/portfolio-/index.xml" rel="alternate" type="application/rss+xml" title="R notes to myself" />
-  <link href="/portfolio-/index.xml" rel="feed" type="application/rss+xml" title="R notes to myself" />
 
 
 </head>
@@ -94,37 +91,77 @@
 </div>
 
               
-  <div class="col-xs-12 col-sm-8 col-md-9 content-column">
-    <div class="small-navbar visible-xs">
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
   <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
   <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
 </div>
 
-    <div class="grid">
-        <div class="row">
-          
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
-                  <div class="box-masonry">
-                      
-                      
-                      <div class="box-masonry-text">
-                      
-                          <h4><a href="/portfolio-/functions/">functions</a></h4>
-                          <div class="box-masonry-description">
-                            <p>
-                                
-                                  
-                                
-                            </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          
-        </div>
-    </div>
-</div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>hidden stars of the tidyverse</h1>
+         
 
+<p><a href="@robinson_es">Emily Robinson</a> from DataCamp talked at the 2018 New York R conference rcently and shared some of her favourite (less well known) stars of the Tidyverse</p>
+
+<h3 id="1-instead-of-printing-your-dataset-to-the-console-use-as-tibble">1. instead of printing your dataset to the console, use as_tibble()</h3>
+
+<p>Tibble = modern dataframe. as_tibble() will only print the first 10 rows and columns that fit on the screen.</p>
+
+<h3 id="2-examine-your-nas">2. examine your NAs</h3>
+
+<p>is.na returns TRUE or FALSE, TRUE is 1 and FALSE is 0, which means you can use sum to count the number of NAs in a given variable.</p>
+
+<blockquote>
+<p>summarise(numberNA = sum(is.na(variable))</p>
+</blockquote>
+
+<p>What about all variables? Purrr can help. <code>map_df()</code> maps a function across all variables. df specifies that you want a dataframe back. The dot says this is where the column/function should go; the tilde ~ stands for anonymous function.</p>
+
+<blockquote>
+<p>map_df(~sum(is.na(.)))</p>
+</blockquote>
+
+<p>what if cells are empty rather than NA, convert empty to NA using <code>na.if()</code></p>
+
+<blockquote>
+<p>na_if(&ldquo;&rdquo;)</p>
+</blockquote>
+
+<h3 id="3-look-at-numeric">3. look at numeric</h3>
+
+<p>Look just a numeric columns with select_if(is.numeric) then pipe in to a skim() to get mean, SD, missing, and little histograms.</p>
+
+<h3 id="3-examine-data-in-a-single-column">3. examine data in a single column</h3>
+
+<p>When you have more than 1 piece of information in a column, using stringr package <code>str_split(column, &quot;,&quot;)</code> to split the string at the point where the , is.</p>
+
+<p>In ggplot, mhen x axis labels are all bunchy, use <code>coord_flip()</code> to fip the graph on its side. Also if you want to sort the bars, use <code>fct_reorder()</code> from forcate to sort by n.</p>
+
+<h3 id="4-make-a-mimimal-reproducible-example">4. make a mimimal reproducible example</h3>
+
+<ol>
+<li><p>Use tribble to make a fake data set</p></li>
+
+<li><p>Use reprex to find problems.</p></li>
+
+<li><p>Use reprex() to post your question/issue</p></li>
+</ol>
+
+<p>Emily&rsquo;s favourite resources</p>
+
+<ol>
+<li><p>r4ds.co.nz R for Data Science</p></li>
+
+<li><p>Twitter #rstats</p></li>
+</ol>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
 
           </div>
       </div>

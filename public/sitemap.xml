@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/portfolio/lesser-known-stars-of-the-tidyverse/</loc>
+    <lastmod>2018-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/portfolio-/functions/</loc>
+    <lastmod>2018-08-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/portfolio/dirty-data/</loc>
+    <lastmod>2018-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/portfolio/hotkeys/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
@@ -70,14 +85,20 @@
   </url>
   
   <url>
+    <loc>/portfolio-/</loc>
+    <lastmod>2018-08-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/portfolio/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
