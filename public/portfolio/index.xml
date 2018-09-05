@@ -2,43 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portfolios on R notes to myself</title>
-    <link>/portfolio/</link>
+    <link>http://jenrichmond.rbind.io/portfolio/</link>
     <description>Recent content in Portfolios on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jenrichmond.rbind.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>I don’t like cats much</title>
+      <link>http://jenrichmond.rbind.io/portfolio/i-don-t-like-cats-much/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jenrichmond.rbind.io/portfolio/i-don-t-like-cats-much/</guid>
+      <description>I don&amp;rsquo;t love cats. I am not a member of @RCatLadies. So the fact that Tidyverse packages for dealing with factors and functional programming have cat-related names (forcats and purrr) does not endear them to me.
+I knew there was a time when I would encounter an R problem that needed the power of for loops, so when I asked the Twittersphere whether there was an alternative (hopefully a tidyverse one) that would allow me to avoid loops a little longer, I was a bit disappointed to hear that it is the purrr package.</description>
+    </item>
+    
+    <item>
       <title>lesser known stars of the tidyverse</title>
-      <link>/portfolio/lesser-known-stars-of-the-tidyverse/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/lesser-known-stars-of-the-tidyverse/</guid>
-      <description>Emily Robinson has just joined DataCamp and writes a great blogx called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;
+      <guid>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</guid>
+      <description>Emily Robinson has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;
 1. instead of printing your dataset to the console, use as_tibble() Tibble = modern dataframe.
 as_tibble() will only print the first 10 rows and columns that fit on the screen.</description>
     </item>
     
     <item>
       <title>dirty data</title>
-      <link>/portfolio/dirty-data/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/dirty-data/</link>
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/dirty-data/</guid>
-      <description>I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are note on useful things I learned.
+      <guid>http://jenrichmond.rbind.io/portfolio/dirty-data/</guid>
+      <description>I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.
 Quick summaries class() will let you know whether you are working with a dataframe or not
 dim() gives you a little info about the dimensions of your data by telling you how many rows nd columns you have</description>
     </item>
     
     <item>
       <title>hotkeys</title>
-      <link>/portfolio/hotkeys/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/hotkeys/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/hotkeys/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/hotkeys/</guid>
       <description>There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.
 Keyboard shortcuts are helpful (disclaimer: these mac versions).
  Option-Command-i will open a new Rmarkdown code chunk.
@@ -49,29 +59,29 @@ Keyboard shortcuts are helpful (disclaimer: these mac versions).
     
     <item>
       <title>cooking with datapasta</title>
-      <link>/portfolio/cooking-with-datapasta/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/cooking-with-datapasta/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/cooking-with-datapasta/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/cooking-with-datapasta/</guid>
       <description>Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.</description>
     </item>
     
     <item>
       <title>calculating age</title>
-      <link>/portfolio/calculating-age/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/calculating-age/</link>
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/calculating-age/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/calculating-age/</guid>
       <description>I have been playing with a new (not actually new, but new to R) dataset this week.
 Successes:  I loaded the data in using read_csv. *** see ERRATUM below I fixed some weird data type assumptions.   The interview group is listed as 1s and 2s in the file so R thought those were integers. So I used as.factor to convert.  dataframe$variable &amp;lt;- as.factor(dataframe$variable)   read_csv did weird things with dates, importing them as factors.</description>
     </item>
     
     <item>
       <title>fomo on #useR2018</title>
-      <link>/portfolio/fomo-on-user2018/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/fomo-on-user2018/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/fomo-on-user2018/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/fomo-on-user2018/</guid>
       <description>&lt;p&gt;I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -79,10 +89,10 @@ Successes:  I loaded the data in using read_csv. *** see ERRATUM below I fixed s
     
     <item>
       <title>Curious</title>
-      <link>/portfolio/curious-rmarkdown/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/curious-rmarkdown/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/curious-rmarkdown/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
  We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
 Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis.</description>
@@ -90,10 +100,10 @@ Because it was a “lets start at the very beginning” workshop, made me realis
     
     <item>
       <title>#SoDS18</title>
-      <link>/portfolio/sods18/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/sods18/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/sods18/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/sods18/</guid>
       <description>&lt;p&gt;Twitter is such a great R learning resource.
 The people who follow the #rstats hashtag are so generous with their time. You can post a question/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.&lt;/p&gt;
 
@@ -102,10 +112,10 @@ The people who follow the #rstats hashtag are so generous with their time. You c
     
     <item>
       <title>git thinking</title>
-      <link>/portfolio/git-thinking/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/git-thinking/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/git-thinking/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/git-thinking/</guid>
       <description>&lt;p&gt;The amazing &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -113,10 +123,10 @@ The people who follow the #rstats hashtag are so generous with their time. You c
     
     <item>
       <title>My first post</title>
-      <link>/portfolio/2018-06-16-first-post/</link>
+      <link>http://jenrichmond.rbind.io/portfolio/2018-06-16-first-post/</link>
       <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
       
-      <guid>/portfolio/2018-06-16-first-post/</guid>
+      <guid>http://jenrichmond.rbind.io/portfolio/2018-06-16-first-post/</guid>
       <description>Woot! It works!!</description>
     </item>
     

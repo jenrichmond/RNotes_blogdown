@@ -3,107 +3,101 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/portfolio/lesser-known-stars-of-the-tidyverse/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/i-don-t-like-cats-much/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio-/functions/</loc>
-    <lastmod>2018-08-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/portfolio/dirty-data/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/dirty-data/</loc>
     <lastmod>2018-08-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/hotkeys/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/hotkeys/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/cooking-with-datapasta/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/cooking-with-datapasta/</loc>
     <lastmod>2018-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/calculating-age/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/calculating-age/</loc>
     <lastmod>2018-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/fomo-on-user2018/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/fomo-on-user2018/</loc>
     <lastmod>2018-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/curious-rmarkdown/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/curious-rmarkdown/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/sods18/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/sods18/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/git-thinking/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/git-thinking/</loc>
     <lastmod>2018-06-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/contact/</loc>
+    <loc>http://jenrichmond.rbind.io/contact/</loc>
     <lastmod>2016-11-06T13:00:25+05:30</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>http://jenrichmond.rbind.io/about/</loc>
     <lastmod>2016-11-05T21:05:33+05:30</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/2018-06-16-first-post/</loc>
+    <loc>http://jenrichmond.rbind.io/portfolio/2018-06-16-first-post/</loc>
     <lastmod>2016-11-05T18:25:22+05:30</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>http://jenrichmond.rbind.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/git/</loc>
+    <loc>http://jenrichmond.rbind.io/tags/git/</loc>
     <lastmod>2018-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/learning/</loc>
+    <loc>http://jenrichmond.rbind.io/tags/learning/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/portfolio-/</loc>
-    <lastmod>2018-08-28T00:00:00+00:00</lastmod>
+    <loc>http://jenrichmond.rbind.io/portfolio/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/portfolio/</loc>
-    <lastmod>2018-08-30T00:00:00+00:00</lastmod>
+    <loc>http://jenrichmond.rbind.io/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>http://jenrichmond.rbind.io/tags/</loc>
     <lastmod>2018-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 
-[Emily Robinson](@robinson_es) has just joined DataCamp and writes a great blogx called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes...
+[Emily Robinson](@robinson_es) has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes...
 
 ### 1. instead of printing your dataset to the console, use `as_tibble()`
 
