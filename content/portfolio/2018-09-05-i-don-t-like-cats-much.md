@@ -85,7 +85,7 @@ bigdataframe %>%
 
 
 #### my own googling
-A little Google searching turned out this post from @clauswilke that outlines how to use map() to run read_csv for many files
+A little Google searching turned out this post from [Claus Wilke](@clauswilke) that outlines how to use map() to run read_csv for many files
 
 https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R
 
