@@ -6,10 +6,21 @@
     <description>Recent content in Portfolios on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mutate &#43; if else = new conditional variable</title>
+      <link>/portfolio/mutate-and-if-else-to-create-new-variables/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/mutate-and-if-else-to-create-new-variables/</guid>
+      <description>I keep googling these slides by David Ranzolin each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.
+Most recently I needed to extract a Stimulus number from a variable called CommentName, and then turn those numbers into levels of Model and Emotion in separate columns.
+Ugly but functional code below This chunk takes the cleanedup data, groups by Participant, Block, and Trial, pipes to a mutate function which adds a new column called Stimulus that lists the values in the 8th position [[8]] of the CommentName Variable (that is the comment that specifies the Model/Emotion condition).</description>
+    </item>
     
     <item>
       <title>Use map to read many csv files</title>

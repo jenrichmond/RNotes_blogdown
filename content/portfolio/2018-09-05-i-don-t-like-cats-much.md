@@ -46,10 +46,10 @@ https://swcarpentry.github.io/r-novice-inflammation/03-loops-R/index.html
 https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/
 
 
-#### Miles McBain @MilesMcBain says...
+#### [Miles McBain](@MilesMcBain) says...
 You can use dplyr::bind_rows() instead of reduce(rbind()). BUT if you want them all in one frame at the end you probably just want purrr::map_dfr(), which is a map and bind combo function. So many options! that's actually half the problem with going #noloops. My most commonly used fns in purrr are map(), pmap(), walk(), iwalk() and every() maybe that helps narrow it down a bit.
 
-#### Hendrik vanB @hendrikvanb says 
+#### [Hendrik vanB](@hendrikvanb) says... 
 
 This feels like an ideal purrr::map() use case.  E.g., assuming .csv files:
 
@@ -63,7 +63,7 @@ purrr::map(filepaths, function(x) {
 })
 ```
 
-#### James Goldie @rensa_co says
+#### [James Goldie](@rensa_co) says...
 I use similar patterns a lot! You can:
 
 1) map over the filename vector, immediately joining the dfs into 1 df using map_dfr and then doing your operations on the result
