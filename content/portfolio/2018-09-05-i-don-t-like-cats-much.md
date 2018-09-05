@@ -52,6 +52,8 @@ You can use dplyr::bind_rows() instead of reduce(rbind()). BUT if you want them 
 #### Hendrik vanB @hendrikvanb says 
 
 This feels like an ideal purrr::map() use case.  E.g., assuming .csv files:
+
+```
 purrr::map(filepaths, function(x) {
   readr::read_csv(x) %>%
     rename(...) %>%
@@ -59,30 +61,35 @@ purrr::map(filepaths, function(x) {
     filter(...) %>%
     etc.
 })
+```
 
 #### James Goldie @rensa_co says
 I use similar patterns a lot! You can:
 
 1) map over the filename vector, immediately joining the dfs into 1 df using map_dfr and then doing your operations on the result
 
+```
 map_dfr(filepaths, read_csv) %>%
   select(...)
-  
+```  
 2) map over the filename vector, doing your operations on each one inside map and then joining the result
 
+```
 map_dfr(filepaths, function(x) {
   read_csv(x) %>%
   select(...)
 })
+```
 
 3) split a dataframe up into a list of dfs and map over that
 
+```
 bigdataframe %>%
   split(list(bigdataframe$group1)) %>%
   map(function(df) {
     select(...)
   })
-
+```
 
 #### my own googling
 A little Google searching turned out this post from [Claus Wilke](@clauswilke) that outlines how to use map() to run read_csv for many files
