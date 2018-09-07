@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analysis on R notes to myself</title>
+    <link>/tags/analysis/</link>
+    <description>Recent content in Analysis on R notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Stats1: t-tests</title>
+      <link>/portfolio/stats1-t-tests/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/stats1-t-tests/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

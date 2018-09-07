@@ -4,14 +4,26 @@ author: ''
 date: '2018-08-30'
 slug: lesser-known-stars-of-the-tidyverse
 categories: []
-tags: []
+output:
+  blogdown::html_page:
+    toc: true
+tags: 
+  - tidyverse
+  - wrangling
+  - dplyr
+  - purrr
+  - ggplot
+  - stringr
+  - reprex
 ---
 
 [Emily Robinson](@robinson_es) has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes...
 
-### 1. instead of printing your dataset to the console, use `as_tibble()`
+<!--more-->
 
-Tibble = modern dataframe. 
+### 1.use `as_tibble()`
+
+Tibble = modern dataframe. Use instead of printing your dataset to the console.
 
 `as_tibble()` will only print the first 10 rows and columns that fit on the screen. 
 

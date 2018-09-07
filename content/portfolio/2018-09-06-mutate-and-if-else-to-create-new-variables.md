@@ -9,6 +9,8 @@ tags: []
 
 I keep googling [these slides](https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1) by [David Ranzolin](@daranzolin) each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables. 
 
+<!--more-->
+
 Most recently I needed to extract a Stimulus number from a variable called CommentName, and then turn those numbers into levels of Model and Emotion in separate columns. 
 
 #### Ugly but functional code below
