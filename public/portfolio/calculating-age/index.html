@@ -101,9 +101,9 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>calculating age</h1>
-         
+         <p>I have been playing with a new (not actually new, but new to R) dataset this week.</p>
 
-<p>I have been playing with a new (not actually new, but new to R) dataset this week.</p>
+<p></p>
 
 <h4 id="successes">Successes:</h4>
 
@@ -116,20 +116,18 @@
 <li>The interview group is listed as 1s and 2s in the file so R thought those were  integers. So I used <code>as.factor</code> to convert.</li>
 </ul>
 
-<hr />
-
 <pre><code>dataframe$variable &lt;- as.factor(dataframe$variable) 
+
 </code></pre>
 
 <hr />
 
-<ul>
-<li><code>read_csv</code> did weird things with dates, importing them as factors. People say that <code>read_csv</code> makes fewer weird assumptions than <code>read.csv</code> but I am not yet convinced. I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM</li>
-</ul>
+<p><code>read_csv</code> did weird things with dates, importing them as factors. People say that <code>read_csv</code> makes fewer weird assumptions than <code>read.csv</code> but I am not yet convinced. I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM</p>
 
 <hr />
 
 <pre><code>mutate(DOB = dmy(DOB), Test_Date= dmy(Test_Date))
+ 
 </code></pre>
 
 <hr />
@@ -157,7 +155,7 @@
 
 <p>It does a really nice job of calculating age even when I use my date variables.</p>
 
-<pre><code> mutate(ageyear = calc_age(DOB, Test_Date))
+<pre><code>mutate(ageyear = calc_age(DOB, Test_Date))
 </code></pre>
 
 <p>BUT&hellip;. the output is years.</p>
@@ -172,15 +170,16 @@
 
 <pre><code>calc_age &lt;- function(birthDate, refDate = Sys.Date()) {
 
-require(lubridate)
+    require(lubridate)
 
-period &lt;- as.period(interval(birthDate, refDate),
-                    unit = &quot;year&quot;)
+    period &lt;- as.period(interval(birthDate, refDate),
+                        unit = &quot;year&quot;)
 
-period$year
+    period$year
+
+} 
+
 </code></pre>
-
-<p>}</p>
 
 <hr />
 
@@ -220,11 +219,10 @@ period$year
 <p>So what I really want to do is calculate an interval, which you do using %&ndash;%. Once you have an interval, you divide by months(1), using / if you want decimal places or modulus [%/% -I always wondered what that was] if you want whole months.</p>
 
 <pre><code>ageproblem2 &lt;- ageproblem %&gt;%
-    mutate(ageinterval = DOB %--% Test_Date) %&gt;%
-    mutate(agemons = ageinterval %/% months(1)) %&gt;%
-     mutate(ageweeks = ageinterval %/% weeks(1))
+        mutate(ageinterval = DOB %--% Test_Date) %&gt;%
+        mutate(agemons = ageinterval %/% months(1)) %&gt;%
+         mutate(ageweeks = ageinterval %/% weeks(1))
 </code></pre>
-
          
       </div>
     </div>

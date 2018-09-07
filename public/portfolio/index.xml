@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Stats1: t-tests</title>
-      <link>/portfolio/stats1-t-tests/</link>
+      <title>creating data using rep()</title>
+      <link>/portfolio/creating-data-using-rep/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/stats1-t-tests/</guid>
-      <description></description>
+      <guid>/portfolio/creating-data-using-rep/</guid>
+      <description>The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I&amp;rsquo;m sure as I learn what kind of information R needs I&amp;rsquo;ll get better at this but for the moment using functions like rep() to create variables like trial number or block has been super useful.
+Alison Smith has a great blog called Very Statisticious and her post about simulating data is super helpful.</description>
     </item>
     
     <item>
@@ -32,15 +33,35 @@
     </item>
     
     <item>
+      <title>stats1: t-tests</title>
+      <link>/portfolio/stats1-t-tests/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/stats1-t-tests/</guid>
+      <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
+I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
+    </item>
+    
+    <item>
+      <title>stats2- anova</title>
+      <link>/portfolio/stats2-anova/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/stats2-anova/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Use map to read many csv files</title>
       <link>/portfolio/use-map-to-read-many-csv-files/</link>
       <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/use-map-to-read-many-csv-files/</guid>
-      <description>How to use map() to read in and bind together several .csv files Dipping my toes in purrr here and replicating options from a super useful blog post I found by ClausWilke
-https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R
-Option 1 The simplest option; use when your .csv files contain ID/participant and all live your working directory
-Get list of .csv files called files. The code below looks for files that have .csv as part of the filename in the the working directory</description>
+      <description>&lt;p&gt;Dipping my toes in purrr here and replicating options from a super useful blog post I found by &lt;a href=&#34;@clauswilke&#34;&gt;ClausWilke&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&#34;&gt;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -70,9 +91,9 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/dirty-data/</guid>
-      <description>I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.
-Quick summaries class() will let you know whether you are working with a dataframe or not
-dim() gives you a little info about the dimensions of your data by telling you how many rows nd columns you have</description>
+      <description>&lt;p&gt;I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -81,12 +102,9 @@ dim() gives you a little info about the dimensions of your data by telling you h
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/hotkeys/</guid>
-      <description>There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.
-Keyboard shortcuts are helpful (disclaimer: these mac versions).
- Option-Command-i will open a new Rmarkdown code chunk.
- Option - is a handy way of typing assignment (&amp;lt;-)
- Shift-Command-M is a fast way of adding a pipe (%&amp;gt;%)
-  A little googling and here is a whole list that I am yet to learn.</description>
+      <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -95,7 +113,9 @@ Keyboard shortcuts are helpful (disclaimer: these mac versions).
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/cooking-with-datapasta/</guid>
-      <description>Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.</description>
+      <description>&lt;p&gt;Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -104,8 +124,9 @@ Keyboard shortcuts are helpful (disclaimer: these mac versions).
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/calculating-age/</guid>
-      <description>I have been playing with a new (not actually new, but new to R) dataset this week.
-Successes:  I loaded the data in using read_csv. *** see ERRATUM below I fixed some weird data type assumptions.   The interview group is listed as 1s and 2s in the file so R thought those were integers. So I used as.factor to convert.  dataframe$variable &amp;lt;- as.factor(dataframe$variable)   read_csv did weird things with dates, importing them as factors.</description>
+      <description>&lt;p&gt;I have been playing with a new (not actually new, but new to R) dataset this week.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -9,6 +9,8 @@ tags: []
 
 I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned. 
 
+<!--more-->
+
 #### Quick summaries
 
 `class()` will let you know whether you are working with a dataframe or not

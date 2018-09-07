@@ -4,10 +4,13 @@ author: ''
 date: '2018-08-09'
 slug: cooking-with-datapasta
 categories: []
-tags: []
+tags: 
+- datapasta
 ---
 
 Another day... another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible. 
+
+<!--more-->
 
 First step, get the data from LabChart datapad into R. Not as easy as I thought. I tried copying and pasting the data into Excel, and instead of messing with it there, saving as .csv, and using read_csv to import it into R. This kinda worked, except that the process of copying the timestamps into excel messed with the units. The timestamps are super important in EMG data because we are only looking at 1000ms segments of data, so when Excel butchers your 0:15:24:281 timestamp, so that R reads in 15:24:00 in hms format, you are in trouble. 
 
@@ -29,12 +32,15 @@ Step 2:  assign the data frame you just created a name.
 
 In the script it will say ...
 
-> data.frame(stringsAsFactors= FALSE, ----- and then all the data for each variable
-
+```
+data.frame(stringsAsFactors= FALSE, ----- and then all the data for each variable
+```
 To assign that dataframe a name, just type the name of the dataframe in the front with a <- and run the script again. i.e.
 
-> conditionparticipant <- data.frame(stringsAsFactors etc......)
-  
+```
+conditionparticipant <- data.frame(stringsAsFactors etc......)
+```
+
  Check out this [screencast](https://drive.google.com/file/d/1hYOMO7EuQzJgS1M5_Xj6hqqjxLHouIKU/view) to see me making pasta. 
  
 NOTE to self- datapasta will also paste a tribble or vector or vector vertical. I don't yet have a good grasp on what those things are, or how they might be useful. To learn: what is a tribble? 

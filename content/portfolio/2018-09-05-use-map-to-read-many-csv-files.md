@@ -8,11 +8,13 @@ tags: []
 ---
 
 
-#### How to use map() to read in and bind together several .csv files
-
 Dipping my toes in purrr here and replicating options from a super useful blog post I found by [ClausWilke](@clauswilke) 
 
 https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R
+
+<!--more-->
+
+#### How to use map() to read in and bind together several .csv files
 
 ##### Option 1 
 

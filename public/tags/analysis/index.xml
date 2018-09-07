@@ -12,11 +12,21 @@
     
     
     <item>
-      <title>Stats1: t-tests</title>
+      <title>stats1: t-tests</title>
       <link>/portfolio/stats1-t-tests/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/stats1-t-tests/</guid>
+      <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
+I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
+    </item>
+    
+    <item>
+      <title>stats2- anova</title>
+      <link>/portfolio/stats2-anova/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/stats2-anova/</guid>
       <description></description>
     </item>
     
