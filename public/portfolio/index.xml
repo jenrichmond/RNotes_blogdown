@@ -2,41 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portfolios on R notes to myself</title>
-    <link>http://jenrichmond.rbind.io/portfolio/</link>
+    <link>/portfolio/</link>
     <description>Recent content in Portfolios on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jenrichmond.rbind.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>using R for analysis</title>
-      <link>http://jenrichmond.rbind.io/portfolio/using-r-for-analysis/</link>
+      <title>rMarkdown test</title>
+      <link>/portfolio/rmarkdown-test/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/using-r-for-analysis/</guid>
+      <guid>/portfolio/rmarkdown-test/</guid>
+      <description>How do you make Markdown documents with chunks render to your site?</description>
+    </item>
+    
+    <item>
+      <title>using R for analysis</title>
+      <link>/portfolio/using-r-for-analysis/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/using-r-for-analysis/</guid>
       <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
 I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
     </item>
     
     <item>
       <title>creating data using rep()</title>
-      <link>http://jenrichmond.rbind.io/portfolio/creating-data-using-rep/</link>
+      <link>/portfolio/creating-data-using-rep/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/creating-data-using-rep/</guid>
+      <guid>/portfolio/creating-data-using-rep/</guid>
       <description>The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I&amp;rsquo;m sure as I learn what kind of information R needs I&amp;rsquo;ll get better at this but for the moment using functions like rep() to create variables like trial number or block has been super useful.
 Alison Smith has a great blog called Very Statisticious and her post about simulating data is super helpful.</description>
     </item>
     
     <item>
       <title>mutate &#43; if else = new conditional variable</title>
-      <link>http://jenrichmond.rbind.io/portfolio/mutate-and-if-else-to-create-new-variables/</link>
+      <link>/portfolio/mutate-and-if-else-to-create-new-variables/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/mutate-and-if-else-to-create-new-variables/</guid>
+      <guid>/portfolio/mutate-and-if-else-to-create-new-variables/</guid>
       <description>&lt;p&gt;I keep googling &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1&#34;&gt;these slides&lt;/a&gt; by &lt;a href=&#34;@daranzolin&#34;&gt;David Ranzolin&lt;/a&gt; each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -44,10 +53,10 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
     
     <item>
       <title>Use map to read many csv files</title>
-      <link>http://jenrichmond.rbind.io/portfolio/use-map-to-read-many-csv-files/</link>
+      <link>/portfolio/use-map-to-read-many-csv-files/</link>
       <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/use-map-to-read-many-csv-files/</guid>
+      <guid>/portfolio/use-map-to-read-many-csv-files/</guid>
       <description>&lt;p&gt;Dipping my toes in purrr here and replicating options from a super useful blog post I found by &lt;a href=&#34;@clauswilke&#34;&gt;ClausWilke&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&#34;&gt;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&lt;/a&gt;&lt;/p&gt;
@@ -57,20 +66,20 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
     
     <item>
       <title>I don’t like cats much</title>
-      <link>http://jenrichmond.rbind.io/portfolio/i-don-t-like-cats-much/</link>
+      <link>/portfolio/i-don-t-like-cats-much/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/i-don-t-like-cats-much/</guid>
+      <guid>/portfolio/i-don-t-like-cats-much/</guid>
       <description>I don&amp;rsquo;t love cats. I am not a member of @RCatLadies. So the fact that Tidyverse packages for dealing with factors and functional programming have cat-related names (forcats and purrr) does not endear them to me.
 I knew there was a time when I would encounter an R problem that needed the power of for loops, so when I asked the Twittersphere whether there was an alternative (hopefully a tidyverse one) that would allow me to avoid loops a little longer, I was a bit disappointed to hear that it is the purrr package.</description>
     </item>
     
     <item>
       <title>lesser known stars of the tidyverse</title>
-      <link>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</link>
+      <link>/portfolio/lesser-known-stars-of-the-tidyverse/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</guid>
+      <guid>/portfolio/lesser-known-stars-of-the-tidyverse/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -78,10 +87,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title>dirty data</title>
-      <link>http://jenrichmond.rbind.io/portfolio/dirty-data/</link>
+      <link>/portfolio/dirty-data/</link>
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/dirty-data/</guid>
+      <guid>/portfolio/dirty-data/</guid>
       <description>&lt;p&gt;I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -89,10 +98,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title>hotkeys</title>
-      <link>http://jenrichmond.rbind.io/portfolio/hotkeys/</link>
+      <link>/portfolio/hotkeys/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/hotkeys/</guid>
+      <guid>/portfolio/hotkeys/</guid>
       <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -100,10 +109,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title>cooking with datapasta</title>
-      <link>http://jenrichmond.rbind.io/portfolio/cooking-with-datapasta/</link>
+      <link>/portfolio/cooking-with-datapasta/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/cooking-with-datapasta/</guid>
+      <guid>/portfolio/cooking-with-datapasta/</guid>
       <description>&lt;p&gt;Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -111,10 +120,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title>calculating age</title>
-      <link>http://jenrichmond.rbind.io/portfolio/calculating-age/</link>
+      <link>/portfolio/calculating-age/</link>
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/calculating-age/</guid>
+      <guid>/portfolio/calculating-age/</guid>
       <description>&lt;p&gt;I have been playing with a new (not actually new, but new to R) dataset this week.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -122,10 +131,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title>fomo on #useR2018</title>
-      <link>http://jenrichmond.rbind.io/portfolio/fomo-on-user2018/</link>
+      <link>/portfolio/fomo-on-user2018/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/fomo-on-user2018/</guid>
+      <guid>/portfolio/fomo-on-user2018/</guid>
       <description>&lt;p&gt;I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -133,10 +142,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title>Curious</title>
-      <link>http://jenrichmond.rbind.io/portfolio/curious-rmarkdown/</link>
+      <link>/portfolio/curious-rmarkdown/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/curious-rmarkdown/</guid>
+      <guid>/portfolio/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
  We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
 Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis.</description>
@@ -144,10 +153,10 @@ Because it was a “lets start at the very beginning” workshop, made me realis
     
     <item>
       <title>#SoDS18</title>
-      <link>http://jenrichmond.rbind.io/portfolio/sods18/</link>
+      <link>/portfolio/sods18/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/sods18/</guid>
+      <guid>/portfolio/sods18/</guid>
       <description>&lt;p&gt;Twitter is such a great R learning resource.
 The people who follow the #rstats hashtag are so generous with their time. You can post a question/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.&lt;/p&gt;
 
@@ -156,10 +165,10 @@ The people who follow the #rstats hashtag are so generous with their time. You c
     
     <item>
       <title>git thinking</title>
-      <link>http://jenrichmond.rbind.io/portfolio/git-thinking/</link>
+      <link>/portfolio/git-thinking/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/git-thinking/</guid>
+      <guid>/portfolio/git-thinking/</guid>
       <description>&lt;p&gt;The amazing &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -167,19 +176,19 @@ The people who follow the #rstats hashtag are so generous with their time. You c
     
     <item>
       <title>My first post</title>
-      <link>http://jenrichmond.rbind.io/portfolio/2018-06-16-first-post/</link>
+      <link>/portfolio/2018-06-16-first-post/</link>
       <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/2018-06-16-first-post/</guid>
+      <guid>/portfolio/2018-06-16-first-post/</guid>
       <description>Woot! It works!!</description>
     </item>
     
     <item>
       <title></title>
-      <link>http://jenrichmond.rbind.io/portfolio/2018-08-30-hidden-stars-of-the-tidyverse/</link>
+      <link>/portfolio/2018-08-30-hidden-stars-of-the-tidyverse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/2018-08-30-hidden-stars-of-the-tidyverse/</guid>
+      <guid>/portfolio/2018-08-30-hidden-stars-of-the-tidyverse/</guid>
       <description>1.use as_tibble() 2. examine your NAs 3. look at numeric variables 4. examine data in a single column 5. make a mimimal reproducible example Emily’s favourite resources   Emily Robinson has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.</description>
     </item>
     

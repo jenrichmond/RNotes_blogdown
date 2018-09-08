@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stringr on R notes to myself</title>
-    <link>http://jenrichmond.rbind.io/tags/stringr/</link>
+    <link>/tags/stringr/</link>
     <description>Recent content in Stringr on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jenrichmond.rbind.io/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>lesser known stars of the tidyverse</title>
-      <link>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</link>
+      <link>/portfolio/lesser-known-stars-of-the-tidyverse/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/lesser-known-stars-of-the-tidyverse/</guid>
+      <guid>/portfolio/lesser-known-stars-of-the-tidyverse/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>

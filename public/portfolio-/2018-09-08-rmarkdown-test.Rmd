@@ -1,0 +1,9 @@
+---
+title: rMarkdown test
+author: ''
+date: '2018-09-08'
+slug: rmarkdown-test
+categories: []
+tags: []
+---
+

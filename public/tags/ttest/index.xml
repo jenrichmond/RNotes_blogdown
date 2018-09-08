@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ttest on R notes to myself</title>
-    <link>http://jenrichmond.rbind.io/tags/ttest/</link>
+    <link>/tags/ttest/</link>
     <description>Recent content in Ttest on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jenrichmond.rbind.io/tags/ttest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ttest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>using R for analysis</title>
-      <link>http://jenrichmond.rbind.io/portfolio/using-r-for-analysis/</link>
+      <link>/portfolio/using-r-for-analysis/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://jenrichmond.rbind.io/portfolio/using-r-for-analysis/</guid>
+      <guid>/portfolio/using-r-for-analysis/</guid>
       <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
 I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
     </item>

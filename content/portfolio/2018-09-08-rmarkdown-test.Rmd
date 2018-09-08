@@ -1,0 +1,10 @@
+---
+title: rMarkdown test
+author: ''
+date: '2018-09-08'
+slug: rmarkdown-test
+categories: []
+tags: []
+---
+
+How do you make Markdown documents with chunks render to your site?
