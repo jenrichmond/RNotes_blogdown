@@ -4,18 +4,17 @@ author: ''
 date: '2018-09-08'
 slug: afl-analysis-t-tests
 categories: []
+draft: TRUE
 tags:
   - analysis
   - ttest
 ---
 
-### TAKE HOME MESSAGE
+### Take home message
 
 Here is what I learned about t-tests from doing the analysis below.
 
 #### From the `lsr` package
-I like that the `lsr` has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires. 
-The output from the `lsr` is also REALLY nice. It includes useful things like Cohens D by default. Important to make sure you are working with a dataframe though. The code is old and doesn't deal with tibbles. 
 
 ```
 oneSampleTTest(dataframe$testcolumn, mu=100)
@@ -24,6 +23,11 @@ pairedSamplesTTest(~ variable1 + variable2, dataframe) #note if data is long you
 
 independentSamplesTTest(outcome ~ group, dataframe)
 ```
+
+I like that the `lsr` has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires. 
+
+The output from the `lsr` is also REALLY nice (much nicer than `t.test` method below). It includes useful things like Cohens D by default. Important to make sure you are working with a dataframe though. The code is old and doesn't deal with tibbles. 
+
 #### Using standard `t.test` method
 
 ```
@@ -34,10 +38,7 @@ t.test(dataframe$outcome ~ dataframe$group, paired=FALSE)
 ### Analysing the AFL data
 
 #### Load packages
-```
-library(tidyverse)
-library(lsr)
-```
+
 ```{r include=FALSE}
 library(tidyverse)
 library(lsr)
@@ -51,10 +52,6 @@ afl <- read.csv("afl.csv")
 
 homeawaygames <- afl %>%
   select(home_score, away_score, game_type, attendance)
-```
-
-```{r}
-names(homeawaygames)
 ```
 
 ### AFL data questions

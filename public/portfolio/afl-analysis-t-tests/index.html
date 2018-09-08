@@ -103,14 +103,11 @@
          <h1>AFL analysis (t-tests)</h1>
          
 
-<h3 id="take-home-message">TAKE HOME MESSAGE</h3>
+<h3 id="take-home-message">Take home message</h3>
 
 <p>Here is what I learned about t-tests from doing the analysis below.</p>
 
 <h4 id="from-the-lsr-package">From the <code>lsr</code> package</h4>
-
-<p>I like that the <code>lsr</code> has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires.
-The output from the <code>lsr</code> is also REALLY nice. It includes useful things like Cohens D by default. Important to make sure you are working with a dataframe though. The code is old and doesn&rsquo;t deal with tibbles.</p>
 
 <pre><code>oneSampleTTest(dataframe$testcolumn, mu=100)
 
@@ -118,6 +115,10 @@ pairedSamplesTTest(~ variable1 + variable2, dataframe) #note if data is long you
 
 independentSamplesTTest(outcome ~ group, dataframe)
 </code></pre>
+
+<p>I like that the <code>lsr</code> has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires.</p>
+
+<p>The output from the <code>lsr</code> is also REALLY nice (much nicer than <code>t.test</code> method below). It includes useful things like Cohens D by default. Important to make sure you are working with a dataframe though. The code is old and doesn&rsquo;t deal with tibbles.</p>
 
 <h4 id="using-standard-t-test-method">Using standard <code>t.test</code> method</h4>
 
@@ -129,10 +130,6 @@ t.test(dataframe$outcome ~ dataframe$group, paired=FALSE)
 <h3 id="analysing-the-afl-data">Analysing the AFL data</h3>
 
 <h4 id="load-packages">Load packages</h4>
-
-<pre><code>library(tidyverse)
-library(lsr)
-</code></pre>
 
 <pre><code class="language-r">library(tidyverse)
 library(lsr)
@@ -146,9 +143,6 @@ library(lsr)
 
 homeawaygames &lt;- afl %&gt;%
   select(home_score, away_score, game_type, attendance)
-</code></pre>
-
-<pre><code class="language-r">names(homeawaygames)
 </code></pre>
 
 <h3 id="afl-data-questions">AFL data questions</h3>
