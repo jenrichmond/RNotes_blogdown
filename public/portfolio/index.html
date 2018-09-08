@@ -109,6 +109,44 @@
                       
                       <div class="box-masonry-text">
                       
+                          <h4><a href="/portfolio/afl-analysis-t-tests/">AFL analysis (t-tests)</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  TAKE HOME MESSAGE Here is what I learned about t-tests from doing the analysis below.
+From the lsr package I like that the lsr has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires. The output from the lsr is also REALLY nice. It includes useful things like Cohens D by default.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/portfolio/using-r-for-analysis/">using R for analysis</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&hellip; analysis.
+I&rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
                           <h4><a href="/portfolio/creating-data-using-rep/">creating data using rep()</a></h4>
                           <div class="box-masonry-description">
                             <p>
@@ -148,30 +186,14 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
                       
                       <div class="box-masonry-text">
                       
-                          <h4><a href="/portfolio/stats1-t-tests/">stats1: t-tests</a></h4>
-                          <div class="box-masonry-description">
-                            <p>
-                                
-                                  I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&hellip; analysis.
-I&rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).
-                                
-                            </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
-                  <div class="box-masonry">
-                      
-                      
-                      <div class="box-masonry-text">
-                      
                           <h4><a href="/portfolio/stats2-anova/">stats2- anova</a></h4>
                           <div class="box-masonry-description">
                             <p>
                                 
-                                  
+                                  ANOVA and regression are the same, the lm() function is useful
+mod &lt;- aov(total.score ~ venue, afl.majors)  This is the Anova function from the car package Anova(mod)
+Posthoc pairwise comparisons with conservative bonferroni BUT problematic because you didn&rsquo;t have a hypothesis about what you were looking for
+posthocPairwiseT(mod, p.adjust.method = &quot;bonferroni&quot;)  
                                 
                             </p>
                           </div>

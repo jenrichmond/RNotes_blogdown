@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Analysis on R notes to myself</title>
-    <link>/tags/analysis/</link>
-    <description>Recent content in Analysis on R notes to myself</description>
+    <title>Ttest on R notes to myself</title>
+    <link>/tags/ttest/</link>
+    <description>Recent content in Ttest on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ttest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,18 +29,6 @@ From the lsr package I like that the lsr has separate functions for each kind of
       <guid>/portfolio/using-r-for-analysis/</guid>
       <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
 I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
-    </item>
-    
-    <item>
-      <title>stats2- anova</title>
-      <link>/portfolio/stats2-anova/</link>
-      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio/stats2-anova/</guid>
-      <description>ANOVA and regression are the same, the lm() function is useful
-mod &amp;lt;- aov(total.score ~ venue, afl.majors)  This is the Anova function from the car package Anova(mod)
-Posthoc pairwise comparisons with conservative bonferroni BUT problematic because you didn&amp;rsquo;t have a hypothesis about what you were looking for
-posthocPairwiseT(mod, p.adjust.method = &amp;quot;bonferroni&amp;quot;)  </description>
     </item>
     
   </channel>

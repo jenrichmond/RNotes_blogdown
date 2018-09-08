@@ -10,8 +10,6 @@ tags:
 
 The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I'm sure as I learn what kind of information R needs I'll get better at this but for the moment using functions like `rep()` to create variables like trial number or block has been super useful. 
 
-
-
 Alison Smith has a great blog called [Very Statisticious](https://aosmith.rbind.io/) and her post about simulating data is super helpful. [Find it here](https://aosmith.rbind.io/2018/08/29/getting-started-simulating-data/)
 
 Some code that is probably going to be useful in the future: 

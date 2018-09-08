@@ -101,16 +101,40 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>stats1: t-tests</h1>
-         <p>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&hellip; analysis.</p>
+         
+
+<p>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&hellip; analysis.</p>
 
 <p>I&rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</p>
 
-<p>So I need to learn how to do:
-- independent samples t-tests
-- paired samples t-tests
-- one-sample t-tests</p>
+<p>So I need to learn how to do:</p>
 
-<p>Lets see what the AMAZING <a href="@djnavarro">Dani Navarro</a> says about t-tests in her free online stats resources <a href="https://compcogscisydney.org/psyr/">found here</a></p>
+<ul>
+<li>independent samples t-tests</li>
+<li>paired samples t-tests</li>
+<li>one-sample t-tests</li>
+</ul>
+
+<p>Lets see what the AMAZING <a href="@djnavarro">Dani Navarro</a> says about t-tests in her free online stats resources <a href="https://compcogscisydney.org/psyr/">found here</a>. If you are looking for her whole Learning Statistics with R book (also free) <a href="https://compcogscisydney.org/learning-statistics-with-r/">find it here</a>.</p>
+
+<p>Dani also suggests looking at Matthew Crumps book Answering questions with data which has adapted some of her content, <a href="https://crumplab.github.io/statistics/">find it here</a></p>
+
+<p>The functions Dani describes in her book are part of a package she wrote to accompany the book called <code>lsr</code>. This package includes separate commands for different kinds of t-test, but R also comes with a function t.test()</p>
+
+<h4 id="1-independent-samples-t-tests">1. Independent samples t-tests</h4>
+
+<p>afl$total.score &lt;- afl$home.score + afl$away.score
+independentSamplesTTest(total.score ~ is.final, afl)</p>
+
+<h4 id="2-paired-samples-t-tests">2. Paired samples t-tests</h4>
+
+<pre><code>pairedSamplesTTest(~ home.score + away.score, afl)
+
+</code></pre>
+
+<h4 id="3-one-sample-t-tests">3. One-sample t-tests</h4>
+
+<h4 id="4-bonus-chi-square-test">4. Bonus: chi- square test</h4>
 
          
       </div>

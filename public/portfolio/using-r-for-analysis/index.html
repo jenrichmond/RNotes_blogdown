@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>stats2- anova</title>
+<title>using R for analysis</title>
 <meta name="description" content="R notes to myself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -100,19 +100,26 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>stats2- anova</h1>
-         <p>ANOVA and regression are the same, the <code>lm()</code> function is useful</p>
+         <h1>using R for analysis</h1>
+         <p>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&hellip; analysis.</p>
 
-<pre><code>mod &lt;- aov(total.score ~ venue, afl.majors)
-</code></pre>
+<p>I&rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</p>
 
-<p>This is the Anova function from the <code>car</code> package
-Anova(mod)</p>
+<p>So I need to learn how to do:</p>
 
-<p>Posthoc pairwise comparisons with conservative bonferroni BUT problematic because you didn&rsquo;t have a hypothesis about what you were looking for</p>
+<ul>
+<li>independent samples t-tests</li>
+<li>paired samples t-tests</li>
+<li>one-sample t-tests</li>
+</ul>
 
-<pre><code>posthocPairwiseT(mod, p.adjust.method = &quot;bonferroni&quot;)
-</code></pre>
+<p>Lets see what the AMAZING <a href="@djnavarro">Dani Navarro</a> says about t-tests in her free online stats resources <a href="https://compcogscisydney.org/psyr/">found here</a>. If you are looking for her whole Learning Statistics with R book (also free) <a href="https://compcogscisydney.org/learning-statistics-with-r/">find it here</a>.</p>
+
+<p>Note: Dani also suggests looking at Matthew Crumps book Answering questions with data which has adapted some of her content, <a href="https://crumplab.github.io/statistics/">find it here</a></p>
+
+<p>The functions Dani describes in her book are part of a package she wrote to accompany the book called <code>lsr</code>. This package includes separate commands for different kinds of t-test, but apparently R also comes with a function t.test() that has a paired = TRUE/FALSE argument that you can use to specify whether your test is paired or independent samples.</p>
+
+<p>See AFL post for comparisons&hellip;</p>
 
          
       </div>
