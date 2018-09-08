@@ -8,3 +8,8 @@ tags: []
 ---
 
 How do you make Markdown documents with chunks render to your site?
+
+```{r}
+library(tidyverse)
+```
+
