@@ -233,7 +233,7 @@ data = homeawaygames
   summarise(meanpeople = mean(attendance)) %&gt;%
   ggplot(aes(x = game_type, y= meanpeople)) +
   geom_col()</code></pre>
-<p><img src="/posts/2018-09-09-testing-t-tests_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/post/2018-09-09-testing-t-tests_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <div id="the-lsr-independent-samples-t-test" class="section level5">
 <h5>The <code>lsr</code> independent samples t test</h5>
 <p>R t-test uses the Welch method (for unequal variance) by default. Need to change var.equal = TRUE to use Student t-test method.</p>
