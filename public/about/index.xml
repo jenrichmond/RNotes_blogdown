@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About me on R notes to myself</title>
+    <title>Abouts on R notes to myself</title>
     <link>/about/</link>
-    <description>Recent content in About me on R notes to myself</description>
+    <description>Recent content in Abouts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Nov 2016 21:05:33 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About me</title>
+      <title>Me</title>
       <link>/about/me/</link>
-      <pubDate>Sat, 05 Nov 2016 21:05:33 +0530</pubDate>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/about/me/</guid>
-      <description>I am a developmental psychologist in the School of Psychology at UNSW Sydney. My research investigates age-related changes in learning, memory, and emotion understanding in infants and preschoolers. Babies and kids tend not to tell you what they remember or understand, so we use method like eyetracking and psychophysiology to record subtle changes in their behaviour. These methods produce a LOT of data.
+      <description>This is me
+ I am a developmental psychologist in the School of Psychology at UNSW Sydney. My research investigates age-related changes in learning, memory, and emotion understanding in infants and preschoolers. Babies and kids tend not to tell you what they remember or understand, so we use method like eyetracking and psychophysiology to record subtle changes in their behaviour. These methods produce a LOT of data.
 This blog is a record of my R learning journey as I venture into new data wrangling and analysis approaches.</description>
     </item>
     

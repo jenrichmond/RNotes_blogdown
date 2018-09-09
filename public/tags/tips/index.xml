@@ -13,20 +13,20 @@
     
     <item>
       <title>creating data using rep()</title>
-      <link>/posts/creating-data-using-rep/</link>
+      <link>/post/creating-data-using-rep/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/creating-data-using-rep/</guid>
+      <guid>/post/creating-data-using-rep/</guid>
       <description>The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I&amp;rsquo;m sure as I learn what kind of information R needs I&amp;rsquo;ll get better at this but for the moment using functions like rep() to create variables like trial number or block has been super useful.
 Alison Smith has a great blog called Very Statisticious and her post about simulating data is super helpful.</description>
     </item>
     
     <item>
       <title>hotkeys</title>
-      <link>/posts/hotkeys/</link>
+      <link>/post/hotkeys/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/hotkeys/</guid>
+      <guid>/post/hotkeys/</guid>
       <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -34,10 +34,10 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
     
     <item>
       <title>Curious</title>
-      <link>/posts/curious-rmarkdown/</link>
+      <link>/post/curious-rmarkdown/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/curious-rmarkdown/</guid>
+      <guid>/post/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
  We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
 Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis.</description>

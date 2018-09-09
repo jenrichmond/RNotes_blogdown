@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>lesser known stars of the tidyverse</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/me.md">About</a></li>
+      
+        <li><a href="/posts/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>lesser known stars of the tidyverse</h1>
+         <p><a href="@robinson_es">Emily Robinson</a> has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&hellip;</p>
+
+<p></p>
+
+<h3 id="1-use-as-tibble">1.use <code>as_tibble()</code></h3>
+
+<p>Tibble = modern dataframe. Use instead of printing your dataset to the console.</p>
+
+<p><code>as_tibble()</code> will only print the first 10 rows and columns that fit on the screen.</p>
+
+<h3 id="2-examine-your-nas">2. examine your NAs</h3>
+
+<p><code>is.na()</code> returns TRUE or FALSE, TRUE is 1 and FALSE is 0, which means you can use sum to count the number of NAs in a given variable.</p>
+
+<blockquote>
+<p>summarise(numberNA = sum(is.na(variable))</p>
+</blockquote>
+
+<p>What about all variables? Purrr can help. <code>map_df()</code> maps a function across all variables and gives a dataframe (hence the df) back.   The dot says this is where the column/function should go; the tilde ~ stands for anonymous function.</p>
+
+<blockquote>
+<p>map_df(~sum(is.na(.)))</p>
+</blockquote>
+
+<p>What if cells are empty rather than NA? You can convert empty cells to NA using <code>na.if()</code></p>
+
+<blockquote>
+<p>na_if(&ldquo;&rdquo;)</p>
+</blockquote>
+
+<h3 id="3-look-at-numeric-variables">3. look at numeric variables</h3>
+
+<p>Look just a numeric columns with <code>select_if(is.numeric)</code> then pipe in to a <code>skim()</code> to get mean, SD, missing, and little histograms.</p>
+
+<h3 id="4-examine-data-in-a-single-column">4. examine data in a single column</h3>
+
+<p>When you have more than 1 piece of information in a column, using stringr package <code>str_split(column, &quot;,&quot;)</code> to split the string at the point where the , is.</p>
+
+<p>In ggplot, mhen x axis labels are all bunchy, use <code>coord_flip()</code> to fip the graph on its side. Also if you want to sort the bars, use <code>fct_reorder()</code> from <code>forcat</code> to sort by n.</p>
+
+<h3 id="5-make-a-mimimal-reproducible-example">5. make a mimimal reproducible example</h3>
+
+<p>When you want help, if it helpful to helpers if you create a minimal reproudicule example so that they can see and run the code using your data.</p>
+
+<p>Optional. Use <code>as.tribble()</code> to make a fake data set, if there is a reason you can&rsquo;t show helpers real data.</p>
+
+<ol>
+<li><p>Use <code>reprex()</code> to find problems that may prevent helpers from running your code for reasons that aren&rsquo;t related to why your code won&rsquo;t run for you.</p></li>
+
+<li><p>Use <code>reprex()</code> to post your question/issue</p></li>
+</ol>
+
+<h2 id="emily-s-favourite-resources">Emily&rsquo;s favourite resources</h2>
+
+<ol>
+<li><p>www.r4ds.co.nz R for Data Science</p></li>
+
+<li><p>Twitter #rstats</p></li>
+
+<li><p>Rstats cheat sheets</p></li>
+
+<li><p>www.DataCamp.com</p></li>
+</ol>
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>

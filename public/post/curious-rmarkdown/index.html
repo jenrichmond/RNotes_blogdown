@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Curious</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/me.md">About</a></li>
+      
+        <li><a href="/posts/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Curious</h1>
+         <p>What a treat it was to finally meet <a href="https://twitter.com/cantabile">Charles Gray</a> when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.</p>
+<!--more-->
+<p>We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</p>
+<p>Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis. Markdown notation might be one of those things.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dbsJ2DZoiQI?start=10" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<div id="markdown-tips-for-the-r-curious" class="section level2">
+<h2>Markdown tips for the R-Curious</h2>
+<div id="make-headings-using-hashtags" class="section level3">
+<h3>1. Make headings using hashtags</h3>
+<p>Use a single # for big headings, two ## for smaller headings and three ### for even smaller headings</p>
+</div>
+</div>
+<div id="big-heading" class="section level1">
+<h1>Big heading</h1>
+<div id="smaller-heading" class="section level2">
+<h2>Smaller heading</h2>
+<div id="even-smaller-heading" class="section level3">
+<h3>Even smaller heading</h3>
+</div>
+<div id="link-to-websites" class="section level3">
+<h3>2. Link to websites</h3>
+<p>Using a combination of square and round brackets. Put the text you want to appear in the doc in square brackets and the url in round brackets</p>
+<p><code>[text for the link](url to link to)</code></p>
+<p>i.e. <code>[Hadley Wickham RforDataScience](http://r4ds.had.co.nz/)</code></p>
+<p><a href="http://r4ds.had.co.nz/">Hadley Wickham RforDataScience</a></p>
+</div>
+<div id="insert-bullets-with-a-dash" class="section level3">
+<h3>3. Insert bullets with a dash</h3>
+<ul>
+<li>Levels of bullets
+<ul>
+<li>can be achieved with
+<ul>
+<li>EXACTLY 4 spaces on each indent</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="make-package-names-appear-highlighted-by-putting-them-in-backticks-same-key-as" class="section level3">
+<h3>4. Make package names appear highlighted by putting them in backticks (same key as ~)</h3>
+<p>i.e Load <code>tidyverse</code> by using the function <code>library(tidyverse)</code></p>
+</div>
+<div id="italicise-and-bold" class="section level3">
+<h3>5. Italicise and bold</h3>
+<p>Change the formatting to italics but putting things them in <code>*singleasteriks*</code> or bold by putting them in <code>**doubleasteriks**</code></p>
+</div>
+<div id="rstudio-navigation-tips-i-didnt-know-about" class="section level3">
+<h3>6. RStudio navigation tips I didn’t know about</h3>
+<ul>
+<li>View a script outline by toggling the grey stack of wonky pancakes at the top right of the script window (along from Run)</li>
+<li>Switch projects from the top right pull down above the environment pane.</li>
+</ul>
+</div>
+</div>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>
