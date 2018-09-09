@@ -5,7 +5,8 @@ date: '2018-09-08'
 slug: a-friendly-t-test-example
 draft: "TRUE"
 categories: []
-tags: []
+tags: 
+- ttest
 ---
 
 ```{r include=FALSE}

@@ -23,6 +23,17 @@ skim(friendly) ## Skim summary statistics ## n obs: 30 ## n variables: 2 ## ## �
     </item>
     
     <item>
+      <title>A friendly t-test example</title>
+      <link>/portfolio/a-friendly-t-test-example/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/a-friendly-t-test-example/</guid>
+      <description>This dataset is from the car package and includes recall scores as a function of encoding conditions.
+friendly &amp;lt;- read.csv(&amp;quot;friendly.csv&amp;quot;) class(friendly) ## [1] &amp;quot;data.frame&amp;quot; Explore the data Get some summary stats from skim() including mini-histograms
+skim(friendly) ## Skim summary statistics ## n obs: 30 ## n variables: 2 ## ## ── Variable type:factor ─────────────────────────────────────── ## variable missing complete n n_unique top_counts ## condition 0 30 30 3 Bef: 10, Mes: 10, SFR: 10, NA: 0 ## ordered ## FALSE ## ## ── Variable type:integer ────────────────────────────────────── ## variable missing complete n mean sd p0 p25 p50 p75 p100 hist ## correct 0 30 30 34.</description>
+    </item>
+    
+    <item>
       <title>testing out t-tests</title>
       <link>/portfolio/testing-out-t-tests/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
