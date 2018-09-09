@@ -22,13 +22,13 @@ So I need to learn how to do:
 
 #### Where to start?
 
-Lets see what the AMAZING [Dani Navarro](@djnavarro) says about t-tests in her free online stats resources [found here](https://compcogscisydney.org/psyr/). If you are looking for her whole Learning Statistics with R book (also free) [find it here](https://compcogscisydney.org/learning-statistics-with-r/). 
+Lets see what the AMAZING [Dani Navarro](@djnavarro) says about t-tests in her free online stats resources [found here](https://compcogscisydney.org/psyr/). If you are looking for her whole "Learning Statistics with R book" (also free) [find it here](https://compcogscisydney.org/learning-statistics-with-r/). 
 
 Note: Dani also suggests looking at Matthew Crumps book "Answering questions with data" which has adapted some of her content, [find it here](https://crumplab.github.io/statistics/)
 
-The functions Dani describes in her book are part of a package she wrote to accompany the book called `lsr`. This package includes separate commands for different kinds of t-test
+The functions Dani describes in her book are part of a package she wrote to accompany the book called `lsr`. This package includes separate commands for different kinds of t-test.
 
-Apparently R also comes with a function t.test() that has a paired = TRUE/FALSE argument that you can use to specify whether your test is paired or independent samples. 
+Apparently R also comes with a function t.test() that has a paired = TRUE/FALSE argument so you can specify whether you want a paired or independent samples test. 
 
 See AFL post for comparisons...
 

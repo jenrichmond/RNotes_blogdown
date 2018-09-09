@@ -1,0 +1,19 @@
+---
+title: rmd post template
+author: ''
+date: '2018-09-08'
+slug: rmd-post-template
+draft: TRUE
+categories: []
+tags: []
+---
+
+### HEADING
+Add text
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(lsr)
+```
+
