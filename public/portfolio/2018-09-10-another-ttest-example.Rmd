@@ -1,0 +1,145 @@
+---
+title: A friendly t-test example
+author: ''
+date: '2018-09-08'
+slug: a-friendly-t-test-example
+draft: "TRUE"
+categories: []
+tags: []
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(car)
+library(lsr)
+library(skimr)
+
+```
+
+This dataset is from the car package and includes recall scores as a function of encoding conditions. 
+
+```{r}
+friendly <- read.csv("friendly.csv")
+
+class(friendly)
+```
+
+#### Explore the data
+
+Get some summary stats from `skim()` including mini-histograms
+
+```{r}
+skim(friendly)
+
+```
+
+
+#### 1. One-sample t-test
+
+Who knows what chance performance on this tasks is, but lets say 30. Is accuracy performance significantly above chance?
+
+Using the function from `lsr` for this kind of test the command takes the form: 
+
+
+```{r}
+oneSampleTTest(friendly$correct, mu=30)
+```
+
+Wow that is pretty nice output. Include descriptives, t-test results and useful information that you usually have to ask SPSS to do in an extra step. 
+
+#### 2. Independent sample t-test
+
+OK so performance across the board is above "chance" but does it differ across condition? Of course, the skim() function above only gives descriptives across the board so lets use group_by to to get grouped summary stats and the ggplot to eyeball whether there might be differences by condition. 
+
+1. get summary stats by group
+
+```{r echo=TRUE}
+friendlygrouped <- friendly %>%
+  group_by(condition) %>%
+  summarise(meanacc = mean(correct))
+ 
+friendlygrouped
+```
+2. plot group differences in performance
+```{r echo=TRUE}
+ friendlygrouped %>%
+ ggplot(aes(x= condition, y=meanacc)) +
+  geom_col()
+```
+
+It looks like there are interesting differences between Meshed and SFR. 
+
+Without participant numbers or IDs it is impossible know whether this experiment was between subjects or within subjects. I know it was about recall under different encoding conditions, but we don't know whether all participants learned and recalled under all encoding conditions (within) or whether there were different groups of participants tested on each of the 3 conditions (between).
+
+Lets assume that there are groups for now, and test whether there are differences in recall by condition using a independent samples t-test. 
+
+Our data has 3 groups, so lets create a new dataframe that only includes the SFR and Meshed condition 
+
+```{r}
+justSFRmesh <- friendly %>%
+  filter(condition != "Before")
+```
+
+The function for independent sample t-test specifies the outcome and grouping variable, the dataframe that the data is in, and an indication of whether the variance is expected to be equal. 
+
+Note R assumes variance in unequal and defaults to the Welch t-test, if you want Student t-test you need to specify var.equal = TRUE
+
+**Welch t-test** 
+```
+independentSamplesTTest(
+  formula = outcome ~ group, 
+  data = dataframe, 
+  var.equal = FALSE
+)
+```
+
+**Student t-test**
+
+```
+independentSamplesTTest(
+  formula = outcome ~ group, 
+  data = dataframe, 
+  var.equal = TRUE
+)
+```
+
+As with lots of R functions you can short cut it like this...
+
+```
+independentSampleTTest(outcome ~ group, dataframe, TRUE)
+
+```
+
+
+```{r}
+independentSamplesTTest(
+  formula = correct ~ condition, 
+  data = justSFRmesh,
+  var.equal = TRUE
+)
+```
+
+#### 3. Paired t-test 
+
+It is possible that everyone in this experiment studied under all three conditions and that the data is in fact paired. The paired t-test function in `lsr` requires an ID, so lets pretend this was a within subjects experiment and create Participant 1-10
+
+```{r}
+friendlypaired <- friendly %>%
+  mutate(Participant = rep(1:10, times = 3)) %>%
+ filter(condition != "Before")
+```
+
+
+```{r}
+glimpse(friendlypaired)
+```
+
+```{r}
+pairedSamplesTTest(
+  formula = correct ~ condition, 
+  data = friendlypaired, 
+  id = "Participant")
+
+```
+
+
