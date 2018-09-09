@@ -1,0 +1,17 @@
++++
+date = "2016-11-05T21:05:33+05:30"
+title = "About me"
+slug: about-me
+author: 'Jen Richmond'
++++
+
+
+![This is me][1]
+
+I am a developmental psychologist in the School of Psychology at UNSW Sydney. My research investigates age-related changes in learning, memory, and emotion understanding in infants and preschoolers. Babies and kids tend not to tell you what they remember or understand, so we use method like eyetracking and psychophysiology to record subtle changes in their behaviour. These methods produce a LOT of data. 
+
+This blog is a record of my R learning journey as I venture into new data wrangling and analysis approaches. The thoughts are mostly reflections and reminders to myself; they are probably incomprehensible to anyone else. If they are useful to other newbies... great. 
+
+
+
+[1]: /img/about.jpg

@@ -3,82 +3,82 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/portfolio/a-friendly-t-test-example/</loc>
+    <loc>/projects/a-friendly-t-test-example/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/testing-out-t-tests/</loc>
+    <loc>/posts/testing-out-t-tests/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/using-r-for-analysis/</loc>
+    <loc>/posts/using-r-for-analysis/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/creating-data-using-rep/</loc>
+    <loc>/posts/creating-data-using-rep/</loc>
     <lastmod>2018-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/mutate-and-if-else-to-create-new-variables/</loc>
+    <loc>/posts/mutate-and-if-else-to-create-new-variables/</loc>
     <lastmod>2018-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/use-map-to-read-many-csv-files/</loc>
+    <loc>/posts/use-map-to-read-many-csv-files/</loc>
     <lastmod>2018-09-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/i-don-t-like-cats-much/</loc>
+    <loc>/posts/i-don-t-like-cats-much/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/lesser-known-stars-of-the-tidyverse/</loc>
+    <loc>/posts/lesser-known-stars-of-the-tidyverse/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/dirty-data/</loc>
+    <loc>/posts/dirty-data/</loc>
     <lastmod>2018-08-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/hotkeys/</loc>
+    <loc>/posts/hotkeys/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/cooking-with-datapasta/</loc>
+    <loc>/posts/cooking-with-datapasta/</loc>
     <lastmod>2018-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/calculating-age/</loc>
+    <loc>/posts/calculating-age/</loc>
     <lastmod>2018-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/fomo-on-user2018/</loc>
+    <loc>/posts/fomo-on-user2018/</loc>
     <lastmod>2018-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/curious-rmarkdown/</loc>
+    <loc>/posts/curious-rmarkdown/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/sods18/</loc>
+    <loc>/posts/sods18/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/git-thinking/</loc>
+    <loc>/posts/git-thinking/</loc>
     <lastmod>2018-06-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -93,12 +93,17 @@
   </url>
   
   <url>
-    <loc>/portfolio/2018-06-16-first-post/</loc>
+    <loc>/about/me/</loc>
+    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2018-06-16-first-post/</loc>
     <lastmod>2016-11-05T18:25:22+05:30</lastmod>
   </url>
   
   <url>
-    <loc>/portfolio/2018-08-30-hidden-stars-of-the-tidyverse/</loc>
+    <loc>/posts/2018-08-30-hidden-stars-of-the-tidyverse/</loc>
   </url>
   
   <url>
@@ -143,7 +148,13 @@
   </url>
   
   <url>
-    <loc>/portfolio/</loc>
+    <loc>/posts/</loc>
+    <lastmod>2018-09-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/projects/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>calculating age</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/posts/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>calculating age</h1>
+         <p>I have been playing with a new (not actually new, but new to R) dataset this week.</p>
+
+<p></p>
+
+<h4 id="successes">Successes:</h4>
+
+<ol>
+<li>I loaded the data in using <code>read_csv</code>. *** see ERRATUM below</li>
+<li>I fixed some weird data type assumptions.</li>
+</ol>
+
+<ul>
+<li>The interview group is listed as 1s and 2s in the file so R thought those were  integers. So I used <code>as.factor</code> to convert.</li>
+</ul>
+
+<pre><code>dataframe$variable &lt;- as.factor(dataframe$variable) 
+
+</code></pre>
+
+<hr />
+
+<p><code>read_csv</code> did weird things with dates, importing them as factors. People say that <code>read_csv</code> makes fewer weird assumptions than <code>read.csv</code> but I am not yet convinced. I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM</p>
+
+<hr />
+
+<pre><code>mutate(DOB = dmy(DOB), Test_Date= dmy(Test_Date))
+ 
+</code></pre>
+
+<hr />
+
+<h5 id="erratum">ERRATUM</h5>
+
+<p>My bad&hellip; the dates as factors issue was caused by <code>read.csv</code> NOT <code>read_csv</code>. When I posted this to twitter, <a href="https://twitter.com/apreshill">Alison Hill</a> helpfully pointed out that there is no way to read in a factor by default in readr. So this is an example of how <code>read_csv</code> does a &ldquo;better&rdquo; job than <code>read.csv</code>. Better in the sense that is automatically imports everything that isn&rsquo;t a number as a character rather than assuming things are factors. I still need to use <code>lubridate</code> to convert character to dates (DOB Test_Date) and integers to factors (InterviewGroup) though.</p>
+
+<hr />
+
+<h4 id="challenges">Challenges</h4>
+
+<p>Now that I have dates that are dates, I&rsquo;d like to calculate how old these kids are. Just subtracting DOB from Test_Date does OK, except that it calculates age in Days.</p>
+
+<pre><code>mutate(agedays = (Test_Date-DOB))    
+</code></pre>
+
+<p>I mostly work with infants and preschoolers so I really want age in Weeks or Months, not Days or Years. Turns out this is a bit challenging. I could just estimate age in months by dividing the Days by 30, which works, kind of. The result is in time format but still in days.</p>
+
+<p>Help google!!</p>
+
+<p>This function on github has potential.</p>
+
+<p><a href="https://gist.github.com/mmparker/7254445">https://gist.github.com/mmparker/7254445</a></p>
+
+<p>It does a really nice job of calculating age even when I use my date variables.</p>
+
+<pre><code>mutate(ageyear = calc_age(DOB, Test_Date))
+</code></pre>
+
+<p>BUT&hellip;. the output is years.</p>
+
+<p>Trying to work out how to adapt this function for my purpose sent me down a little rabbit hole re what is a function and how you make one.</p>
+
+<p>This one is pretty simple, a good introduction, me  thinks&hellip;</p>
+
+<h4 id="function-to-calculate-age">Function to calculate age:</h4>
+
+<hr />
+
+<pre><code>calc_age &lt;- function(birthDate, refDate = Sys.Date()) {
+
+    require(lubridate)
+
+    period &lt;- as.period(interval(birthDate, refDate),
+                        unit = &quot;year&quot;)
+
+    period$year
+
+} 
+
+</code></pre>
+
+<hr />
+
+<p>My understanding is that this piece of code creates a function called <code>calc_age</code> that take inputs of birthDate and refDate, although if you skip the refDate input it will default to Sys.Date, which would be useful if you wanted to know what age was today. Using my birthday as input&hellip;</p>
+
+<pre><code>calc_age(&quot;1978/06/30&quot;)
+</code></pre>
+
+<p>&hellip;gives answer = 40</p>
+
+<p>Yup, I&rsquo;m still 40.</p>
+
+<p>The nuts and bolts are between the curly brackets. This function requires the lubridate package, and defines the &ldquo;period&rdquo; as an interval between birthDate and refDate, specifying that it is a period (rather than an interval or duration)</p>
+
+<hr />
+
+<h4 id="note">NOTE</h4>
+
+<blockquote>
+<p>lubridate object classes<br />
+1. durations, which represent an exact number of seconds.<br />
+2. periods, which represent human units like weeks and months.<br />
+3. intervals, which represent a starting and ending point.<br />
+(from <a href="http://r4ds.had.co.nz/dates-and-times.html#time-spans">http://r4ds.had.co.nz/dates-and-times.html#time-spans</a>)</p>
+</blockquote>
+
+<hr />
+
+<p><code>lubridate</code> is smart with dates right? I should be able to just change the unit = months and it would work? Sadly, no.</p>
+
+<p>I need help&hellip;</p>
+
+<h3 id="update">UPDATE</h3>
+
+<p>Twitter saves the day again! BIG thanks to <a href="https://twitter.com/apreshill">Alison Hill</a> for pointing me to this <a href="https://data.library.virginia.edu/working-with-dates-and-time-in-r-using-the-lubridate-package/">extra useful lubridate resource</a></p>
+
+<p>So what I really want to do is calculate an interval, which you do using %&ndash;%. Once you have an interval, you divide by months(1), using / if you want decimal places or modulus [%/% -I always wondered what that was] if you want whole months.</p>
+
+<pre><code>ageproblem2 &lt;- ageproblem %&gt;%
+        mutate(ageinterval = DOB %--% Test_Date) %&gt;%
+        mutate(agemons = ageinterval %/% months(1)) %&gt;%
+         mutate(ageweeks = ageinterval %/% weeks(1))
+</code></pre>
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>

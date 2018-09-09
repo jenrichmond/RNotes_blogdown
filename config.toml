@@ -32,14 +32,19 @@ googleAnalytics = ""
   email = "jrichmond@psy.unsw.edu.au"
 
   # Nav links in the side bar
+   [[params.navlinks]]
+  name = "About"
+  url = "about/me.md"
+  
   [[params.navlinks]]
   name = "Blog"
-  url = "portfolio/"
+  url = "posts/"
   home = true
 
-  [[params.navlinks]]
-  name = "About"
-  url = "about/"
+ [[params.navlinks]]
+  name = "Projects"
+  url = "projects/"
+
 
   [[params.navlinks]]
   name = "Get in touch"
@@ -49,6 +54,5 @@ googleAnalytics = ""
   
   email         = "jrichmond@psy.unsw.edu.au"
   twitter       = "https://twitter.com/JenRichmondPhD"
-  
   github        = "https://github.com/jenrichmond"
  

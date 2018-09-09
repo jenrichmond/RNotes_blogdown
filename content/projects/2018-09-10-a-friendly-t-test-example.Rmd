@@ -1,6 +1,6 @@
 ---
 title: a friendly t-test example
-author: ''
+author: 'Jen Richmond'
 date: '2018-09-08'
 slug: a-friendly-t-test-example
 categories: []
@@ -24,7 +24,7 @@ friendly <- read.csv("friendly.csv")
 class(friendly)
 ```
 
-#### Explore the data
+#### Explore the friendly data
 
 Get some summary stats from `skim()` including mini-histograms
 

@@ -1,35 +1,128 @@
----
-title: a friendly t-test example
-author: ''
-date: '2018-09-08'
-slug: a-friendly-t-test-example
-categories: []
-tags: 
-- ttest
----
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>a friendly t-test example</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
 
 
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
-<p>This dataset is from the car package and includes recall scores as a function of encoding conditions.</p>
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/posts/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>a friendly t-test example</h1>
+         <p>This dataset is from the car package and includes recall scores as a function of encoding conditions.</p>
 <pre class="r"><code>friendly &lt;- read.csv(&quot;friendly.csv&quot;)
 
 class(friendly)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div id="explore-the-data" class="section level4">
-<h4>Explore the data</h4>
+<div id="explore-the-friendly-data" class="section level4">
+<h4>Explore the friendly data</h4>
 <p>Get some summary stats from <code>skim()</code> including mini-histograms</p>
 <pre class="r"><code>skim(friendly)</code></pre>
 <pre><code>## Skim summary statistics
 ##  n obs: 30 
 ##  n variables: 2 
 ## 
-## ── Variable type:factor ────────────────────────────────────────────────────────────
+## ── Variable type:factor ────────────────────────────────────────────
 ##   variable missing complete  n n_unique                       top_counts
 ##  condition       0       30 30        3 Bef: 10, Mes: 10, SFR: 10, NA: 0
 ##  ordered
 ##    FALSE
 ## 
-## ── Variable type:integer ───────────────────────────────────────────────────────────
+## ── Variable type:integer ───────────────────────────────────────────
 ##  variable missing complete  n mean   sd p0 p25 p50 p75 p100     hist
 ##   correct       0       30 30 34.5 6.12 21  30  37  39   40 ▁▃▁▂▁▁▃▇</code></pre>
 </div>
@@ -85,7 +178,7 @@ friendlygrouped</code></pre>
 <pre class="r"><code> friendlygrouped %&gt;%
  ggplot(aes(x= condition, y=meanacc)) +
   geom_col()</code></pre>
-<p><img src="/portfolio/2018-09-10-a-friendly-t-test-example_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/projects/2018-09-10-a-friendly-t-test-example_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>It looks like there are interesting differences between Meshed and SFR.</p>
 <p>Without participant numbers or IDs it is impossible know whether this experiment was between subjects or within subjects. I know it was about recall under different encoding conditions, but we don’t know whether all participants learned and recalled under all encoding conditions (within) or whether there were different groups of participants tested on each of the 3 conditions (between).</p>
 <p>Lets assume that there are groups for now, and test whether there are differences in recall by condition using a independent samples t-test.</p>
@@ -185,3 +278,25 @@ friendlygrouped</code></pre>
 ##    two-sided 95% confidence interval:  [-11.514, -1.086] 
 ##    estimated effect size (Cohen&#39;s d):  0.864</code></pre>
 </div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>
