@@ -1,9 +1,8 @@
 ---
-title: A friendly t-test example
+title: a friendly t-test example
 author: ''
 date: '2018-09-08'
 slug: a-friendly-t-test-example
-draft: "TRUE"
 categories: []
 tags: 
 - ttest
