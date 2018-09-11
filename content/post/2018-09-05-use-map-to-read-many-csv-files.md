@@ -8,9 +8,9 @@ tags: []
 ---
 
 
-Dipping my toes in purrr here and replicating options from a super useful blog post I found by [ClausWilke](@clauswilke) 
+Dipping my toes in purrr here and replicating options from a [super useful blog post](https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R) I found by [ClausWilke](@clauswilke) 
 
-https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R
+
 
 <!--more-->
 
@@ -35,6 +35,7 @@ data1 <- files %>%
 ```
 
 NOTE this method doesn't retain any info from individual files, so it is important that the individual .csv files contain an ID column like participant already. 
+
 ##### Option 2A
 
 This is bit more complicated, use when your .csv files contain ID/participant and all live in a subfolder (i.e. Datafiles) of your working directory

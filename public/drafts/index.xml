@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drafts on R notes to myself</title>
+    <link>/drafts/</link>
+    <description>Recent content in Drafts on R notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/drafts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>stats2- anova</title>
+      <link>/drafts/stats2-anova/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/drafts/stats2-anova/</guid>
+      <description>ANOVA and regression are the same, the lm() function is useful
+mod &amp;lt;- aov(total.score ~ venue, afl.majors)  This is the Anova function from the car package Anova(mod)
+Posthoc pairwise comparisons with conservative bonferroni BUT problematic because you didn&amp;rsquo;t have a hypothesis about what you were looking for
+posthocPairwiseT(mod, p.adjust.method = &amp;quot;bonferroni&amp;quot;)  </description>
+    </item>
+    
+  </channel>
+</rss>

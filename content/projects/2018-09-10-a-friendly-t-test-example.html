@@ -140,8 +140,8 @@ friendlygrouped</code></pre>
 ##    two-sided 95% confidence interval:  [1.029, 11.571] 
 ##    estimated effect size (Cohen&#39;s d):  1.123</code></pre>
 </div>
-<div id="paired-t-test" class="section level4">
-<h4>3. Paired t-test</h4>
+<div id="paired-samples-t-test" class="section level4">
+<h4>3. Paired samples t-test</h4>
 <p>It is possible that everyone in this experiment studied under all three conditions and that the data is in fact paired. The paired t-test function in <code>lsr</code> requires an ID, so lets pretend this was a within subjects experiment and create Participant 1-10</p>
 <pre class="r"><code>friendlypaired &lt;- friendly %&gt;%
   mutate(Participant = rep(1:10, times = 3)) %&gt;%

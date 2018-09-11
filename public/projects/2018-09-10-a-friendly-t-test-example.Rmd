@@ -119,7 +119,7 @@ independentSamplesTTest(
 )
 ```
 
-#### 3. Paired t-test 
+#### 3. Paired samples t-test 
 
 It is possible that everyone in this experiment studied under all three conditions and that the data is in fact paired. The paired t-test function in `lsr` requires an ID, so lets pretend this was a within subjects experiment and create Participant 1-10
 
