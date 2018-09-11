@@ -8,7 +8,7 @@ tags: []
 ---
 
 
-![1]
+![This is me][1]
 
 I am a developmental psychologist in the School of Psychology at UNSW Sydney. My research investigates age-related changes in learning, memory, and emotion understanding in infants and preschoolers. Babies and kids tend not to tell you what they remember or understand, so we use method like eyetracking and psychophysiology to record subtle changes in their behaviour. These methods produce a LOT of data. 
 

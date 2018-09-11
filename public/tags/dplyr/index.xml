@@ -6,10 +6,21 @@
     <description>Recent content in Dplyr on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>more wrangling tips</title>
+      <link>/post/more-wrangling-tips/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/more-wrangling-tips/</guid>
+      <description>It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
+Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
+So here is an excellent approach to data wrangling in #rstats https://t.</description>
+    </item>
     
     <item>
       <title>lesser known stars of the tidyverse</title>

@@ -6,10 +6,21 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>more wrangling tips</title>
+      <link>/post/more-wrangling-tips/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/more-wrangling-tips/</guid>
+      <description>It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
+Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
+So here is an excellent approach to data wrangling in #rstats https://t.</description>
+    </item>
     
     <item>
       <title>Me</title>
@@ -17,8 +28,18 @@
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/about/me/</guid>
-      <description>1
+      <description>This is me
  I am a developmental psychologist in the School of Psychology at UNSW Sydney. My research investigates age-related changes in learning, memory, and emotion understanding in infants and preschoolers. Babies and kids tend not to tell you what they remember or understand, so we use method like eyetracking and psychophysiology to record subtle changes in their behaviour. These methods produce a LOT of data.
+This blog is a record of my R learning journey as I venture into new data wrangling and analysis approaches.</description>
+    </item>
+    
+    <item>
+      <title>me</title>
+      <link>/about/me/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/about/me/</guid>
+      <description>I am a developmental psychologist in the School of Psychology at UNSW Sydney. My research investigates age-related changes in learning, memory, and emotion understanding in infants and preschoolers. Babies and kids tend not to tell you what they remember or understand, so we use method like eyetracking and psychophysiology to record subtle changes in their behaviour. These methods produce a LOT of data.
 This blog is a record of my R learning journey as I venture into new data wrangling and analysis approaches.</description>
     </item>
     
@@ -30,7 +51,7 @@ This blog is a record of my R learning journey as I venture into new data wrangl
       <guid>/projects/a-friendly-t-test-example/</guid>
       <description>This dataset is from the car package and includes recall scores as a function of encoding conditions.
 friendly &amp;lt;- read.csv(&amp;quot;friendly.csv&amp;quot;) class(friendly) ## [1] &amp;quot;data.frame&amp;quot; Explore the friendly data Get some summary stats from skim() including mini-histograms
-skim(friendly) ## Skim summary statistics ## n obs: 30 ## n variables: 2 ## ## ── Variable type:factor ──────────────────────────────────────────── ## variable missing complete n n_unique top_counts ## condition 0 30 30 3 Bef: 10, Mes: 10, SFR: 10, NA: 0 ## ordered ## FALSE ## ## ── Variable type:integer ─────────────────────────────────────────── ## variable missing complete n mean sd p0 p25 p50 p75 p100 hist ## correct 0 30 30 34.</description>
+skim(friendly) ## Skim summary statistics ## n obs: 30 ## n variables: 2 ## ## ── Variable type:factor ──────────────────────────────────────────────────────────────── ## variable missing complete n n_unique top_counts ## condition 0 30 30 3 Bef: 10, Mes: 10, SFR: 10, NA: 0 ## ordered ## FALSE ## ## ── Variable type:integer ─────────────────────────────────────────────────────────────── ## variable missing complete n mean sd p0 p25 p50 p75 p100 hist ## correct 0 30 30 34.</description>
     </item>
     
     <item>
