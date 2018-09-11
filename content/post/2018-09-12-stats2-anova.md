@@ -8,7 +8,6 @@ tags:
   - analysis
   - stats
   - anova
-draft: TRUE
 ---
 
 In the kind of research that we do, t-tests can only take you so far. Most often we design factorial experiments where we are interested in both main effects and interactions.  Because we work with infants and young children, who are both expensive to recruit/test and notoriously variable in their behaviour, we try to design experiments that use within-subjects designs; each child gives us more than one data point and we need to use repeated-measures analyses. 
