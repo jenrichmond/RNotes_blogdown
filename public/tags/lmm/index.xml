@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lmm on R notes to myself</title>
+    <link>/tags/lmm/</link>
+    <description>Recent content in Lmm on R notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/lmm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>let me count the ways</title>
+      <link>/post/let-me-count-the-ways/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/let-me-count-the-ways/</guid>
+      <description>psycho package  Domnique Makowski has an excellent blog post that comes up at the top of the search results when you type “how to do repeated measures ANOVA in R” into google.
+google
+He lures you in with a post that seems like it is going to solve all your problems and then and BAM… starts the post by saying DON’T do it.
+HAHAHAHAHA- got me….
+Yes I know that i should be doing linear mixed models instead, so lets see whether his psycho package really makes it as easy as promised.</description>
+    </item>
+    
+  </channel>
+</rss>

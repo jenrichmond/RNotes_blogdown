@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Tidyr</title>
+<title>gather spread unite separate</title>
 <meta name="description" content="R notes to myself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -28,9 +28,6 @@
 
 <link href="/css/custom.css" rel="stylesheet">
 <link rel="shortcut icon" href="/img/favicon.png">
-
-  <link href="/tags/tidyr/index.xml" rel="alternate" type="application/rss+xml" title="R notes to myself" />
-  <link href="/tags/tidyr/index.xml" rel="feed" type="application/rss+xml" title="R notes to myself" />
 
 
 </head>
@@ -96,57 +93,71 @@
 </div>
 
               
-  <div class="col-xs-12 col-sm-8 col-md-9 content-column">
-    <div class="small-navbar visible-xs">
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
   <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
   <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
 </div>
 
-    <div class="grid">
-        <div class="row">
-          
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
-                  <div class="box-masonry">
-                      
-                      
-                      <div class="box-masonry-text">
-                      
-                          <h4><a href="/post/gather-spread-unite-separate/">gather spread unite separate</a></h4>
-                          <div class="box-masonry-description">
-                            <p>
-                                
-                                  Even though this content was part of the dirty data post, I still find myself googling these functions. So they deserve a post of their own. The tidyr package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &ldquo;SPSS format&rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&hellip;.
-                                
-                            </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
-                  <div class="box-masonry">
-                      
-                      
-                      <div class="box-masonry-text">
-                      
-                          <h4><a href="/post/more-wrangling-tips/">more wrangling tips</a></h4>
-                          <div class="box-masonry-description">
-                            <p>
-                                
-                                  It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
-Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
-So here is an excellent approach to data wrangling in #rstats https://t.
-                                
-                            </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          
-        </div>
-    </div>
-</div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>gather spread unite separate</h1>
+         
 
+<p>Even though this content was part of the dirty data post, I still find myself googling these functions. So they deserve a post of their own. The <code>tidyr</code> package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &ldquo;SPSS format&rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&hellip;. handy.</p>
+
+<h4 id="from-wide-to-long">From wide to long</h4>
+
+<p>Use gather(data, key, value, …)</p>
+
+<p>data = the dataframe you want to morph from wide to long</p>
+
+<p>key = the name of the new column that is levels of what is represented in the wide format as many columns</p>
+
+<p>value = the name of the column that will contain the values</p>
+
+<p>… = columns to gather, or leave (use -column to gather all except that one)</p>
+
+<h4 id="from-long-to-wide">From long to wide</h4>
+
+<p>Use spread(data, key, value)</p>
+
+<p>data = the dataframe you want to morph from long to wide</p>
+
+<p>key = the name of the column that contains the key</p>
+
+<p>value = the name of the column contains the values</p>
+
+<h4 id="separate-one-column-into-many">Separate one column into many</h4>
+
+<p>Use separate(data, col, into)</p>
+
+<p>data = dataframe</p>
+
+<p>col = name of column to separate</p>
+
+<p>into = character vector of new column [note- these need quotes]</p>
+
+<p>separate(treatments, year_no, c(“year”, “month”))</p>
+
+<p>separate() assumes you want to split on a space, period, forward slash or dash. You can give it an extra argument sep = “-” to specify what to separate on.</p>
+
+<h4 id="unite-many-columns-into-one">Unite many columns into one</h4>
+
+<p>Use unite(data, col, …)</p>
+
+<p>data = dataframe</p>
+
+<p>col = name of column to separate</p>
+
+<p>… = bare names of columns to unite</p>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
 
           </div>
       </div>

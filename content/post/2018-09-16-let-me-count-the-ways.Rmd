@@ -1,0 +1,121 @@
+---
+title: let me count the ways
+author: ''
+date: '2018-09-16'
+slug: let-me-count-the-ways
+categories: []
+draft: TRUE
+tags:
+  - analysis
+  - lmm
+  - repeated measures
+---
+
+1. `psycho` package
+
+[Domnique Makowski](https://dominiquemakowski.github.io/) has an excellent blog post that comes up at the top of the search results when you type "how to do repeated measures ANOVA in R" into google.
+
+[google](img/google.png)
+
+He lures you in with a [post that seems like it is going to solve all your problems](https://neuropsychology.github.io/psycho.R/2018/05/01/repeated_measure_anovas.html) and then and BAM... starts the post by saying DON'T do it. 
+
+HAHAHAHAHA- got me....
+
+Yes I know that i should be doing linear mixed models instead, so lets see whether his `psycho` package really makes it as easy as promised. 
+
+```{r}
+library(psycho)
+library(lmerTest)
+
+emotiondata <- emotion
+```
+
+Here the format of the aov call hasn't changed much. When we were talking one-way ANOVA we used this formula. 
+```
+aov(outcome ~ group, data = dataset)
+```
+Now that participants contribute to all levels of condition, we need to specify that in the error term. 
+```
+aov(outcome ~ condition + Error(Participant/condition), data= dataset)
+
+```
+EXAMPLE from blog: Lets imagine we had participants rating the valence of pictures and we wanted to see if there was a difference in the valence ratings for ones that were considered negative vs. neutral. It is a good idea to assign the aov to an object so we can ask for summary or print. 
+
+
+#### Option 1: repeated-measures ANOVA
+```{r}
+RM_anova <- aov(Subjective_Valence ~ Emotion_Condition +
+                  Error(Participant_ID/Emotion_Condition),           data=emotiondata)
+
+summary(RM_anova)
+# print(RM_anova)
+```
+The summary() gives you enough information to write about it in your results, and print() gives extra details about sums of squares etc.  
+
+#### Option 2: Linear mixed models
+Alternatively we can analyse the data using Linear Mixed Models. The code is almost the same, we are still looking at whether valence ratings (outcome) are influenced by emotion condition, but now this is called a "fixed effect".  And instead of specifying the Error term to account for the within subjects nature of the data, we can add Participant to the model as a "random effect". 
+
+Instead of calling aov() we now use lmer() [aka linear mixed effects regression]. Again we assign the model to an object, but this time run an anova() on the object. 
+
+### Fit the model
+```{r}
+library(lmerTest)
+
+lmm_emotion <- lmer(Subjective_Valence ~ Emotion_Condition + (1|Participant_ID), data=emotiondata)
+
+anova(lmm_emotion)
+```
+The LMM output is really similarly structured and just like repeated measures ANOVA shows a significant effect of Emotion Condition on valence ratings. 
+
+The psycho package also allows you to test the fit of the model and generates a description of the results using an `analyze` and then `print` function. 
+
+### The analyze function
+```{r}
+results <- analyze(lmm_emotion)
+print(results)
+```
+
+It would be nice to know, which way that Emotion effect went. Next steps in the psycho process is to run contrasts;  you can add them to the results. And then print them too. 
+
+### side issue: posthoc/constrasts
+```{r}
+
+results <- get_contrasts(lmm_emotion, "Emotion_Condition")
+print(results$contrasts)
+```
+
+What if there were two fixed effects? In this model, we add sex as an additional predictor. As in one way anova, by specifying Emotion * Sex, you are really saying we want main effects of emotion, sex, and the interaction. 
+
+### Interaction
+```{r}
+lmm_emotion_sex <- lmer(Subjective_Valence ~ Emotion_Condition * Participant_Sex + (1|Participant_ID), data=emotiondata)
+
+anova(lmm_emotion_sex)
+```
+
+```{r}
+results1 <- get_contrasts(lmm_emotion_sex, "Emotion_Condition * Participant_Sex") #note this by default uses Tukey correction
+
+print(results1$means) #get estimated marginal means
+```
+
+```{r}
+print(results1$contrasts)
+```
+Default on get_contrasts is Tukey correction, below with no adjustment for multiple comparisons. 
+```{r}
+results2 <- get_contrasts(lmm_emotion_sex, "Emotion_Condition * Participant_Sex", adjust = "none")
+print(results2$contrasts)
+```
+
+`psycho` process
+1. define and run nameofmodel <- lmer(outcome ~ fixed_effects + (1|random_effect), data=dataset
+2. anova(nameofmodel)
+3. use results <- analyze(nameofmodel) to get user friendly descriptions you can plug into other things
+3. use summary(results) to get all info in both ANOVA and regression format
+4. use print(results) to get manuscript ready descriptions
+4. use get_contrasts(nameofmodel) to work out where main effects/interactions are
+```{r}
+
+```
+
