@@ -8,7 +8,7 @@ tags:
   - tidyr
 ---
 
-Even though this content was part of the dirty data post, I still find myself googling these functions. So they deserve a post of their own. The `tidyr` package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from "SPSS format" into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting.... handy. 
+This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The `tidyr` package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from "SPSS format" into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting.... handy. 
 
 #### From wide to long
 
