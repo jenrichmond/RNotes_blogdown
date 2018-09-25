@@ -22,6 +22,11 @@ value = the name of the column that will contain the values
 
 … = columns to gather, or leave (use -column to gather all except that one)
 
+
+Kudos to Garrick Aden-Buie for creating these gganimation gif to illustrate tidyr processes
+
+https://raw.githubusercontent.com/gadenbuie/tidy-animated-verbs/master/images/tidyr-spread-gather.gif
+
 #### From long to wide
 
 Use spread(data, key, value)

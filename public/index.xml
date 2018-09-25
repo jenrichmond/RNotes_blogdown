@@ -6,10 +6,19 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>let me count the ways</title>
+      <link>/post/let-me-count-the-ways/</link>
+      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/let-me-count-the-ways/</guid>
+      <description>psycho package ANOVA Recap EMG + psycho psycho steps THOUGHTS about psycho  Likelihood Ratio Tests Lets go hiking EMG + LRT THOUGHTS about LRT  lmerTest package is LRT anticonservative? EMG + lmerTest THOUGHTS about lmerTest  Next: “how to write about LMM”   When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.</description>
+    </item>
     
     <item>
       <title>where is here?</title>
@@ -29,19 +38,6 @@
       
       <guid>/post/gather-spread-unite-separate/</guid>
       <description>This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The tidyr package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &amp;ldquo;SPSS format&amp;rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&amp;hellip;.</description>
-    </item>
-    
-    <item>
-      <title>let me count the ways</title>
-      <link>/post/let-me-count-the-ways/</link>
-      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/let-me-count-the-ways/</guid>
-      <description>true  Domnique Makowski has an excellent blog post that comes up at the top of the search results when you type “how to do repeated measures ANOVA in R” into google.
-google
-He lures you in with a post that seems like it is going to solve all your problems and then and BAM… starts the post by saying DON’T do it.
-HAHAHAHAHA- got me….
-1. psycho package Yes I know that i should be doing linear mixed models instead, so lets see whether his psycho package really makes it as easy as promised.</description>
     </item>
     
     <item>
@@ -82,7 +78,7 @@ This blog is a record of my R learning journey as I venture into new data wrangl
       <guid>/projects/a-friendly-t-test-example/</guid>
       <description>This dataset is from the car package and includes recall scores as a function of encoding conditions.
 friendly &amp;lt;- read.csv(&amp;quot;friendly.csv&amp;quot;) class(friendly) ## [1] &amp;quot;data.frame&amp;quot; Explore the friendly data Get some summary stats from skim() including mini-histograms
-skim(friendly) ## Skim summary statistics ## n obs: 30 ## n variables: 2 ## ## ── Variable type:factor ───────────────────────────────────────────────────────────────────── ## variable missing complete n n_unique top_counts ## condition 0 30 30 3 Bef: 10, Mes: 10, SFR: 10, NA: 0 ## ordered ## FALSE ## ## ── Variable type:integer ──────────────────────────────────────────────────────────────────── ## variable missing complete n mean sd p0 p25 p50 p75 p100 hist ## correct 0 30 30 34.</description>
+skim(friendly) ## Skim summary statistics ## n obs: 30 ## n variables: 2 ## ## ── Variable type:factor ───────────────────────────────────────────────────────────────── ## variable missing complete n n_unique top_counts ## condition 0 30 30 3 Bef: 10, Mes: 10, SFR: 10, NA: 0 ## ordered ## FALSE ## ## ── Variable type:integer ──────────────────────────────────────────────────────────────── ## variable missing complete n mean sd p0 p25 p50 p75 p100 hist ## correct 0 30 30 34.</description>
     </item>
     
     <item>

@@ -4,18 +4,20 @@ author: ''
 date: '2018-09-16'
 slug: let-me-count-the-ways
 categories: []
-draft: TRUE
-toc: TRUE
+output:
+  blogdown::html_page:
+    toc: true
 tags:
   - analysis
   - lmm
   - repeated measures
 ---
 
+When you want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.  
 
 [Domnique Makowski](https://dominiquemakowski.github.io/) has an excellent blog post that comes up at the top of the search results when you type "how to do repeated measures ANOVA in R" into google.
 
-[google](img/google.png)
+![](/post/2018-09-16-let-me-count-the-ways_files/google.png)
 
 He lures you in with a [post that seems like it is going to solve all your problems](https://neuropsychology.github.io/psycho.R/2018/05/01/repeated_measure_anovas.html) and then and BAM... starts the post by saying DON'T do it. 
 
@@ -23,9 +25,9 @@ HAHAHAHAHA- got me....
 
 ## 1. `psycho` package
 
-Yes I know that i should be doing linear mixed models instead, so lets see whether his `psycho` package really makes it as easy as promised. 
+Yes I know that I should be doing linear mixed models instead, so lets see whether his `psycho` package really makes it as easy as promised. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(psycho)
 library(lmerTest)
 
@@ -57,7 +59,7 @@ lmer(outcome ~ condition + (1|Participant), data= dataset)
 ```
 
 ### A psycho example 
-L ets imagine we had participants rating the valence of pictures and we wanted to see if there was a difference in the valence ratings for ones that were considered negative vs. neutral. It is a good idea to assign the aov to an object so we can ask for summary or print. 
+Lets imagine we had participants rating the valence of pictures and we wanted to see if there was a difference in the valence ratings for ones that were considered negative vs. neutral. It is a good idea to assign the aov to an object so we can ask for summary or print. 
 
 ### Old way: repeated-measures ANOVA
 ```{r}
@@ -87,13 +89,17 @@ The LMM output is really similarly structured (the sums of squares value is exac
 The `psycho` package also allows you to test the fit of the model and generates a description of the results using an `analyze` and then `print` function. 
 
 #### The `analyze` function
+
+This LMM practically writes itself! Use print(results) to generate an almost manuscript ready description of the model. 
+
 ```{r}
 results1 <- analyze(lmm_emotion)
+
 print(results1)
 
 ```
 
-It would be nice to know, which way that Emotion effect went. Next steps in the `psycho` process is to run contrasts;  you use `get_contrasts`,  add them to the results and print them too 
+It would be nice to know, which way that Emotion effect went. Next step in the `psycho` process is to run contrasts;  you use `get_contrasts`,  add them to the results and print them too.  
 
 #### `get_contrasts`
 ```{r}
@@ -112,7 +118,9 @@ anova(lmm_emotion_sex)
 ```
 
 ```{r}
-results2 <- get_contrasts(lmm_emotion_sex, "Emotion_Condition * Participant_Sex") #note this by default uses Tukey correction
+results2 <- get_contrasts(lmm_emotion_sex, "Emotion_Condition * Participant_Sex") 
+
+#note this by default uses Tukey correction
 
 print(results2$means) #get estimated marginal means
 ```
@@ -123,6 +131,7 @@ print(results2$contrasts)
 Default on get_contrasts is Tukey correction, below with adjustment for multiple comparisons removed. 
 ```{r}
 results2 <- get_contrasts(lmm_emotion_sex, "Emotion_Condition * Participant_Sex", adjust = "none")
+
 print(results2$contrasts)
 ```
 
@@ -140,11 +149,11 @@ print(results2$contrasts)
 
        summary(model)
        
-3. to get user friendly descriptions you can plug into other things
+3. to get user friendly descriptions you can plug into other things use analyze
 
        results <- analyze(model) 
        
-3. to get all info in both ANOVA and regression format
+3. to get all info you might want to report (both ANOVA and regression format)
 
        summary(results)
        
@@ -156,7 +165,15 @@ print(results2$contrasts)
 
        get_contrasts(model)
        
-## 2. lmerTest tutorial (Per Bruum Brockhoff)
-UWS course 
-## 3. Page Paccini course 
+## 2. Bodo Winter tutorial
+
+
+
+
+
+
+
+## 3. lmerTest tutorial (Per Bruum Brockhoff)
+## 4. UWS course 
+
 

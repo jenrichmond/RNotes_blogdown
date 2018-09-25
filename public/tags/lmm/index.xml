@@ -6,7 +6,7 @@
     <description>Recent content in Lmm on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/lmm/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,14 +14,10 @@
     <item>
       <title>let me count the ways</title>
       <link>/post/let-me-count-the-ways/</link>
-      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/let-me-count-the-ways/</guid>
-      <description>true  Domnique Makowski has an excellent blog post that comes up at the top of the search results when you type “how to do repeated measures ANOVA in R” into google.
-google
-He lures you in with a post that seems like it is going to solve all your problems and then and BAM… starts the post by saying DON’T do it.
-HAHAHAHAHA- got me….
-1. psycho package Yes I know that i should be doing linear mixed models instead, so lets see whether his psycho package really makes it as easy as promised.</description>
+      <description>psycho package ANOVA Recap EMG + psycho psycho steps THOUGHTS about psycho  Likelihood Ratio Tests Lets go hiking EMG + LRT THOUGHTS about LRT  lmerTest package is LRT anticonservative? EMG + lmerTest THOUGHTS about lmerTest  Next: “how to write about LMM”   When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.</description>
     </item>
     
   </channel>
