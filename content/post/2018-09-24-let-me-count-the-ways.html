@@ -10,7 +10,6 @@ output:
 tags:
   - analysis
   - lmm
-  - repeated measures
 ---
 
 
@@ -67,8 +66,8 @@ library(psycho)</code></pre>
     data= dataset)
 </code></pre>
 </div>
-<div id="analysing-rapid-facial-mimicry" class="section level4">
-<h4>Analysing Rapid facial mimicry</h4>
+<div id="example-rapid-facial-mimicry" class="section level4">
+<h4>Example: Rapid facial mimicry</h4>
 <p>When we see someone smile, the muscles in our cheek that would produce a smile contract a tiny little bit. When we see someone display an angry expression, the muscles in our brow activate too.</p>
 <p>This mimicry response is really robust in adults, but working out under what conditions it occurs in kids has kept me busy for a few years. This year my honours student Bronte is looking at how social context (i.e. competition vs cooperation) influences how kids mimic facial expressions of emotion.</p>
 <p>In this experiment, we have participants watching pictures of different expressions (happy, angry) and we are recording activity from different muscle sites (brow, cheek). We are also showing kids pictures of confederates that they cooperated with, competed against, along with novel faces. In each condition (cooperator, competitor, novel), we want to determine whether the muscle activity differs as a function of emotional expression.</p>
@@ -90,7 +89,7 @@ EMGdata_competitor &lt;- EMGdata %&gt;%
 </div>
 <div id="new-way-linear-mixed-models" class="section level4">
 <h4>New way: Linear Mixed Models</h4>
-<p>Alternatively we can analyse the data using Linear Mixed Models. The code is almost the same, we are still testing how well we can predict the response (outcome) from emotion and muscle , but now these are called “fixed effects”. And instead of specifying the Error term to account for the within subjects nature of the data, we can add Participant to the model as a “random effect”.</p>
+<p>The code to run LMM is almost the same as aov; here we are still testing how well we can predict the response (outcome) from emotion and muscle , but now these are called “fixed effects”. And instead of specifying the Error term to account for the within subjects nature of the data, we can add Participant to the model as a “random effect”.</p>
 <p>Instead of calling aov(), we now use lmer() from the lme4 package. Again we assign the model to an object, but this time run an anova() on the object.</p>
 </div>
 <div id="fit-the-model" class="section level4">
@@ -111,7 +110,7 @@ anova(lmm_EMG)</code></pre>
 <h3>EMG + psycho</h3>
 <div id="the-analyze-function" class="section level4">
 <h4>The <code>analyze</code> function</h4>
-<p>The <code>psycho</code> package also allows you to test the fit of the model and generates a description of the results using an <code>analyze</code> and then <code>summary</code> and <code>print</code> functions.</p>
+<p>The <code>psycho</code> package allows you to test the fit of the model and generates a description of the results using an <code>analyze</code> and then <code>summary</code> and <code>print</code> functions.</p>
 <pre class="r"><code>library(psycho)
 results &lt;- analyze(lmm_EMG)</code></pre>
 <pre><code>## Warning: &#39;r.squaredGLMM&#39; now calculates a revised statistic. See the help
@@ -138,7 +137,7 @@ results &lt;- analyze(lmm_EMG)</code></pre>
 ##    - The effect of emotionHAPPY is significant (beta = -0.20, SE = 0.073, 95% CI [-0.34, -0.054], t(77) = -2.69, p &lt; .01) and can be considered as medium (std. beta = -0.66, std. SE = 0.25).
 ##    - The effect of muscleCHEEK is significant (beta = -0.16, SE = 0.072, 95% CI [-0.30, -0.022], t(75) = -2.26, p &lt; .05) and can be considered as medium (std. beta = -0.55, std. SE = 0.24).
 ##    - The effect of emotionHAPPY:muscleCHEEK is significant (beta = 0.20, SE = 0.10, 95% CI [0.0024, 0.40], t(75) = 1.97, p = 0.05�) and can be considered as medium (std. beta = 0.68, std. SE = 0.35).</code></pre>
-<p>Next step in the <code>psycho</code> process is to run contrasts. Here we are most interested in the interaction, so we can use <code>get_contrasts</code> for the interaction term, add them to the results and print them too.</p>
+<p>Here we are most interested in the interaction, so we can use <code>get_contrasts</code> for the interaction term, add them to the results and print them too.</p>
 </div>
 <div id="get_contrasts" class="section level4">
 <h4><code>get_contrasts</code></h4>
