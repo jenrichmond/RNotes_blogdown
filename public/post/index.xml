@@ -6,10 +6,20 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Writing about LMM</title>
+      <link>/post/writing-lmm/</link>
+      <pubDate>Tue, 25 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/writing-lmm/</guid>
+      <description>Learning new things is HARD. Stats methods are particularly hard because it not just about running the test. You have to…
+ learn when to run the test learn how to run the test learn how to interpret the test AND learn how to write about the results of the test  Part of what makes this learning hard is that our research methods training has drummed into us that there is a RIGHT WAY TO DO IT.</description>
+    </item>
     
     <item>
       <title>let me count the ways</title>
