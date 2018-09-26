@@ -202,8 +202,13 @@ That’s really nice Jessica! My rules: make sure to describe the full specifica
 <div id="things-im-still-not-sure-about." class="section level5">
 <h5>Things I’m still not sure about.</h5>
 <ol style="list-style-type: decimal">
-<li><p>generally when I get a significant emotion by muscle interaction, I want to do post-hoc tests or look at contrasts to drill down into whether the response to angry is <em>significantly</em> greater in response to angry than happy and that there is no significant difference in cheek activity. The <code>psycho</code> package process included running contrasts, but in all of my reading I didn’t see anyone report contrasts. Is that not a thing in LMM?</p></li>
-<li><p>when initially looking at LMM output, I was thrown by the way that the main effects are expressed as emotionHAPPY and muscleCHEEK and the interaction is emotionHAPPY:muscleCHEEK. I think that has something to do with the reference level. If you don’t tell it to do it another way, R will assign your reference levels alphabetically. So here the effects are specified relative to ANGRY and BROW. In the <a href="https://www.tandfonline.com/doi/full/10.1080/15475441.2018.1463850">Nordmeyer paper</a>, they talk about categorical variables being “deviation coded”. My understanding is that rather than using ANGRY and BROW as your levels, you replace them with -0.5 and 0.5 to make the reference level more meaningful, and as a result your model more interpretable.</p></li>
+<li><p>generally when I get a significant emotion by muscle interaction, I want to do post-hoc tests or look at contrasts to drill down into whether the response to angry is <em>significantly</em> greater than happy and that there is no significant difference in cheek activity to happy and angry. The <code>psycho</code> package process included running contrasts, but in all of my reading I didn’t see anyone report contrasts. Is that not a thing in LMM?</p></li>
+<li><p>when initially looking at LMM output, I was thrown by the way that the main effects are expressed as emotionHAPPY and muscleCHEEK and the interaction is emotionHAPPY:muscleCHEEK.</p></li>
+</ol>
+<p>I think that has something to do with the reference level. If you don’t tell it to do it another way, R will assign your reference levels alphabetically. So here the effects are specified relative to ANGRY and BROW.</p>
+<p>In the <a href="https://www.tandfonline.com/doi/full/10.1080/15475441.2018.1463850">Nordmeyer paper</a>, they talk about categorical variables being “deviation coded”. My understanding is that rather than using ANGRY and BROW as your levels, you replace them with -0.5 and 0.5 to make the reference level more meaningful, and as a result your model more interpretable.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Including a table of coefficients is one of Mike’s rules and I really liked the table that was in the monkey imitation paper. But how do I make R give me nice tables? Ideally in APA format.</li>
 </ol>
 </div>
 <div id="all-together-now" class="section level5">
