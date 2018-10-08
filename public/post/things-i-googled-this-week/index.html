@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>things i googled this week</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>things i googled this week</h1>
+         <p>How would we learn R if not for google? Here are some things I googled this week (and mostly not for the first time).</p>
+<div id="how-to-install-a-package-from-github." class="section level5">
+<h5>1. how to install a package from github.</h5>
+<p>95% of the time, packages I want are on CRAN and I can just use the <code>install.packages</code> function to install them.</p>
+<pre><code>install.packages(&quot;nameofthepackage&quot;)
+</code></pre>
+<p>Occasionally though, I see something cool and new on Twitter and need to install from github. Everytime I forget that you need to use devtools.</p>
+<pre><code>library(devtools)
+install_github(&quot;authorname/packagename&quot;)
+</code></pre>
+</div>
+<div id="how-to-read-data-from-github." class="section level5">
+<h5>2. how to read data from github.</h5>
+<p>Sometimes data in a .csv file is hosted on github and it is faster to just read it from there than to download the .csv and then read it back in.</p>
+<p>In github, click the “Raw” button and then copy the url link. Use the <code>geturl</code> function from the <code>RCurl</code> package.</p>
+<pre><code>dataframe &lt;- read.csv(text=getURL(&quot;URLlink_from_github_raw.csv&quot;), header = T)</code></pre>
+</div>
+<div id="how-to-get-p-values-to-be-listed-not-in-scientific-notation." class="section level5">
+<h5>3. how to get p values to be listed NOT in scientific notation.</h5>
+<p>just add…</p>
+<pre><code>options(scipen =999)</code></pre>
+<p>…to the top of the analysis chunk</p>
+</div>
+<div id="how-to-get-ggplots-out-of-r." class="section level5">
+<h5>4. how to get ggplots out of R.</h5>
+<p>After each plot chunk, add</p>
+<pre><code>ggsave(nameoffigure.png)
+</code></pre>
+<p>to make the figure save as a png to the working directory.</p>
+</div>
+<div id="how-to-get-a-pivot-table" class="section level5">
+<h5>5. how to get a pivot table</h5>
+<p>Pivot tables might me what I miss about excel the most. Sometimes you just want to eyeball a data set in a way that breaks down the observations into a table where you can cross variables and count them or average them.</p>
+<p>How to do that in R?</p>
+<p>If you want to know just how many observations belong to a single category the <code>table()</code> function is nice.</p>
+<pre><code>table(dataframe$variablename)
+</code></pre>
+<p>How many flowers of each species make up the iris dataset?</p>
+<pre class="r"><code>table(iris$Species)</code></pre>
+<pre><code>## 
+##     setosa versicolor  virginica 
+##         50         50         50</code></pre>
+<p>If you want to compute something rather than just counting observations, combining group_by and summarise is a good option.</p>
+<pre class="r"><code>iris %&gt;%
+  group_by(Species) %&gt;%
+  summarise(mean_Petal = mean(Petal.Length), 
+            count_flowers= n())</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   Species    mean_Petal count_flowers
+##   &lt;fct&gt;           &lt;dbl&gt;         &lt;int&gt;
+## 1 setosa           1.46            50
+## 2 versicolor       4.26            50
+## 3 virginica        5.55            50</code></pre>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>
