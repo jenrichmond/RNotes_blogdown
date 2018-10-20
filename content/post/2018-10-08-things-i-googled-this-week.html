@@ -25,6 +25,8 @@ install_github(&quot;authorname/packagename&quot;)
 <p>Sometimes data in a .csv file is hosted on github and it is faster to just read it from there than to download the .csv and then read it back in.</p>
 <p>In github, click the “Raw” button and then copy the url link. Use the <code>geturl</code> function from the <code>RCurl</code> package.</p>
 <pre><code>dataframe &lt;- read.csv(text=getURL(&quot;URLlink_from_github_raw.csv&quot;), header = T)</code></pre>
+<p>UPDATE: I learned from a <a href="http://varianceexplained.org/r/tidy-tuesday-college-major/">Dave Robinson’s Tidy Tuesday Screencast</a> this week that the read_csv will read from a github url with even less code.</p>
+<pre><code>dataframe &lt;- read_csv(&quot;URLlink_from_github_raw.csv&quot;, header = T)</code></pre>
 </div>
 <div id="how-to-get-p-values-to-be-listed-not-in-scientific-notation." class="section level5">
 <h5>3. how to get p values to be listed NOT in scientific notation.</h5>

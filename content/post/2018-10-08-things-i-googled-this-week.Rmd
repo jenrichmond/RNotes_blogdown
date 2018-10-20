@@ -37,6 +37,11 @@ In github, click the "Raw" button and then copy the url link.  Use the `geturl` 
 dataframe <- read.csv(text=getURL("URLlink_from_github_raw.csv"), header = T)
 ```
 
+UPDATE: I learned from a [Dave Robinson's Tidy Tuesday Screencast](http://varianceexplained.org/r/tidy-tuesday-college-major/) this week that the read_csv will read from a github url with even less code. 
+
+```
+dataframe <- read_csv("URLlink_from_github_raw.csv", header = T)
+```
 ##### 3. how to get p values to be listed NOT in scientific notation.
 
 just add... 
