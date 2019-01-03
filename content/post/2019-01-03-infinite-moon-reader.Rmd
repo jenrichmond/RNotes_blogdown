@@ -24,6 +24,7 @@ What does it mean by live preview? Maybe I don't have to `blogdown::serve_site()
 
 
 ### How to use infinite moon reader
+> NOTE: here I am talking about blogging etc, not about xarigan slides (which is definitely on my 2019 to learn list)
 
 ####Step 1. 
 
@@ -46,9 +47,9 @@ Write something and use Ctrl/Command-S to save it. Your document will update aut
 
 Doesn't `blogdown::serve_site()` do that anyway?
 
-Yes, when you are working in blogdown when you save, it runs `blogdown::serve_site()` and updates the Viewer pane. But that is not true of all markdown instances. In `radix` or when you are just doing an analysis in a markdown document, knitting the file can be slow. 
+Yes, when you are working in blogdown and save, it runs `blogdown::serve_site()` and updates the Viewer pane. But that is not true of all markdown instances. In `radix` or when you are just doing an analysis in a markdown document, knitting the file can be slow. 
 
-By having `xarigan::inf_mr()` running from the console, you can have the same functionality of `blogdown::serve_site()` on all markdown documents. And you can use it in blogdown too, so you don't need different knitting tricks for different situations. 
+By having `xarigan::inf_mr()` running in the console, you can have the same functionality of `blogdown::serve_site()` on all markdown documents. And you can use it in blogdown too, so you don't need different knitting tricks for different situations. 
 
 ### Is there a downside? 
 
