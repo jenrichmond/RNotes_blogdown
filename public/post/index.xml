@@ -6,10 +6,22 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>how to add a gif</title>
+      <link>/post/how-to-add-a-gif/</link>
+      <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-add-a-gif/</guid>
+      <description>Sometimes your plot needs a celebratory gif.
+I have just finished the vizwhiz module for #RYouWithMe and to top off the series I worked out how to add an RLady Wizard to our final plot.
+Just so I’ll remember for next time, here is a step by step how to…
+ how to add a gif to your ggplot Install the magick package and load it with ggplot. Install and load the beepr package too so you can have RStudio beep at you when it has finished rendering your gif (it can take a long time).</description>
+    </item>
     
     <item>
       <title>how to use the `here` package</title>
@@ -127,9 +139,7 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/mutate-and-if-else-to-create-new-variables/</guid>
-      <description>&lt;p&gt;I keep googling &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1&#34;&gt;these slides&lt;/a&gt; by &lt;a href=&#34;@daranzolin&#34;&gt;David Ranzolin&lt;/a&gt; each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I keep googling &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1&#34;&gt;these slides&lt;/a&gt; by &lt;a href=&#34;@daranzolin&#34;&gt;David Ranzolin&lt;/a&gt; each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -138,9 +148,7 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
       <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/use-map-to-read-many-csv-files/</guid>
-      <description>&lt;p&gt;Dipping my toes in purrr here and replicating options from a &lt;a href=&#34;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&#34;&gt;super useful blog post&lt;/a&gt; I found by &lt;a href=&#34;@clauswilke&#34;&gt;ClausWilke&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Dipping my toes in purrr here and replicating options from a &lt;a href=&#34;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&#34;&gt;super useful blog post&lt;/a&gt; I found by &lt;a href=&#34;@clauswilke&#34;&gt;ClausWilke&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -159,9 +167,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/lesser-known-stars-of-the-tidyverse/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -170,9 +176,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/dirty-data/</guid>
-      <description>&lt;p&gt;I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -181,9 +185,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/hotkeys/</guid>
-      <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -192,9 +194,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/cooking-with-datapasta/</guid>
-      <description>&lt;p&gt;Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -203,9 +203,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/calculating-age/</guid>
-      <description>&lt;p&gt;I have been playing with a new (not actually new, but new to R) dataset this week.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have been playing with a new (not actually new, but new to R) dataset this week.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -214,9 +212,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/fomo-on-user2018/</guid>
-      <description>&lt;p&gt;I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -226,8 +222,7 @@ I knew there was a time when I would encounter an R problem that needed the powe
       
       <guid>/post/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
- We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
-Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis.</description>
+HUGOMORE42 We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</description>
     </item>
     
     <item>
@@ -237,9 +232,7 @@ Because it was a “lets start at the very beginning” workshop, made me realis
       
       <guid>/post/sods18/</guid>
       <description>&lt;p&gt;Twitter is such a great R learning resource.
-The people who follow the #rstats hashtag are so generous with their time. You can post a question/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+The people who follow the #rstats hashtag are so generous with their time. You can post a question/problem with the hashtag and someone will reply and try and help you within about 20 min. It is awesome.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -248,9 +241,7 @@ The people who follow the #rstats hashtag are so generous with their time. You c
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/git-thinking/</guid>
-      <description>&lt;p&gt;The amazing &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;The amazing &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; was extraordinarily generous with her time tonight trying to help be troubleshoot deploying this site (love R-ladies). I learned a lot about git.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -268,7 +259,16 @@ The people who follow the #rstats hashtag are so generous with their time. You c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-08-30-hidden-stars-of-the-tidyverse/</guid>
-      <description>1.use as_tibble() 2. examine your NAs 3. look at numeric variables 4. examine data in a single column 5. make a mimimal reproducible example Emily’s favourite resources   Emily Robinson has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.</description>
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#use-as_tibble&#34;&gt;1.use &lt;code&gt;as_tibble()&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examine-your-nas&#34;&gt;2. examine your NAs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#look-at-numeric-variables&#34;&gt;3. look at numeric variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examine-data-in-a-single-column&#34;&gt;4. examine data in a single column&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#make-a-mimimal-reproducible-example&#34;&gt;5. make a mimimal reproducible example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#emilys-favourite-resources&#34;&gt;Emily’s favourite resources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</description>
     </item>
     
   </channel>

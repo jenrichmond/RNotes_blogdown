@@ -27,9 +27,7 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/hotkeys/</guid>
-      <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -39,8 +37,7 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
       
       <guid>/post/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
- We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
-Because it was a “lets start at the very beginning” workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don’t end up learning via osmosis.</description>
+HUGOMORE42 We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</description>
     </item>
     
   </channel>
