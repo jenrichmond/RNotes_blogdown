@@ -6,10 +6,20 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Just Three Things</title>
+      <link>/post/just-three-things/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/just-three-things/</guid>
+      <description>I love me a good #rstats screencast. David Robinson has been screencasting his #TidyTuesday efforts for the past few months and while it is GREAT to watch a master at work, I just don’t have time to watch someone code for an hour, in order to extract a handful of tips.
+So when I saw Nick Tierney tweet about posting short videos that contain Just Three Things, I thought “that is a GREAT idea”.</description>
+    </item>
     
     <item>
       <title>infinite moon reader</title>
