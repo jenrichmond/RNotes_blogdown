@@ -6,10 +6,20 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rm anova options</title>
+      <link>/post/anova-options/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/anova-options/</guid>
+      <description>I’ve been analysing some future thinking data and playing around with packages that can do repeated ANOVA (I know, I should do LMM). There is more than one way to skin a cat and the differences come down to two things.
+the intuitiveness of the function arguments the readibility of the output  Some checks to do before you start - all of these packages assume that you within and between subjects variables are factors, but also that your participant id is a factor</description>
+    </item>
     
     <item>
       <title>Just Three Things</title>
