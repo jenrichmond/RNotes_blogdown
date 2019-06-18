@@ -6,10 +6,21 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blogdown</title>
+      <link>/post/blogdown/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/blogdown/</guid>
+      <description>There has been lots of talk about blogdown on #rstats Twitter recently and people have been talking up the Hugo “Academic theme”.
+I want to give it a go to update my lab website, so thought it might be a good idea to pull together all the useful links I’ve seen recently into one place.
+Alison Hill I used Alison’s blog post when I first set up this blog. It looks like she has updated the post recently, so it is probably still a good place to start.</description>
+    </item>
     
     <item>
       <title>rm anova options</title>
