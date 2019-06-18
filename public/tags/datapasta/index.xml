@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Datapasta on R notes to myself</title>
+    <title>datapasta on R notes to myself</title>
     <link>/tags/datapasta/</link>
-    <description>Recent content in Datapasta on R notes to myself</description>
+    <description>Recent content in datapasta on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>

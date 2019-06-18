@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Analysis</title>
+      <title>analysis</title>
       <link>/tags/analysis/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -21,61 +21,7 @@
     </item>
     
     <item>
-      <title>Anova</title>
-      <link>/tags/anova/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/anova/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Datapasta</title>
-      <link>/tags/datapasta/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/datapasta/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dplyr</title>
-      <link>/tags/dplyr/</link>
-      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ggplot</title>
-      <link>/tags/ggplot/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ggplot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>/tags/git/</link>
-      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Learning</title>
-      <link>/tags/learning/</link>
-      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lmm</title>
+      <title>lmm</title>
       <link>/tags/lmm/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -84,43 +30,7 @@
     </item>
     
     <item>
-      <title>Purrr</title>
-      <link>/tags/purrr/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/purrr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reprex</title>
-      <link>/tags/reprex/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/reprex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Stats</title>
-      <link>/tags/stats/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/stats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Stringr</title>
-      <link>/tags/stringr/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/stringr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tidyr</title>
+      <title>tidyr</title>
       <link>/tags/tidyr/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -129,25 +39,43 @@
     </item>
     
     <item>
-      <title>Tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      <title>anova</title>
+      <link>/tags/anova/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidyverse/</guid>
+      <guid>/tags/anova/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tips</title>
-      <link>/tags/tips/</link>
-      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      <title>stats</title>
+      <link>/tags/stats/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tips/</guid>
+      <guid>/tags/stats/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ttest</title>
+      <title>dplyr</title>
+      <link>/tags/dplyr/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wrangling</title>
+      <link>/tags/wrangling/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttest</title>
       <link>/tags/ttest/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -156,11 +84,83 @@
     </item>
     
     <item>
-      <title>Wrangling</title>
-      <link>/tags/wrangling/</link>
-      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      <title>tips</title>
+      <link>/tags/tips/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/wrangling/</guid>
+      <guid>/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot</title>
+      <link>/tags/ggplot/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>purrr</title>
+      <link>/tags/purrr/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/purrr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reprex</title>
+      <link>/tags/reprex/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/reprex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stringr</title>
+      <link>/tags/stringr/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stringr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>/tags/tidyverse/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datapasta</title>
+      <link>/tags/datapasta/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/datapasta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learning</title>
+      <link>/tags/learning/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/tags/git/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/git/</guid>
       <description></description>
     </item>
     

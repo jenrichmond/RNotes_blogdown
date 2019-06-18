@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tips on R notes to myself</title>
+    <title>tips on R notes to myself</title>
     <link>/tags/tips/</link>
-    <description>Recent content in Tips on R notes to myself</description>
+    <description>Recent content in tips on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Sep 2018 00:00:00 +0000</lastBuildDate>
@@ -36,8 +36,11 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/curious-rmarkdown/</guid>
-      <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
-HUGOMORE42 We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</description>
+      <description>
+
+
+&lt;p&gt;What a treat it was to finally meet &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

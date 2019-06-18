@@ -23,6 +23,16 @@ Alison Hill I used Alison’s blog post when I first set up this blog. It looks 
     </item>
     
     <item>
+      <title>newposttest</title>
+      <link>/post/newposttest/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/newposttest/</guid>
+      <description> I think I have broken hugo testing whether this works
+ </description>
+    </item>
+    
+    <item>
       <title>rm anova options</title>
       <link>/post/anova-options/</link>
       <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
@@ -265,8 +275,11 @@ I knew there was a time when I would encounter an R problem that needed the powe
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/curious-rmarkdown/</guid>
-      <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
-HUGOMORE42 We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</description>
+      <description>
+
+
+&lt;p&gt;What a treat it was to finally meet &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -303,16 +316,7 @@ The people who follow the #rstats hashtag are so generous with their time. You c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-08-30-hidden-stars-of-the-tidyverse/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#use-as_tibble&#34;&gt;1.use &lt;code&gt;as_tibble()&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#examine-your-nas&#34;&gt;2. examine your NAs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#look-at-numeric-variables&#34;&gt;3. look at numeric variables&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#examine-data-in-a-single-column&#34;&gt;4. examine data in a single column&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#make-a-mimimal-reproducible-example&#34;&gt;5. make a mimimal reproducible example&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#emilys-favourite-resources&#34;&gt;Emily’s favourite resources&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;</description>
+      <description></description>
     </item>
     
   </channel>
