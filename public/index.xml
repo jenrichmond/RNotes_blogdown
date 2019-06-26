@@ -6,10 +6,21 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>apa figures</title>
+      <link>/post/apa-figures/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/apa-figures/</guid>
+      <description>As I write my first paper reporting data analysis coming out of R (woot!!!), here are some notes summarising all the googling I have done this morning about how to produce APA style figures in ggplot.
+  via GIPHY Load libraries Start by loading tidyverse to get ggplot, here to make finding the data easy, and papaja to get the theme_apa() function.
+library(tidyverse) library(here) library(papaja)  Read in data plotdata &amp;lt;- read_csv(here(&amp;quot;plotdata.</description>
+    </item>
     
     <item>
       <title>blogdown</title>
