@@ -6,10 +6,20 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>making memes in R</title>
+      <link>/post/making-memes-in-r/</link>
+      <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/making-memes-in-r/</guid>
+      <description>I having been prepping for my lightning talk at the R-Ladies Sydney Birthday this weekend and learning about all the packages that you can use to make memes in R. I’m going going to talk about my favourite option (which is the memery package), but here is what I learned about other packages.
+Option 1: memer The memer package by Sam Tyner is a tidyverse compatible package that allows you to replace text in popular memes with your own.</description>
+    </item>
     
     <item>
       <title>apa figures</title>
@@ -86,6 +96,17 @@ It works for all single-HTML-file outputs and even comes with a pre-made RStudio
 I have just finished the vizwhiz module for #RYouWithMe and to top off the series I worked out how to add an RLady Wizard to our final plot.
 Just so I’ll remember for next time, here is a step by step how to…
  how to add a gif to your ggplot Install the magick package and load it with ggplot. Install and load the beepr package too so you can have RStudio beep at you when it has finished rendering your gif (it can take a long time).</description>
+    </item>
+    
+    <item>
+      <title>how to use the `here` package</title>
+      <link>/post/how-to-use-the-here-package/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-use-the-here-package/</guid>
+      <description>I’m still working on getting my head around where R thinks we work and how to tell it where my stuff lives (aka working directories).
+On twitter yesterday Alison Hill, Adam Gruer, Zoe Meers and Irene Steves helped me sort out my issues with here.
+hi #rstats friends, how do YOU use the here package? I thought I had my head around it but I&#39;m doing something wrong. Here my markdown lives within the “markdown” folder, so I set here to the “data” folder, call read_csv(here(“datafile.</description>
     </item>
     
     <item>

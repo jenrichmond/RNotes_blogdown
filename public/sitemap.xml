@@ -4,14 +4,19 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/making-memes-in-r/</loc>
+    <lastmod>2019-07-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -47,6 +52,11 @@
   <url>
     <loc>/post/how-to-add-a-gif/</loc>
     <lastmod>2018-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how-to-use-the-here-package/</loc>
+    <lastmod>2018-10-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
