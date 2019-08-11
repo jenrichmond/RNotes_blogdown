@@ -18,7 +18,7 @@
       
       <guid>/post/pivoting/</guid>
       <description>Cute #rstats monster art by the amazing Allison Horst.
-I have been using gather() and spread() a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
+ I have been using gather() and spread() a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
 For example, this week Matilda and I were working with her language/locomotion data and we were looking at the number of action-directed, affirmative, and descriptive responses that parents make to their infants.</description>
     </item>
     

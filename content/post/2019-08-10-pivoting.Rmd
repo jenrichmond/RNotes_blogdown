@@ -9,6 +9,8 @@ tags: []
 ---
 Cute #rstats monster art by the amazing [Allison Horst](https://github.com/allisonhorst/stats-illustrations). 
 
+![](/post/2019-08-10-pivoting_files/gatherspread.jpeg)
+
 I have been using `gather()` and `spread()` a lot lately. I'm on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
 
 For example, this week Matilda and I were working with her language/locomotion data and we were looking at the number of action-directed, affirmative, and descriptive responses that parents make to their infants. 
@@ -73,7 +75,9 @@ devtools::install_github("tidyverse/tidyr")
 
 The new functions are called `pivot_longer()` (which replaces gather) and `pivot_wider()` (which replaces spread). 
 
-Lets try them out to make the loco_long data wide. For `pivot_wider()`, we need to know the df that we want to make wide, names_from = the column that contains the names to spread, values_from = the dv that you want to spread across columns. 
+![](/post/2019-08-10-pivoting_files/meme pivot.jpeg)
+
+Lets try them out to make the loco data wide. For `pivot_wider()`, we need to know the df that we want to make wide, names_from = the column that contains the names to spread, values_from = the dv that you want to spread across columns. 
 
 > df %>% pivot_wider(names_from = , values_from = )
 
