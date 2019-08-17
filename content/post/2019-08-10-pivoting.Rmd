@@ -6,6 +6,10 @@ slug: pivoting
 image: "img/portfolio/gatherspread.jpeg"
 categories: []
 tags: []
+output: 
+  html_document: 
+    includes:
+      in_header: pivot_twitter_card.html
 ---
 Cute #rstats monster art by the amazing [Allison Horst](https://github.com/allisonhorst/stats-illustrations). 
 
