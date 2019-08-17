@@ -14,7 +14,8 @@ tags: []
 <li>the intuitiveness of the function arguments</li>
 <li>the readibility of the output</li>
 </ol>
-<p>Some checks to do before you start - all of these packages assume that you within and between subjects variables are factors, but also that your participant id is a factor</p>
+<p>Some checks to do before you start
+- all of these packages assume that you within and between subjects variables are factors, but also that your participant id is a factor</p>
 <div id="a-few-favourites" class="section level3">
 <h3>A few favourites</h3>
 <div id="option-1-old-school-aov" class="section level4">
@@ -47,7 +48,7 @@ aov1 &lt;- aov(outcome ~ b1 * w1 * w2 +  Error(participant/(w1 *w2)) + b1, data 
 <li>wid = participants id</li>
 <li>within = if more than 1 use list .(factor1 , factor2)</li>
 <li>between =</li>
-<li>type = spss does type 3 by default, not recommended. Type 2 is best when unbalanced design</li>
+<li>type = type 2 is best when design is unbalanced, spss does type 3 by default-not recommended.</li>
 <li>detailed = TRUE</li>
 <li>return_aov = TRUE</li>
 </ul>
@@ -89,6 +90,24 @@ niceafex &lt;- nice(afex1) #make it a dataframe
 kable(niceafex) %&gt;%
   kable_styling() #print it in table format</code></pre>
 </div>
+<div id="how-to-get-contrasts" class="section level4">
+<h4>how to get contrasts</h4>
+<p>The <code>emmeans</code> (estimated marginal means) package is useful for following up effects with planned constrasts.</p>
+<p>Get marginal means for a main effect by running the <code>emmeans</code> function on your anova object and specifying the effect with a tilde. Then get paired contrasts by running the <code>pairs</code> function on the emms</p>
+<div id="main-effects" class="section level5">
+<h5>main effects</h5>
+<pre class="r"><code>emm &lt;- emmeans(afex1, ~ maineffect)
+
+pairs(emmm)</code></pre>
+</div>
+<div id="simple-interaction" class="section level5">
+<h5>simple interaction</h5>
+<pre class="r"><code>emm2 &lt;- emmeans(afex1, &quot;effect1&quot;, by = &quot;effect2&quot;)
+
+pairs(emm2)</code></pre>
+<p>Find more complex interaction contrasts in the <a href="https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html">emmeans vignette</a></p>
+</div>
+</div>
 <div id="anova-plotting" class="section level4">
 <h4>ANOVA plotting</h4>
 <p>afex package also allows for ANOVA plotting</p>
@@ -98,10 +117,7 @@ kable(niceafex) %&gt;%
 <li>trace = what you want connected by lines</li>
 <li>panel = what you want as subplots</li>
 </ul>
-<div id="anova-plot-formula" class="section level5">
-<h5>ANOVA plot formula</h5>
-<pre class="r"><code>afex_plot(anovaobj, x = &quot;b1&quot;, trace= &quot;b1&quot;, panel= &quot;w2&quot;)</code></pre>
-</div>
+<pre class="r"><code>afex_plot(afex1, x = &quot;b1&quot;, trace= &quot;b1&quot;, panel= &quot;w2&quot;)</code></pre>
 </div>
 </div>
 <div id="comparing-formulas-outputs" class="section level3">

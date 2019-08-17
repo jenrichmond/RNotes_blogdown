@@ -1,0 +1,76 @@
+---
+title: customise your R experience
+author: ''
+date: '2019-08-11'
+slug: customise-your-r-experience
+image: "img/portfolio/cropped.png"
+categories: []
+tags: []
+---
+
+
+
+<p>Would you like RStudio to show you a random The Good Place quote, spoken by a ASCII animal along with some random message of praise/encouragement each time you start a coding session or restart R?</p>
+<div id="how-to-customise-your-.rprofile" class="section level1">
+<h1>how to customise your .rprofile</h1>
+<p>You will need to install the following packages:</p>
+<ul>
+<li><code>usethis</code></li>
+<li><code>goodshirt</code></li>
+<li><code>cowsay</code></li>
+<li><code>praise</code></li>
+</ul>
+<div id="use-usethis-to-open-your-.rprofile-file" class="section level3">
+<h3>Use <code>usethis</code> to open your .rprofile file</h3>
+<pre class="r"><code>usethis::edit_r_profile()</code></pre>
+<p>Copy and paste this text into your .rprofile, save and close the file, then restart R.</p>
+<pre class="r"><code>#start with a quote from The Good Place (requires goodshirt package) 
+#spoken by a random ASCII animal (requires cowsay package)
+
+if (interactive() &amp;&amp; require(&quot;goodshirt&quot;, 
+  quietly = TRUE)) {
+  goodshirt::soul_squad()
+  cowsay::say(as.character(soul_squad()),
+              by = &quot;random&quot;,
+              what_color = crayon::blue$bold,
+              by_color = crayon::blue$bold)
+  
+# then get some random praise to get you started for the day (requires the praise package) 
+  
+  message(&quot;\nHappy Coding Jen!&quot;, &quot;💜&quot;)
+  message(praise::praise())
+
+}</code></pre>
+<p>The result….</p>
+<p><img src="/post/2019-08-11-customise-your-experience_files/message.png" /></p>
+</div>
+</div>
+<div id="change-your-rstudio-theme" class="section level1">
+<h1>Change your RStudio theme</h1>
+<p>How do you get your windows to be navy and text to be pink you ask? You can customise your R Studio theme by selecting…</p>
+<blockquote>
+<p>Tools…Global Options…Appearance</p>
+</blockquote>
+<p>My favourite of the default options (the navy background with pink text) is called Cobalt.</p>
+<p><img src="/post/2019-08-11-customise-your-experience_files/colbalt.png" /></p>
+<p>But iCobalt t not the cutest option! There was twitter frenzy last weekend about cuteness in #rstats coding …</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+💯 in support of this and while we're talking about making <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> cuter I just want to put it out into the universe that <a href="https://t.co/EpCUyPP90a">https://t.co/EpCUyPP90a</a> should be a packaged-in theme for RStudio <a href="https://t.co/igogMimxB9">pic.twitter.com/igogMimxB9</a>
+</p>
+— Mikhail Popov (<span class="citation">@bearloga</span>) <a href="https://twitter.com/bearloga/status/1159845693718069249?ref_src=twsrc%5Etfw">August 9, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>… and thanks to the amazing <a href="@grrrck">Garrick Aden-Buie</a> with these 3 lines of code, you too can have a fairy-floss themed RStudio experience</p>
+<pre class="r"><code>devtools::install_github(&quot;gadenbuie/rsthemes@fairyfloss&quot;)
+
+rsthemes::install_rsthemes()
+
+rstudioapi::applyTheme(&quot;Fairyfloss {rsthemes}&quot;)</code></pre>
+<p><img src="/post/2019-08-11-customise-your-experience_files/fairy.png" /></p>
+<iframe src="https://giphy.com/embed/wOU9mPo60N7Us" width="480" height="333" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/movie-pretty-mean-girls-wOU9mPo60N7Us">via GIPHY</a>
+</p>
+</div>

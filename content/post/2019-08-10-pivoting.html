@@ -11,10 +11,7 @@ tags: []
 
 
 <p>Cute #rstats monster art by the amazing <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a>.</p>
-<div class="figure">
-<img src="/post/2019-08-10-pivoting_files/gatherspread.jpeg" />
-
-</div>
+<p><img src="/post/2019-08-10-pivoting_files/gatherspread.jpeg" /></p>
 <p>I have been using <code>gather()</code> and <code>spread()</code> a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.</p>
 <p>For example, this week Matilda and I were working with her language/locomotion data and we were looking at the number of action-directed, affirmative, and descriptive responses that parents make to their infants.</p>
 <pre class="r"><code>library(tidyverse) 
@@ -86,10 +83,7 @@ Animated <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%
 <pre class="r"><code># install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;tidyverse/tidyr&quot;)</code></pre>
 <p>The new functions are called <code>pivot_longer()</code> (which replaces gather) and <code>pivot_wider()</code> (which replaces spread).</p>
-<div class="figure">
-<img src="/post/2019-08-10-pivoting_files/meme%20pivot.jpeg" />
-
-</div>
+<p><img src="/post/2019-08-10-pivoting_files/meme%20pivot.jpeg" /></p>
 <p>Lets try them out to make the loco data wide. For <code>pivot_wider()</code>, we need to know the df that we want to make wide, names_from = the column that contains the names to spread, values_from = the dv that you want to spread across columns.</p>
 <blockquote>
 <p>df %&gt;% pivot_wider(names_from = , values_from = )</p>
@@ -126,7 +120,8 @@ head(pivot_loco_wide, 10)</code></pre>
 <p>The structure of <code>pivot_longer()</code> is the same but you tell it which columns to gather. Then the names_to = is the name of the column that will contain the names, and values_to = the name of the column with values in it.</p>
 <p>Note for <code>pivot_longer()</code> but not <code>pivot_wider()</code>, you need to put the name of the names and values column in quotes. Presumably thats because those columns don’t exist yet?</p>
 <blockquote>
-<p>df %&gt;% pivot_longer(colsto:makelong, names_to = “namescol”, values_to = “valuecol”)</p>
+<p>df %&gt;%
+pivot_longer(colsto:makelong, names_to = “namescol”, values_to = “valuecol”)</p>
 </blockquote>
 <pre class="r"><code>pivot_loco_long &lt;- pivot_loco_wide %&gt;%
   pivot_longer(prop_aff:prop_action, names_to = &quot;resp&quot;, values_to = &quot;proportion&quot;) %&gt;%

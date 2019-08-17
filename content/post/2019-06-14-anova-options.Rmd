@@ -55,7 +55,7 @@ The ezANOVA() function asks you to specify...
 - wid = participants id
 - within = if more than 1 use list .(factor1 , factor2)
 - between = 
-- type = spss does type 3 by default, not recommended. Type 2 is best when unbalanced design
+- type =  type 2 is best when design is unbalanced, spss does type 3 by default-not recommended.
 - detailed = TRUE
 - return_aov = TRUE
 
@@ -111,6 +111,30 @@ kable(niceafex) %>%
   kable_styling() #print it in table format
 ```
 
+#### how to get contrasts
+
+The `emmeans` (estimated marginal means) package is useful for following up effects with planned constrasts. 
+
+Get marginal means for a main effect by running the `emmeans` function on your anova object and specifying the effect with a tilde. Then get paired contrasts by running the `pairs` function on the emms
+
+##### main effects
+```{r eval = FALSE}
+emm <- emmeans(afex1, ~ maineffect)
+
+pairs(emmm)
+
+```
+
+##### simple interaction
+
+```{r eval=FALSE}
+emm2 <- emmeans(afex1, "effect1", by = "effect2")
+
+pairs(emm2)
+```
+
+Find more complex interaction contrasts in the [emmeans vignette](https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html)
+
 #### ANOVA plotting
 afex package also allows for ANOVA plotting
 
@@ -120,10 +144,9 @@ Need to specify...
 - trace = what you want connected by lines
 - panel = what you want as subplots
 
-##### ANOVA plot formula 
 
 ```{r eval = FALSE}
-afex_plot(anovaobj, x = "b1", trace= "b1", panel= "w2")
+afex_plot(afex1, x = "b1", trace= "b1", panel= "w2")
 ```
 
 ### Comparing formulas + outputs
@@ -154,3 +177,4 @@ The old school aov() is best if you want to be consistent in the way formulas ar
 afex also doesn't adhere to the lm formula style, but it is really simple. The output is the same as ezANOVA but additional plotting functionality embedded is definitely helpful. I REALLY like the nice() function for formatting things. 
 
 > take home: afex is the favourite :)
+

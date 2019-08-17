@@ -6,10 +6,21 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>customise your R experience</title>
+      <link>/post/customise-your-r-experience/</link>
+      <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/customise-your-r-experience/</guid>
+      <description>Would you like RStudio to show you a random The Good Place quote, spoken by a ASCII animal along with some random message of praise/encouragement each time you start a coding session or restart R?
+how to customise your .rprofile You will need to install the following packages:
+ usethis goodshirt cowsay praise  Use usethis to open your .rprofile file usethis::edit_r_profile() Copy and paste this text into your .</description>
+    </item>
     
     <item>
       <title>Pivoting</title>
@@ -18,7 +29,7 @@
       
       <guid>/post/pivoting/</guid>
       <description>Cute #rstats monster art by the amazing Allison Horst.
- I have been using gather() and spread() a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
+I have been using gather() and spread() a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
 For example, this week Matilda and I were working with her language/locomotion data and we were looking at the number of action-directed, affirmative, and descriptive responses that parents make to their infants.</description>
     </item>
     
