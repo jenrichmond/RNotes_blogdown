@@ -57,7 +57,7 @@ The result....
 
 ![](/post/2019-08-11-customise-your-experience_files/message.png)
 
-Thanks to [Dani Navarro](@djnavarro) and [Charles Grey](@cantabile) for the inspiration!
+Thanks to [Dani Navarro](https://twitter.com/djnavarro) and [Charles Grey](https://twitter.com/cantabile) for the inspiration!
 
 
 # Change your RStudio theme
