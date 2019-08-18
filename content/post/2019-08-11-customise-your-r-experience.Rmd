@@ -8,7 +8,17 @@ categories: []
 tags: []
 ---
 
+```{r include=FALSE}
+library(headR)
+add_twitter_card(card_type = c("summary"), "customise your R experience",
+  description = NULL, user = NULL, image = "http://jenrichmond.rbind.io/post/customise-your-r-experience/", image_alt = NULL,
+  file = "twitter_card.html")
+```
+
+
 Would you like RStudio to show you a random The Good Place quote, spoken by a ASCII animal along with some random message of praise/encouragement each time you start a coding session or restart R? 
+
+Of course you do!!! 
 
 # how to customise your .rprofile
 
@@ -50,6 +60,9 @@ if (interactive() && require("goodshirt",
 The result....
 
 ![](/post/2019-08-11-customise-your-experience_files/message.png)
+
+Thanks to [Dani Navarro](@djnavarro) and [Charles Grey](@cantabile) for the inspiration!
+
 
 # Change your RStudio theme
 
