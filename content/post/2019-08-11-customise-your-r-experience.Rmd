@@ -6,13 +6,17 @@ slug: customise-your-r-experience
 image: "img/portfolio/cropped.png"
 categories: []
 tags: []
+output: 
+  html_document: 
+    includes:
+      in_header: customise_card.html
 ---
 
 ```{r include=FALSE}
 library(headR)
 add_twitter_card(card_type = c("summary"), "customise your R experience",
   description = NULL, user = NULL, image = "http://jenrichmond.rbind.io/post/customise-your-r-experience/", image_alt = NULL,
-  file = "twitter_card.html")
+  file = "customise_card.html")
 ```
 
 

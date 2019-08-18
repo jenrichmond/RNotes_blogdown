@@ -330,6 +330,11 @@
   </url>
   
   <url>
+    <loc>/post/customise_card/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/post/twitter_card/</loc>
     <priority>0</priority>
   </url>
