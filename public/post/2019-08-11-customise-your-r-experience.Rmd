@@ -6,10 +6,7 @@ slug: customise-your-r-experience
 image: "img/portfolio/cropped.png"
 categories: []
 tags: []
-twitterImg: img/portfolio/cropped.png
-header:
-  caption: ''
-  image: ''
+
 ---
 
 Would you like RStudio to show you a random The Good Place quote, spoken by a ASCII animal along with some random message of praise/encouragement each time you start a coding session or restart R? 
