@@ -127,6 +127,24 @@
                     ifelse(Stimulus == &quot;426784&quot;, &quot;angry&quot;, &quot;no&quot;)))))
 
 </code></pre>
+
+<h4 id="update-august-2019-case-when">update August 2019&hellip;.. case_when</h4>
+
+<p>ifelse works fine for creating new conditional variables when all the information you need to create that variable is in 1 column. But in the TwoRooms data I have been dealing with recently, I have separate columns that contain FALSE or NA according to whether the kid failed because they didn&rsquo;t remember, they chose incorrectly, or they didn&rsquo;t justify their decision by referring to the future. In order to pass the task they kinda have to remember, then choose, then justify, so I need the failure reason to default to that order. If they remember, but then don&rsquo;t choose correctly and don&rsquo;t justfy, I need the failure reason to be &ldquo;choice&rdquo;. If they dont remember, but choose correctly and but don&rsquo;t justify their decision by referring to the future (which would be weird), I need it to say they failed because of memory.</p>
+
+<p><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a> evaluates arguments in order, which is helpful.</p>
+
+<p>Here we create a new column using mutate, the values of which are either memory, choice, or justification, depending on whether P1memory, P1choice, or P1future (in that order) are == FALSE. SUPER helpful!!</p>
+
+<pre><code>whyfailP1 &lt;- gatherP1fail %&gt;%
+  filter(pass == FALSE) %&gt;%
+  arrange(Group) %&gt;%
+  tidyr::pivot_wider(names_from = DV, values_from = pass) %&gt;%
+  mutate(failreason = case_when(P1memory == &quot;FALSE&quot; ~ &quot;memory&quot;, 
+                                P1choice == &quot;FALSE&quot; ~ &quot;choice&quot;,
+                                P1future == &quot;FALSE&quot; ~ &quot;justification&quot;))
+                                
+</code></pre>
          
       </div>
     </div>

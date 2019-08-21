@@ -4,14 +4,19 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/mutate-and-if-else-to-create-new-variables/</loc>
+    <lastmod>2019-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -62,11 +67,6 @@
   <url>
     <loc>/post/how-to-add-a-gif/</loc>
     <lastmod>2018-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-use-the-here-package/</loc>
-    <lastmod>2018-10-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -197,11 +197,6 @@
   
   <url>
     <loc>/post/creating-data-using-rep/</loc>
-    <lastmod>2018-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/mutate-and-if-else-to-create-new-variables/</loc>
     <lastmod>2018-09-07T00:00:00+00:00</lastmod>
   </url>
   
