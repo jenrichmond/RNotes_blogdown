@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>insights from the Rmarkdown whisperer</title>
+<title>insights from the RMarkdown whisperer</title>
 <meta name="description" content="R notes to myself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -102,14 +102,14 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>insights from the Rmarkdown whisperer</h1>
+         <h1>insights from the RMarkdown whisperer</h1>
          
 
 
 <p>I had the pleasure of attending <a href="@apreshill">Alison Hill’s</a> <a href="https://ysc-rmarkdown.netlify.com/">RMarkdown workshop</a> in Canberra on Monday and I came away with so many tips and tricks! It was brillant.</p>
 <p>Alison covered A LOT over the course of the day. I learned lots of the power of yaml, how to create parameterised reports, and how to make a package that contains customised .Rmd templates. Each of those topics are blogposts for another day, but my favourite bit was making a beautiful Academic theme blogdown site.</p>
 <p>Slides from this section of Alison’s workshop available here: <a href="https://ysc-rmarkdown.netlify.com/slides/04-collections.html#1">Collections</a></p>
-<p>The <a href="https://themes.gohugo.io/academic/">Hugo Academic theme</a> is great, but is a bit… blah. It is really popular but all the sites look a bit same same. Alison and <a href="@dcossyle">Desirée De Leon</a>, who is a neuroscience grad student, CSS whiz, RStudio intern, and <a href="https://tinystats.github.io/teacups-giraffes-and-statistics/">mother of teacup giraffes</a> have fixed all that, adding all kinds of customisable fonts and colour schemes. And…. made it REALLY easy to get your site linked to github and on the internet. It is almost magical.</p>
+<p>The <a href="https://themes.gohugo.io/academic/">Hugo Academic theme</a> is great, but is a bit… blah. It is really popular but all the sites look a bit same same. Alison and <a href="@dcossyle">Desirée De Leon</a>, who is a neuroscience grad student, CSS whiz, RStudio intern, and <a href="https://tinystats.github.io/teacups-giraffes-and-statistics/">mother of teacup giraffes</a> have fixed all that, adding all kinds of customisable fonts and colour schemes. And…. made it REALLY easy to get your site linked to github and on the internet via Netlify. It is almost magical.</p>
 <p>So before I forget how to do it, here is a step by step guide for using The RMarkdown Whisperer’s <code>BeautifulAcademic</code>* blogdown template.</p>
 <p>*NOTE: its not actually called that but I think that they have made the <a href="https://themes.gohugo.io/academic/">Hugo Academic theme</a> beautiful.</p>
 <div id="how-to-make-academic-beautiful" class="section level3">
@@ -135,10 +135,10 @@ update_hugo()</code></pre>
 <li>change the name of the repository that it will create in your github account, click <code>Save and Deploy</code></li>
 <li>wait for the MAGIC</li>
 </ul>
-<iframe src="https://giphy.com/embed/pI2paNxecnUNW" width="480" height="284" frameBorder="0" class="giphy-embed" allowFullScreen>
+<iframe src="https://giphy.com/embed/l2YWs1NexTst9YmFG" width="480" height="358" frameBorder="0" class="giphy-embed" allowFullScreen>
 </iframe>
 <p>
-<a href="https://giphy.com/gifs/harry-potter-hermione-granger-ronald-weasley-pI2paNxecnUNW">via GIPHY</a>
+<a href="https://giphy.com/gifs/Filmeditor--halloween-ashley-olsen-l2YWs1NexTst9YmFG">via GIPHY</a>
 </p>
 <p>It will take a few seconds, but eventually netlify will deploy your site… to the internet… JUST LIKE THAT! It will have an “creative” url, but you can change that later.</p>
 <p>Now if you go to your github, there should be a new repo there, containing all of your site files.</p>
@@ -155,13 +155,13 @@ update_hugo()</code></pre>
 <div id="make-some-changes-to-your-site" class="section level4">
 <h4>5. Make some changes to your site</h4>
 <p>Now that you have the files on your machine and your site serves locally, you can customise everything. The contents of the <code>contents</code> folder is fair game.</p>
-<p>You can also change the fonts and theme by finding the params.toml file in the config/_default folder. You can find the available font and theme options in the data/fonts and data/themes folder.</p>
-<p>Change the config.toml to customise the name of your blog. Find the contents/authors/admin folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
+<p>You can also change the fonts and theme by finding the params.toml file in the <code>config/_default</code> folder. You can find the available font and theme options in the data/fonts and data/themes folder.</p>
+<p>Change the config.toml to customise the name of your blog. Find the <code>contents/authors/admin</code> folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
 <p>Use the New Post Addin to write new blog posts (or other types of content by choosing different Archetypes)</p>
 </div>
 <div id="push-changes-to-git" class="section level4">
 <h4>6. Push changes to git</h4>
-<p>Once you have made some changes to your site, you want to push them back to git. Make sure your R is talking to git by setting up the git config.</p>
+<p>Once you have made some changes to your site, you want to push them back to git. Make sure your R is talking to git by using the <code>usethis</code> package to set up your git config.</p>
 <pre class="r"><code>library(usethis)</code></pre>
 <pre><code>## Warning: package &#39;usethis&#39; was built under R version 3.5.2</code></pre>
 <pre class="r"><code>use_git_config(user.name = &quot;Your Name&quot;, user.email = &quot;your@email.com&quot;)</code></pre>
@@ -169,8 +169,8 @@ update_hugo()</code></pre>
 <p>Check your git repo and make sure that the changes appear there. Then check your netlify site; all going well your changes should appear there too!</p>
 </div>
 <div id="customise-your-url" class="section level4">
-<h4>6. Customise your url</h4>
-<p>You will be forgiven for not really liking the default ‘creative’ netlify url you have been assigned. You can go into Netlify and choose Site settings- Change site name to customise your .netlify.com url.</p>
+<h4>7. Customise your url</h4>
+<p>You can be forgiven for not really liking the default ‘creative’ netlify url you have been assigned. Customise that going back into Netlify and choosing Site settings- Change site name.</p>
 </div>
 </div>
 <div id="a-troubleshooting-tip." class="section level3">
