@@ -3,15 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/insights-from-the-markdown-whisperer/</loc>
+    <lastmod>2019-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
-    <lastmod>2019-08-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-08-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -85,15 +88,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2018-09-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/analysis/</loc>
     <lastmod>2018-09-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -104,7 +100,11 @@
   <url>
     <loc>/tags/lmm/</loc>
     <lastmod>2018-09-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2018-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -120,13 +120,11 @@
   <url>
     <loc>/tags/tidyr/</loc>
     <lastmod>2018-09-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/anova/</loc>
     <lastmod>2018-09-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -137,13 +135,11 @@
   <url>
     <loc>/tags/stats/</loc>
     <lastmod>2018-09-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/dplyr/</loc>
     <lastmod>2018-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -154,13 +150,11 @@
   <url>
     <loc>/tags/wrangling/</loc>
     <lastmod>2018-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/about/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -169,13 +163,12 @@
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>/projects/a-friendly-t-test-example/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/projects/a-friendly-t-test-example/</loc>
+    <loc>/projects/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -187,7 +180,6 @@
   <url>
     <loc>/tags/ttest/</loc>
     <lastmod>2018-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -203,7 +195,6 @@
   <url>
     <loc>/tags/tips/</loc>
     <lastmod>2018-09-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -219,7 +210,6 @@
   <url>
     <loc>/tags/ggplot/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -230,25 +220,21 @@
   <url>
     <loc>/tags/purrr/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/reprex/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/stringr/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tidyverse/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -269,7 +255,6 @@
   <url>
     <loc>/tags/datapasta/</loc>
     <lastmod>2018-08-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -295,13 +280,11 @@
   <url>
     <loc>/tags/learning/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/git/</loc>
     <lastmod>2018-06-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -326,7 +309,6 @@
   
   <url>
     <loc>/categories/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

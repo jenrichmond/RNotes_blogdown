@@ -1,0 +1,23 @@
+---
+title: "rmd workshop notes"
+author: "Jen Richmond"
+date: "02/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Useful tips and tricks 
+
+### [RMarkdown basics](https://ysc-rmarkdown.netlify.com/slides/01-basics.html#1)
+
+
+(thats the piece of code at the top of your RMarkdown document that appears between the triple dashes), and how you can use it to get handy things like a table of contents, and add a theme to you documents so that you can customise fonts etc.
+
+### [Advanced R Markdown](https://ysc-rmarkdown.netlify.com/slides/02-advanced.html#1)
+
+
+
+### [Templates](https://ysc-rmarkdown.netlify.com/slides/03-templates.html#1)

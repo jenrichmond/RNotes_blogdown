@@ -6,10 +6,20 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>insights from the Rmarkdown whisperer</title>
+      <link>/post/insights-from-the-markdown-whisperer/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/insights-from-the-markdown-whisperer/</guid>
+      <description>I had the pleasure of attending Alison Hill’s RMarkdown workshop in Canberra on Monday and I came away with so many tips and tricks! It was brillant.
+Alison covered A LOT over the course of the day. I learned lots of the power of yaml, how to create parameterised reports, and how to make a package that contains customised .Rmd templates. Each of those topics are blogposts for another day, but my favourite bit was making a beautiful Academic theme blogdown site.</description>
+    </item>
     
     <item>
       <title>mutate &#43; if else = new conditional variable</title>

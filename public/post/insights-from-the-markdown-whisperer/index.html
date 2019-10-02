@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>insights from the Rmarkdown whisperer</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>insights from the Rmarkdown whisperer</h1>
+         
+
+
+<p>I had the pleasure of attending <a href="@apreshill">Alison Hill’s</a> <a href="https://ysc-rmarkdown.netlify.com/">RMarkdown workshop</a> in Canberra on Monday and I came away with so many tips and tricks! It was brillant.</p>
+<p>Alison covered A LOT over the course of the day. I learned lots of the power of yaml, how to create parameterised reports, and how to make a package that contains customised .Rmd templates. Each of those topics are blogposts for another day, but my favourite bit was making a beautiful Academic theme blogdown site.</p>
+<p>Slides from this section of Alison’s workshop available here: <a href="https://ysc-rmarkdown.netlify.com/slides/04-collections.html#1">Collections</a></p>
+<p>The <a href="https://themes.gohugo.io/academic/">Hugo Academic theme</a> is great, but is a bit… blah. It is really popular but all the sites look a bit same same. Alison and <a href="@dcossyle">Desirée De Leon</a>, who is a neuroscience grad student, CSS whiz, RStudio intern, and <a href="https://tinystats.github.io/teacups-giraffes-and-statistics/">mother of teacup giraffes</a> have fixed all that, adding all kinds of customisable fonts and colour schemes. And…. made it REALLY easy to get your site linked to github and on the internet. It is almost magical.</p>
+<p>So before I forget how to do it, here is a step by step guide for using The RMarkdown Whisperer’s <code>BeautifulAcademic</code>* blogdown template.</p>
+<p>*NOTE: its not actually called that but I think that they have made the <a href="https://themes.gohugo.io/academic/">Hugo Academic theme</a> beautiful.</p>
+<div id="how-to-make-academic-beautiful" class="section level3">
+<h3>How to make Academic Beautiful</h3>
+<div id="install-blogdown-and-check-your-hugo-version" class="section level4">
+<h4>1. Install blogdown and check your hugo version</h4>
+<pre class="r"><code>library(blogdown)
+
+hugo_version() #if this is less than 0.57 something then run...
+
+update_hugo()</code></pre>
+</div>
+<div id="get-github-and-netlify" class="section level4">
+<h4>2. Get github and netlify</h4>
+<p>Make sure you have a github account, and you might as well sign up at netlify.com too.</p>
+</div>
+<div id="find-alisons-ysc-template-at-her-github" class="section level4">
+<h4>3. Find Alison’s ysc template at her github</h4>
+<ul>
+<li>go to this <a href="https://github.com/ysc2019-workshop/04-blogdown">link</a> to find the ysc-blogdown github repo</li>
+<li>click the Magic <code>Deploy to Netlify</code> button at the bottom (yes, its ok- just do it).</li>
+<li>once you are at netlify, use the <code>Connect to Github</code> button</li>
+<li>change the name of the repository that it will create in your github account, click <code>Save and Deploy</code></li>
+<li>wait for the MAGIC</li>
+</ul>
+<iframe src="https://giphy.com/embed/pI2paNxecnUNW" width="480" height="284" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/harry-potter-hermione-granger-ronald-weasley-pI2paNxecnUNW">via GIPHY</a>
+</p>
+<p>It will take a few seconds, but eventually netlify will deploy your site… to the internet… JUST LIKE THAT! It will have an “creative” url, but you can change that later.</p>
+<p>Now if you go to your github, there should be a new repo there, containing all of your site files.</p>
+<p>Alison’s bakeoff-themed site with monsters from <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a> is cute, but you probably want to make it your own. Next you need to get the files on your local machine.</p>
+</div>
+<div id="clonedownload-the-zip-folder" class="section level4">
+<h4>4. Clone/Download the zip folder</h4>
+<ul>
+<li>use the clone/download button to download a zip folder of the whole repo to your desktop (or somewhere else that makes sense)</li>
+<li>unzip the folder and open the .Rproj file</li>
+<li>in your console, type serve_site() and see what happens in your Viewer tab</li>
+</ul>
+</div>
+<div id="make-some-changes-to-your-site" class="section level4">
+<h4>5. Make some changes to your site</h4>
+<p>Now that you have the files on your machine and your site serves locally, you can customise everything. The contents of the <code>contents</code> folder is fair game.</p>
+<p>You can also change the fonts and theme by finding the params.toml file in the config/_default folder. You can find the available font and theme options in the data/fonts and data/themes folder.</p>
+<p>Change the config.toml to customise the name of your blog. Find the contents/authors/admin folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
+<p>Use the New Post Addin to write new blog posts (or other types of content by choosing different Archetypes)</p>
+</div>
+<div id="push-changes-to-git" class="section level4">
+<h4>6. Push changes to git</h4>
+<p>Once you have made some changes to your site, you want to push them back to git. Make sure your R is talking to git by setting up the git config.</p>
+<pre class="r"><code>library(usethis)</code></pre>
+<pre><code>## Warning: package &#39;usethis&#39; was built under R version 3.5.2</code></pre>
+<pre class="r"><code>use_git_config(user.name = &quot;Your Name&quot;, user.email = &quot;your@email.com&quot;)</code></pre>
+<p>Then find the Git pull down (next to the Addins) and choose commit. Select the checkboxes for files that you want to commit, write an informative commit message, press the commit button and then the push button. Enter your git credentials.</p>
+<p>Check your git repo and make sure that the changes appear there. Then check your netlify site; all going well your changes should appear there too!</p>
+</div>
+<div id="customise-your-url" class="section level4">
+<h4>6. Customise your url</h4>
+<p>You will be forgiven for not really liking the default ‘creative’ netlify url you have been assigned. You can go into Netlify and choose Site settings- Change site name to customise your .netlify.com url.</p>
+</div>
+</div>
+<div id="a-troubleshooting-tip." class="section level3">
+<h3>A troubleshooting tip….</h3>
+<p>If you are uncertain what something you have done to your site will deploy well to netlify, Alison recommends a quick drag and drop test. Go to the <a href="https://app.netlify.com/drop">Drag and Drop App</a> and just drag your whole public folder there.
+Netlify will deploy it (with another creative url) which will last 24 hours unless you confirm you want it to be permanent. The drop app is a helpful testing ground.</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>
