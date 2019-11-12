@@ -6,10 +6,24 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>serious git thinking</title>
+      <link>/post/serious-git-thinking/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/serious-git-thinking/</guid>
+      <description>I have been a git user for 513 days.
+When I was first setting up this blog, my dear friend Charles T Gray helped me learn the 3 terminal commands that you need to know to interact with git in the most rudimentary of ways.
+ git add .
+  git commit -m “something meaningful”
+  git push
+ Since then I have mostly just used these 3 commands to push blog posts to git.</description>
+    </item>
     
     <item>
       <title>best stats meme ive seen in a while</title>

@@ -1,0 +1,77 @@
+---
+title: serious git thinking
+author: ''
+date: '2019-11-12'
+slug: serious-git-thinking
+image: "img/portfolio/Octocat.png"
+categories: []
+tags: []
+---
+
+
+
+<p>I have been a git user for 513 days.</p>
+<p>When I was first setting up this blog, my dear friend <a href="@cantabile">Charles T Gray</a> helped me learn the <a href="http://jenrichmond.rbind.io/post/git-thinking/">3 terminal commands</a> that you need to know to interact with git in the most rudimentary of ways.</p>
+<blockquote>
+<p>git add .</p>
+</blockquote>
+<blockquote>
+<p>git commit -m “something meaningful”</p>
+</blockquote>
+<blockquote>
+<p>git push</p>
+</blockquote>
+<p>Since then I have mostly just used these 3 commands to push blog posts to git. In fact I don’t even really remember the commands (i.e is it commit dash m? Or commit m dash?), because my terminal remembers for me! I just use the up arrow to scroll through recently used commands.</p>
+<p>But git is really supposed to be helpful for version control and collaboration. So… it is time to broaden my git horizons.</p>
+<p>Luckily Charles and I had an opportunity to collaborate on a project recently and we did it with branches and pull requests and even one instance of a insurmountable merge conflict that resulted in us just burning it all down (which is fine because it is version control).</p>
+<iframe src="https://giphy.com/embed/3o6Mbjd61ZQMHoNg4M" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/music-video-britney-spears-toxic-3o6Mbjd61ZQMHoNg4M">via GIPHY</a>
+</p>
+<p>In this post, I am going to try and replicate what we did by inviting Charles to “fork” a copy of my blog repo and contribute to this post in a “branch” that we will “merge” (I think those are the right terms, but definitely correct them Charles!). Along the way, hopefully we will create a <em>walkthrough</em> that will be a useful resource for others trying to learn git.</p>
+<div id="when-things-go-wrong-it-is-ok-to-just-burn-it-down" class="section level1">
+<h1>when things go wrong, it is ok to just burn it down</h1>
+<p>The scariest thing about git is the error messages. Just tonight I ran into a branch merge error on my own blog repo, which is weird because I am the only person who works on it and I don’t even know how to create a branch… sigh.</p>
+<p>Git errors are impenetrable. The hints are not helpful and the word <em>fatal</em> just makes it sound really bad.</p>
+<blockquote>
+<p>N591:RnotesBlog jenny$ git pull
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use ‘git add/rm <file>’
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.</p>
+</blockquote>
+<p>But what I have learned from troubleshooting this, my second merge conflict this week, is that it is ABSOLUTELY fine to burn it all down and clone again. To be clear… this means <strong>deleting the local copy of your repo</strong> and then cloning from github. Don’t delete your repo on github!</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+That's what I do! <a href="https://t.co/97fdxsuAKp">pic.twitter.com/97fdxsuAKp</a>
+</p>
+— Michael Sumner (<span class="citation">@mdsumner</span>) <a href="https://twitter.com/mdsumner/status/1194193067269447680?ref_src=twsrc%5Etfw">November 12, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Charles held my hand through this process tonight on slack and it is relatively painless. I even learned a little bash along the way.</p>
+<div id="how-to-use-bash-to-burn-it-down-and-reclone" class="section level3">
+<h3>how to use bash to burn it down and reclone</h3>
+<ul>
+<li>open a new Terminal</li>
+<li>type <code>pwd</code> to print your working directory</li>
+<li>navigate to the location of the repo you want to burn using <code>cd path/to/where/you/want/repo</code> to change directory. You don’t need to type the file path. You can just type the first letter of each folder level and use tab to auto-complete (handy!)</li>
+<li>once you are at the folder that contains the repo you want to delete (check using <code>pwd</code> again) check that the folder you want to delete is there, using <code>ls</code> to get a list of contents.<br />
+</li>
+<li>then type <code>rm -rf old-repo</code> to remove the folder and everything in it (rf is for recursively forcing)</li>
+<li>use <code>ls</code> to check that it is gone</li>
+</ul>
+<p>AND THEN… this bit will blow your mind…</p>
+<p>…go to your github repo and copy the url that is displayed when you press the green Clone button. Back to the terminal and type <code>git clone paste-url-from-git</code> to clone your unconflicted repo.</p>
+<p>It is almost so easy to burn it down and clone again that I am less motivated to learn how to actually deal with merge conflicts than I was yesterday… BUT this is what this project is all about.</p>
+<p>I am going to push this post to my blog, Charles is going to fork it and then contribute something about her git journey thus far…..</p>
+<p>Over to you Charles!!</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+people who know git: if it all goes terribly wrong you can burn it to the ground and start again. Because it’s version control… Watching <a href="https://twitter.com/cantabile?ref_src=twsrc%5Etfw"><span class="citation">@cantabile</span></a> do this to our repo over lunch is strangely liberating <a href="https://twitter.com/hashtag/AIMOS2019?src=hash&amp;ref_src=twsrc%5Etfw">#AIMOS2019</a> <a href="https://t.co/vWSGf7xEyh">pic.twitter.com/vWSGf7xEyh</a>
+</p>
+— A/Prof Jenny Richmond (<span class="citation">@JenRichmondPhD</span>) <a href="https://twitter.com/JenRichmondPhD/status/1192618519105425408?ref_src=twsrc%5Etfw">November 8, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
