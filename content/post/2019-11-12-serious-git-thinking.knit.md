@@ -105,21 +105,19 @@ There are two things to consider, places you can be and if two places are connec
 
 In 1736, Leonhard Euler transformed problems such as this when considering the problem of the seven bridges of the city of K&ouml;nigberg. The challenge was to devise a walk through the city that would cross each of the bridges once and once only. 
 
-```{r echo=FALSE,out.width="40%", fig.cap="The bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png)"}
-
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png")
-
-```
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png" alt="The bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png)" width="40%" />
+<p class="caption">The bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png)</p>
+</div>
 
 
 Euler reimagined this problem in terms of _nodes_ to represent land and _edges_ to represent the bridges. Or, as I refer to them in my head, **bobbles** and **lines**. Through this reimagining, Euler was able to show there was no solution to the problem of the bridges of K&ouml;nigsberg.
 
 
-```{r echo=FALSE,out.width="40%", fig.cap="Euler's reimaging of the bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png)"}
-
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png")
-
-```
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png" alt="Euler's reimaging of the bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png)" width="40%" />
+<p class="caption">Euler's reimaging of the bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png)</p>
+</div>
 
 These collections of _nodes_ and _edges_ are called _graphs_.
 
@@ -128,11 +126,10 @@ These collections of _nodes_ and _edges_ are called _graphs_.
 The specific type of graph we encounter in  navigating bash _and_ Git, is a tree.
 
 
-```{r echo=FALSE,out.width="60%", fig.cap="Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)"}
-
-knitr::include_graphics("http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif")
-
-```
+<div class="figure">
+<img src="http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif" alt="Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)" width="60%" />
+<p class="caption">Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)</p>
+</div>
 
 Trees are special types of graphs where you can't go in a circle. They are _acyclic_. 
 

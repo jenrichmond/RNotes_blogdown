@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R notes to myself</title>
@@ -22,6 +22,34 @@ When I was first setting up this blog, my dear friend Charles T Gray helped me l
  git add .
   git commit -m “something meaningful”
   git push
+ Since then I have mostly just used these 3 commands to push blog posts to git.</description>
+    </item>
+    
+    <item>
+      <title>serious git thinking</title>
+      <link>/post/serious-git-thinking/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/serious-git-thinking/</guid>
+      <description>I have been a git user for 513 days.
+When I was first setting up this blog, my dear friend Charles T Gray helped me learn the 3 terminal commands that you need to know to interact with git in the most rudimentary of ways.
+ git add .
+git commit -m &amp;ldquo;something meaningful&amp;rdquo;
+git push
+ Since then I have mostly just used these 3 commands to push blog posts to git.</description>
+    </item>
+    
+    <item>
+      <title>serious git thinking</title>
+      <link>/post/serious-git-thinking/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/serious-git-thinking/</guid>
+      <description>I have been a git user for 513 days.
+When I was first setting up this blog, my dear friend Charles T Gray helped me learn the 3 terminal commands that you need to know to interact with git in the most rudimentary of ways.
+ git add .
+git commit -m &amp;ldquo;something meaningful&amp;rdquo;
+git push
  Since then I have mostly just used these 3 commands to push blog posts to git.</description>
     </item>
     

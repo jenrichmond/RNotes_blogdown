@@ -75,3 +75,63 @@ people who know git: if it all goes terribly wrong you can burn it to the ground
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 </div>
+<div id="musings-from-charles-on-gitflow" class="section level1">
+<h1>Musings from Charles on gitflow</h1>
+<div id="walking-around-lappy486" class="section level2">
+<h2>walking around lappy486</h2>
+<p>All week I was thinking about what I’ve figured out about Git and it feels like nothing much at all.</p>
+<p>What was interesting about working with Jen was how much she, too, valued the ability to burn it down and keep on going. Sharing my work collaboratively online is, right now, more useful to me than how adept I am at navigating versions.</p>
+<p>And that takes me to some mathematical thoughts.</p>
+<p>Jen and I made some progress in <em>navigating</em> these systems, and I think, for us, researchers who <em>use</em> code. We are research software engineers, our research is not focussed on code.</p>
+<p>So what do we value? Well, as a graduate student, sharing code and creating online content, blogs and sites, has been of extraordinary benefit.</p>
+<p>For this project with Jen, we set up a site the R package <code>distill::</code>, and deployed it via GitHub pages. In this context, that was more valuable to me than the version control itself.</p>
+<p>So, if the focus is sharing, what is a minimal gitflow?</p>
+<p>Finding our way around. A very good place to start.</p>
+<div id="grid-based-navigation-in-86-adventure-games" class="section level3">
+<h3>grid-based navigation in *86 adventure games</h3>
+<p>In the eighties there was a golden era of puzzle adventure games: Monkey Island, King’s Quest, Space Quest, etc. We played these on 286, 386, and 486 machines.</p>
+<p>Your screen would represent one grid square, and you could walk in four directions: up, down, left, right. This would take you to another place on the grid.</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+A little homework, <a href="https://twitter.com/JenRichmondPhD?ref_src=twsrc%5Etfw"><span class="citation">@JenRichmondPhD</span></a>; to whet your appetite for my contribution to our blog post. <a href="https://t.co/dqLiKhZXYg">https://t.co/dqLiKhZXYg</a><br><br>And I assume <a href="https://twitter.com/Hao_and_Y?ref_src=twsrc%5Etfw"><span class="citation">@Hao_and_Y</span></a> and <a href="https://twitter.com/Quasilocal?ref_src=twsrc%5Etfw"><span class="citation">@Quasilocal</span></a> will enjoy this task, too.
+</p>
+— Cap'n Blackheart Bette (<span class="citation">@cantabile</span>) <a href="https://twitter.com/cantabile/status/1194737287902330880?ref_src=twsrc%5Etfw">November 13, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Navigating a computer is a similar experience. Your representative in the computer space changes location with respect to the computer space, even though you are still sitting in the same chair.</p>
+</div>
+<div id="the-seven-bridges-of-königsberg" class="section level3">
+<h3>the seven bridges of königsberg</h3>
+<p>These grids were not infinite; indeed they were rarely greater than 10 x 10. When you reached a left edge, you could not move left any further.</p>
+<p>There are two things to consider, places you can be and if two places are connected.</p>
+<p>In 1736, Leonhard Euler transformed problems such as this when considering the problem of the seven bridges of the city of Königberg. The challenge was to devise a walk through the city that would cross each of the bridges once and once only.</p>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png" alt="The bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png)" width="40%" />
+<p class="caption">
+Figure 1: The bridges problem. (Image source <a href="https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png">wikipedia).</a>
+</p>
+</div>
+<p>Euler reimagined this problem in terms of <em>nodes</em> to represent land and <em>edges</em> to represent the bridges. Or, as I refer to them in my head, <strong>bobbles</strong> and <strong>lines</strong>. Through this reimagining, Euler was able to show there was no solution to the problem of the bridges of Königsberg.</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png" alt="Euler's reimaging of the bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png)" width="40%" />
+<p class="caption">
+Figure 2: Euler’s reimaging of the bridges problem. (Image source <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png">wikipedia).</a>
+</p>
+</div>
+<p>These collections of <em>nodes</em> and <em>edges</em> are called <em>graphs</em>.</p>
+</div>
+<div id="trees-and-git" class="section level3">
+<h3>trees and git</h3>
+<p>The specific type of graph we encounter in navigating bash <em>and</em> Git, is a tree.</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif" alt="Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)" width="60%" />
+<p class="caption">
+Figure 3: Examples of tree structures with different numbers of nodes. (Image source <a href="http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif">wolfram).</a>
+</p>
+</div>
+<p>Trees are special types of graphs where you can’t go in a circle. They are <em>acyclic</em>.</p>
+<p>Keep going down, and you will hit a bottom, and keep going up and you will hit a top. But they may not be the bottom or top you are looking for, and therein is the rub.</p>
+<p>If I’ve learnt anything from this adventure in collaborating via git, it’s find a friend to walk these paths. Because, even though we can’t technically go around in circles, it sure feels like we are.</p>
+</div>
+</div>
+</div>
