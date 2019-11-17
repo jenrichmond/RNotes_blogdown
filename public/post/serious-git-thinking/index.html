@@ -105,137 +105,132 @@
          <h1>serious git thinking</h1>
          
 
+
 <p>I have been a git user for 513 days.</p>
-
 <p>When I was first setting up this blog, my dear friend <a href="@cantabile">Charles T Gray</a> helped me learn the <a href="http://jenrichmond.rbind.io/post/git-thinking/">3 terminal commands</a> that you need to know to interact with git in the most rudimentary of ways.</p>
-
 <blockquote>
 <p>git add .</p>
-
-<p>git commit -m &ldquo;something meaningful&rdquo;</p>
-
+</blockquote>
+<blockquote>
+<p>git commit -m “something meaningful”</p>
+</blockquote>
+<blockquote>
 <p>git push</p>
 </blockquote>
-
-<p>Since then I have mostly just used these 3 commands to push blog posts to git. In fact I don&rsquo;t even really remember the commands (i.e is it commit dash m? Or commit m dash?), because my terminal remembers for me! I just use the up arrow to scroll through recently used commands.</p>
-
-<p>But git is really supposed to be helpful for version control and collaboration. So&hellip; it is time to broaden my git horizons.</p>
-
+<p>Since then I have mostly just used these 3 commands to push blog posts to git. In fact I don’t even really remember the commands (i.e is it commit dash m? Or commit m dash?), because my terminal remembers for me! I just use the up arrow to scroll through recently used commands.</p>
+<p>But git is really supposed to be helpful for version control and collaboration. So… it is time to broaden my git horizons.</p>
 <p>Luckily Charles and I had an opportunity to collaborate on a project recently and we did it with branches and pull requests and even one instance of a insurmountable merge conflict that resulted in us just burning it all down (which is fine because it is version control).</p>
-
-<p><iframe src="https://giphy.com/embed/3o6Mbjd61ZQMHoNg4M" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/music-video-britney-spears-toxic-3o6Mbjd61ZQMHoNg4M">via GIPHY</a></p></p>
-
-<p>In this post, I am going to try and replicate what we did by inviting Charles to &ldquo;fork&rdquo; a copy of my blog repo and contribute to this post in a &ldquo;branch&rdquo; that we will &ldquo;merge&rdquo; (I think those are the right terms, but definitely correct them Charles!). Along the way, hopefully we will create a <em>walkthrough</em> that will be a useful resource for others trying to learn git.</p>
-
-<h1 id="when-things-go-wrong-it-is-ok-to-just-burn-it-down">when things go wrong, it is ok to just burn it down</h1>
-
-<p>The scariest thing about git is the error messages. Just tonight I ran into a branch merge error on my own blog repo, which is weird because I am the only person who works on it and I don&rsquo;t even know how to create a branch&hellip; sigh.</p>
-
+<iframe src="https://giphy.com/embed/3o6Mbjd61ZQMHoNg4M" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/music-video-britney-spears-toxic-3o6Mbjd61ZQMHoNg4M">via GIPHY</a>
+</p>
+<p>In this post, I am going to try and replicate what we did by inviting Charles to “fork” a copy of my blog repo and contribute to this post in a “branch” that we will “merge” (I think those are the right terms, but definitely correct them Charles!). Along the way, hopefully we will create a <em>walkthrough</em> that will be a useful resource for others trying to learn git.</p>
+<div id="when-things-go-wrong-it-is-ok-to-just-burn-it-down" class="section level1">
+<h1>when things go wrong, it is ok to just burn it down</h1>
+<p>The scariest thing about git is the error messages. Just tonight I ran into a branch merge error on my own blog repo, which is weird because I am the only person who works on it and I don’t even know how to create a branch… sigh.</p>
 <p>Git errors are impenetrable. The hints are not helpful and the word <em>fatal</em> just makes it sound really bad.</p>
-
 <blockquote>
 <p>N591:RnotesBlog jenny$ git pull
 error: Pulling is not possible because you have unmerged files.
-hint: Fix them up in the work tree, and then use &lsquo;git add/rm <file>&lsquo;
+hint: Fix them up in the work tree, and then use ‘git add/rm <file>’
 hint: as appropriate to mark resolution and make a commit.
 fatal: Exiting because of an unresolved conflict.</p>
 </blockquote>
-
-<p>But what I have learned from troubleshooting this, my second merge conflict this week, is that it is ABSOLUTELY fine to burn it all down and clone again. To be clear&hellip; this means <strong>deleting the local copy of your repo</strong> and then cloning from github. Don&rsquo;t delete your repo on github!</p>
-
-<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">That&#39;s what I do! <a href="https://t.co/97fdxsuAKp">pic.twitter.com/97fdxsuAKp</a></p>&mdash; Michael Sumner (@mdsumner) <a href="https://twitter.com/mdsumner/status/1194193067269447680?ref_src=twsrc%5Etfw">November 12, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
+<p>But what I have learned from troubleshooting this, my second merge conflict this week, is that it is ABSOLUTELY fine to burn it all down and clone again. To be clear… this means <strong>deleting the local copy of your repo</strong> and then cloning from github. Don’t delete your repo on github!</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+That's what I do! <a href="https://t.co/97fdxsuAKp">pic.twitter.com/97fdxsuAKp</a>
+</p>
+— Michael Sumner (<span class="citation">@mdsumner</span>) <a href="https://twitter.com/mdsumner/status/1194193067269447680?ref_src=twsrc%5Etfw">November 12, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>Charles held my hand through this process tonight on slack and it is relatively painless. I even learned a little bash along the way.</p>
-
-<h3 id="how-to-use-bash-to-burn-it-down-and-reclone">how to use bash to burn it down and reclone</h3>
-
+<div id="how-to-use-bash-to-burn-it-down-and-reclone" class="section level3">
+<h3>how to use bash to burn it down and reclone</h3>
 <ul>
 <li>open a new Terminal</li>
 <li>type <code>pwd</code> to print your working directory</li>
-<li>navigate to the location of the repo you want to burn using <code>cd path/to/where/you/want/repo</code> to change directory. You don&rsquo;t need to type the file path. You can just type the first letter of each folder level and use tab to auto-complete (handy!)</li>
-<li>once you are at the folder that contains the repo you want to delete (check using <code>pwd</code> again) check that the folder you want to delete is there, using <code>ls</code> to get a list of contents.<br /></li>
+<li>navigate to the location of the repo you want to burn using <code>cd path/to/where/you/want/repo</code> to change directory. You don’t need to type the file path. You can just type the first letter of each folder level and use tab to auto-complete (handy!)</li>
+<li>once you are at the folder that contains the repo you want to delete (check using <code>pwd</code> again) check that the folder you want to delete is there, using <code>ls</code> to get a list of contents.<br />
+</li>
 <li>then type <code>rm -rf old-repo</code> to remove the folder and everything in it (rf is for recursively forcing)</li>
 <li>use <code>ls</code> to check that it is gone</li>
 </ul>
-
-<p>AND THEN&hellip; this bit will blow your mind&hellip;</p>
-
-<p>&hellip;go to your github repo and copy the url that is displayed when you press the green Clone button. Back to the terminal and type <code>git clone paste-url-from-git</code> to clone your unconflicted repo.</p>
-
-<p>It is almost so easy to burn it down and clone again that I am less motivated to learn how to actually deal with merge conflicts than I was yesterday&hellip; BUT this is what this project is all about.</p>
-
-<p>I am going to push this post to my blog, Charles is going to fork it and then contribute something about her git journey thus far&hellip;..</p>
-
+<p>AND THEN… this bit will blow your mind…</p>
+<p>…go to your github repo and copy the url that is displayed when you press the green Clone button. Back to the terminal and type <code>git clone paste-url-from-git</code> to clone your unconflicted repo.</p>
+<p>It is almost so easy to burn it down and clone again that I am less motivated to learn how to actually deal with merge conflicts than I was yesterday… BUT this is what this project is all about.</p>
+<p>I am going to push this post to my blog, Charles is going to fork it and then contribute something about her git journey thus far…..</p>
 <p>Over to you Charles!!</p>
-
-<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">people who know git: if it all goes terribly wrong you can burn it to the ground and start again. Because it’s version control&hellip; Watching <a href="https://twitter.com/cantabile?ref_src=twsrc%5Etfw">@cantabile</a> do this to our repo over lunch is strangely liberating <a href="https://twitter.com/hashtag/AIMOS2019?src=hash&amp;ref_src=twsrc%5Etfw">#AIMOS2019</a> <a href="https://t.co/vWSGf7xEyh">pic.twitter.com/vWSGf7xEyh</a></p>&mdash; A/Prof Jenny Richmond (@JenRichmondPhD) <a href="https://twitter.com/JenRichmondPhD/status/1192618519105425408?ref_src=twsrc%5Etfw">November 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
-<h1 id="musings-from-charles-on-gitflow">Musings from Charles on gitflow</h1>
-
-<h2 id="walking-around-lappy486">walking around lappy486</h2>
-
-<p>All week I was thinking about what I&rsquo;ve figured out about Git and it feels like nothing much at all.</p>
-
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+people who know git: if it all goes terribly wrong you can burn it to the ground and start again. Because it’s version control… Watching <a href="https://twitter.com/cantabile?ref_src=twsrc%5Etfw"><span class="citation">@cantabile</span></a> do this to our repo over lunch is strangely liberating <a href="https://twitter.com/hashtag/AIMOS2019?src=hash&amp;ref_src=twsrc%5Etfw">#AIMOS2019</a> <a href="https://t.co/vWSGf7xEyh">pic.twitter.com/vWSGf7xEyh</a>
+</p>
+— A/Prof Jenny Richmond (<span class="citation">@JenRichmondPhD</span>) <a href="https://twitter.com/JenRichmondPhD/status/1192618519105425408?ref_src=twsrc%5Etfw">November 8, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+<div id="musings-from-charles-on-gitflow" class="section level1">
+<h1>Musings from Charles on gitflow</h1>
+<div id="walking-around-lappy486" class="section level2">
+<h2>walking around lappy486</h2>
+<p>All week I was thinking about what I’ve figured out about Git and it feels like nothing much at all.</p>
 <p>What was interesting about working with Jen was how much she, too, valued the ability to burn it down and keep on going. Sharing my work collaboratively online is, right now, more useful to me than how adept I am at navigating versions.</p>
-
 <p>And that takes me to some mathematical thoughts.</p>
-
 <p>Jen and I made some progress in <em>navigating</em> these systems, and I think, for us, researchers who <em>use</em> code. We are research software engineers, our research is not focussed on code.</p>
-
 <p>So what do we value? Well, as a graduate student, sharing code and creating online content, blogs and sites, has been of extraordinary benefit.</p>
-
 <p>For this project with Jen, we set up a site the R package <code>distill::</code>, and deployed it via GitHub pages. In this context, that was more valuable to me than the version control itself.</p>
-
 <p>So, if the focus is sharing, what is a minimal gitflow?</p>
-
 <p>Finding our way around. A very good place to start.</p>
-
-<h3 id="grid-based-navigation-in-86-adventure-games">grid-based navigation in *86 adventure games</h3>
-
-<p>In the eighties there was a golden era of puzzle adventure games: Monkey Island, King&rsquo;s Quest, Space Quest, etc. We played these on 286, 386, and 486 machines.</p>
-
+<div id="grid-based-navigation-in-86-adventure-games" class="section level3">
+<h3>grid-based navigation in *86 adventure games</h3>
+<p>In the eighties there was a golden era of puzzle adventure games: Monkey Island, King’s Quest, Space Quest, etc. We played these on 286, 386, and 486 machines.</p>
 <p>Your screen would represent one grid square, and you could walk in four directions: up, down, left, right. This would take you to another place on the grid.</p>
-
-<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">A little homework, <a href="https://twitter.com/JenRichmondPhD?ref_src=twsrc%5Etfw">@JenRichmondPhD</a>; to whet your appetite for my contribution to our blog post. <a href="https://t.co/dqLiKhZXYg">https://t.co/dqLiKhZXYg</a><br><br>And I assume <a href="https://twitter.com/Hao_and_Y?ref_src=twsrc%5Etfw">@Hao_and_Y</a> and <a href="https://twitter.com/Quasilocal?ref_src=twsrc%5Etfw">@Quasilocal</a> will enjoy this task, too.</p>&mdash; Cap&#39;n Blackheart Bette (@cantabile) <a href="https://twitter.com/cantabile/status/1194737287902330880?ref_src=twsrc%5Etfw">November 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+A little homework, <a href="https://twitter.com/JenRichmondPhD?ref_src=twsrc%5Etfw"><span class="citation">@JenRichmondPhD</span></a>; to whet your appetite for my contribution to our blog post. <a href="https://t.co/dqLiKhZXYg">https://t.co/dqLiKhZXYg</a><br><br>And I assume <a href="https://twitter.com/Hao_and_Y?ref_src=twsrc%5Etfw"><span class="citation">@Hao_and_Y</span></a> and <a href="https://twitter.com/Quasilocal?ref_src=twsrc%5Etfw"><span class="citation">@Quasilocal</span></a> will enjoy this task, too.
+</p>
+— Cap'n Blackheart Bette (<span class="citation">@cantabile</span>) <a href="https://twitter.com/cantabile/status/1194737287902330880?ref_src=twsrc%5Etfw">November 13, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>Navigating a computer is a similar experience. Your representative in the computer space changes location with respect to the computer space, even though you are still sitting in the same chair.</p>
-
-<h3 id="the-seven-bridges-of-k-ouml-nigsberg">the seven bridges of k&ouml;nigsberg</h3>
-
+</div>
+<div id="the-seven-bridges-of-konigsberg" class="section level3">
+<h3>the seven bridges of königsberg</h3>
 <p>These grids were not infinite; indeed they were rarely greater than 10 x 10. When you reached a left edge, you could not move left any further.</p>
-
 <p>There are two things to consider, places you can be and if two places are connected.</p>
-
-<p>In 1736, Leonhard Euler transformed problems such as this when considering the problem of the seven bridges of the city of K&ouml;nigberg. The challenge was to devise a walk through the city that would cross each of the bridges once and once only.</p>
-
-<div class="figure">
+<p>In 1736, Leonhard Euler transformed problems such as this when considering the problem of the seven bridges of the city of Königberg. The challenge was to devise a walk through the city that would cross each of the bridges once and once only.</p>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png" alt="The bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png)" width="40%" />
-<p class="caption">The bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png)</p>
+<p class="caption">
+Figure 1: The bridges problem. (Image source <a href="https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png">wikipedia).</a>
+</p>
 </div>
-
-<p>Euler reimagined this problem in terms of <em>nodes</em> to represent land and <em>edges</em> to represent the bridges. Or, as I refer to them in my head, <strong>bobbles</strong> and <strong>lines</strong>. Through this reimagining, Euler was able to show there was no solution to the problem of the bridges of K&ouml;nigsberg.</p>
-
-<div class="figure">
+<p>Euler reimagined this problem in terms of <em>nodes</em> to represent land and <em>edges</em> to represent the bridges. Or, as I refer to them in my head, <strong>bobbles</strong> and <strong>lines</strong>. Through this reimagining, Euler was able to show there was no solution to the problem of the bridges of Königsberg.</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png" alt="Euler's reimaging of the bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png)" width="40%" />
-<p class="caption">Euler's reimaging of the bridges problem. (Image source [wikipedia).](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png)</p>
+<p class="caption">
+Figure 2: Euler’s reimaging of the bridges problem. (Image source <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/K%C3%B6nigsberg_graph.svg/1280px-K%C3%B6nigsberg_graph.svg.png">wikipedia).</a>
+</p>
 </div>
-
 <p>These collections of <em>nodes</em> and <em>edges</em> are called <em>graphs</em>.</p>
-
-<h3 id="trees-and-git">trees and git</h3>
-
-<p>The specific type of graph we encounter in  navigating bash <em>and</em> Git, is a tree.</p>
-
-<div class="figure">
-<img src="http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif" alt="Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)" width="60%" />
-<p class="caption">Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)</p>
 </div>
-
-<p>Trees are special types of graphs where you can&rsquo;t go in a circle. They are <em>acyclic</em>.</p>
-
+<div id="trees-and-git" class="section level3">
+<h3>trees and git</h3>
+<p>The specific type of graph we encounter in navigating bash <em>and</em> Git, is a tree.</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif" alt="Examples of tree structures with different numbers of nodes. (Image source [wolfram).](http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif)" width="60%" />
+<p class="caption">
+Figure 3: Examples of tree structures with different numbers of nodes. (Image source <a href="http://mathworld.wolfram.com/images/eps-gif/Trees_600.gif">wolfram).</a>
+</p>
+</div>
+<p>Trees are special types of graphs where you can’t go in a circle. They are <em>acyclic</em>.</p>
 <p>Keep going down, and you will hit a bottom, and keep going up and you will hit a top. But they may not be the bottom or top you are looking for, and therein is the rub.</p>
-
-<p>If I&rsquo;ve learnt anything from this adventure in collaborating via git, it&rsquo;s find a friend to walk these paths. Because, even though we can&rsquo;t technically go around in circles, it sure feels like we are.</p>
+<p>If I’ve learnt anything from this adventure in collaborating via git, it’s find a friend to walk these paths. Because, even though we can’t technically go around in circles, it sure feels like we are.</p>
+</div>
+</div>
+</div>
 
          
       </div>
