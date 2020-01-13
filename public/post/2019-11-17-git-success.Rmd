@@ -21,3 +21,7 @@ We were victorious!!
 
 # what did we learn?
 
+
+```{r echo=FALSE, out.width= "700px"}
+knitr::include_graphics("im/g/myrepo.png")
+``` 
