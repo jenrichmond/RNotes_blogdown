@@ -1,0 +1,8 @@
+---
+title: working with factors
+author: ''
+date: '2020-01-20'
+slug: working-with-factors
+categories: []
+tags: []
+---
