@@ -16,9 +16,8 @@ There are a lot of things I do in R that I have to google EVERY TIME. My 2020 R 
 
 # Things covered so far...
 
-1. working with factors
-2. counting things
-
+1. [working with factors](http://jenrichmond.rbind.io/projects/working-with-factors/)
+2. [counting things](http://jenrichmond.rbind.io/projects/counting-things/)
 
 
 
