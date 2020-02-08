@@ -6,10 +6,19 @@
     <description>Recent content in Projects on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>recoding variables</title>
+      <link>/projects/recoding-variables/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/recoding-variables/</guid>
+      <description>Option 1: use mutate() and case_when() Option 2a: use mutate() and recode() dplyr “scoped” verbs (_all, _at, _if) Option 2b: use mutate_at() and recode()   I don’t often deal with questionnaire data in R, but Ariana and I have started trying import her qualtrics data into R and to write a script to score her measures. The first step is to recode the variables to make it possible to add up scores on subscales.</description>
+    </item>
     
     <item>
       <title>counting things</title>

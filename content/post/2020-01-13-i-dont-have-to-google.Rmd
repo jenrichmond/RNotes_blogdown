@@ -17,8 +17,7 @@ I've started a new set of posts over in [Projects](http://jenrichmond.rbind.io/p
 
 1. [working with factors](http://jenrichmond.rbind.io/projects/working-with-factors/)
 2. [counting things](http://jenrichmond.rbind.io/projects/counting-things/)
-
-
+3. [recoding variables](http://jenrichmond.rbind.io/projects/recoding-variables/)
 
 
 

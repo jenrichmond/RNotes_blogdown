@@ -18,6 +18,7 @@ There are a lot of things I do in R that I have to google EVERY TIME. My 2020 R 
 
 1. [working with factors](http://jenrichmond.rbind.io/projects/working-with-factors/)
 2. [counting things](http://jenrichmond.rbind.io/projects/counting-things/)
+3. [recoding variables](http://jenrichmond.rbind.io/projects/recoding-variables/)
 
 
 
