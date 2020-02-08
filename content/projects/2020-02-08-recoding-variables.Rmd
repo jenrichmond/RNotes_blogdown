@@ -41,7 +41,7 @@ df %>%
                                   sectionA_1 == "Strongly Disagree" ~ 1))
 ```
 
-### Option 2a: use mutate() and recode()
+### Option 2a: use `mutate()` and `recode()`
 
 `case_when()` can take pretty complicated arguments, and evaluates them in an ordered way, which might be more than you need. Perhaps `recode()` from dplyr is a simpler option. 
 
@@ -90,7 +90,7 @@ I am not the first person to write about these. I found blog posts by [Rebecca B
 
 - `mutate_if()` affects variables selected with a predicate function
 
-### Option 2b: use mutate_at() and recode()
+### Option 2b: use `mutate_at()` and `recode()`
 
 In this situation, I think `mutate_at()` is going to be most useful. To select particular variables, use the `vars()` function and `starts_with()`, `ends_with()`, or `contains()` to specify which variables to apply the function to. Here the function we want to apply to each variable starting with section_A_ is `recode()`, so we specify that using ~ .Then set up the recode mappings, and specify that "NA" should be used as default if a match can't be made. 
 

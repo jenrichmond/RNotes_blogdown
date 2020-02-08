@@ -108,9 +108,9 @@
 <div id="TOC">
 <ul>
 <li><a href="#option-1-use-mutate-and-case_when">Option 1: use <code>mutate()</code> and <code>case_when()</code></a></li>
-<li><a href="#option-2a-use-mutate-and-recode">Option 2a: use mutate() and recode()</a></li>
+<li><a href="#option-2a-use-mutate-and-recode">Option 2a: use <code>mutate()</code> and <code>recode()</code></a></li>
 <li><a href="#dplyr-scoped-verbs-_all-_at-_if">dplyr “scoped” verbs (_all, _at, _if)</a></li>
-<li><a href="#option-2b-use-mutate_at-and-recode">Option 2b: use mutate_at() and recode()</a></li>
+<li><a href="#option-2b-use-mutate_at-and-recode">Option 2b: use <code>mutate_at()</code> and <code>recode()</code></a></li>
 </ul>
 </div>
 
@@ -163,7 +163,7 @@
 ## 12             1</code></pre>
 </div>
 <div id="option-2a-use-mutate-and-recode" class="section level3">
-<h3>Option 2a: use mutate() and recode()</h3>
+<h3>Option 2a: use <code>mutate()</code> and <code>recode()</code></h3>
 <p><code>case_when()</code> can take pretty complicated arguments, and evaluates them in an ordered way, which might be more than you need. Perhaps <code>recode()</code> from dplyr is a simpler option.</p>
 <pre class="r"><code>df %&gt;%
   mutate(sectionA_1_rc = recode(sectionA_1, &quot;Strongly Agree&quot; = &quot;4&quot;,
@@ -249,7 +249,7 @@
 </div>
 </div>
 <div id="option-2b-use-mutate_at-and-recode" class="section level3">
-<h3>Option 2b: use mutate_at() and recode()</h3>
+<h3>Option 2b: use <code>mutate_at()</code> and <code>recode()</code></h3>
 <p>In this situation, I think <code>mutate_at()</code> is going to be most useful. To select particular variables, use the <code>vars()</code> function and <code>starts_with()</code>, <code>ends_with()</code>, or <code>contains()</code> to specify which variables to apply the function to. Here the function we want to apply to each variable starting with section_A_ is <code>recode()</code>, so we specify that using ~ .Then set up the recode mappings, and specify that “NA” should be used as default if a match can’t be made.</p>
 <p>When I look at this code, it reads… mutate only the variables starting with section A_, apply the recode function to all of them, recoding Strongly Agree as 4 etc etc, putting NA in if you can’t make a match.</p>
 <pre class="r"><code>df %&gt;%
