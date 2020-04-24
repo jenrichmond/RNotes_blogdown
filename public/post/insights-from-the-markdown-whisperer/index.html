@@ -121,6 +121,10 @@
 hugo_version() #if this is less than 0.57 something then run...
 
 update_hugo()</code></pre>
+<blockquote>
+<p><strong>update april 2020</strong>:
+if you have never done this before you might need install_hugo(). Also when I tried this on a new machine recently, I got an error re the <code>Rcpp</code> package. Use install.package() to get it; I found it worked best by choose “no” when asked “Do you want to install from sources the package which needs compilation?”</p>
+</blockquote>
 </div>
 <div id="get-github-and-netlify" class="section level4">
 <h4>2. Get github and netlify</h4>
@@ -154,10 +158,23 @@ update_hugo()</code></pre>
 </div>
 <div id="make-some-changes-to-your-site" class="section level4">
 <h4>5. Make some changes to your site</h4>
-<p>Now that you have the files on your machine and your site serves locally, you can customise everything. The contents of the <code>contents</code> folder is fair game.</p>
-<p>You can also change the fonts and theme by finding the params.toml file in the <code>config/_default</code> folder. You can find the available font and theme options in the data/fonts and data/themes folder.</p>
-<p>Change the config.toml to customise the name of your blog. Find the <code>contents/authors/admin</code> folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
-<p>Use the New Post Addin to write new blog posts (or other types of content by choosing different Archetypes)</p>
+<p>Now that you have the files on your machine and your site serves locally, you can customise everything. Make a change, then use <code>serve_site()</code> to see the change in your Viewer.</p>
+<div id="theme-and-fonts" class="section level6">
+<h6>theme and fonts</h6>
+<p>You can change the fonts and theme by finding the params.toml file in the <code>config/_default</code> folder. You can find the available font and theme options in the data/fonts and data/themes folder.</p>
+</div>
+<div id="blog-name-author" class="section level6">
+<h6>Blog name / author</h6>
+<p>Change the config.toml file to customise the name of your blog.
+Find the <code>contents/authors/admin</code> folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
+</div>
+<div id="contents-blog" class="section level6">
+<h6>Contents + Blog</h6>
+<p>The contents of the <code>contents</code> folder is fair game.</p>
+<p>In <code>content/post</code> you can see a template blog is called Bake Off. It has posts for each of 8 bakeoff series; each lives in its own folder. You can delete the posts that are there by deleting the series1-8 folders (although you might like to leave one, just so you can use it as a template).</p>
+<p>Edit the _index file to change the name of your blog to something other than “Bake Off Ratings Reports”</p>
+<p>Change the header label for your blog from BAKEOFF to something else by editing the menus.toml file in <code>config/_default</code>. This file also has a place for you to put a CV link.</p>
+</div>
 </div>
 <div id="push-changes-to-git" class="section level4">
 <h4>6. Push changes to git</h4>

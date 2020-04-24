@@ -36,6 +36,9 @@ update_hugo()
 
 ```
 
+> **update april 2020**: 
+if you have never done this before you might need install_hugo(). Also when I tried this on a new machine recently, I got an error re the `Rcpp` package. Use install.package() to get it; I found it worked best by choose "no" when asked "Do you want to install from sources the package which needs compilation?"
+
 #### 2. Get github and netlify
 
 Make sure you have a github account, and you might as well sign up at netlify.com too.
@@ -64,13 +67,28 @@ Alison's bakeoff-themed site with monsters from [Allison Horst](https://github.c
 
 #### 5. Make some changes to your site
 
-Now that you have the files on your machine and your site serves locally, you can customise everything. The contents of the `contents` folder is fair game. 
+Now that you have the files on your machine and your site serves locally, you can customise everything. Make a change, then use `serve_site()` to see the change in your Viewer. 
 
-You can also change the fonts and theme by finding the params.toml file in the `config/_default` folder. You can find the available font and theme options in the data/fonts and data/themes folder.
+###### theme and fonts
 
-Change the config.toml to customise the name of your blog. Find the `contents/authors/admin` folder and replace the avatar.jpg with your own profile pic; alter the details   in the _index.md file to make the blog your own. 
+You can change the fonts and theme by finding the params.toml file in the `config/_default` folder. You can find the available font and theme options in the data/fonts and data/themes folder.
 
-Use the New Post Addin to write new blog posts (or other types of content by choosing different Archetypes)
+###### Blog name / author
+
+Change the config.toml file to customise the name of your blog. 
+Find the `contents/authors/admin` folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own. 
+
+###### Contents + Blog
+
+The contents of the `contents` folder is fair game. 
+
+In `content/post` you can see a template blog is called Bake Off. It has posts for each of 8 bakeoff series; each lives in its own folder. You can delete the posts that are there by deleting the series1-8 folders (although you might like to leave one, just so you can use it as a template). 
+
+Edit the _index file to change the name of your blog to something other than "Bake Off Ratings Reports"
+
+Change the header label for your blog from BAKEOFF to something else by editing the menus.toml file in `config/_default`. This file also has a place for you to put a CV link. 
+
+
 
 #### 6. Push changes to git
 
