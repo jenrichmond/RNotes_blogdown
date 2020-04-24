@@ -122,7 +122,7 @@ hugo_version() #if this is less than 0.57 something then run...
 
 update_hugo()</code></pre>
 <blockquote>
-<p><strong>update april 2020</strong>:
+<p><strong>UPDATE APRIL2020</strong>:
 if you have never done this before you might need install_hugo(). Also when I tried this on a new machine recently, I got an error re the <code>Rcpp</code> package. Use install.package() to get it; I found it worked best by choose “no” when asked “Do you want to install from sources the package which needs compilation?”</p>
 </blockquote>
 </div>
@@ -166,11 +166,15 @@ if you have never done this before you might need install_hugo(). Also when I tr
 <div id="blog-name-author" class="section level6">
 <h6>Blog name / author</h6>
 <p>Change the config.toml file to customise the name of your blog.
-Find the <code>contents/authors/admin</code> folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
+Find the <code>content/authors/admin</code> folder and replace the avatar.jpg with your own profile pic; alter the details in the _index.md file to make the blog your own.</p>
+</div>
+<div id="home-page" class="section level6">
+<h6>Home page</h6>
+<p>The Home page on hugo-academic theme sites works via a series of widgets, which you can find in the <code>content/home</code> folder. Explore each .md in this folder, toggling on the active = false (changing it to true), and see what happens to your home page. By default only the hero.md widget is set to true.</p>
 </div>
 <div id="contents-blog" class="section level6">
 <h6>Contents + Blog</h6>
-<p>The contents of the <code>contents</code> folder is fair game.</p>
+<p>The contents of the <code>content</code> folder is fair game.</p>
 <p>In <code>content/post</code> you can see a template blog is called Bake Off. It has posts for each of 8 bakeoff series; each lives in its own folder. You can delete the posts that are there by deleting the series1-8 folders (although you might like to leave one, just so you can use it as a template).</p>
 <p>Edit the _index file to change the name of your blog to something other than “Bake Off Ratings Reports”</p>
 <p>Change the header label for your blog from BAKEOFF to something else by editing the menus.toml file in <code>config/_default</code>. This file also has a place for you to put a CV link.</p>
@@ -183,6 +187,9 @@ Find the <code>contents/authors/admin</code> folder and replace the avatar.jpg w
 <pre><code>## Warning: package &#39;usethis&#39; was built under R version 3.5.2</code></pre>
 <pre class="r"><code>use_git_config(user.name = &quot;Your Name&quot;, user.email = &quot;your@email.com&quot;)</code></pre>
 <p>Then find the Git pull down (next to the Addins) and choose commit. Select the checkboxes for files that you want to commit, write an informative commit message, press the commit button and then the push button. Enter your git credentials.</p>
+<blockquote>
+<p><strong>UPDATE APRIL2020</strong>: if you don’t have a Git pull down, usethis has a solution for that too. Try use_git(), it will ask you if it is ok to commit the files you have changed and then if it is ok to restart R. Once it restarts, you should now have a Git pulldown next to your addins. As always, connecting a new machine to git is a nightmare. In this case, I had most success with instructions 17.5.2 from happygitwithr.com.</p>
+</blockquote>
 <p>Check your git repo and make sure that the changes appear there. Then check your netlify site; all going well your changes should appear there too!</p>
 </div>
 <div id="customise-your-url" class="section level4">
