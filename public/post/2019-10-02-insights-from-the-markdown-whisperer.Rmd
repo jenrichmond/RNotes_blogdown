@@ -61,9 +61,13 @@ Now if you go to your github, there should be a new repo there, containing all o
 Alison's bakeoff-themed site with monsters from [Allison Horst](https://github.com/allisonhorst/stats-illustrations) is cute, but you probably want to make it your own. Next you need to get the files on your local machine. 
 
 #### 4. Clone/Download the zip folder 
-- use the clone/download button to download a zip folder of the whole repo to your desktop (or somewhere else that makes sense)
-- unzip the folder and open the .Rproj file
+- Click the clone/download button and copy the url to your repo 
+- Go back to RStudio, open a terminal, make sure you are on the desktop by using `cd Desktop`.
+- Clone the repo to your desktop by typing `git clone` and pasting the repo link 
+- Find the folder on your desktop and open the .Rproj file
 - in your console, type serve_site() and see what happens in your Viewer tab
+
+Screencast of me doing the steps above [available here](https://youtu.be/9UIkbAZuLtU)
 
 #### 5. Make some changes to your site
 
