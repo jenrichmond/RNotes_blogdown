@@ -100,7 +100,7 @@ april_list_items$year <- as.factor(april_list_items$year)
 
 #### Plot food spending
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 april_list_items %>%
   filter(class %in% c("Groceries", "Dinnerout", "CoffeeLunch")) %>%
   group_by(year, class) %>%
@@ -117,6 +117,6 @@ april_list_items %>%
   
 ```
 
-![](/post/2020-05-05-bank_files/eating.png)
+
 
 We spend WAY too much on lunch/coffee at work every day!
