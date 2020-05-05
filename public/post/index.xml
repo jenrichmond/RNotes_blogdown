@@ -6,10 +6,21 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to use R to analyse your bank transactions</title>
+      <link>/post/bank/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/bank/</guid>
+      <description>There is no doubt that COVID19 has massively disrupted how we spend our time and money. In this post, I update code inspired by this R-bloggers blog to look at how much less money we have been spending on eating in the last month, compared to April 2019.
+Download a copy of your bank transactions in csv format.
+Load packages library(tidyverse) library(janitor) library(lubridate)  Read in data Clean and rename, select just date, description, debit amount, add new column for class with default value = “Other”</description>
+    </item>
     
     <item>
       <title>things i dont have to google any more</title>
