@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>How to use R to analyse your bank transactions</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>How to use R to analyse your bank transactions</h1>
+         
+
+
+<p>There is no doubt that COVID19 has massively disrupted how we spend our time and money. In this post, I update code inspired by <a href="https://www.r-bloggers.com/analyse-your-bank-statements-using-r/">this R-bloggers blog</a> to look at how much less money we have been spending on eating in the last month, compared to April 2019.</p>
+<p>Download a copy of your bank transactions in csv format.</p>
+<div id="load-packages" class="section level4">
+<h4>Load packages</h4>
+<pre class="r"><code>library(tidyverse)
+library(janitor)
+library(lubridate)</code></pre>
+</div>
+<div id="read-in-data" class="section level4">
+<h4>Read in data</h4>
+<p>Clean and rename, select just date, description, debit amount, add new column for class with default value = “Other”</p>
+<pre class="r"><code>items &lt;- read_csv(&quot;data_new.csv&quot;) %&gt;%
+  clean_names() %&gt;%
+  rename(desc = narrative, 
+         debit = debit_amount, 
+         credit = credit_amount) %&gt;%
+  select(date, desc, debit) %&gt;%
+  mutate(class = &quot;Other&quot;)</code></pre>
+</div>
+<div id="build-regular-expression-strings-for-categories" class="section level4">
+<h4>Build regular expression strings for categories</h4>
+<p>Mostly just interested in food changes between April 2019 and April 2020. Scan transaction desc for phrases that relate to food and transport.</p>
+<pre class="r"><code># Build simple regexp strings
+
+coffeelunch &lt;- &quot;MOORE|T2|Grams|CAKE|LAKSA|SUBWAY|STOCK|BURGER|XCEL|Penny|KETTLE|POP|Ground|GOMEZ|FUNG|VILLAGE|Campos|Estate|ANTONIO|MCDONALDS|Gelatissimo|COFFEE|CAFE|PICCOLO|MADENTZOGLOU|YACOCO|LAYERED|LITTLE ME|Marionette|Bohaus|BAYLEAF|SOCIETY|GRAMS|HEY|Courtyard|CHARLIE&#39;S|TROPICAL|Lounge|GUSTO|ATOMIC|Coffee|Campus|Navitas|X74|LENTIL|Espresso|Poke|Bakery|SHED|CANS|PICKLE|Hungry|FORMAGGI|BAKERY|KURTOSH|Fratelli|Buffalo|Cow|Burgers|ANDERSEN&#39;S|Chargrill|ICHI-BAN|COCO|ARC|Cafe|Boulangerie|UNIVERSITY|Erciyes|WOOD|AMBLE|Messina|Catering|Bake&quot;
+
+dinnerout &lt;- &quot;SUSHI|MAMAK|KTCHN|BLUEBOTTLES|Little L|Bavarian|Homestead|RESTAURANT|Ringer|THAI|Mamak|Gomez|BIERHAUS|CREPERIE |MESSINA|DOMINOS|GELATISSIMO|Osteria|TwoFatIndian|Dining|WOK|Rooftop|Pizza|Beresford|JOES|STINKING|COOKHOUSE|CLUB|Club|PASTA|FISH|FOUR|TOKYO|BISTRO|CLOVE|Arthur|HANGAR|FUSION|LUMI|ROCKPOOL|EATERY|Paddington|FRANK|BAT|Brauhaus|SHINABURO|JADE|NAKAJIMA|ITALIAN|INDIAN|TAVERN|Foodora|WPIZZA|SALUD|BETTYS|COFFS|Milky|BREW|PIZZA&quot;
+
+
+groceries &lt;- &quot;WW|COLES|WOOLWORTHS|Harris|MALONEYS|FRESH|CATERING|DELI|MARYDIAS|SEAFOOD|CAKE|BAKERS|IGA|SWEET|HOA|FARM|COUNTDOWN|WORLD|BUTCHRY|MARKET|FOODWORKS|ALDI|FOOD|HFM|PLAZA|Fine Foods|BALDICO|HILLVIEWFIN|KINGSMORE&quot;</code></pre>
+</div>
+<div id="use-grepl-to-assign-class-value-to-each-transaction" class="section level4">
+<h4>Use grepl to assign class value to each transaction</h4>
+<p>grepl is a weird thing. I think this checks if the value in <code>items$desc</code> matches something in the regexp defined for groceries (for example) and if it does puts Groceries in the <code>items$class</code> column</p>
+<pre class="r"><code>#assign values to class column based on regexp
+   
+items$class &lt;-  ifelse(grepl(coffeelunch, items$desc),&quot;CoffeeLunch&quot;,
+                ifelse(grepl(dinnerout, items$desc),&quot;Dinnerout&quot;,
+                   ifelse(grepl(groceries, items$desc),&quot;Groceries&quot;,
+                                   &quot;Other&quot;)))</code></pre>
+</div>
+<div id="remove-nas-and-fix-dates" class="section level4">
+<h4>Remove NAs and fix dates</h4>
+<pre class="r"><code>list_items &lt;- na.omit(items) 
+
+list_items$date &lt;- dmy(list_items$date)
+
+list_items &lt;- list_items %&gt;%
+  mutate(year = year(date), month = month(date), day = day(date))</code></pre>
+</div>
+<div id="filter-just-april" class="section level4">
+<h4>Filter just April</h4>
+<p>Filter data for just April 2019 and 2020, make class and year factor.</p>
+<pre class="r"><code>april_list_items &lt;- list_items %&gt;%
+  filter(month == 4)
+
+
+april_list_items$class &lt;- as.factor(april_list_items$class)
+april_list_items$year &lt;- as.factor(april_list_items$year)</code></pre>
+</div>
+<div id="plot-food-spending" class="section level4">
+<h4>Plot food spending</h4>
+<pre class="r"><code>april_list_items %&gt;%
+  filter(class %in% c(&quot;Groceries&quot;, &quot;Dinnerout&quot;, &quot;CoffeeLunch&quot;)) %&gt;%
+  group_by(year, class) %&gt;%
+  summarise(monthlytotal = sum(debit)) %&gt;%
+  ggplot(aes(x = year, y = monthlytotal, fill = year)) +
+  geom_col() +
+  scale_fill_manual(values = c(&quot;#0072B2&quot;,&quot;#CC79A7&quot;)) +
+  facet_wrap(~class) +
+  labs(title = &quot;April eating&quot;) +
+  ylab(&quot;Monthly Spend&quot;) +
+  theme(
+  axis.text.y = element_blank(),
+  axis.ticks = element_blank())</code></pre>
+<p><img src="/post/CopyOfbank_share_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>
