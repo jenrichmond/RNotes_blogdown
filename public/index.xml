@@ -6,10 +6,22 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>calculating z scores</title>
+      <link>/post/calculating-z-scores/</link>
+      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/calculating-z-scores/</guid>
+      <description>The scale() function will center and/or scale a numeric object. Use center = TRUE to subtract the mean from the values; use scale = TRUE to divide the centered values by the standard deviation to produce z scores.
+center variable A  scale(A, center = TRUE, scale = FALSE)
+  generate z-scores for variable A  scale(A, center = TRUE, scale = TRUE)
+ Lets try it with EMG data</description>
+    </item>
     
     <item>
       <title>ggplot tricks</title>
