@@ -6,10 +6,43 @@
     <description>Recent content on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>group_by and summarise</title>
+      <link>/post/group-by-and-summarise/</link>
+      <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/group-by-and-summarise/</guid>
+      <description>Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.
+Details of the palmer penguin data, with art by Allison Horst, can be found here.
+load packages library(palmerpenguins) library(tidyverse)  read in data penguins &amp;lt;- penguins glimpse(penguins) ## Rows: 344 ## Columns: 7 ## $ species &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie… ## $ island &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, To… ## $ bill_length_mm &amp;lt;dbl&amp;gt; 39.</description>
+    </item>
+    
+    <item>
+      <title>group_by and summarise</title>
+      <link>/post/group-by-and-summarise/</link>
+      <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/group-by-and-summarise/</guid>
+      <description>Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.
+Details of the palmer penguin data, with art by Allison Horst, can be found here.
+load packages library(palmerpenguins) library(tidyverse)  read in data penguins &amp;lt;- penguins glimpse(penguins)  ## Rows: 344 ## Columns: 7 ## $ species &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie… ## $ island &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, To… ## $ bill_length_mm &amp;lt;dbl&amp;gt; 39.</description>
+    </item>
+    
+    <item>
+      <title>group_by and summarise</title>
+      <link>/post/group-by-and-summarise/</link>
+      <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/group-by-and-summarise/</guid>
+      <description>Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.
+Details of the palmer penguin data, with art by Allison Horst, can be found here.
+load packages library(palmerpenguins) library(tidyverse)  read in data penguins &amp;lt;- penguins glimpse(penguins)  ## Rows: 344 ## Columns: 7 ## $ species &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie… ## $ island &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, To… ## $ bill_length_mm &amp;lt;dbl&amp;gt; 39.</description>
+    </item>
     
     <item>
       <title>calculating z scores</title>
