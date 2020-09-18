@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/projects/lubridate-googling/</loc>
+    <loc>/post/lubridate-googling/</loc>
     <lastmod>2020-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>/post/</loc>
     <lastmod>2020-09-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -19,11 +19,6 @@
   
   <url>
     <loc>/post/group-by-and-summarise/</loc>
-    <lastmod>2020-08-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-08-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,12 +38,12 @@
   </url>
   
   <url>
-    <loc>/projects/recoding-variables/</loc>
+    <loc>/post/recoding-variables/</loc>
     <lastmod>2020-02-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/counting-things/</loc>
+    <loc>/post/counting-things/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,12 +53,7 @@
   </url>
   
   <url>
-    <loc>/projects/i-dont-have-to-google/</loc>
-    <lastmod>2020-01-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/projects/working-with-factors/</loc>
+    <loc>/post/working-with-factors/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   

@@ -98,7 +98,7 @@ I found Allison's art re lubridate on twitter, but it is SO CUTE that it deserve
 
 ## ignore below here, I got distracted
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 
 library(palmerpenguins)
 library(here)
@@ -142,23 +142,44 @@ glimpse(tests)
 Yay COVID test data also has date format. I wonder how you make your raw data be automatically read in as dates. Mine never is...
 
 ```{r}
-
+library(wesanderson)
 options(scipen = 999)  
 
-test_count <- tests %>%
+test_by_age <- tests %>%
   group_by(month(test_date, label = TRUE)) %>% 
   count(age_group) %>%
   rename(month = `month(test_date, label = TRUE)`) 
 
 # label = true is sweet!
 
-test_count %>%
+test_by_age %>%
+  filter(age_group !=  "AgeGroup_None") %>%
   ggplot(aes(x = month, y = n, colour = age_group, group = age_group)) +
   geom_point() +
-  geom_line() +
-  labs(y = "COVID tests per month", title = "NSW testing rates per month")
+  geom_line() + 
+  scale_color_brewer(palette="Paired") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 150000)) +
+  labs(y = "COVID tests per month", title = "NSW testing rates per month") +
+  theme_classic()
   
 ```
 
 
 > This data is from 17-9-2020, but seems like the NSW Chief Health Officer is right to be concerned about testing rates! 
+
+```{r}
+test_by_month <- tests %>%
+  group_by(month(test_date, label = TRUE)) %>% 
+  count() %>%
+  rename(month = `month(test_date, label = TRUE)`) 
+
+
+test_by_month %>%
+  ggplot(aes(x = month, y = n, group = 1)) +
+  geom_point() +
+  geom_line() +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 800000)) +
+  labs(y = "COVID tests per month", title = "NSW testing rates per month", caption = "data downloaded 17-9-2020") +
+  theme_classic()
+```
+
