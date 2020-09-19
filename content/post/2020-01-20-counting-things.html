@@ -1,5 +1,5 @@
 ---
-title: counting things
+title: IDHTG counting things
 author: ''
 date: '2020-01-20'
 slug: counting-things
@@ -47,6 +47,7 @@ library(janitor)</code></pre>
 <pre class="r"><code>df %&gt;%
   group_by(delay) %&gt;%
   summarise(count = n(), mean_score = mean(score))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   delay count mean_score
 ##   &lt;fct&gt; &lt;int&gt;      &lt;dbl&gt;

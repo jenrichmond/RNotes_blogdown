@@ -1,5 +1,5 @@
 ---
-title: working with factors
+title: IDHTG working with factors
 author: ''
 date: '2020-01-13'
 slug: working-with-factors
@@ -42,8 +42,8 @@ df$condition &lt;- as_factor(df$condition)
 #check variable types with glimpse
 
 glimpse(df)</code></pre>
-<pre><code>## Observations: 16
-## Variables: 4
+<pre><code>## Rows: 16
+## Columns: 4
 ## $ pp_no     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 ## $ delay     &lt;fct&gt; short, long, short, long, short, long, short, long, sh…
 ## $ condition &lt;fct&gt; easy, easy, difficult, difficult, easy, easy, difficul…
@@ -56,7 +56,7 @@ glimpse(df)</code></pre>
   facet_wrap(~ condition) +
   ylim(50,100) +
   theme_classic()</code></pre>
-<p><img src="/projects/2020-01-13-working-with-factors_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-01-13-working-with-factors_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Ideally I would like ggplot to order group (short, long) and condition (easy, difficult), but at the moment this is the opposite of what I want because the default factor ordering is alphbetical. Check factor levels with levels()</p>
 </div>
 </div>
@@ -90,6 +90,6 @@ df$condition &lt;- fct_relevel(df$condition, c(&quot;easy&quot;, &quot;difficult
   facet_wrap(~ condition) +
   ylim(50,100) +
   theme_classic()</code></pre>
-<p><img src="/projects/2020-01-13-working-with-factors_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/post/2020-01-13-working-with-factors_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 </div>
