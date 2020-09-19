@@ -1,8 +1,9 @@
 ---
-title: How to use R to analyse your bank transactions
+title: Spending in COVID
 author: 'Jen Richmond'
 date: '2020-05-05'
 slug: bank
+image: "img/portfolio/april.png"
 categories: []
 tags: []
 ---
@@ -114,6 +115,9 @@ april_list_items %>%
   theme(
   axis.text.y = element_blank(),
   axis.ticks = element_blank()) # removes y axis tick labels
+
+
+ggsave("april.png")
   
 ```
 
