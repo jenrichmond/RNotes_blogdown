@@ -6,10 +6,21 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lubridate month() &#43; wday()</title>
+      <link>/post/lubridate-month-wday/</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/lubridate-month-wday/</guid>
+      <description>Art by Allison Horst @allison_horst
+ When I am trying to work out a problem with R, I generally skip the package documentation, I avoid stack overflow, and I go straight for a blog post written by someone who has just learned what I am trying to learn.
+I think when you have just learned something, you are in THE BEST PLACE to teach someone else. You are acutely aware of what it feels like to not “get it”.</description>
+    </item>
     
     <item>
       <title>first google</title>
