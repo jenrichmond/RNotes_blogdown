@@ -121,8 +121,8 @@
 <h1>load packages</h1>
 <pre class="r"><code>library(tidyverse)
 library(here)
-library(ggeasy)
-library(harrypotter)
+library(ggeasy) # for easy ggplot editing
+library(harrypotter) # for palettes
 options(scipen = 999)</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
 <pre><code>## 
@@ -241,7 +241,7 @@ literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">p
   theme_classic() +
   easy_remove_legend()</code></pre>
 <p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p>Looks like testing rates decline across the working week, and are definitely much lower in the weekend. Interesting that the default start of the week is Sunday. I wonder whether that pattern has changed across the pandemic.</p>
+<p>Looks like testing rates decline across the working week, and are definitely much lower in the weekend. I wonder whether that pattern has changed across the pandemic.</p>
 <p>Make a new df that summarises the number of tests conducted by day of the week for each month. Use <code>week_start = getOption(&quot;lubridate.week.start&quot;, 1)</code> to make Monday the start of the week.</p>
 <pre class="r"><code>wday_month_summary &lt;- total_tests %&gt;% 
   mutate(covid_day = wday(test_date,  week_start = getOption(&quot;lubridate.week.start&quot;, 1), label = TRUE)) %&gt;%
@@ -283,7 +283,7 @@ literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">p
     legend.margin = margin(6, 6, 6, 6)
     )</code></pre>
 <p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Interesting looks like testing rates in Sept are the same as in Aug (but lower than July) early in the week, but fewer people are being tested as the week goes on.</p>
+<p>Interesting… looks like testing rates in Sept are the same as in Aug (but lower than July) early in the week, but fewer people are being tested as the week goes on.</p>
 </div>
 <div id="how-many-fewer-tests-are-we-doing-each-day-in-sept-relative-to-july-levels" class="section level3">
 <h3>How many fewer tests are we doing each day in Sept relative to July levels?</h3>
@@ -299,23 +299,24 @@ literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">p
   theme_classic() +
   easy_remove_legend_title()</code></pre>
 <p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<p>Oh!!! the data I downloaded 28-9-2020 is incomplete. Even though the website says this data is updated every day, the total tests for Sept are bad because we only have data up until 11-9-2020.</p>
+<p>Oh!!!</p>
+<p>The data I downloaded 28-9-2020 is incomplete. Even though the website says this data is updated every day, the total tests for Sept are bad because we only have data up until 11-9-2020.</p>
 </div>
 </div>
 <div id="what-have-i-learned-about-lubridate-thus-far" class="section level1">
 <h1>What have I learned about lubridate thus far</h1>
 <ul>
-<li>sometimes R automatically recognises your date variables as dates, but I’m not sure why this happens really infrequently with my real world data, probably related to d-m-y format not being the R default
+<li>sometimes R automatically recognises your date variables as dates, but I’m not sure why this happens really infrequently with my real world data- probably related to d-m-y format not being the R default
 <ul>
 <li>how to make it more likely that R will read my dates as dates</li>
-<li>how to convert dates that R things are characters into date format</li>
+<li>how to convert dates that R thinks are characters into date format</li>
 </ul></li>
 <li>lubridate functions like <code>day()</code>, <code>w_day()</code>, <code>month()</code> and <code>year()</code>, make it easy to work with date components as ordinal factors
 <ul>
 <li>use <code>label = TRUE</code> when using these functions to use labels rather than numeric values</li>
 <li>use <code>week_start = getOption(&quot;lubridate.week.start&quot;, 1)</code> to change the default from the week starting on Sunday to starting on Monday</li>
 </ul></li>
-<li>lubridate still clashes with the here package; if you are using both you need to specify here::here(). Find out when lubridate will no longer have a here() function.</li>
+<li>lubridate still clashes with the here package; if you are using both you need to specify <code>here::here()</code>. Find out when lubridate will no longer have a <code>here()</code> function.</li>
 </ul>
 </div>
 

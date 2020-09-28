@@ -29,8 +29,8 @@ COVID cases have been really low in NSW in the last couple of weeks after a bit 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(here)
-library(ggeasy)
-library(harrypotter)
+library(ggeasy) # for easy ggplot editing
+library(harrypotter) # for palettes
 options(scipen = 999)
 ```
 
@@ -152,7 +152,7 @@ wday_summary %>%
   easy_remove_legend()
 ```
 
-Looks like testing rates decline across the working week, and are definitely much lower in the weekend. Interesting that the default start of the week is Sunday. I wonder whether that pattern has changed across the pandemic. 
+Looks like testing rates decline across the working week, and are definitely much lower in the weekend. I wonder whether that pattern has changed across the pandemic. 
 
 Make a new df that summarises the number of tests conducted by day of the week for each month. Use  `week_start = getOption("lubridate.week.start", 1)` to make Monday the start of the week. 
 
@@ -203,7 +203,7 @@ wday_month_summary %>%
     )
 ```
 
-Interesting looks like testing rates in Sept are the same as in Aug (but lower than July) early in the week, but fewer people are being tested as the week goes on.
+Interesting... looks like testing rates in Sept are the same as in Aug (but lower than July) early in the week, but fewer people are being tested as the week goes on.
 
 ### How many fewer tests are we doing each day in Sept relative to July levels?
 
@@ -223,17 +223,19 @@ total_tests %>%
 
 ```
 
-Oh!!! the data I downloaded 28-9-2020 is incomplete. Even though the website says this data is updated every day, the total tests for Sept are bad because we only have data up until 11-9-2020. 
+Oh!!! 
+
+The data I downloaded 28-9-2020 is incomplete. Even though the website says this data is updated every day, the total tests for Sept are bad because we only have data up until 11-9-2020. 
 
 # What have I learned about lubridate thus far
 
-- sometimes R automatically recognises your date variables as dates, but I'm not sure why this happens really infrequently with my real world data, probably related to d-m-y format not being the R default
+- sometimes R automatically recognises your date variables as dates, but I'm not sure why this happens really infrequently with my real world data- probably related to d-m-y format not being the R default
   + how to make it more likely that R will read my dates as dates
-  + how to convert dates that R things are characters into date format
+  + how to convert dates that R thinks are characters into date format
   
 - lubridate functions like `day()`, `w_day()`, `month()` and `year()`, make it easy to work with date components as ordinal factors
   + use `label = TRUE` when using these functions to use labels rather than numeric values
   + use `week_start = getOption("lubridate.week.start", 1)` to change the default from the week starting on Sunday to starting on Monday
   
-- lubridate still clashes with the here package; if you are using both you need to specify here::here(). Find out when lubridate will no longer have a here() function. 
+- lubridate still clashes with the here package; if you are using both you need to specify `here::here()`. Find out when lubridate will no longer have a `here()` function. 
   
