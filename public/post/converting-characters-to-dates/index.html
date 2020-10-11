@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>lubridate characters to dates</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>lubridate characters to dates</h1>
+         
+
+
+<blockquote>
+<p>Art by Allison Horst <span class="citation">@allison_horst</span></p>
+</blockquote>
+<p>So far I have learned that lubridate has some nice functions for pulling date components like day, month, or year and using them within <code>group_by()</code> and <code>summarise()</code> or <code>ggplot()</code>. But most of the time when I am working with date data in the real world, R doesn’t even think my dates are dates. Most of the time date data that I read into R gets parsed as characters. Next on the learning list….how to convert dates that R thinks are characters into date format.</p>
+<p>There was a pretty fun <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-29/readme.md">Tidy Tuesday dataset last week</a> that should be helpful for working this out.</p>
+<div id="load-packages" class="section level1">
+<h1>load packages</h1>
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
+library(tidytuesdayR)
+library(ggeasy) # for easy ggplot editing
+library(harrypotter) # for palettes</code></pre>
+</div>
+<div id="read-data" class="section level1">
+<h1>read data</h1>
+<p>The Tidy Tuesday dataset contains lyrics, sales, and charts for both Taylor Swift and Beyonce. In terms of playing with dates, sales and charts are going to work best.</p>
+<pre class="r"><code>sales &lt;- read_csv(&quot;sales.csv&quot;)
+
+charts &lt;- read_csv(&quot;charts.csv&quot;)</code></pre>
+<p>Both the sales and charts dataframes have a variable that contains the date when the albums were first released, but much like usually happens with my data in the real world, R thinks that this column is characters.</p>
+<pre class="r"><code>glimpse(sales)</code></pre>
+<pre><code>## Rows: 48
+## Columns: 8
+## $ artist     &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Tayl…
+## $ title      &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Fearless&quot;, &quot;Fearless&quot;, &quot;Fearless&quot;, &quot;…
+## $ country    &lt;chr&gt; &quot;US&quot;, &quot;WW&quot;, &quot;US&quot;, &quot;AUS&quot;, &quot;UK&quot;, &quot;WW&quot;, &quot;US&quot;, &quot;UK&quot;, &quot;WW&quot;…
+## $ sales      &lt;dbl&gt; 5720000, 12000000, 7180000, 500000, 609000, 5000000, …
+## $ released   &lt;chr&gt; &quot;October 24, 2006&quot;, &quot;November 11, 2008&quot;, &quot;November 11…
+## $ re_release &lt;chr&gt; &quot;March 18, 2008[34]&quot;, &quot;October 27, 2009[40]&quot;, &quot;Octobe…
+## $ label      &lt;chr&gt; &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Mac…
+## $ formats    &lt;chr&gt; &quot;CD, CD+G (karaoke), DVD (karaoke), LP, digital downl…</code></pre>
+</div>
+<div id="convert-characters-to-dates" class="section level1">
+<h1>convert characters to dates</h1>
+<p>It is nice that the dates are in a consistent format (month, day, year). That should make it easy to convert them to date format. My first instinct is to try <code>as_date()</code>, but that doesn’t work.</p>
+<pre class="r"><code>sales$released &lt;- as_date(sales$released)</code></pre>
+<pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
+<p>I looked up the <code>as_date()</code> documentation. Does it need me to tell it there is no timezone (tz) and no format?</p>
+<pre class="r"><code>sales$released &lt;- as_date(sales$released, tz = NULL, format = NULL)
+
+glimpse(sales)</code></pre>
+<pre><code>## Rows: 48
+## Columns: 8
+## $ artist     &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Tayl…
+## $ title      &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Fearless&quot;, &quot;Fearless&quot;, &quot;Fearless&quot;, &quot;…
+## $ country    &lt;chr&gt; &quot;US&quot;, &quot;WW&quot;, &quot;US&quot;, &quot;AUS&quot;, &quot;UK&quot;, &quot;WW&quot;, &quot;US&quot;, &quot;UK&quot;, &quot;WW&quot;…
+## $ sales      &lt;dbl&gt; 5720000, 12000000, 7180000, 500000, 609000, 5000000, …
+## $ released   &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ re_release &lt;chr&gt; &quot;March 18, 2008[34]&quot;, &quot;October 27, 2009[40]&quot;, &quot;Octobe…
+## $ label      &lt;chr&gt; &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Mac…
+## $ formats    &lt;chr&gt; &quot;CD, CD+G (karaoke), DVD (karaoke), LP, digital downl…</code></pre>
+<p>No that makes the variable into date format but makes all the values NA. Turns out you need to give R a hint about how to parse the date. In this case, we need to let R know that we are dealing dates in a month, day, year format using the <code>mdy()</code> function.</p>
+<blockquote>
+<p>note: if your dates were in day, month, year format you would use <code>dmy()</code> and if they were in year, month, day format you would use <code>ymd()</code></p>
+</blockquote>
+<p>Lets try that again…</p>
+<pre class="r"><code>sales &lt;- read_csv(&quot;sales.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   artist = col_character(),
+##   title = col_character(),
+##   country = col_character(),
+##   sales = col_double(),
+##   released = col_character(),
+##   re_release = col_character(),
+##   label = col_character(),
+##   formats = col_character()
+## )</code></pre>
+<pre class="r"><code>sales$released &lt;- mdy(sales$released)</code></pre>
+<pre><code>## Warning: 6 failed to parse.</code></pre>
+<p>Better…. but 6 failed to parse, why is that? Ahhhh, there are some Beyonce dates include extra characters.</p>
+<pre class="r"><code>sales &lt;- read_csv(&quot;sales.csv&quot;)
+
+sales$released[[31]]</code></pre>
+<pre><code>## [1] &quot;June 23, 2003 (UK)[39]&quot;</code></pre>
+<p>Use mutate and recode to get rid of the extra characters.</p>
+<pre class="r"><code>sales &lt;- sales %&gt;%
+  mutate(released = recode(released, &quot;June 23, 2003 (UK)[39]&quot; = &quot;June 23, 2003&quot;, 
+                           &quot;September 1, 2006 (US)[51]&quot; = &quot;September 1, 2006&quot;)) </code></pre>
+<p>And try to parse the dates as <code>myd()</code> again.</p>
+<pre class="r"><code>sales$released &lt;- mdy(sales$released)
+
+glimpse(sales)</code></pre>
+<pre><code>## Rows: 48
+## Columns: 8
+## $ artist     &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Tayl…
+## $ title      &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Fearless&quot;, &quot;Fearless&quot;, &quot;Fearless&quot;, &quot;…
+## $ country    &lt;chr&gt; &quot;US&quot;, &quot;WW&quot;, &quot;US&quot;, &quot;AUS&quot;, &quot;UK&quot;, &quot;WW&quot;, &quot;US&quot;, &quot;UK&quot;, &quot;WW&quot;…
+## $ sales      &lt;dbl&gt; 5720000, 12000000, 7180000, 500000, 609000, 5000000, …
+## $ released   &lt;date&gt; 2006-10-24, 2008-11-11, 2008-11-11, 2008-11-11, 2008…
+## $ re_release &lt;chr&gt; &quot;March 18, 2008[34]&quot;, &quot;October 27, 2009[40]&quot;, &quot;Octobe…
+## $ label      &lt;chr&gt; &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Mac…
+## $ formats    &lt;chr&gt; &quot;CD, CD+G (karaoke), DVD (karaoke), LP, digital downl…</code></pre>
+<p>Success!</p>
+</div>
+<div id="beyonce-vs.-taylor-sales-by-year" class="section level1">
+<h1>Beyonce vs. Taylor: Sales by year</h1>
+<p>Now that we have the release date in date format, lets compare Taylor Swift and Beyonce US and UK sales by year.</p>
+<p>The move to “pop” with her 1989 album in 2014 was a good one for Taylor Swift.</p>
+<pre class="r"><code>sales %&gt;%
+  filter(country %in% c(&quot;US&quot;, &quot;UK&quot;)) %&gt;%
+  group_by(year(released), country, artist) %&gt;%
+  summarise(totalsales = sum(sales)) %&gt;%
+  rename(year = `year(released)`) %&gt;%
+  ggplot(aes(x = year, y = totalsales, colour = country, group = country)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~ artist) +
+  theme_bw() +
+  labs(y = &quot;Total sales $&quot;, x = &quot;Release year&quot;)</code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;year(released)&#39;, &#39;country&#39; (override with `.groups` argument)</code></pre>
+<p><img src="/post/2020-10-11-converting-characters-to-dates_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="beyonce-vs.-taylor-chart-position-by-year" class="section level1">
+<h1>Beyonce vs. Taylor: Chart position by year</h1>
+<p>First, fix the weird dates that won’t parse, then use <code>mdy()</code> to convert to date format.</p>
+<pre class="r"><code>charts &lt;- read_csv(&quot;charts.csv&quot;)
+
+charts &lt;- charts %&gt;%
+  mutate(released = recode(released, &quot;June 23, 2003 (UK)[39]&quot; = &quot;June 23, 2003&quot;, 
+                           &quot;September 1, 2006 (US)[51]&quot; = &quot;September 1, 2006&quot;)) %&gt;%
+  rename(country = chart)
+
+charts$released &lt;- mdy(charts$released)
+
+glimpse(charts)</code></pre>
+<pre><code>## Rows: 140
+## Columns: 8
+## $ artist         &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;…
+## $ title          &lt;chr&gt; &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;Taylor Swift&quot;, &quot;…
+## $ released       &lt;date&gt; 2006-10-24, 2006-10-24, 2006-10-24, 2006-10-24, …
+## $ re_release     &lt;chr&gt; &quot;March 18, 2008[34]&quot;, &quot;March 18, 2008[34]&quot;, &quot;Marc…
+## $ label          &lt;chr&gt; &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big Machine&quot;, &quot;Big…
+## $ formats        &lt;chr&gt; &quot;CD, CD+G (karaoke), DVD (karaoke), LP, digital d…
+## $ country        &lt;chr&gt; &quot;US&quot;, &quot;AUS&quot;, &quot;CAN&quot;, &quot;FRA&quot;, &quot;GER&quot;, &quot;IRE&quot;, &quot;JPN&quot;, &quot;…
+## $ chart_position &lt;chr&gt; &quot;5&quot;, &quot;33&quot;, &quot;14&quot;, &quot;—&quot;, &quot;—&quot;, &quot;59&quot;, &quot;53&quot;, &quot;38&quot;, &quot;—&quot;,…</code></pre>
+<pre class="r"><code>charts %&gt;%
+  ggplot(aes(x = year(released), y = chart_position, colour = country, group = country)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~ artist) +
+  theme_bw() +
+  labs(y = &quot;Chart position&quot;, x = &quot;Release year&quot;)</code></pre>
+<p><img src="/post/2020-10-11-converting-characters-to-dates_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Whoa that is a crazy plot, maybe need to make the chart position numeric!</p>
+<pre class="r"><code>charts$chart_position &lt;- as.numeric(charts$chart_position)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<p>It is clear that Beyonce’s chart position benefited from her Destiny’s Child fame and that Swede didn’t like Taylor Swift’s shift to pop in 2014 as much as the rest of the world.</p>
+<pre class="r"><code>charts %&gt;%
+  ggplot(aes(x = year(released), y = chart_position, colour = country, group = country)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~ artist) +
+  theme_bw() +
+  labs(y = &quot;Chart position&quot;, x = &quot;Release year&quot;)  </code></pre>
+<pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2020-10-11-converting-characters-to-dates_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="what-time-of-year-do-beyonce-and-taylor-release-albums" class="section level1">
+<h1>What time of year do Beyonce and Taylor release albums?</h1>
+<p>Taylor has a clear preference for October release.</p>
+<pre class="r"><code>sales %&gt;%
+  filter(country == &quot;US&quot;) %&gt;%
+  ggplot(aes(x = month(released, label = TRUE), fill = month(released, label = TRUE))) +
+  geom_bar() +
+  facet_wrap(~ artist) +
+  labs(x = &quot;Release month&quot;, y = &quot;Number of albums&quot;) +
+  theme_bw() +
+ easy_remove_legend() +
+  scale_fill_hp_d(option = &quot;LunaLovegood&quot;) </code></pre>
+<p><img src="/post/2020-10-11-converting-characters-to-dates_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="what-have-i-learned-about-lubridate-now" class="section level1">
+<h1>What have I learned about lubridate now?</h1>
+<p>If your dates are all in a consistent format, it is pretty easy to turn dates that R thinks are characters into dates, using the <code>mdy()</code>, <code>dmy()</code>, or <code>ymd()</code> functions.</p>
+<p>What about if your dates are not in a consistent format? If you have mistakenly let your participants fill in a field with how they like to see dates?</p>
+<p>And why does R sometimes think dates are characters and other times not? How do I maximise the likelihood that R will think my dates are dates from the get go?</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>
