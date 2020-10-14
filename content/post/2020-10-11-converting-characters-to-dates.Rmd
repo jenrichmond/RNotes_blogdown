@@ -109,7 +109,8 @@ sales %>%
   geom_line() +
   facet_wrap(~ artist) +
   theme_bw() +
-  labs(y = "Total sales $", x = "Release year")
+  labs(y = "Total sales $", x = "Release year") 
+  
 ```
 
 # Beyonce vs. Taylor: Chart position by year

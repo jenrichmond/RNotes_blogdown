@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>parsing dates automatically</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>parsing dates automatically</h1>
+         
+
+
+<pre class="r"><code>library(tidyverse)
+library(here)
+library(janitor)
+library(ggeasy)
+library(harrypotter)
+library(lubridate)</code></pre>
+<p>Ive been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset.</p>
+<pre class="r"><code>penguins_raw &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&#39;) %&gt;%
+  clean_names()</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   studyName = col_character(),
+##   `Sample Number` = col_double(),
+##   Species = col_character(),
+##   Region = col_character(),
+##   Island = col_character(),
+##   Stage = col_character(),
+##   `Individual ID` = col_character(),
+##   `Clutch Completion` = col_character(),
+##   `Date Egg` = col_date(format = &quot;&quot;),
+##   `Culmen Length (mm)` = col_double(),
+##   `Culmen Depth (mm)` = col_double(),
+##   `Flipper Length (mm)` = col_double(),
+##   `Body Mass (g)` = col_double(),
+##   Sex = col_character(),
+##   `Delta 15 N (o/oo)` = col_double(),
+##   `Delta 13 C (o/oo)` = col_double(),
+##   Comments = col_character()
+## )</code></pre>
+<pre class="r"><code>penguins_raw$date_egg[[1]]</code></pre>
+<pre><code>## [1] &quot;2007-11-11&quot;</code></pre>
+<p>And other times R thinks dates are characters, like in the marbles data.</p>
+<pre class="r"><code>marbles &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-02/marbles.csv&#39;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   date = col_character(),
+##   race = col_character(),
+##   site = col_character(),
+##   source = col_character(),
+##   marble_name = col_character(),
+##   team_name = col_character(),
+##   time_s = col_double(),
+##   pole = col_character(),
+##   points = col_double(),
+##   track_length_m = col_double(),
+##   number_laps = col_double(),
+##   avg_time_lap = col_double(),
+##   host = col_character(),
+##   notes = col_character()
+## )</code></pre>
+<pre class="r"><code>marbles$date[[1]]</code></pre>
+<pre><code>## [1] &quot;15-Feb-20&quot;</code></pre>
+<p>It is pretty easy to use dmy() to convert the marble dates into date format…</p>
+<pre class="r"><code>marbles$date &lt;- dmy(marbles$date)
+
+glimpse(marbles)</code></pre>
+<pre><code>## Rows: 256
+## Columns: 14
+## $ date           &lt;date&gt; 2020-02-15, 2020-02-15, 2020-02-15, 2020-02-15, …
+## $ race           &lt;chr&gt; &quot;S1Q1&quot;, &quot;S1Q1&quot;, &quot;S1Q1&quot;, &quot;S1Q1&quot;, &quot;S1Q1&quot;, &quot;S1Q1&quot;, &quot;…
+## $ site           &lt;chr&gt; &quot;Savage Speedway&quot;, &quot;Savage Speedway&quot;, &quot;Savage Spe…
+## $ source         &lt;chr&gt; &quot;https://youtu.be/JtsQ_UydjEI?t=356&quot;, &quot;https://yo…
+## $ marble_name    &lt;chr&gt; &quot;Clementin&quot;, &quot;Starry&quot;, &quot;Momo&quot;, &quot;Yellow&quot;, &quot;Snowy&quot;,…
+## $ team_name      &lt;chr&gt; &quot;O&#39;rangers&quot;, &quot;Team Galactic&quot;, &quot;Team Momo&quot;, &quot;Mello…
+## $ time_s         &lt;dbl&gt; 28.11, 28.37, 28.40, 28.70, 28.71, 28.72, 28.96, …
+## $ pole           &lt;chr&gt; &quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;, &quot;P7&quot;, &quot;P8&quot;, &quot;…
+## $ points         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ track_length_m &lt;dbl&gt; 12.81, 12.81, 12.81, 12.81, 12.81, 12.81, 12.81, …
+## $ number_laps    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ avg_time_lap   &lt;dbl&gt; 28.11, 28.37, 28.40, 28.70, 28.71, 28.72, 28.96, …
+## $ host           &lt;chr&gt; &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;…
+## $ notes          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
+<p>… but why doesn’t R do that automatically.</p>
+<p>It is pretty obvious that dates that are already in POSIX format (i.e. year-month-day 2020-10-13) get parsed as dates automatically. Lets do a little test to check that is true.</p>
+<p>I made a google form that asked respondants to enter their birthday 3 times
+- first, however they wanted
+- second, using a date template
+- third, in yyyy-mm-dd format</p>
+<pre class="r"><code>library(googlesheets4)</code></pre>
+<pre><code>## Warning: package &#39;googlesheets4&#39; was built under R version 3.5.2</code></pre>
+<pre class="r"><code>bday &lt;- read_sheet(&quot;https://docs.google.com/spreadsheets/d/18OaHGFe33kvbB3GMCDHdXrmudnR7zEm4Swr-0_JEw4U/edit#gid=1811856339&quot;) </code></pre>
+<pre><code>## Using an auto-discovered, cached token.
+## To suppress this message, modify your code or options to clearly consent to the use of a cached token.
+## See gargle&#39;s &quot;Non-interactive auth&quot; vignette for more details:
+## https://gargle.r-lib.org/articles/non-interactive-auth.html
+## The googlesheets4 package is using a cached token for jennyrichmond@gmail.com.</code></pre>
+<pre><code>## Auto-refreshing stale OAuth token.</code></pre>
+<pre><code>## Reading from &#39;difficult date data (Responses)&#39;</code></pre>
+<pre><code>## </code></pre>
+<pre class="r"><code>bday &lt;- bday %&gt;%
+  clean_names() %&gt;%
+  rename(free_date = when_is_your_birthday, 
+         template_date = on_what_day_where_you_born, 
+         iso_date = one_more_time_when_is_your_birthday_please_format_yyyy_mm_dd)
+
+glimpse(bday)</code></pre>
+<pre><code>## Rows: 20
+## Columns: 4
+## $ timestamp     &lt;dttm&gt; 2020-10-12 22:02:34, 2020-10-12 22:18:19, 2020-10…
+## $ free_date     &lt;list&gt; [&quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;,…
+## $ template_date &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…
+## $ iso_date      &lt;list&gt; [&quot;1978-06-30&quot;, &quot;2011-02-17&quot;, &quot;2014-03-25&quot;, &quot;1977-…</code></pre>
+<p>Well that didn’t turn out entirely as I had expected. The free date entry parses as characters- that was expected. But the template date is recognised as dttm (datetime format) despite me entering it according to AUS date preference (dd-mm-yyyy). Most surprising to me is that the data that I asked respondants to enter in ISO format (yyyy-mm-dd) is NOT parsed as a date.</p>
+<p>Hmmmmm….</p>
+<p>OK what do to about this instance where you have forgotten to restrict the way that your participants enter their date. Can lubridate help parse dates that are in a million different formats?</p>
+<p>Actually, there aren’t a million formats. There are only 3 …</p>
+<ul>
+<li>dmy</li>
+<li>ymd</li>
+<li>mdy</li>
+</ul>
+<p>… and you can use <code>parse_date_time()</code> to let R know that it should try to parse dates in all 3 formats.</p>
+<pre class="r"><code>bday$free_date &lt;- parse_date_time(bday$free_date, c(&quot;ymd&quot;, &quot;mdy&quot;, &quot;dmy&quot;))
+
+glimpse(bday)</code></pre>
+<pre><code>## Rows: 20
+## Columns: 4
+## $ timestamp     &lt;dttm&gt; 2020-10-12 22:02:34, 2020-10-12 22:18:19, 2020-10…
+## $ free_date     &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…
+## $ template_date &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…
+## $ iso_date      &lt;list&gt; [&quot;1978-06-30&quot;, &quot;2011-02-17&quot;, &quot;2014-03-25&quot;, &quot;1977-…</code></pre>
+<pre class="r"><code>library(readr)
+data &lt;- read_csv(&quot;data.csv&quot;, 
+                  col_types = cols(actual_finish = col_datetime(format = &quot;%d/%m/%Y&quot;)))</code></pre>
+<div id="excel-behaving-badly" class="section level1">
+<h1>excel behaving badly</h1>
+<p>Sometimes dates from excel import into R as numeric</p>
+<p><a href="https://blog.exploratory.io/how-to-convert-excel-numeric-dates-to-date-data-type-in-r-5b100547007f" class="uri">https://blog.exploratory.io/how-to-convert-excel-numeric-dates-to-date-data-type-in-r-5b100547007f</a></p>
+<p>use janitor::excel_numeric_to_date() to convert…</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>

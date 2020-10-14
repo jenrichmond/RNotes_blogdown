@@ -1,0 +1,114 @@
+---
+title: parsing dates automatically
+author: ''
+date: '2020-10-12'
+slug: parsing-dates-automatically
+categories: []
+draft: TRUE
+tags: []
+---
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(janitor)
+library(ggeasy)
+library(harrypotter)
+library(lubridate)
+
+```
+
+
+Ive been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset. 
+
+```{r}
+penguins_raw <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv') %>%
+  clean_names()
+
+penguins_raw$date_egg[[1]]
+
+```
+
+And other times R thinks dates are characters, like in the marbles data. 
+
+```{r}
+marbles <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-02/marbles.csv')
+
+marbles$date[[1]]
+
+```
+
+It is pretty easy to use dmy() to convert the marble dates into date format...
+
+```{r}
+marbles$date <- dmy(marbles$date)
+
+glimpse(marbles)
+```
+
+... but why doesn't R do that automatically. 
+
+It is pretty obvious that dates that are already in POSIX format (i.e. year-month-day 2020-10-13) get parsed as dates automatically. Lets do a little test to check that is true. 
+
+I made a google form that asked respondants to enter their birthday 3 times
+- first, however they wanted
+- second, using a date template
+- third, in yyyy-mm-dd format
+
+```{r}
+library(googlesheets4)
+
+bday <- read_sheet("https://docs.google.com/spreadsheets/d/18OaHGFe33kvbB3GMCDHdXrmudnR7zEm4Swr-0_JEw4U/edit#gid=1811856339") 
+
+bday <- bday %>%
+  clean_names() %>%
+  rename(free_date = when_is_your_birthday, 
+         template_date = on_what_day_where_you_born, 
+         iso_date = one_more_time_when_is_your_birthday_please_format_yyyy_mm_dd)
+
+glimpse(bday)
+```
+
+Well that didn't turn out entirely as I had expected. The free date entry parses as characters- that was expected. But the template date is recognised as dttm (datetime format) despite me entering it according to AUS date preference (dd-mm-yyyy). Most surprising to me is that the data that I asked respondants to enter in ISO format (yyyy-mm-dd) is NOT parsed as a date. 
+
+Hmmmmm....
+
+
+OK what do to about this instance where you have forgotten to restrict the way that your participants enter their date. Can lubridate help parse dates that are in a million different formats?
+
+Actually, there aren't a million formats. There are only 3 ...
+
+- dmy
+- ymd
+- mdy
+
+... and you can use `parse_date_time()` to let R know that it should try to parse dates in all 3 formats. 
+
+```{r}
+bday$free_date <- parse_date_time(bday$free_date, c("ymd", "mdy", "dmy"))
+
+glimpse(bday)
+```
+
+
+
+
+
+
+
+
+```{r eval = FALSE}
+library(readr)
+data <- read_csv("data.csv", 
+                  col_types = cols(actual_finish = col_datetime(format = "%d/%m/%Y")))
+```
+
+
+
+# excel behaving badly
+
+Sometimes dates from excel import into R as numeric
+
+https://blog.exploratory.io/how-to-convert-excel-numeric-dates-to-date-data-type-in-r-5b100547007f
+
+use janitor::excel_numeric_to_date() to convert...

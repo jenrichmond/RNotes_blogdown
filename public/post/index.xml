@@ -6,10 +6,30 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IDHTG how to annotate plots</title>
+      <link>/post/idhtg-how-to-annotate-plots/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/idhtg-how-to-annotate-plots/</guid>
+      <description>A new post in my I Don’t Have to Google (IDHTG) series. I’ve been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!
+I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies.</description>
+    </item>
+    
+    <item>
+      <title>parsing dates automatically</title>
+      <link>/post/parsing-dates-automatically/</link>
+      <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/parsing-dates-automatically/</guid>
+      <description>library(tidyverse) library(here) library(janitor) library(ggeasy) library(harrypotter) library(lubridate) Ive been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset.
+penguins_raw &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&amp;#39;) %&amp;gt;% clean_names() ## Parsed with column specification: ## cols( ## studyName = col_character(), ## `Sample Number` = col_double(), ## Species = col_character(), ## Region = col_character(), ## Island = col_character(), ## Stage = col_character(), ## `Individual ID` = col_character(), ## `Clutch Completion` = col_character(), ## `Date Egg` = col_date(format = &amp;quot;&amp;quot;), ## `Culmen Length (mm)` = col_double(), ## `Culmen Depth (mm)` = col_double(), ## `Flipper Length (mm)` = col_double(), ## `Body Mass (g)` = col_double(), ## Sex = col_character(), ## `Delta 15 N (o/oo)` = col_double(), ## `Delta 13 C (o/oo)` = col_double(), ## Comments = col_character() ## ) penguins_raw$date_egg[[1]] ## [1] &amp;quot;2007-11-11&amp;quot; And other times R thinks dates are characters, like in the marbles data.</description>
+    </item>
     
     <item>
       <title>lubridate characters to dates</title>
