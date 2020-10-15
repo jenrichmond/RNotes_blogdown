@@ -102,6 +102,7 @@ penguins %>%
     color = "gray20", curvature = -0.3) +
   scale_colour_hp_d(option = "LunaLovegood")
 ```
+
 # I love twitter... intro to ggannotate
 
 One of the best things about blogging about what you learn is that you can give it away and then people let you know about new/different/easier ways to do what you just learned to do. 
