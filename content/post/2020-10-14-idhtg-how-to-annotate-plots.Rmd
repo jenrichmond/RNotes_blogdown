@@ -102,4 +102,81 @@ penguins %>%
     color = "gray20", curvature = -0.3) +
   scale_colour_hp_d(option = "LunaLovegood")
 ```
+# I love twitter... intro to ggannotate
+
+One of the best things about blogging about what you learn is that you can give it away and then people let you know about new/different/easier ways to do what you just learned to do. 
+
+I shared this post on Twitter and within a few minutes Matt Cowgill let me know that he has been working on a package called [ggannotate](https://github.com/MattCowgill/ggannotate) which lets you add notes and arrows to your ggplot, using a point and click interface via a Shiny app. 
+
+How cool is that??
+
+You can install the package from github using this line of code
+
+`remotes::install_github("mattcowgill/ggannotate")`
+
+```{r}
+library(ggannotate)
+```
+
+Start with an annotation free plot...
+
+```{r message=FALSE, warning=FALSE}
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood")
+```
+
+To use ggannotate you can...
+
+1. select the ggplot code and use the Addins pulldown to open the ggannotate tool OR
+2. assign your ggplot to an object (maybe called plot) and then call ggannotate::ggannotate(plot) OR
+
+```{r eval = FALSE}
+plot <- penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood")
+
+ggannotate(plot)
+```
+
+3. you can wrap your ggplot code in a ggannotate call like this
+
+```{r eval = FALSE}
+ggannotate(penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood"))
+  
+```
+
+Each option will open a shiny app that you can use to point and click where you want your annotations/curves and then copy the code back into your markdown. The downside is that at this stage you need to add each annotation and curve separately and the code that the tool generates is longer than if you had done it manually. But you don't have to write it so I guess that doesn't matter!
+
+Matt said that adding multiple annotations in single call is in the works, so watch this space. 
+
+```{r message=FALSE, warning=FALSE}
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood") +
+  geom_text(data = data.frame(x = 188.437797399636, y = 5990.9008070379, label = "Gentoo penguins are much larger"),
+mapping = aes(x = x, y = y, label = label),
+size = 3.86605783866058, alpha = 1, inherit.aes = FALSE) +
+  geom_text(data = data.frame(x = 219.749643585604, y = 3366.61344597189, label = "It is hard to differentiate \n Chinstrap and Gentoo"),
+mapping = aes(x = x, y = y, label = label),
+size = 3.86605783866058, alpha = 1, inherit.aes = FALSE) +
+  geom_curve(data = data.frame(x = 199.308325132123, y = 6014.12458899424, xend = 208.642800032846, yend = 5781.88676943088),
+mapping = aes(x = x, y = y, xend = xend, yend = yend),
+curvature = -0.515, arrow = arrow(30L, unit(0.1, "inches"),
+"last", "closed"),
+alpha = 1, inherit.aes = FALSE) +
+  geom_curve(data = data.frame(x = 211.833063606511, y = 3320.16588205921, xend = 203.443851986874, yend = 3680.13450238243),
+mapping = aes(x = x, y = y, xend = xend, yend = yend),
+curvature = -0.59, arrow = arrow(30L, unit(0.1, "inches"),
+"last", "closed"),
+alpha = 1, inherit.aes = FALSE)
+  
+  
+```
 
