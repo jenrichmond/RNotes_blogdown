@@ -131,15 +131,21 @@ I also looked at activity by week. You can see that there are some weeks when th
               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
                   <div class="box-masonry">
                       
+                        
+                        <a href="/post/parsing-dates-automatically/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/gs.png" alt="" class="img-responsive">
+                        </a>
+                      
                       
                       <div class="box-masonry-text">
                       
-                          <h4><a href="/post/parsing-dates-automatically/">parsing dates automatically</a></h4>
+                          <h4><a href="/post/parsing-dates-automatically/">lubridate parsing dates automatically</a></h4>
                           <div class="box-masonry-description">
                             <p>
                                 
-                                  library(tidyverse) library(here) library(janitor) library(ggeasy) library(harrypotter) library(lubridate) Ive been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset.
-penguins_raw &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&#39;) %&gt;% clean_names() ## Parsed with column specification: ## cols( ## studyName = col_character(), ## `Sample Number` = col_double(), ## Species = col_character(), ## Region = col_character(), ## Island = col_character(), ## Stage = col_character(), ## `Individual ID` = col_character(), ## `Clutch Completion` = col_character(), ## `Date Egg` = col_date(format = &quot;&quot;), ## `Culmen Length (mm)` = col_double(), ## `Culmen Depth (mm)` = col_double(), ## `Flipper Length (mm)` = col_double(), ## `Body Mass (g)` = col_double(), ## Sex = col_character(), ## `Delta 15 N (o/oo)` = col_double(), ## `Delta 13 C (o/oo)` = col_double(), ## Comments = col_character() ## ) penguins_raw$date_egg[[1]] ## [1] &quot;2007-11-11&quot; And other times R thinks dates are characters, like in the marbles data.
+                                  I’ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset…
+# read data from Tidy Tuesday penguins_raw &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&#39;) %&gt;% clean_names # check class class(penguins_raw$date_egg) ## [1] &quot;Date&quot; # pull first date observation penguins_raw$date_egg[[1]] ## [1] &quot;2007-11-11&quot; And other times R thinks dates are characters, like in the marbles data.
                                 
                             </p>
                           </div>
