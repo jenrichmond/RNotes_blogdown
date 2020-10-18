@@ -6,10 +6,20 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lubridate parsing dates automatically</title>
+      <link>/post/parsing-dates-automatically/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/parsing-dates-automatically/</guid>
+      <description>I’ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset…
+# read data from Tidy Tuesday penguins_raw &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&amp;#39;) %&amp;gt;% clean_names # check class class(penguins_raw$date_egg) ## [1] &amp;quot;Date&amp;quot; # pull first date observation penguins_raw$date_egg[[1]] ## [1] &amp;quot;2007-11-11&amp;quot; And other times R thinks dates are characters, like in the marbles data.</description>
+    </item>
     
     <item>
       <title>IDHTG how to annotate plots</title>
@@ -19,16 +29,6 @@
       <guid>/post/idhtg-how-to-annotate-plots/</guid>
       <description>A new post in my I Don’t Have to Google (IDHTG) series. I’ve been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!
 I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies.</description>
-    </item>
-    
-    <item>
-      <title>lubridate parsing dates automatically</title>
-      <link>/post/parsing-dates-automatically/</link>
-      <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/parsing-dates-automatically/</guid>
-      <description>I’ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset…
-# read data from Tidy Tuesday penguins_raw &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&amp;#39;) %&amp;gt;% clean_names # check class class(penguins_raw$date_egg) ## [1] &amp;quot;Date&amp;quot; # pull first date observation penguins_raw$date_egg[[1]] ## [1] &amp;quot;2007-11-11&amp;quot; And other times R thinks dates are characters, like in the marbles data.</description>
     </item>
     
     <item>

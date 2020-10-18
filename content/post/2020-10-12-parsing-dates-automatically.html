@@ -1,7 +1,7 @@
 ---
 title: lubridate parsing dates automatically
 author: ''
-date: '2020-10-12'
+date: '2020-10-18'
 slug: parsing-dates-automatically
 image: "img/portfolio/gs.png"
 categories: []
@@ -191,4 +191,28 @@ free_template %&gt;%
 <h1>excel behaving badly</h1>
 <p>I haven’t encountered this yet, but if there is a function in the <code>janitor</code> package to deal with a problem it must be common. Apparently sometimes <a href="https://blog.exploratory.io/how-to-convert-excel-numeric-dates-to-date-data-type-in-r-5b100547007f">dates from excel import into R as numeric</a></p>
 <p>Use <code>janitor::excel_numeric_to_date()</code> to convert…</p>
+</div>
+<div id="what-have-i-learned-about-lubridate-now" class="section level1">
+<h1>What have I learned about lubridate now?</h1>
+<ul>
+<li>getting R to automatically recognise your dates as dates is a bit of a crap shoot
+<ul>
+<li>depends on where you are reading your data from (googlesheets, csv, excel) and how much leeway you gave your participants when they were entering them</li>
+</ul></li>
+<li>best to not allow participants free reign over their date entry
+<ul>
+<li>but if you do, <code>parse_date_time()</code> does a decent job of pulling different formats into a consistent one</li>
+</ul></li>
+</ul>
+</div>
+<div id="what-do-i-still-have-to-learn" class="section level1">
+<h1>What do I still have to learn?</h1>
+<ul>
+<li>another thing that <code>lubridate</code> helps you do is deal with doing math with dates
+<ul>
+<li>how much time is there between x date and x date?</li>
+<li>what will the date be 100 days from now?</li>
+</ul></li>
+<li>I don’t know what the difference is between a duration, a period, and an interval, but apparently its a thing… that is next on my list.</li>
+</ul>
 </div>
