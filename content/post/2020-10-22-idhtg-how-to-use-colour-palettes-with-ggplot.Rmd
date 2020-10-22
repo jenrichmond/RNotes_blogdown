@@ -32,6 +32,8 @@ penguin_point <- penguins %>%
 
 penguin_point
 ```
+
+
 ### Plot 2: mean body mass by sex and species, fill by sex 
 
 ```{r}
@@ -79,6 +81,8 @@ penguin_point +
 penguin_col +
   scale_fill_brewer(palette = "Paired")
 ```
+
+# use RColourBrewer to manually change the colours
 
 When you are using scale_fill_brewer() or scale_colour_brewer(), R automatically assumes you want the first colours in the palette, but how do you choose individual colours?
 

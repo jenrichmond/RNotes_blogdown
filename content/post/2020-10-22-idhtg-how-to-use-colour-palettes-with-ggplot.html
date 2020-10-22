@@ -27,8 +27,10 @@ penguins &lt;- penguins</code></pre>
   geom_point()
 
 penguin_point</code></pre>
-<p><img src="/post/2020-10-22-idhtg-how-to-use-colour-palettes-with-ggplot_files/figure-html/unnamed-chunk-2-1.png" width="672" />
-### Plot 2: mean body mass by sex and species, fill by sex</p>
+<p><img src="/post/2020-10-22-idhtg-how-to-use-colour-palettes-with-ggplot_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="plot-2-mean-body-mass-by-sex-and-species-fill-by-sex" class="section level3">
+<h3>Plot 2: mean body mass by sex and species, fill by sex</h3>
 <pre class="r"><code>mean_mass &lt;- penguins %&gt;%
   na.omit() %&gt;%
   group_by(species, sex) %&gt;% 
@@ -62,6 +64,9 @@ penguin_col </code></pre>
 <pre class="r"><code>penguin_col +
   scale_fill_brewer(palette = &quot;Paired&quot;)</code></pre>
 <p><img src="/post/2020-10-22-idhtg-how-to-use-colour-palettes-with-ggplot_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="use-rcolourbrewer-to-manually-change-the-colours" class="section level1">
+<h1>use RColourBrewer to manually change the colours</h1>
 <p>When you are using scale_fill_brewer() or scale_colour_brewer(), R automatically assumes you want the first colours in the palette, but how do you choose individual colours?</p>
 <p>You can look at the colours in a particular palette using display.brewer.pal() and get the hexidecimal values corresponding to each colour using brewer.pal()</p>
 <pre class="r"><code># View a single RColorBrewer palette by specifying its name
