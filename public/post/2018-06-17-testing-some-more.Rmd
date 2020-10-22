@@ -1,9 +1,0 @@
----
-title: testing some more
-author: Jen Richmond
-date: '2018-06-17'
-slug: testing-some-more
-categories: []
-tags: []
----
-

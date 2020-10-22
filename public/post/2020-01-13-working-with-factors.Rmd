@@ -4,7 +4,7 @@ author: ''
 date: '2020-01-13'
 slug: working-with-factors
 categories: []
-image: "img/forcats.jpeg"
+image: "img/portfolio/forcats.jpeg"
 tags: []
 output:
   blogdown::html_page:
