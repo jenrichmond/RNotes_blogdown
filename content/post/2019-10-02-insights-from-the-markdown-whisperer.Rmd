@@ -3,7 +3,7 @@ title: insights from the RMarkdown whisperer
 author: ''
 date: '2019-10-02'
 slug: insights-from-the-markdown-whisperer
-image: "img/portfolio/alison.JPG"
+image: "img/alison.JPG"
 categories: []
 tags: []
 ---

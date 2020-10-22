@@ -3,7 +3,7 @@ title: making memes in R
 author: ''
 date: '2019-07-27'
 slug: making-memes-in-r
-image: "img/portfolio/kitty.jpg"
+image: "img/kitty.jpg"
 categories: []
 tags: []
 ---
@@ -51,12 +51,10 @@ meme_list()</code></pre>
   meme_text_trump(&quot;R-Ladies Sydney&quot;, &quot;Happy Birthday&quot;)</code></pre>
 <p><img src="/post/2019-07-27-making-memes-in-r_files/figure-html/unnamed-chunk-5-1.png" width="250" /></p>
 <p>If you have the <code>rtweet</code> package and a twitter token set up, you can tweet your meme straight from R using the meme_tweet() function. I didn’t work that out… yet.</p>
-</div>
-</div>
-<div id="option-2-meme" class="section level2">
-<h2>Option 2: <code>meme</code></h2>
+<p>##Option 2: <code>meme</code></p>
 <p>You can use the <code>meme</code> package by <a href="https://github.com/GuangchuangYu/">GuangchuangYu</a> to add meme text to any image.</p>
 <p>Check out the <a href="https://cran.r-project.org/web/packages/meme/vignettes/meme.html">meme vignette</a> here.</p>
+</div>
 <div id="install-package" class="section level3">
 <h3>install package</h3>
 <pre class="r"><code>devtools::install_github(&quot;GuangchuangYu/meme&quot;)</code></pre>
@@ -85,12 +83,10 @@ meme::meme(pic1, &quot;code&quot;, &quot;all the things!&quot;) </code></pre>
 <pre class="r"><code>library(tidyverse) #so you can pipe</code></pre>
 <pre class="r"><code>meme::meme(&quot;kitten.jpg&quot;, &quot;am i in your way?&quot;) %&gt;%
   meme_save(&quot;kitty.jpg&quot;)</code></pre>
-</div>
-</div>
-<div id="option-3-memery" class="section level1">
-<h1>Option 3: <code>memery</code></h1>
+<p>#Option 3: <code>memery</code></p>
 <p>The <code>memery</code> package by <a href="https://github.com/leonawicz">Matthew Leonawicz</a> ended up being my favourite option because it is easy to make basic memes as above, but you can also make memed gifs, integrate ggplots AND there is a shiny app associated with it.</p>
 <p>Check out the <a href="https://cran.r-project.org/web/packages/memery/vignettes/memery.html">memery vignette here</a>.</p>
+</div>
 <div id="install-the-package-1" class="section level3">
 <h3>install the package</h3>
 <pre class="r"><code>install.packages(&quot;memery&quot;)</code></pre>
@@ -110,34 +106,22 @@ meme::meme(pic1, &quot;code&quot;, &quot;all the things!&quot;) </code></pre>
 <pre class="r"><code>txt &lt;- c(&quot;What to call my R package?&quot;, &quot;Perhaps...&quot;)</code></pre>
 <p>Then the makes a meme by putting the pic and text together, and saves to jpg, all in one step.</p>
 <pre class="r"><code>memery::meme(pic, txt[1], &quot;dino1.jpg&quot;)</code></pre>
-<div class="figure">
-<img src="/post/2019-07-27-making-memes-in-r_files/dino1.jpg" />
-
-</div>
+<p><img src="/post/2019-07-27-making-memes-in-r_files/dino1.jpg" /></p>
 <p>You can also get the pic from the internet.</p>
 <pre class="r"><code>web &lt;- &quot;https://imgflip.com/s/meme/Philosoraptor.jpg&quot;
 
 memery::meme(web, txt[2], &quot;dino2.png&quot;)</code></pre>
-<div class="figure">
-<img src="/post/2019-07-27-making-memes-in-r_files/dino2.png" />
-
-</div>
+<p><img src="/post/2019-07-27-making-memes-in-r_files/dino2.png" /></p>
 <p>It is super easy to add meme text to your own image. If your list of text possibilities is 2 items long and you don’t specify which to use (as above txt[1]), it will by default put text at the top and bottom. Here we use the kitten.jpg image again.</p>
 <pre class="r"><code>txt2 &lt;- c(&quot;Am I in your way?&quot;, &quot;I&#39;m too cute to work!&quot;)
 
 memery::meme(&quot;kitten.jpg&quot;, txt2, &quot;kitty1.jpg&quot;)</code></pre>
-<div class="figure">
-<img src="/post/2019-07-27-making-memes-in-r_files/kitty1.jpg" />
-
-</div>
+<p><img src="/post/2019-07-27-making-memes-in-r_files/kitty1.jpg" /></p>
 <p>You can also change the colour and shadow of the text by defining a list of clrs (colours), and then calling col (for colour) and shadow.</p>
 <pre class="r"><code>clrs &lt;- c(&quot;blue&quot;, &quot;pink&quot;)
 
 memery::meme(&quot;kitten.jpg&quot;, txt2, &quot;kitty2.jpg&quot;, col = clrs[1], shadow = clrs[2])</code></pre>
-<div class="figure">
-<img src="/post/2019-07-27-making-memes-in-r_files/kitty2.jpg" />
-
-</div>
+<p><img src="/post/2019-07-27-making-memes-in-r_files/kitty2.jpg" /></p>
 </div>
 <div id="make-memed-gifs" class="section level3">
 <h3>make memed gifs</h3>
@@ -150,17 +134,12 @@ pos &lt;- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.7
 
 meme_gif(img, lab, &quot;HP.gif&quot;, size = c(1.5, 0.75), label_pos = pos, fps = 20)</code></pre>
 <p>I didn’t really work out the size and position on this one and I’m not sure why the frames are flickery, so it needs some work. But you get the idea.</p>
-<div class="figure">
-<img src="/post/2019-07-27-making-memes-in-r_files/HP.gif" />
-
-</div>
+<p><img src="/post/2019-07-27-making-memes-in-r_files/HP.gif" /></p>
 </div>
 <div id="memery-also-has-a-shiny-app" class="section level3">
 <h3><code>memery</code> also has a shiny app</h3>
 <p>The <code>memery</code> package has a shiny app that you can call using memeApp(). It is designed to demo the package. <a href="https://cran.r-project.org/web/packages/memery/vignettes/memery.html">Read about it here</a>.</p>
-</div>
-</div>
-<div id="option-4-are-you-looking-for-a-meme-project" class="section level1">
-<h1>Option 4: Are you looking for a meme project ?</h1>
+<p>#Option 4: Are you looking for a meme project ?</p>
 <p>In my googling, I also found another <a href="https://github.com/leeper/meme">package called <code>meme</code></a> by Thomas Leeper that is not currently being maintained. It uses the memecaptain API and the link to those meme templates is currently broken. If you are looking for a super fun project, this meme package is <a href="https://github.com/leeper/meme/issues/6">looking for a new maintainer</a>!</p>
+</div>
 </div>

@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Posts</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+  <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="R notes to myself" />
+  <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="R notes to myself" />
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+  <div class="col-xs-12 col-sm-8 col-md-9 content-column">
+    <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+    <div class="grid">
+        <div class="row">
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/lubridate-math-with-dates/">lubridate math with dates</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  So far in this lubridate journey I have learned …
+how to pull date components (day, month, year) from date data in R and use them within dplyr and ggplot functions how to use dmy() and friends to convert character formats into date formats that whether or not R recognises your dates as dates is a bit of a crap shoot that it is best not to give your participants free reign with date entry, but if you do that parse_date_time() does a pretty good job  The one last thing that lubridate is useful for is doing math with dates.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/parsing-dates-automatically/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/gs.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/parsing-dates-automatically/">lubridate parsing dates automatically</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I’ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset…
+# read data from Tidy Tuesday penguins_raw &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&#39;) %&gt;% clean_names # check class class(penguins_raw$date_egg) ## [1] &quot;Date&quot; # pull first date observation penguins_raw$date_egg[[1]] ## [1] &quot;2007-11-11&quot; And other times R thinks dates are characters, like in the marbles data.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/idhtg-how-to-annotate-plots/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/annotate.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/idhtg-how-to-annotate-plots/">IDHTG how to annotate plots</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  A new post in my I Don’t Have to Google (IDHTG) series. I’ve been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!
+I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/converting-characters-to-dates/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/r_rollercoaster.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/converting-characters-to-dates/">lubridate characters to dates</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Art by Allison Horst @allison_horst
+ So far I have learned that lubridate has some nice functions for pulling date components like day, month, or year and using them within group_by() and summarise() or ggplot(). But most of the time when I am working with date data in the real world, R doesn’t even think my dates are dates. Most of the time date data that I read into R gets parsed as characters.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/lubridate-month-wday/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/lubridate_ymd.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/lubridate-month-wday/">lubridate month() &#43; wday()</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Art by Allison Horst @allison_horst
+ When I am trying to work out a problem with R, I generally skip the package documentation, I avoid stack overflow, and I go straight for a blog post written by someone who has just learned what I am trying to learn.
+I think when you have just learned something, you are in THE BEST PLACE to teach someone else. You are acutely aware of what it feels like to not “get it”.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/lubridate-googling/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/datenight.jpg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/lubridate-googling/">lubridate first google</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I have set myself a challenge of learning to deal with dates in R. Nothing like setting a date for an R-Ladies Sydney event where you will teach other people to spur the motivation for learning how to use the lubridate package.
+The plan is to learn how to use the package and document my learning process along the way so that at the end of Oct I can tell everyone…
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/group-by-and-summarise/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/penguin.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/group-by-and-summarise/">group_by and summarise</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.
+Details of the palmer penguin data, with art by Allison Horst, can be found here.
+load packages library(palmerpenguins) library(tidyverse)  read in data penguins &lt;- penguins glimpse(penguins) ## Rows: 344 ## Columns: 7 ## $ species &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie… ## $ island &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, To… ## $ bill_length_mm &lt;dbl&gt; 39.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/calculating-z-scores/">calculating z scores</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  The scale() function will center and/or scale a numeric object. Use center = TRUE to subtract the mean from the values; use scale = TRUE to divide the centered values by the standard deviation to produce z scores.
+center variable A  scale(A, center = TRUE, scale = FALSE)
+  generate z-scores for variable A  scale(A, center = TRUE, scale = TRUE)
+ Lets try it with EMG data
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/ggplot-tricks/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/testplot.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/ggplot-tricks/">ggplot tricks</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Here are some ggplot tricks that I shared at the R-Ladies Sydney June Show and Tell.
+Why is my internet speed so terrible? Working from home and pivoting to teaching online has made me realise that my wifi connection is really bad, particularly when it rains. I have been teaching new honours students R and needed a little dataset to demo how to get data into R, so made a google form and put it out on twitter to confirm to myself that my connection really is worse than most other people.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/bank/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/april.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/bank/">Spending in COVID</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  There is no doubt that COVID19 has massively disrupted how we spend our time and money. In this post, I update code inspired by this R-bloggers blog to look at how much less money we have been spending on eating in the last month, compared to April 2019.
+Download a copy of your bank transactions in csv format.
+Load packages library(tidyverse) library(janitor) library(lubridate)  Read in data Clean and rename, select just date, description, debit amount, add new column for class with default value = “Other”
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/recoding-variables/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/mutate.jpeg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/recoding-variables/">IDHTG recoding variables</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Option 1: use mutate() and case_when() Option 2a: use mutate() and recode() dplyr “scoped” verbs (_all, _at, _if) Option 2b: use mutate_at() and recode()   I don’t often deal with questionnaire data in R, but Ariana and I have started trying import her qualtrics data into R and to write a script to score her measures. The first step is to recode the variables to make it possible to add up scores on subscales.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/counting-things/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/count.jpeg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/counting-things/">IDHTG counting things</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  count distinct values counting by levels   Sometimes things that are really easy to do in excel are not so intuitive in R. Like counting things. Because most of the time I am working with data in long format, you can end up with hundreds of observations, so functions like length() aren’t useful. Today I just wanted to check how many participants were in this dataset and it took me some significant googling.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/working-with-factors/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/forcats.jpeg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/working-with-factors/">IDHTG working with factors</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  use as_factor() use levels() use fct_relevel()   I use read_csv to read data into R and it most conservatively assumes that when you have text in a variable you are dealing characters (not factors). Of course these things are often factors so you need to explicitly convert them if you want to use the factor in an analysis or have it appear the way you want in a ggplot.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/i-dont-have-to-google/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/newyear.jpg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/i-dont-have-to-google/">things i dont have to google anymore</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  My 2020 Resolution There are a lot of things I do in R that I have to google EVERY TIME. My 2020 R resolution is to try and google less. I want to commit a few of these really frequently used things to memory. The key to that: write a blog post about each one. That way, even if it doesn’t stick, I can always just google my own blog.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/git-success/">what did we just do?</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I started a blog post and pushed it to the git repo that contains my blog. Charles forked my repo, cloned it to her machine, contributed to the post, and then pushed the updates to her forked copy of the repo.
+Then she did a pull request. People in git-land talk about PRs (pull requests) all the time, and the term seems backwards to me. A pull request is when you request that the owner of a repo “pull” the changes that you have made.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/serious-git-thinking/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/Octocat.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/serious-git-thinking/">serious git thinking</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I have been a git user for 513 days.
+When I was first setting up this blog, my dear friend Charles T Gray helped me learn the 3 terminal commands that you need to know to interact with git in the most rudimentary of ways.
+ git add .
+  git commit -m “something meaningful”
+  git push
+ Since then I have mostly just used these 3 commands to push blog posts to git.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/best-stats-meme-ive-seen-in-a-while/">best stats meme ive seen in a while</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Just putting this here because I&rsquo;m sure it will come in handy some day.
+not untrue https://t.co/TR8uueTsk9
+&mdash; Shit Academics Say (@AcademicsSay) October 8, 2019
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/insights-from-the-markdown-whisperer/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/alison.JPG" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/insights-from-the-markdown-whisperer/">insights from the RMarkdown whisperer</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I had the pleasure of attending Alison Hill’s RMarkdown workshop in Canberra on Monday and I came away with so many tips and tricks! It was brillant.
+Alison covered A LOT over the course of the day. I learned lots of the power of yaml, how to create parameterised reports, and how to make a package that contains customised .Rmd templates. Each of those topics are blogposts for another day, but my favourite bit was making a beautiful Academic theme blogdown site.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/mutate-and-if-else-to-create-new-variables/">mutate &#43; if else = new conditional variable</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>I keep googling <a href="https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1">these slides</a> by <a href="@daranzolin">David Ranzolin</a> each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/customise-your-r-experience/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/cropped.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/customise-your-r-experience/">customise your R experience</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Would you like RStudio to show you a random The Good Place quote, spoken by a ASCII animal along with some random message of praise/encouragement each time you start a coding session or restart R?
+Of course you would!!!
+how to customise your .rprofile You will need to install the following packages:
+ usethis goodshirt cowsay praise  Use usethis to open your .rprofile file usethis::edit_r_profile() Copy and paste this text into your .
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/pivoting/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/gatherspread.jpeg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/pivoting/">Pivoting</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Cute #rstats monster art by the amazing Allison Horst.
+I have been using gather() and spread() a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
+For example, this week Matilda and I were working with her language/locomotion data and we were looking at the number of action-directed, affirmative, and descriptive responses that parents make to their infants.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/making-memes-in-r/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/kitty.jpg" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/making-memes-in-r/">making memes in R</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I having been prepping for my lightning talk at the R-Ladies Sydney Birthday this weekend and learning about all the packages that you can use to make memes in R. I’m going going to talk about my favourite option (which is the memery package), but here is what I learned about other packages.
+Option 1: memer The memer package by Sam Tyner is a tidyverse compatible package that allows you to replace text in popular memes with your own.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                        
+                        <a href="/post/apa-figures/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        
+                            <img src="/img/portfolio/plotforpaper.png" alt="" class="img-responsive">
+                        </a>
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/apa-figures/">apa figures</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  As I write my first paper reporting data analysis coming out of R (woot!!!), here are some notes summarising all the googling I have done this morning about how to produce APA style figures in ggplot.
+  via GIPHY Load libraries Start by loading tidyverse to get ggplot, here to make finding the data easy, and papaja to get the theme_apa() function.
+library(tidyverse) library(here) library(papaja)  Read in data plotdata &lt;- read_csv(here(&quot;plotdata.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/blogdown/">blogdown</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  There has been lots of talk about blogdown on #rstats Twitter recently and people have been talking up the Hugo “Academic theme”.
+I want to give it a go to update my lab website, so thought it might be a good idea to pull together all the useful links I’ve seen recently into one place.
+Alison Hill I used Alison’s blog post when I first set up this blog. It looks like she has updated the post recently, so it is probably still a good place to start.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/newposttest/">newposttest</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                   I think I have broken hugo testing whether this works
+ 
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/anova-options/">rm anova options</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I’ve been analysing some future thinking data and playing around with packages that can do repeated ANOVA (I know, I should do LMM). There is more than one way to skin a cat and the differences come down to two things.
+the intuitiveness of the function arguments the readibility of the output  Some checks to do before you start - all of these packages assume that you within and between subjects variables are factors, but also that your participant id is a factor
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/just-three-things/">Just Three Things</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I love me a good #rstats screencast. David Robinson has been screencasting his #TidyTuesday efforts for the past few months and while it is GREAT to watch a master at work, I just don’t have time to watch someone code for an hour, in order to extract a handful of tips.
+So when I saw Nick Tierney tweet about posting short videos that contain Just Three Things, I thought “that is a GREAT idea”.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/infinite-moon-reader/">infinite moon reader</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I saw an intriguing tweet this afternoon.
+🧙 ♂️Live preview for R Markdown!
+TIL that you can have a live preview of your #rstats Markdown docs!
+Just use the infinite_moon_reader function from the xaringan package.
+It works for all single-HTML-file outputs and even comes with a pre-made RStudio Addin! — Jozef Hajnala (@jozefhajnala) January 2, 2019   When Charles was visiting for #RCurious in June, she had written her slides in xaringan and was raving about infinite moon reader.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/how-to-add-a-gif/">how to add a gif</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Sometimes your plot needs a celebratory gif.
+I have just finished the vizwhiz module for #RYouWithMe and to top off the series I worked out how to add an RLady Wizard to our final plot.
+Just so I’ll remember for next time, here is a step by step how to…
+ how to add a gif to your ggplot Install the magick package and load it with ggplot. Install and load the beepr package too so you can have RStudio beep at you when it has finished rendering your gif (it can take a long time).
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/how-to-use-the-here-package/">how to use the `here` package</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I’m still working on getting my head around where R thinks we work and how to tell it where my stuff lives (aka working directories).
+On twitter yesterday Alison Hill, Adam Gruer, Zoe Meers and Irene Steves helped me sort out my issues with here.
+hi #rstats friends, how do YOU use the here package? I thought I had my head around it but I'm doing something wrong. Here my markdown lives within the “markdown” folder, so I set here to the “data” folder, call read_csv(here(“datafile.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/things-i-googled-this-week/">things i googled this week</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  How would we learn R if not for google? Here are some things I googled this week (and mostly not for the first time).
+1. how to install a package from github. 95% of the time, packages I want are on CRAN and I can just use the install.packages function to install them.
+install.packages(&quot;nameofthepackage&quot;)  Occasionally though, I see something cool and new on Twitter and need to install from github.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/writing-lmm/">Writing about LMM</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  Learning new things is HARD. Stats methods are particularly hard because it not just about running the test. You have to…
+ learn when to run the test learn how to run the test learn how to interpret the test AND learn how to write about the results of the test  Part of what makes this learning hard is that our research methods training has drummed into us that there is a RIGHT WAY TO DO IT.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/let-me-count-the-ways/">let me count the ways</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  psycho package ANOVA Recap EMG + psycho psycho steps THOUGHTS about psycho  Likelihood Ratio Tests Lets go hiking EMG + LRT THOUGHTS about LRT  lmerTest package is LRT anticonservative? EMG + lmerTest THOUGHTS about lmerTest  Next: “how to write about LMM”   When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/where-is-here/">where is here?</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  As I add new projects to my rstats portfolio and work collaboratively on projects with students the issue of working directories is becoming more and more complicated. Not really understanding how working directories and file paths actually work, I have been relying on the beginner logic…
+ Everything will be just fine as long as you keep your datafiles in the same folder as your .rmd file
+   via GIPHY I aspire to have organized folders that Jen Thompson would be proud of, but that is going involve getting my head around directories.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/gather-spread-unite-separate/">gather spread unite separate</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The tidyr package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &ldquo;SPSS format&rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&hellip;.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/next-up-anova/">next up anova</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  In the kind of research that we do, t-tests can only take you so far. Most often we design factorial experiments where we are interested in both main effects and interactions. Because we work with infants and young children, who are both expensive to recruit/test and notoriously variable in their behaviour, we try to design experiments that use within-subjects designs; each child gives us more than one data point and we need to use repeated-measures analyses.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/more-wrangling-tips/">more wrangling tips</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
+Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
+So here is an excellent approach to data wrangling in #rstats https://t.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/testing-out-t-tests/">testing out t-tests</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I was trying to work out how to do t-tests using my own data and the lsr package but ended up working with Dani’s AFL data from her book while trying to work out why R insisted that my outcome variable wasn’t numeric (it definitely was). Turns out that the lsr package doesn’t deal well with tibbles (which are created by default when you use read_csv to get your data) but if you use read.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/using-r-for-analysis/">using R for analysis</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&hellip; analysis.
+I&rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/creating-data-using-rep/">creating data using rep()</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I&rsquo;m sure as I learn what kind of information R needs I&rsquo;ll get better at this but for the moment using functions like rep() to create variables like trial number or block has been super useful.
+Alison Smith has a great blog called Very Statisticious and her post about simulating data is super helpful.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/use-map-to-read-many-csv-files/">Use map to read many csv files</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>Dipping my toes in purrr here and replicating options from a <a href="https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R">super useful blog post</a> I found by <a href="@clauswilke">ClausWilke</a></p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/i-don-t-like-cats-much/">I don’t like cats much</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  I don&rsquo;t love cats. I am not a member of @RCatLadies. So the fact that Tidyverse packages for dealing with factors and functional programming have cat-related names (forcats and purrr) does not endear them to me.
+I knew there was a time when I would encounter an R problem that needed the power of for loops, so when I asked the Twittersphere whether there was an alternative (hopefully a tidyverse one) that would allow me to avoid loops a little longer, I was a bit disappointed to hear that it is the purrr package.
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/lesser-known-stars-of-the-tidyverse/">lesser known stars of the tidyverse</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p><a href="@robinson_es">Emily Robinson</a> has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&hellip;</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/dirty-data/">dirty data</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/hotkeys/">hotkeys</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/cooking-with-datapasta/">cooking with datapasta</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>Another day&hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/calculating-age/">calculating age</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>I have been playing with a new (not actually new, but new to R) dataset this week.</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/fomo-on-user2018/">fomo on #useR2018</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  <p>I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&rsquo;t get to go to).</p>
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/curious-rmarkdown/">Curious</a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  
+
+
+<p>What a treat it was to finally meet <a href="https://twitter.com/cantabile">Charles Gray</a> when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.</p>
+
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                  <div class="box-masonry">
+                      
+                      
+                      <div class="box-masonry-text">
+                      
+                          <h4><a href="/post/2018-08-30-hidden-stars-of-the-tidyverse/"></a></h4>
+                          <div class="box-masonry-description">
+                            <p>
+                                
+                                  
+                                
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+        </div>
+    </div>
+</div>
+
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>

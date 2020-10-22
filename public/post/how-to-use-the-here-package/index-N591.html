@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>how to use the `here` package</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="/post/">Blog</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>how to use the `here` package</h1>
+         
+
+
+<p>I’m still working on getting my head around where R thinks we work and how to tell it where my stuff lives (aka working directories).</p>
+<p>On twitter yesterday <a href="@apreshill">Alison Hill</a>, <a href="@AdamGruer">Adam Gruer</a>, <a href="@zoe_meers">Zoe Meers</a> and <a href="@i_steves">Irene Steves</a> helped me sort out my issues with <code>here</code>.</p>
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">
+hi <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> friends, how do YOU use the <code>here</code> package? I thought I had my head around it but I'm doing something wrong. Here my markdown lives within the “markdown” folder, so I set here to the “data” folder, call read_csv(here(“datafile.csv”) and it doesn't work… help <a href="https://t.co/ZGgxhmxegb">pic.twitter.com/ZGgxhmxegb</a>
+</p>
+— Dr Jenny Richmond (<span class="citation">@JenRichmondPhD</span>) <a href="https://twitter.com/JenRichmondPhD/status/1053032110749937664?ref_src=twsrc%5Etfw">October 18, 2018</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>But it was THIS slide from Irene that REALLY fixed my problem.</p>
+<div class="figure">
+<img src="/post/2018-10-14-where-does-my-stuff-live_files/paths.jpg" />
+
+</div>
+<p>I do love me a .Rmd file but did you know that most of what makes file paths stems from in R difficult is that when you are working in a .Rmd, R makes your working directory the folder that markdown lives in, but if you are working in a script (.R) the default working directory is the top level of the project file?</p>
+<p>MIND BLOWN.</p>
+<p>So, if you are working in a markdown file, the <code>here</code> package is helpful in overcoming that not so useful default behaviour and makes it easy to define file paths relative to the top level of your project file.</p>
+<p>Let me summarise my understanding so that we are all clear.</p>
+<div id="first-always-use-projects" class="section level4">
+<h4>First always use projects</h4>
+<p>The best way to make sure you and R are working in the same place is to use Projects and to always open your analysis via a .Rproj file. That way you will always be working in the same directory as your .Rproj file.</p>
+<p>You can check where you are by calling <code>getwd</code>. RStudio also tells you the working directory right below the Console tab. If you are disagree with R about where you are working you can choose Session–Set Working Directory from the pull down menu to change it.</p>
+<p>Up until recently, I have been guaranteeing that R can always find my files just keeping everything (data, scripts, markdown, output) in that working directory folder. If you data is sitting with your analysis script, then you can just call…</p>
+<pre><code>datafile &lt;- read_csv(&quot;data.csv&quot;)</code></pre>
+<p>… and R will find your data. It works, but it is not best practice.</p>
+</div>
+<div id="then-use-an-organised-file-structure-here-package" class="section level4">
+<h4>Then use an organised file structure + <code>here</code> package</h4>
+<p>Ideally you want to be a bit more organised than that and it is better practice to have your data live in a folder the is separate from your analysis scripts, which are in a folder separate from your output files.</p>
+<p>I am starting a new project and trying to set up my folder organisation as I mean to continue. I have a folder that contains an .Rproj file, and subfiles for data, markdowns, and output.</p>
+<div class="figure">
+<img src="/post/2018-10-14-where-does-my-stuff-live_files/folder.png" />
+
+</div>
+<div id="how-to-work-out-where-you-are" class="section level5">
+<h5>how to work out where you are</h5>
+<p>My analysis scripts (.Rmd files) live in a folder called markdown. So when you ask R what the working directory is, it defaults to that folder. This makes it difficult to tell R where your data files live.</p>
+<pre><code>getwd()
+</code></pre>
+<p>[1] “/Users/jenny/Desktop/project/markdown”</p>
+</div>
+<div id="use-here-to-tell-r-where-your-data-is" class="section level5">
+<h5>use <code>here</code> to tell R where your data is</h5>
+<p>The <code>here</code> package allows you to set the top level of your project folder as “here” and to specify where things live relative to that location. I was under the misconception that <code>here</code> set the directory, but it simply builds a path to the top level of your project file everytime you use it.</p>
+<pre><code>here::here()
+</code></pre>
+<p>[1] “/Users/jenny/Desktop/project”</p>
+<p>You can use here when reading data that live within a “data” folder.</p>
+<pre><code>data &lt;- read_csv(here(&quot;datafolder&quot;, &quot;datafile.csv&quot;))</code></pre>
+<p>If your data lives in the depths of several folders, you just string the folder references together.</p>
+<pre><code>data &lt;- read_csv(here(&quot;datafolder&quot;, &quot;subfolder&quot;, &quot;datafile.csv&quot;))</code></pre>
+<p>I like this “folder”, “subfolder”, “datafile.csv” method to call the path, because I am still fuzzy on how many . and / are needed in filepaths, but alternatively you can combine a more traditional file path with here.</p>
+<pre><code>data &lt;- read_csv(here(&quot;./datafolder/datafile.csv&quot;))
+</code></pre>
+<p>You can also use <code>here</code> to make a filepath, and then use that file path to load lots of .csvs at once using map(read_csv). Check out my post about <a href="http://jenrichmond.rbind.io/post/where-is-here/">that use case here</a></p>
+<p>Note: most of yesterday’s problem stemmed from a clash between <code>lubridate</code> and <code>here</code>. If you have used lubridate it is best to be specific that you want here::here() [with 2 colons].</p>
+</div>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>

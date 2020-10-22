@@ -3,7 +3,7 @@ title: things i dont have to google any more
 author: ''
 date: '2020-01-13'
 slug: i-dont-have-to-google
-image: "img/portfolio/newyear.jpg"
+image: "img/newyear.jpg"
 categories: []
 tags: []
 

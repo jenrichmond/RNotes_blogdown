@@ -3,7 +3,7 @@ title: customise your R experience
 author: ''
 date: '2019-08-11'
 slug: customise-your-r-experience
-image: "img/portfolio/cropped.png"
+image: "img/cropped.png"
 categories: []
 tags: []
 output: 

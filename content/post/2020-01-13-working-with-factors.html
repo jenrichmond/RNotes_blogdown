@@ -1,0 +1,95 @@
+---
+title: IDHTG working with factors
+author: ''
+date: '2020-01-13'
+slug: working-with-factors
+categories: []
+image: "img/forcats.jpeg"
+tags: []
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#use-as_factor">use as_factor()</a></li>
+<li><a href="#use-levels">use levels()</a></li>
+<li><a href="#use-fct_relevel">use fct_relevel()</a></li>
+</ul>
+</div>
+
+<p>I use read_csv to read data into R and it most conservatively assumes that when you have text in a variable you are dealing characters (not factors). Of course these things are often factors so you need to explicitly convert them if you want to use the factor in an analysis or have it appear the way you want in a ggplot.</p>
+<p>The forcats package will do this with <code>as_factor</code></p>
+<div id="load-packages" class="section level5">
+<h5>load packages</h5>
+<pre class="r"><code>library(tidyverse)
+library(ggbeeswarm)
+library(janitor)</code></pre>
+</div>
+<div id="create-a-little-df" class="section level5">
+<h5>create a little df</h5>
+<pre class="r"><code>df &lt;- data.frame(&quot;pp_no&quot; = 1:16, 
+                &quot;delay&quot; = c(&quot;short&quot;,&quot;long&quot;), &quot;condition&quot; = c(&quot;easy&quot;, &quot;easy&quot;, &quot;difficult&quot;, &quot;difficult&quot;),
+                &quot;score&quot; = c(82, 75, 76, 72, 86, 89, 85, 87, 87, 76, 78, 85, 97, 87, 94, 87))</code></pre>
+</div>
+<div id="use-as_factor" class="section level3">
+<h3>use as_factor()</h3>
+<pre class="r"><code>df$delay &lt;- as_factor(df$delay)
+df$condition &lt;- as_factor(df$condition)
+
+#check variable types with glimpse
+
+glimpse(df)</code></pre>
+<pre><code>## Rows: 16
+## Columns: 4
+## $ pp_no     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+## $ delay     &lt;fct&gt; short, long, short, long, short, long, short, long, sh…
+## $ condition &lt;fct&gt; easy, easy, difficult, difficult, easy, easy, difficul…
+## $ score     &lt;dbl&gt; 82, 75, 76, 72, 86, 89, 85, 87, 87, 76, 78, 85, 97, 87…</code></pre>
+<div id="plot-it" class="section level5">
+<h5>plot it</h5>
+<pre class="r"><code>df %&gt;%
+  ggplot(aes(x = delay, y = score)) +
+  geom_quasirandom() +
+  facet_wrap(~ condition) +
+  ylim(50,100) +
+  theme_classic()</code></pre>
+<p><img src="/post/2020-01-13-working-with-factors_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Ideally I would like ggplot to order group (short, long) and condition (easy, difficult), but at the moment this is the opposite of what I want because the default factor ordering is alphbetical. Check factor levels with levels()</p>
+</div>
+</div>
+<div id="use-levels" class="section level3">
+<h3>use levels()</h3>
+<pre class="r"><code>levels(df$delay)</code></pre>
+<pre><code>## [1] &quot;long&quot;  &quot;short&quot;</code></pre>
+<pre class="r"><code>levels(df$condition)</code></pre>
+<pre><code>## [1] &quot;difficult&quot; &quot;easy&quot;</code></pre>
+</div>
+<div id="use-fct_relevel" class="section level3">
+<h3>use fct_relevel()</h3>
+<p>You can reorder factors by other factors and all kinds of other fancy things using the <code>forcats</code> package, <a href="https://forcats.tidyverse.org/">vignette here</a>, but most of the time I want to do it manually.</p>
+<p>The <code>fct_relevel()</code> function is useful.</p>
+<blockquote>
+<p>REMEMBER: to manually reorder factors the function is called fct_relevel(), NOT fct_reorder()– gets me everytime</p>
+</blockquote>
+<pre class="r"><code>df$delay &lt;- fct_relevel(df$delay, c(&quot;short&quot;, &quot;long&quot;)) 
+
+df$condition &lt;- fct_relevel(df$condition, c(&quot;easy&quot;, &quot;difficult&quot;))</code></pre>
+<p>Check levels again to make sure it has done what you want.</p>
+<pre class="r"><code>levels(df$delay)</code></pre>
+<pre><code>## [1] &quot;short&quot; &quot;long&quot;</code></pre>
+<pre class="r"><code>levels(df$condition)</code></pre>
+<pre><code>## [1] &quot;easy&quot;      &quot;difficult&quot;</code></pre>
+<div id="replot-with-new-factor-levels" class="section level5">
+<h5>replot with new factor levels</h5>
+<pre class="r"><code>df %&gt;%
+  ggplot(aes(x = delay, y = score)) +
+  geom_quasirandom() +
+  facet_wrap(~ condition) +
+  ylim(50,100) +
+  theme_classic()</code></pre>
+<p><img src="/post/2020-01-13-working-with-factors_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+</div>

@@ -3,7 +3,7 @@ title: serious git thinking
 author: ''
 date: '2019-11-12'
 slug: serious-git-thinking
-image: "img/portfolio/Octocat.png"
+image: "img/Octocat.png"
 categories: []
 tags: []
 ---

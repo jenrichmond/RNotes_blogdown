@@ -1,0 +1,89 @@
+---
+title: lubridate math with dates
+author: ''
+date: '2020-10-19'
+slug: lubridate-math-with-dates
+categories: []
+draft: TRUE
+tags: []
+---
+
+
+
+<p>So far in this <code>lubridate</code> journey I have learned …</p>
+<ol style="list-style-type: decimal">
+<li>how to pull date components (day, month, year) from date data in R and use them within dplyr and ggplot functions</li>
+<li>how to use <code>dmy()</code> and friends to convert character formats into date formats</li>
+<li>that whether or not R recognises your dates as dates is a bit of a crap shoot</li>
+<li>that it is best not to give your participants free reign with date entry, but if you do that <code>parse_date_time()</code> does a pretty good job</li>
+</ol>
+<p>The one last thing that <code>lubridate</code> is useful for is doing math with dates.</p>
+<div id="time-spans-in-r" class="section level1">
+<h1>Time spans in R</h1>
+<p>For this one I looked up the <a href="https://r4ds.had.co.nz/dates-and-times.html">R4DS book</a> as a reference guide. R thinks about 3 different types of time span.</p>
+<ol style="list-style-type: decimal">
+<li>durations - these are a length of time in seconds</li>
+<li>period - these are a length of time in useful to think about units (i.e. weeks or months)</li>
+<li>intervals - these are a length of time between a start and end point</li>
+</ol>
+<p>I’m going to be honest, duration I get, but the distinction between period and interval was initially lost on me.</p>
+<p>Lets work through the exercises.</p>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+</div>
+<div id="durations" class="section level1">
+<h1>Durations</h1>
+<p>When you subtract two dates in R you get a difftime object, which can be expressed as seconds, minutes, hours, days or weeks.</p>
+<pre class="r"><code>j_age &lt;- today() - dmy(30061978)
+
+j_age</code></pre>
+<pre><code>## Time difference of 15455 days</code></pre>
+<p>To keep things consistent, lubridate specifies durations, which are always expressed as seconds.</p>
+<pre class="r"><code>as.duration(j_age)</code></pre>
+<pre><code>## [1] &quot;1335312000s (~42.31 years)&quot;</code></pre>
+<p>Use dseconds(), dminutes(), dhours(), ddays(), dweeks(), dyears() to get how long a duration is, that is how many seconds are in X number of seconds, minutes, hours, days, weeks or years.</p>
+<pre class="r"><code># d-functions create durations in seconds
+dseconds(30)</code></pre>
+<pre><code>## [1] &quot;30s&quot;</code></pre>
+<pre class="r"><code>dminutes(30)</code></pre>
+<pre><code>## [1] &quot;1800s (~30 minutes)&quot;</code></pre>
+<pre class="r"><code>dhours(30)</code></pre>
+<pre><code>## [1] &quot;108000s (~1.25 days)&quot;</code></pre>
+<pre class="r"><code>ddays(30)</code></pre>
+<pre><code>## [1] &quot;2592000s (~4.29 weeks)&quot;</code></pre>
+<pre class="r"><code>dweeks(30)</code></pre>
+<pre><code>## [1] &quot;18144000s (~30 weeks)&quot;</code></pre>
+<pre class="r"><code>dyears(30)</code></pre>
+<pre><code>## [1] &quot;946080000s (~29.98 years)&quot;</code></pre>
+<p>By reducing everything to the same units, you can more easily do math with durations.</p>
+<pre class="r"><code>2 * dyears(1)</code></pre>
+<pre><code>## [1] &quot;63072000s (~2 years)&quot;</code></pre>
+<pre class="r"><code>dyears(1) + dweeks(12) + dhours(15)</code></pre>
+<pre><code>## [1] &quot;38847600s (~1.23 years)&quot;</code></pre>
+<p>You can add and subtract durations.</p>
+<pre class="r"><code>today() + ddays(1)</code></pre>
+<pre><code>## [1] &quot;2020-10-23&quot;</code></pre>
+<pre class="r"><code>today() - dyears(1)</code></pre>
+<pre><code>## [1] &quot;2019-10-23&quot;</code></pre>
+<p>But sometimes timezones and daylight savings make for complications when you add days as durations. Solution = periods…</p>
+</div>
+<div id="periods" class="section level1">
+<h1>Periods</h1>
+<p>Periods are time spans that have more usable units, that is year, month, day, hour, min, second. (y,m,d,H,M,S)</p>
+<pre class="r"><code>seconds(30)</code></pre>
+<pre><code>## [1] &quot;30S&quot;</code></pre>
+<pre class="r"><code>minutes(30)</code></pre>
+<pre><code>## [1] &quot;30M 0S&quot;</code></pre>
+<pre class="r"><code>hours(30)</code></pre>
+<pre><code>## [1] &quot;30H 0M 0S&quot;</code></pre>
+<pre class="r"><code>days(30)</code></pre>
+<pre><code>## [1] &quot;30d 0H 0M 0S&quot;</code></pre>
+<pre class="r"><code>weeks(30)</code></pre>
+<pre><code>## [1] &quot;210d 0H 0M 0S&quot;</code></pre>
+<pre class="r"><code>years(30)</code></pre>
+<pre><code>## [1] &quot;30y 0m 0d 0H 0M 0S&quot;</code></pre>
+</div>

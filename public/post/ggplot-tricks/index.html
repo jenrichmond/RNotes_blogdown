@@ -152,7 +152,9 @@ library(papaja) # this is mostly a package for writing APA formatted manuscripts
 <h3>First make the data long</h3>
 <pre class="r"><code>speedlong &lt;- speed3 %&gt;%
   select(where_do_you_live, is_it_raining, ends_with(&quot;speed&quot;)) %&gt;%
-  pivot_longer(names_to = &quot;updown&quot;, values_to = &quot;speed&quot;, download_speed:upload_speed)</code></pre>
+  pivot_longer(names_to = &quot;updown&quot;, values_to = &quot;speed&quot;, download_speed:upload_speed)
+
+speedlong$is_it_raining &lt;- fct_relevel(speedlong$is_it_raining, c(&quot;Yes&quot;, &quot;No&quot;))</code></pre>
 </div>
 <div id="plot-up-and-download-speeds." class="section level3">
 <h3>Plot up and download speeds.</h3>
@@ -163,7 +165,7 @@ library(papaja) # this is mostly a package for writing APA formatted manuscripts
   filter(speed &lt; 100) %&gt;%
  ggplot(aes(x = updown, y = speed)) +
   geom_point(size = 3) </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/pointplot-1.png" width="672" /></p>
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/pointplot-1.png" width="672" /></p>
 <p>This plot is ok, but all the points are on top of each other.
 Use the ggbeeswarm package to add a little noise.</p>
 </div>
@@ -173,7 +175,7 @@ Use the ggbeeswarm package to add a little noise.</p>
   filter(speed &lt; 100) %&gt;%
  ggplot(aes(x = updown, y = speed)) +
   geom_beeswarm(size = 3) </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/ggbeeswarm-1.png" width="672" />
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/ggbeeswarm-1.png" width="672" />
 Beeswarm is better but I’d like more noise.</p>
 </div>
 <div id="geom_quasirandom" class="section level4">
@@ -182,7 +184,7 @@ Beeswarm is better but I’d like more noise.</p>
   filter(speed &lt; 100) %&gt;%
  ggplot(aes(x = updown, y = speed)) +
   geom_quasirandom(width = 0.2, size = 3)</code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/quasirandom-1.png" width="672" /></p>
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/quasirandom-1.png" width="672" /></p>
 <p>Now I want to know which of these points were collected when it was raining.</p>
 </div>
 <div id="colouring-the-points" class="section level4">
@@ -191,7 +193,7 @@ Beeswarm is better but I’d like more noise.</p>
   filter(speed &lt; 100) %&gt;%
  ggplot(aes(x = updown, y = speed, colour = is_it_raining)) +
   geom_quasirandom(width = 0.2, size = 3)</code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/colourrain-1.png" width="672" /></p>
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/colourrain-1.png" width="672" /></p>
 </div>
 <div id="facet_wrap" class="section level4">
 <h4>5. facet_wrap()</h4>
@@ -200,7 +202,7 @@ Beeswarm is better but I’d like more noise.</p>
  ggplot(aes(x = updown, y = speed, colour = is_it_raining)) +
   geom_quasirandom(width = 0.2, size = 3) +
   facet_wrap(~ is_it_raining)</code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/facet-rain-1.png" width="672" /></p>
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/facet-rain-1.png" width="672" /></p>
 </div>
 </div>
 <div id="making-ggplot-easy" class="section level2">
@@ -214,7 +216,7 @@ Beeswarm is better but I’d like more noise.</p>
   geom_quasirandom(width = 0.2, size = 3) +
   facet_wrap(~ is_it_raining) +
   easy_remove_legend() </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/easynolegend-1.png" width="672" /></p>
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/easynolegend-1.png" width="672" /></p>
 </div>
 <div id="fix-the-formatting" class="section level4">
 <h4>7. fix the formatting</h4>
@@ -226,7 +228,7 @@ Beeswarm is better but I’d like more noise.</p>
   facet_wrap(~ is_it_raining) +
   theme_apa() + 
   easy_remove_legend() </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/apa-plot-1.png" width="672" /></p>
+<p><img src="/post/2020-07-04-ggplot-tricks-N591_files/figure-html/apa-plot-1.png" width="672" /></p>
 </div>
 </div>
 <div id="getting-plots-out-of-ggplot" class="section level2">

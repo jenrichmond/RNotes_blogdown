@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>How to use R to analyse your bank transactions</title>
+<title>Spending in COVID</title>
 <meta name="description" content="R notes to myself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -102,7 +102,7 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>How to use R to analyse your bank transactions</h1>
+         <h1>Spending in COVID</h1>
          
 
 
@@ -182,7 +182,10 @@ april_list_items$year &lt;- as.factor(april_list_items$year)</code></pre>
   theme(
   axis.text.y = element_blank(),
   axis.ticks = element_blank()) # removes y axis tick labels</code></pre>
-<p><img src="/post/2020-05-05-bank_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre><code>## `summarise()` regrouping output by &#39;year&#39; (override with `.groups` argument)</code></pre>
+<p><img src="/post/2020-05-05-bank-N591_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>ggsave(&quot;april.png&quot;)</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
 <p>We spend WAY too much on lunch/coffee at work every day!</p>
 </div>
 

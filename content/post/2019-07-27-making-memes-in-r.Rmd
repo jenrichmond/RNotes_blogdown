@@ -3,7 +3,7 @@ title: making memes in R
 author: ''
 date: '2019-07-27'
 slug: making-memes-in-r
-image: "img/portfolio/kitty.jpg"
+image: "img/kitty.jpg"
 categories: []
 tags: []
 ---

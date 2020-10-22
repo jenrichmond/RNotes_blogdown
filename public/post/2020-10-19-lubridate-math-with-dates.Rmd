@@ -1,0 +1,107 @@
+---
+title: lubridate math with dates
+author: ''
+date: '2020-10-19'
+slug: lubridate-math-with-dates
+categories: []
+draft: TRUE
+tags: []
+---
+
+So far in this `lubridate` journey I have learned ...
+
+1. how to pull date components (day, month, year) from date data in R and use them within dplyr and ggplot functions
+2. how to use `dmy()` and friends to convert character formats into date formats
+3. that whether or not R recognises your dates as dates is a bit of a crap shoot
+4. that it is best not to give your participants free reign with date entry, but if you do that `parse_date_time()` does a pretty good job 
+
+The one last thing that `lubridate` is useful for is doing math with dates. 
+
+# Time spans in R
+
+For this one I looked up the [R4DS book](https://r4ds.had.co.nz/dates-and-times.html) as a reference guide. R thinks about 3 different types of time span. 
+
+1. durations - these are a length of time in seconds
+2. period - these are a length of time in useful to think about units (i.e. weeks or months)
+3. intervals - these are a length of time between a start and end point
+
+I'm going to be honest, duration I get, but the distinction between period and interval was initially lost on me. 
+
+Lets work through the exercises. 
+
+```{r}
+library(lubridate)
+```
+
+
+# Durations
+
+When you subtract two dates in R you get a difftime object, which can be expressed as seconds, minutes, hours, days or weeks. 
+
+```{r}
+j_age <- today() - dmy(30061978)
+
+j_age
+```
+
+To keep things consistent, lubridate specifies durations, which are always expressed as seconds. 
+
+```{r}
+as.duration(j_age)
+```
+
+Use dseconds(), dminutes(), dhours(), ddays(), dweeks(), dyears() to get how long a duration is, that is how many seconds are in X number of seconds, minutes, hours, days, weeks or years. 
+
+```{r}
+
+# d-functions create durations in seconds
+dseconds(30)
+
+dminutes(30)
+
+dhours(30)
+
+ddays(30)
+
+dweeks(30)
+
+dyears(30)
+```
+
+By reducing everything to the same units, you can more easily do math with durations.
+
+```{r}
+2 * dyears(1)
+
+dyears(1) + dweeks(12) + dhours(15)
+```
+
+You can add and subtract durations. 
+
+```{r}
+today() + ddays(1)
+
+today() - dyears(1)
+```
+
+But sometimes timezones and daylight savings make for complications when you add days as durations. Solution = periods...
+
+# Periods
+
+Periods are time spans that have more usable units, that is year, month, day, hour, min, second.  (y,m,d,H,M,S)
+
+
+```{r}
+seconds(30)
+
+minutes(30)
+
+hours(30)
+
+days(30)
+
+weeks(30)
+
+years(30)
+```
+
