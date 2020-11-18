@@ -6,10 +6,20 @@
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cleaning penguins with the janitor package</title>
+      <link>/post/digging-into-the-janitor-package/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/digging-into-the-janitor-package/</guid>
+      <description>The janitor package by Sam Firke contains probably my FAVOURITE R function: clean_names(). By default when I am reading data into R, I pipe clean_names() onto the end of my read_csv(). I never have to look at inconsistently formatted variable names. But janitor package includes lots of other useful functions that make it easier to deal with dirty data and count stuff.
+new_df &amp;lt;- read_csv(here(&amp;quot;data&amp;quot;, &amp;quot;df.csv&amp;quot;) %&amp;gt;% clean_names())  Exploring package functions Are you keen to dig into the little known functions of a package that you use all the time?</description>
+    </item>
     
     <item>
       <title>idhtg how to use colour palettes with ggplot</title>
