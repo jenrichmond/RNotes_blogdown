@@ -195,26 +195,29 @@ Now for the hard bit, fingers crossed. I'm following the [instructions here](htt
 2. Navigate to the original repo (where you created the fork in the first place) and choose the Pull requests tab. 
 
 ```{r}
-knitr::include_graphics(here::here("static", "img", "pr1.png"))
+knitr::include_graphics("pr1.png"))
 ```
 
 3. Choose New pull request and the the "compare across forks" option
 
 ```{r}
-knitr::include_graphics(here::here("static", "img", "pr2.png"))
+knitr::include_graphics("pr2.png"))
 ```
 4. Choose your fork as the head repository to compare and see whether your changes can be merged automatically. Click Create pull request. 
 
 ```{r}
-knitr::include_graphics(here::here("static", "img", "pr3.png"))
+knitr::include_graphics("pr3.png")
 ```
 
 5. Write a note to the repo owner as an issue. 
 
 ```{r}
-knitr::include_graphics(here::here("static", "img", "pr4.png"))
+knitr::include_graphics("pr4.png")
 ```
 
 6. Wait and see if they like your changes :)
 
 
+```{r}
+knitr::include_graphics("pr5.png")
+```
