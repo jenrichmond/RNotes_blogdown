@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dplyr on R notes to myself</title>
-    <link>/tags/dplyr/</link>
+    <link>http://jenrichmond.rbind.io/tags/dplyr/</link>
     <description>Recent content in dplyr on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jenrichmond.rbind.io/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>more wrangling tips</title>
-      <link>/post/more-wrangling-tips/</link>
+      <link>http://jenrichmond.rbind.io/post/more-wrangling-tips/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/more-wrangling-tips/</guid>
+      <guid>http://jenrichmond.rbind.io/post/more-wrangling-tips/</guid>
       <description>It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
 Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
 So here is an excellent approach to data wrangling in #rstats https://t.</description>
@@ -24,10 +24,10 @@ So here is an excellent approach to data wrangling in #rstats https://t.</descri
     
     <item>
       <title>lesser known stars of the tidyverse</title>
-      <link>/post/lesser-known-stars-of-the-tidyverse/</link>
+      <link>http://jenrichmond.rbind.io/post/lesser-known-stars-of-the-tidyverse/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/lesser-known-stars-of-the-tidyverse/</guid>
+      <guid>http://jenrichmond.rbind.io/post/lesser-known-stars-of-the-tidyverse/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;</description>
     </item>
     

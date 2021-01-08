@@ -1,0 +1,67 @@
+---
+title: feather
+author: ''
+date: '2021-01-07'
+slug: []
+categories: []
+tags: []
+---
+
+
+There are so many lovely packages for colour palettes. This new one called `feather`` is inspired by Australian birds and is delightful. The vignette doesn't have any pictures of the birds though, so I thought I mihgt find some and try out a pull request!
+
+```{r}
+library(feather)
+```
+
+```{r}
+names(feather_palettes)
+```
+
+# Eastern Rosella
+
+```{r}
+knitr::include_graphics("https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg#/media/File:Platycercus_eximius_diemenensis_male.jpg")
+```
+
+<p><a href="https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg#/media/File:Platycercus_eximius_diemenensis_male.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Platycercus_eximius_diemenensis_male.jpg/1200px-Platycercus_eximius_diemenensis_male.jpg" alt="Platycercus eximius diemenensis male.jpg"></a><br>By &lt;a href="//commons.wikimedia.org/wiki/User:JJ_Harrison" title="User:JJ Harrison"&gt;JJ Harrison&lt;/a&gt; (&lt;a rel="nofollow" class="external free" href="https://www.jjharrison.com.au/"&gt;https://www.jjharrison.com.au/&lt;/a&gt;) - &lt;span class="int-own-work" lang="en"&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=10756820">Link</a></p>
+
+
+```{r}
+er <- get_pal("eastern_rosella")
+
+print_pal(er)
+```
+
+# Plains wanderer
+
+```{r}
+pw <- get_pal("plains_wanderer")
+
+print_pal(pw)
+```
+
+
+
+
+# Pardalote
+```{r}
+p <- get_pal("pardalote")
+
+print_pal(p)
+```
+
+# Rose crowned fruit dove
+```{r}
+rcfd <- get_pal("rose_crowned_fruit_dove")
+
+print_pal(rcfd)
+```
+
+# Bee eater
+```{r}
+be<- get_pal("bee_eater")
+
+print_pal(be)
+```
+

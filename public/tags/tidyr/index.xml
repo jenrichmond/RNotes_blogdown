@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidyr on R notes to myself</title>
-    <link>/tags/tidyr/</link>
+    <link>http://jenrichmond.rbind.io/tags/tidyr/</link>
     <description>Recent content in tidyr on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/tidyr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jenrichmond.rbind.io/tags/tidyr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>gather spread unite separate</title>
-      <link>/post/gather-spread-unite-separate/</link>
+      <link>http://jenrichmond.rbind.io/post/gather-spread-unite-separate/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/gather-spread-unite-separate/</guid>
+      <guid>http://jenrichmond.rbind.io/post/gather-spread-unite-separate/</guid>
       <description>This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The tidyr package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &amp;ldquo;SPSS format&amp;rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&amp;hellip;.</description>
     </item>
     
     <item>
       <title>more wrangling tips</title>
-      <link>/post/more-wrangling-tips/</link>
+      <link>http://jenrichmond.rbind.io/post/more-wrangling-tips/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/more-wrangling-tips/</guid>
+      <guid>http://jenrichmond.rbind.io/post/more-wrangling-tips/</guid>
       <description>It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
 Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
 So here is an excellent approach to data wrangling in #rstats https://t.</description>

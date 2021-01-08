@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>feather</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/owl.carousel.css">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/owl.theme.css">
+
+
+  <link href="http://jenrichmond.rbind.io/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="http://jenrichmond.rbind.io/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://jenrichmond.rbind.io/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="http://jenrichmond.rbind.io/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="http://jenrichmond.rbind.io/about/">About</a></li>
+      
+        <li><a href="http://jenrichmond.rbind.io/post/">Blog</a></li>
+      
+        <li><a href="http://jenrichmond.rbind.io/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="http://jenrichmond.rbind.io/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>feather</h1>
+         
+<script src="index_files/header-attrs/header-attrs.js"></script>
+<link href="index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<p>There are so many lovely packages for colour palettes. This new one called `feather`` is inspired by Australian birds and is delightful. The vignette doesn’t have any pictures of the birds though, so I thought I mihgt find some and try out a pull request!</p>
+<pre class="r"><code>library(feather)</code></pre>
+<pre class="r"><code>names(feather_palettes)</code></pre>
+<pre><code>## [1] &quot;pardalote&quot;               &quot;plains_wanderer&quot;        
+## [3] &quot;bee_eater&quot;               &quot;rose_crowned_fruit_dove&quot;
+## [5] &quot;eastern_rosella&quot;</code></pre>
+<div id="eastern-rosella" class="section level1">
+<h1>Eastern Rosella</h1>
+<pre class="r"><code>knitr::include_graphics(&quot;https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg#/media/File:Platycercus_eximius_diemenensis_male.jpg&quot;)</code></pre>
+<p><img src="https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg#/media/File:Platycercus_eximius_diemenensis_male.jpg" /><!-- --></p>
+<p>
+<a href="https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg#/media/File:Platycercus_eximius_diemenensis_male.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Platycercus_eximius_diemenensis_male.jpg/1200px-Platycercus_eximius_diemenensis_male.jpg" alt="Platycercus eximius diemenensis male.jpg"></a><br>By &lt;a href=“//commons.wikimedia.org/wiki/User:JJ_Harrison” title=“User:JJ Harrison”&gt;JJ Harrison&lt;/a&gt; (&lt;a rel=“nofollow” class=“external free” href=“<a href="https://www.jjharrison.com.au/%22%3Ehttps://www.jjharrison.com.au/%3C/a%3E" class="uri">https://www.jjharrison.com.au/"&gt;https://www.jjharrison.com.au/&lt;/a&gt;</a>;) - &lt;span class=”int-own-work" lang=“en”&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=10756820">Link</a>
+</p>
+<pre class="r"><code>er &lt;- get_pal(&quot;eastern_rosella&quot;)
+
+print_pal(er)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="plains-wanderer" class="section level1">
+<h1>Plains wanderer</h1>
+<pre class="r"><code>pw &lt;- get_pal(&quot;plains_wanderer&quot;)
+
+print_pal(pw)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="pardalote" class="section level1">
+<h1>Pardalote</h1>
+<pre class="r"><code>p &lt;- get_pal(&quot;pardalote&quot;)
+
+print_pal(p)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="rose-crowned-fruit-dove" class="section level1">
+<h1>Rose crowned fruit dove</h1>
+<pre class="r"><code>rcfd &lt;- get_pal(&quot;rose_crowned_fruit_dove&quot;)
+
+print_pal(rcfd)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="bee-eater" class="section level1">
+<h1>Bee eater</h1>
+<pre class="r"><code>be&lt;- get_pal(&quot;bee_eater&quot;)
+
+print_pal(be)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="http://jenrichmond.rbind.io/js/jquery.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/bootstrap.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/jquery.cookie.js"> </script>
+<script src="http://jenrichmond.rbind.io/js/ekko-lightbox.js"></script>
+<script src="http://jenrichmond.rbind.io/js/jquery.scrollTo.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/masonry.pkgd.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/imagesloaded.pkgd.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/owl.carousel.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/front.js"></script>
+
+</body>
+</html>

@@ -2,81 +2,92 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on R notes to myself</title>
-    <link>/post/</link>
+    <link>http://jenrichmond.rbind.io/post/</link>
     <description>Recent content in Posts on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jenrichmond.rbind.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>feather</title>
+      <link>http://jenrichmond.rbind.io/post/2021-01-07-feather/</link>
+      <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://jenrichmond.rbind.io/post/2021-01-07-feather/</guid>
+      <description>There are so many lovely packages for colour palettes. This new one called `feather`` is inspired by Australian birds and is delightful. The vignette doesn’t have any pictures of the birds though, so I thought I mihgt find some and try out a pull request!
+library(feather) names(feather_palettes) ## [1] &amp;quot;pardalote&amp;quot; &amp;quot;plains_wanderer&amp;quot; ## [3] &amp;quot;bee_eater&amp;quot; &amp;quot;rose_crowned_fruit_dove&amp;quot; ## [5] &amp;quot;eastern_rosella&amp;quot; Eastern Rosella knitr::include_graphics(&amp;quot;https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg#/media/File:Platycercus_eximius_diemenensis_male.jpg&amp;quot;)  
+By &amp;lt;a href=“//commons.wikimedia.org/wiki/User:JJ_Harrison” title=“User:JJ Harrison”&amp;gt;JJ Harrison&amp;lt;/a&amp;gt; (&amp;lt;a rel=“nofollow” class=“external free” href=“https://www.</description>
+    </item>
+    
+    <item>
+      <title>functions to save you time</title>
+      <link>http://jenrichmond.rbind.io/post/2021-01-05-functions-to-save-you-time/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://jenrichmond.rbind.io/post/2021-01-05-functions-to-save-you-time/</guid>
+      <description>Last year my R resolution was to google less. I think I succeeded (kinda). I wrote a few posts in my IDHTG series.
+counting things recoding variable work with factors annotating plots use colour palettes  I don’t necessary remember exactly how to recode variables or to make factors behave, but I know I have notes in my blog about those things to refer to, so that makes the googling much faster.</description>
+    </item>
+    
+    <item>
       <title>cleaning penguins with the janitor package</title>
-      <link>/post/digging-into-the-janitor-package/</link>
+      <link>http://jenrichmond.rbind.io/post/digging-into-the-janitor-package/</link>
       <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/digging-into-the-janitor-package/</guid>
+      <guid>http://jenrichmond.rbind.io/post/digging-into-the-janitor-package/</guid>
       <description>The janitor package by Sam Firke contains probably my FAVOURITE R function: clean_names(). By default when I am reading data into R, I pipe clean_names() onto the end of my read_csv(). I never have to look at inconsistently formatted variable names. But janitor package includes lots of other useful functions that make it easier to deal with dirty data and count stuff.
 new_df &amp;lt;- read_csv(here(&amp;quot;data&amp;quot;, &amp;quot;df.csv&amp;quot;) %&amp;gt;% clean_names())  Exploring package functions Are you keen to dig into the little known functions of a package that you use all the time?</description>
     </item>
     
     <item>
       <title>idhtg how to use colour palettes with ggplot</title>
-      <link>/post/idhtg-how-to-use-colour-palettes-with-ggplot/</link>
+      <link>http://jenrichmond.rbind.io/post/idhtg-how-to-use-colour-palettes-with-ggplot/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/idhtg-how-to-use-colour-palettes-with-ggplot/</guid>
+      <guid>http://jenrichmond.rbind.io/post/idhtg-how-to-use-colour-palettes-with-ggplot/</guid>
       <description>If I had a dollar for everytime I have googled how to change the colours in my ggplot…it is clearly time for a “I don’t have to google” post about it.
 library(tidyverse) library(palmerpenguins) library(RColorBrewer) library(harrypotter) penguins &amp;lt;- penguins make a couple of basic plots When dealing with geom_point(), you can use colour to change the colour of the points. For geom_col(), you need to use fill; colour will change the border around your bars.</description>
     </item>
     
     <item>
-      <title>lubridate math with dates</title>
-      <link>/post/lubridate-math-with-dates/</link>
-      <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/lubridate-math-with-dates/</guid>
-      <description>So far in this lubridate journey I have learned …
-how to pull date components (day, month, year) from date data in R and use them within dplyr and ggplot functions how to use dmy() and friends to convert character formats into date formats that whether or not R recognises your dates as dates is a bit of a crap shoot that it is best not to give your participants free reign with date entry, but if you do that parse_date_time() does a pretty good job  The one last thing that lubridate is useful for is doing math with dates.</description>
-    </item>
-    
-    <item>
       <title>lubridate parsing dates automatically</title>
-      <link>/post/parsing-dates-automatically/</link>
+      <link>http://jenrichmond.rbind.io/post/parsing-dates-automatically/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/parsing-dates-automatically/</guid>
+      <guid>http://jenrichmond.rbind.io/post/parsing-dates-automatically/</guid>
       <description>I’ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset…
 # read data from Tidy Tuesday penguins_raw &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&amp;#39;) %&amp;gt;% clean_names # check class class(penguins_raw$date_egg) ## [1] &amp;quot;Date&amp;quot; # pull first date observation penguins_raw$date_egg[[1]] ## [1] &amp;quot;2007-11-11&amp;quot; And other times R thinks dates are characters, like in the marbles data.</description>
     </item>
     
     <item>
       <title>IDHTG how to annotate plots</title>
-      <link>/post/idhtg-how-to-annotate-plots/</link>
+      <link>http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/idhtg-how-to-annotate-plots/</guid>
+      <guid>http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/</guid>
       <description>A new post in my I Don’t Have to Google (IDHTG) series. I’ve been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!
 I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies.</description>
     </item>
     
     <item>
       <title>lubridate characters to dates</title>
-      <link>/post/converting-characters-to-dates/</link>
+      <link>http://jenrichmond.rbind.io/post/converting-characters-to-dates/</link>
       <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/converting-characters-to-dates/</guid>
+      <guid>http://jenrichmond.rbind.io/post/converting-characters-to-dates/</guid>
       <description>Art by Allison Horst @allison_horst
  So far I have learned that lubridate has some nice functions for pulling date components like day, month, or year and using them within group_by() and summarise() or ggplot(). But most of the time when I am working with date data in the real world, R doesn’t even think my dates are dates. Most of the time date data that I read into R gets parsed as characters.</description>
     </item>
     
     <item>
       <title>lubridate month() &#43; wday()</title>
-      <link>/post/lubridate-month-wday/</link>
+      <link>http://jenrichmond.rbind.io/post/lubridate-month-wday/</link>
       <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/lubridate-month-wday/</guid>
+      <guid>http://jenrichmond.rbind.io/post/lubridate-month-wday/</guid>
       <description>Art by Allison Horst @allison_horst
  When I am trying to work out a problem with R, I generally skip the package documentation, I avoid stack overflow, and I go straight for a blog post written by someone who has just learned what I am trying to learn.
 I think when you have just learned something, you are in THE BEST PLACE to teach someone else. You are acutely aware of what it feels like to not “get it”.</description>
@@ -84,20 +95,20 @@ I think when you have just learned something, you are in THE BEST PLACE to teach
     
     <item>
       <title>lubridate first google</title>
-      <link>/post/lubridate-googling/</link>
+      <link>http://jenrichmond.rbind.io/post/lubridate-googling/</link>
       <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/lubridate-googling/</guid>
+      <guid>http://jenrichmond.rbind.io/post/lubridate-googling/</guid>
       <description>I have set myself a challenge of learning to deal with dates in R. Nothing like setting a date for an R-Ladies Sydney event where you will teach other people to spur the motivation for learning how to use the lubridate package.
 The plan is to learn how to use the package and document my learning process along the way so that at the end of Oct I can tell everyone…</description>
     </item>
     
     <item>
       <title>group_by and summarise</title>
-      <link>/post/group-by-and-summarise/</link>
+      <link>http://jenrichmond.rbind.io/post/group-by-and-summarise/</link>
       <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/group-by-and-summarise/</guid>
+      <guid>http://jenrichmond.rbind.io/post/group-by-and-summarise/</guid>
       <description>Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.
 Details of the palmer penguin data, with art by Allison Horst, can be found here.
 load packages library(palmerpenguins) library(tidyverse)  read in data penguins &amp;lt;- penguins glimpse(penguins) ## Rows: 344 ## Columns: 7 ## $ species &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie… ## $ island &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, To… ## $ bill_length_mm &amp;lt;dbl&amp;gt; 39.</description>
@@ -105,10 +116,10 @@ load packages library(palmerpenguins) library(tidyverse)  read in data penguins 
     
     <item>
       <title>calculating z scores</title>
-      <link>/post/calculating-z-scores/</link>
+      <link>http://jenrichmond.rbind.io/post/calculating-z-scores/</link>
       <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/calculating-z-scores/</guid>
+      <guid>http://jenrichmond.rbind.io/post/calculating-z-scores/</guid>
       <description>The scale() function will center and/or scale a numeric object. Use center = TRUE to subtract the mean from the values; use scale = TRUE to divide the centered values by the standard deviation to produce z scores.
 center variable A  scale(A, center = TRUE, scale = FALSE)
   generate z-scores for variable A  scale(A, center = TRUE, scale = TRUE)
@@ -117,20 +128,20 @@ center variable A  scale(A, center = TRUE, scale = FALSE)
     
     <item>
       <title>ggplot tricks</title>
-      <link>/post/ggplot-tricks/</link>
+      <link>http://jenrichmond.rbind.io/post/ggplot-tricks/</link>
       <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/ggplot-tricks/</guid>
+      <guid>http://jenrichmond.rbind.io/post/ggplot-tricks/</guid>
       <description>Here are some ggplot tricks that I shared at the R-Ladies Sydney June Show and Tell.
 Why is my internet speed so terrible? Working from home and pivoting to teaching online has made me realise that my wifi connection is really bad, particularly when it rains. I have been teaching new honours students R and needed a little dataset to demo how to get data into R, so made a google form and put it out on twitter to confirm to myself that my connection really is worse than most other people.</description>
     </item>
     
     <item>
       <title>Spending in COVID</title>
-      <link>/post/bank/</link>
+      <link>http://jenrichmond.rbind.io/post/bank/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/bank/</guid>
+      <guid>http://jenrichmond.rbind.io/post/bank/</guid>
       <description>There is no doubt that COVID19 has massively disrupted how we spend our time and money. In this post, I update code inspired by this R-bloggers blog to look at how much less money we have been spending on eating in the last month, compared to April 2019.
 Download a copy of your bank transactions in csv format.
 Load packages library(tidyverse) library(janitor) library(lubridate)  Read in data Clean and rename, select just date, description, debit amount, add new column for class with default value = “Other”</description>
@@ -138,56 +149,56 @@ Load packages library(tidyverse) library(janitor) library(lubridate)  Read in da
     
     <item>
       <title>IDHTG recoding variables</title>
-      <link>/post/recoding-variables/</link>
+      <link>http://jenrichmond.rbind.io/post/recoding-variables/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/recoding-variables/</guid>
+      <guid>http://jenrichmond.rbind.io/post/recoding-variables/</guid>
       <description>Option 1: use mutate() and case_when() Option 2a: use mutate() and recode() dplyr “scoped” verbs (_all, _at, _if) Option 2b: use mutate_at() and recode()   I don’t often deal with questionnaire data in R, but Ariana and I have started trying import her qualtrics data into R and to write a script to score her measures. The first step is to recode the variables to make it possible to add up scores on subscales.</description>
     </item>
     
     <item>
       <title>IDHTG counting things</title>
-      <link>/post/counting-things/</link>
+      <link>http://jenrichmond.rbind.io/post/counting-things/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/counting-things/</guid>
+      <guid>http://jenrichmond.rbind.io/post/counting-things/</guid>
       <description>count distinct values counting by levels   Sometimes things that are really easy to do in excel are not so intuitive in R. Like counting things. Because most of the time I am working with data in long format, you can end up with hundreds of observations, so functions like length() aren’t useful. Today I just wanted to check how many participants were in this dataset and it took me some significant googling.</description>
     </item>
     
     <item>
       <title>IDHTG working with factors</title>
-      <link>/post/working-with-factors/</link>
+      <link>http://jenrichmond.rbind.io/post/working-with-factors/</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/working-with-factors/</guid>
+      <guid>http://jenrichmond.rbind.io/post/working-with-factors/</guid>
       <description>use as_factor() use levels() use fct_relevel()   I use read_csv to read data into R and it most conservatively assumes that when you have text in a variable you are dealing characters (not factors). Of course these things are often factors so you need to explicitly convert them if you want to use the factor in an analysis or have it appear the way you want in a ggplot.</description>
     </item>
     
     <item>
       <title>things i dont have to google anymore</title>
-      <link>/post/i-dont-have-to-google/</link>
+      <link>http://jenrichmond.rbind.io/post/i-dont-have-to-google/</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/i-dont-have-to-google/</guid>
+      <guid>http://jenrichmond.rbind.io/post/i-dont-have-to-google/</guid>
       <description>My 2020 Resolution There are a lot of things I do in R that I have to google EVERY TIME. My 2020 R resolution is to try and google less. I want to commit a few of these really frequently used things to memory. The key to that: write a blog post about each one. That way, even if it doesn’t stick, I can always just google my own blog.</description>
     </item>
     
     <item>
       <title>what did we just do?</title>
-      <link>/post/git-success/</link>
+      <link>http://jenrichmond.rbind.io/post/git-success/</link>
       <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/git-success/</guid>
+      <guid>http://jenrichmond.rbind.io/post/git-success/</guid>
       <description>I started a blog post and pushed it to the git repo that contains my blog. Charles forked my repo, cloned it to her machine, contributed to the post, and then pushed the updates to her forked copy of the repo.
 Then she did a pull request. People in git-land talk about PRs (pull requests) all the time, and the term seems backwards to me. A pull request is when you request that the owner of a repo “pull” the changes that you have made.</description>
     </item>
     
     <item>
       <title>serious git thinking</title>
-      <link>/post/serious-git-thinking/</link>
+      <link>http://jenrichmond.rbind.io/post/serious-git-thinking/</link>
       <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/serious-git-thinking/</guid>
+      <guid>http://jenrichmond.rbind.io/post/serious-git-thinking/</guid>
       <description>I have been a git user for 513 days.
 When I was first setting up this blog, my dear friend Charles T Gray helped me learn the 3 terminal commands that you need to know to interact with git in the most rudimentary of ways.
  git add .
@@ -198,10 +209,10 @@ When I was first setting up this blog, my dear friend Charles T Gray helped me l
     
     <item>
       <title>best stats meme ive seen in a while</title>
-      <link>/post/best-stats-meme-ive-seen-in-a-while/</link>
+      <link>http://jenrichmond.rbind.io/post/best-stats-meme-ive-seen-in-a-while/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/best-stats-meme-ive-seen-in-a-while/</guid>
+      <guid>http://jenrichmond.rbind.io/post/best-stats-meme-ive-seen-in-a-while/</guid>
       <description>Just putting this here because I&amp;rsquo;m sure it will come in handy some day.
 not untrue https://t.co/TR8uueTsk9
 &amp;mdash; Shit Academics Say (@AcademicsSay) October 8, 2019</description>
@@ -209,29 +220,29 @@ not untrue https://t.co/TR8uueTsk9
     
     <item>
       <title>insights from the RMarkdown whisperer</title>
-      <link>/post/insights-from-the-markdown-whisperer/</link>
+      <link>http://jenrichmond.rbind.io/post/insights-from-the-markdown-whisperer/</link>
       <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/insights-from-the-markdown-whisperer/</guid>
+      <guid>http://jenrichmond.rbind.io/post/insights-from-the-markdown-whisperer/</guid>
       <description>I had the pleasure of attending Alison Hill’s RMarkdown workshop in Canberra on Monday and I came away with so many tips and tricks! It was brillant.
 Alison covered A LOT over the course of the day. I learned lots of the power of yaml, how to create parameterised reports, and how to make a package that contains customised .Rmd templates. Each of those topics are blogposts for another day, but my favourite bit was making a beautiful Academic theme blogdown site.</description>
     </item>
     
     <item>
       <title>mutate &#43; if else = new conditional variable</title>
-      <link>/post/mutate-and-if-else-to-create-new-variables/</link>
+      <link>http://jenrichmond.rbind.io/post/mutate-and-if-else-to-create-new-variables/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/mutate-and-if-else-to-create-new-variables/</guid>
+      <guid>http://jenrichmond.rbind.io/post/mutate-and-if-else-to-create-new-variables/</guid>
       <description>&lt;p&gt;I keep googling &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1&#34;&gt;these slides&lt;/a&gt; by &lt;a href=&#34;@daranzolin&#34;&gt;David Ranzolin&lt;/a&gt; each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>customise your R experience</title>
-      <link>/post/customise-your-r-experience/</link>
+      <link>http://jenrichmond.rbind.io/post/customise-your-r-experience/</link>
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/customise-your-r-experience/</guid>
+      <guid>http://jenrichmond.rbind.io/post/customise-your-r-experience/</guid>
       <description>Would you like RStudio to show you a random The Good Place quote, spoken by a ASCII animal along with some random message of praise/encouragement each time you start a coding session or restart R?
 Of course you would!!!
 how to customise your .rprofile You will need to install the following packages:
@@ -240,10 +251,10 @@ how to customise your .rprofile You will need to install the following packages:
     
     <item>
       <title>Pivoting</title>
-      <link>/post/pivoting/</link>
+      <link>http://jenrichmond.rbind.io/post/pivoting/</link>
       <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/pivoting/</guid>
+      <guid>http://jenrichmond.rbind.io/post/pivoting/</guid>
       <description>Cute #rstats monster art by the amazing Allison Horst.
 I have been using gather() and spread() a lot lately. I’m on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
 For example, this week Matilda and I were working with her language/locomotion data and we were looking at the number of action-directed, affirmative, and descriptive responses that parents make to their infants.</description>
@@ -251,20 +262,20 @@ For example, this week Matilda and I were working with her language/locomotion d
     
     <item>
       <title>making memes in R</title>
-      <link>/post/making-memes-in-r/</link>
+      <link>http://jenrichmond.rbind.io/post/making-memes-in-r/</link>
       <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/making-memes-in-r/</guid>
+      <guid>http://jenrichmond.rbind.io/post/making-memes-in-r/</guid>
       <description>I having been prepping for my lightning talk at the R-Ladies Sydney Birthday this weekend and learning about all the packages that you can use to make memes in R. I’m going going to talk about my favourite option (which is the memery package), but here is what I learned about other packages.
 Option 1: memer The memer package by Sam Tyner is a tidyverse compatible package that allows you to replace text in popular memes with your own.</description>
     </item>
     
     <item>
       <title>apa figures</title>
-      <link>/post/apa-figures/</link>
+      <link>http://jenrichmond.rbind.io/post/apa-figures/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/apa-figures/</guid>
+      <guid>http://jenrichmond.rbind.io/post/apa-figures/</guid>
       <description>As I write my first paper reporting data analysis coming out of R (woot!!!), here are some notes summarising all the googling I have done this morning about how to produce APA style figures in ggplot.
   via GIPHY Load libraries Start by loading tidyverse to get ggplot, here to make finding the data easy, and papaja to get the theme_apa() function.
 library(tidyverse) library(here) library(papaja)  Read in data plotdata &amp;lt;- read_csv(here(&amp;quot;plotdata.</description>
@@ -272,10 +283,10 @@ library(tidyverse) library(here) library(papaja)  Read in data plotdata &amp;lt;
     
     <item>
       <title>blogdown</title>
-      <link>/post/blogdown/</link>
+      <link>http://jenrichmond.rbind.io/post/blogdown/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/blogdown/</guid>
+      <guid>http://jenrichmond.rbind.io/post/blogdown/</guid>
       <description>There has been lots of talk about blogdown on #rstats Twitter recently and people have been talking up the Hugo “Academic theme”.
 I want to give it a go to update my lab website, so thought it might be a good idea to pull together all the useful links I’ve seen recently into one place.
 Alison Hill I used Alison’s blog post when I first set up this blog. It looks like she has updated the post recently, so it is probably still a good place to start.</description>
@@ -283,40 +294,40 @@ Alison Hill I used Alison’s blog post when I first set up this blog. It looks 
     
     <item>
       <title>newposttest</title>
-      <link>/post/newposttest/</link>
+      <link>http://jenrichmond.rbind.io/post/newposttest/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/newposttest/</guid>
+      <guid>http://jenrichmond.rbind.io/post/newposttest/</guid>
       <description> I think I have broken hugo testing whether this works
  </description>
     </item>
     
     <item>
       <title>rm anova options</title>
-      <link>/post/anova-options/</link>
+      <link>http://jenrichmond.rbind.io/post/anova-options/</link>
       <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/anova-options/</guid>
+      <guid>http://jenrichmond.rbind.io/post/anova-options/</guid>
       <description>I’ve been analysing some future thinking data and playing around with packages that can do repeated ANOVA (I know, I should do LMM). There is more than one way to skin a cat and the differences come down to two things.
 the intuitiveness of the function arguments the readibility of the output  Some checks to do before you start - all of these packages assume that you within and between subjects variables are factors, but also that your participant id is a factor</description>
     </item>
     
     <item>
       <title>Just Three Things</title>
-      <link>/post/just-three-things/</link>
+      <link>http://jenrichmond.rbind.io/post/just-three-things/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/just-three-things/</guid>
+      <guid>http://jenrichmond.rbind.io/post/just-three-things/</guid>
       <description>I love me a good #rstats screencast. David Robinson has been screencasting his #TidyTuesday efforts for the past few months and while it is GREAT to watch a master at work, I just don’t have time to watch someone code for an hour, in order to extract a handful of tips.
 So when I saw Nick Tierney tweet about posting short videos that contain Just Three Things, I thought “that is a GREAT idea”.</description>
     </item>
     
     <item>
       <title>infinite moon reader</title>
-      <link>/post/infinite-moon-reader/</link>
+      <link>http://jenrichmond.rbind.io/post/infinite-moon-reader/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/infinite-moon-reader/</guid>
+      <guid>http://jenrichmond.rbind.io/post/infinite-moon-reader/</guid>
       <description>I saw an intriguing tweet this afternoon.
 🧙 ♂️Live preview for R Markdown!
 TIL that you can have a live preview of your #rstats Markdown docs!
@@ -326,10 +337,10 @@ It works for all single-HTML-file outputs and even comes with a pre-made RStudio
     
     <item>
       <title>how to add a gif</title>
-      <link>/post/how-to-add-a-gif/</link>
+      <link>http://jenrichmond.rbind.io/post/how-to-add-a-gif/</link>
       <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/how-to-add-a-gif/</guid>
+      <guid>http://jenrichmond.rbind.io/post/how-to-add-a-gif/</guid>
       <description>Sometimes your plot needs a celebratory gif.
 I have just finished the vizwhiz module for #RYouWithMe and to top off the series I worked out how to add an RLady Wizard to our final plot.
 Just so I’ll remember for next time, here is a step by step how to…
@@ -338,10 +349,10 @@ Just so I’ll remember for next time, here is a step by step how to…
     
     <item>
       <title>how to use the `here` package</title>
-      <link>/post/how-to-use-the-here-package/</link>
+      <link>http://jenrichmond.rbind.io/post/how-to-use-the-here-package/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/how-to-use-the-here-package/</guid>
+      <guid>http://jenrichmond.rbind.io/post/how-to-use-the-here-package/</guid>
       <description>I’m still working on getting my head around where R thinks we work and how to tell it where my stuff lives (aka working directories).
 On twitter yesterday Alison Hill, Adam Gruer, Zoe Meers and Irene Steves helped me sort out my issues with here.
 hi #rstats friends, how do YOU use the here package? I thought I had my head around it but I&#39;m doing something wrong. Here my markdown lives within the “markdown” folder, so I set here to the “data” folder, call read_csv(here(“datafile.</description>
@@ -349,10 +360,10 @@ hi #rstats friends, how do YOU use the here package? I thought I had my head aro
     
     <item>
       <title>things i googled this week</title>
-      <link>/post/things-i-googled-this-week/</link>
+      <link>http://jenrichmond.rbind.io/post/things-i-googled-this-week/</link>
       <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/things-i-googled-this-week/</guid>
+      <guid>http://jenrichmond.rbind.io/post/things-i-googled-this-week/</guid>
       <description>How would we learn R if not for google? Here are some things I googled this week (and mostly not for the first time).
 1. how to install a package from github. 95% of the time, packages I want are on CRAN and I can just use the install.packages function to install them.
 install.packages(&amp;quot;nameofthepackage&amp;quot;)  Occasionally though, I see something cool and new on Twitter and need to install from github.</description>
@@ -360,29 +371,29 @@ install.packages(&amp;quot;nameofthepackage&amp;quot;)  Occasionally though, I s
     
     <item>
       <title>Writing about LMM</title>
-      <link>/post/writing-lmm/</link>
+      <link>http://jenrichmond.rbind.io/post/writing-lmm/</link>
       <pubDate>Tue, 25 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/writing-lmm/</guid>
+      <guid>http://jenrichmond.rbind.io/post/writing-lmm/</guid>
       <description>Learning new things is HARD. Stats methods are particularly hard because it not just about running the test. You have to…
  learn when to run the test learn how to run the test learn how to interpret the test AND learn how to write about the results of the test  Part of what makes this learning hard is that our research methods training has drummed into us that there is a RIGHT WAY TO DO IT.</description>
     </item>
     
     <item>
       <title>let me count the ways</title>
-      <link>/post/let-me-count-the-ways/</link>
+      <link>http://jenrichmond.rbind.io/post/let-me-count-the-ways/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/let-me-count-the-ways/</guid>
+      <guid>http://jenrichmond.rbind.io/post/let-me-count-the-ways/</guid>
       <description>psycho package ANOVA Recap EMG + psycho psycho steps THOUGHTS about psycho  Likelihood Ratio Tests Lets go hiking EMG + LRT THOUGHTS about LRT  lmerTest package is LRT anticonservative? EMG + lmerTest THOUGHTS about lmerTest  Next: “how to write about LMM”   When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.</description>
     </item>
     
     <item>
       <title>where is here?</title>
-      <link>/post/where-is-here/</link>
+      <link>http://jenrichmond.rbind.io/post/where-is-here/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/where-is-here/</guid>
+      <guid>http://jenrichmond.rbind.io/post/where-is-here/</guid>
       <description>As I add new projects to my rstats portfolio and work collaboratively on projects with students the issue of working directories is becoming more and more complicated. Not really understanding how working directories and file paths actually work, I have been relying on the beginner logic…
  Everything will be just fine as long as you keep your datafiles in the same folder as your .rmd file
    via GIPHY I aspire to have organized folders that Jen Thompson would be proud of, but that is going involve getting my head around directories.</description>
@@ -390,28 +401,28 @@ install.packages(&amp;quot;nameofthepackage&amp;quot;)  Occasionally though, I s
     
     <item>
       <title>gather spread unite separate</title>
-      <link>/post/gather-spread-unite-separate/</link>
+      <link>http://jenrichmond.rbind.io/post/gather-spread-unite-separate/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/gather-spread-unite-separate/</guid>
+      <guid>http://jenrichmond.rbind.io/post/gather-spread-unite-separate/</guid>
       <description>This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The tidyr package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &amp;ldquo;SPSS format&amp;rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&amp;hellip;.</description>
     </item>
     
     <item>
       <title>next up anova</title>
-      <link>/post/next-up-anova/</link>
+      <link>http://jenrichmond.rbind.io/post/next-up-anova/</link>
       <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/next-up-anova/</guid>
+      <guid>http://jenrichmond.rbind.io/post/next-up-anova/</guid>
       <description>In the kind of research that we do, t-tests can only take you so far. Most often we design factorial experiments where we are interested in both main effects and interactions. Because we work with infants and young children, who are both expensive to recruit/test and notoriously variable in their behaviour, we try to design experiments that use within-subjects designs; each child gives us more than one data point and we need to use repeated-measures analyses.</description>
     </item>
     
     <item>
       <title>more wrangling tips</title>
-      <link>/post/more-wrangling-tips/</link>
+      <link>http://jenrichmond.rbind.io/post/more-wrangling-tips/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/more-wrangling-tips/</guid>
+      <guid>http://jenrichmond.rbind.io/post/more-wrangling-tips/</guid>
       <description>It is definitely true that it takes much longer to get your data ready for analysis than it does to actually analyse it. Apparently up to 80% of the data analysis time is spent wrangling data (and cursing and swearing).
 Did you know up to 80% of data analysis is spent on the process of cleaning and preparing data? - cf. Wickham, 2014 and Dasu and Johnson, 2003
 So here is an excellent approach to data wrangling in #rstats https://t.</description>
@@ -419,112 +430,112 @@ So here is an excellent approach to data wrangling in #rstats https://t.</descri
     
     <item>
       <title>testing out t-tests</title>
-      <link>/post/testing-out-t-tests/</link>
+      <link>http://jenrichmond.rbind.io/post/testing-out-t-tests/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/testing-out-t-tests/</guid>
+      <guid>http://jenrichmond.rbind.io/post/testing-out-t-tests/</guid>
       <description>I was trying to work out how to do t-tests using my own data and the lsr package but ended up working with Dani’s AFL data from her book while trying to work out why R insisted that my outcome variable wasn’t numeric (it definitely was). Turns out that the lsr package doesn’t deal well with tibbles (which are created by default when you use read_csv to get your data) but if you use read.</description>
     </item>
     
     <item>
       <title>using R for analysis</title>
-      <link>/post/using-r-for-analysis/</link>
+      <link>http://jenrichmond.rbind.io/post/using-r-for-analysis/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/using-r-for-analysis/</guid>
+      <guid>http://jenrichmond.rbind.io/post/using-r-for-analysis/</guid>
       <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
 I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
     </item>
     
     <item>
       <title>creating data using rep()</title>
-      <link>/post/creating-data-using-rep/</link>
+      <link>http://jenrichmond.rbind.io/post/creating-data-using-rep/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/creating-data-using-rep/</guid>
+      <guid>http://jenrichmond.rbind.io/post/creating-data-using-rep/</guid>
       <description>The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I&amp;rsquo;m sure as I learn what kind of information R needs I&amp;rsquo;ll get better at this but for the moment using functions like rep() to create variables like trial number or block has been super useful.
 Alison Smith has a great blog called Very Statisticious and her post about simulating data is super helpful.</description>
     </item>
     
     <item>
       <title>Use map to read many csv files</title>
-      <link>/post/use-map-to-read-many-csv-files/</link>
+      <link>http://jenrichmond.rbind.io/post/use-map-to-read-many-csv-files/</link>
       <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/use-map-to-read-many-csv-files/</guid>
+      <guid>http://jenrichmond.rbind.io/post/use-map-to-read-many-csv-files/</guid>
       <description>&lt;p&gt;Dipping my toes in purrr here and replicating options from a &lt;a href=&#34;https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R&#34;&gt;super useful blog post&lt;/a&gt; I found by &lt;a href=&#34;@clauswilke&#34;&gt;ClausWilke&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>I don’t like cats much</title>
-      <link>/post/i-don-t-like-cats-much/</link>
+      <link>http://jenrichmond.rbind.io/post/i-don-t-like-cats-much/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/i-don-t-like-cats-much/</guid>
+      <guid>http://jenrichmond.rbind.io/post/i-don-t-like-cats-much/</guid>
       <description>I don&amp;rsquo;t love cats. I am not a member of @RCatLadies. So the fact that Tidyverse packages for dealing with factors and functional programming have cat-related names (forcats and purrr) does not endear them to me.
 I knew there was a time when I would encounter an R problem that needed the power of for loops, so when I asked the Twittersphere whether there was an alternative (hopefully a tidyverse one) that would allow me to avoid loops a little longer, I was a bit disappointed to hear that it is the purrr package.</description>
     </item>
     
     <item>
       <title>lesser known stars of the tidyverse</title>
-      <link>/post/lesser-known-stars-of-the-tidyverse/</link>
+      <link>http://jenrichmond.rbind.io/post/lesser-known-stars-of-the-tidyverse/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/lesser-known-stars-of-the-tidyverse/</guid>
+      <guid>http://jenrichmond.rbind.io/post/lesser-known-stars-of-the-tidyverse/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>dirty data</title>
-      <link>/post/dirty-data/</link>
+      <link>http://jenrichmond.rbind.io/post/dirty-data/</link>
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/dirty-data/</guid>
+      <guid>http://jenrichmond.rbind.io/post/dirty-data/</guid>
       <description>&lt;p&gt;I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>hotkeys</title>
-      <link>/post/hotkeys/</link>
+      <link>http://jenrichmond.rbind.io/post/hotkeys/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/hotkeys/</guid>
+      <guid>http://jenrichmond.rbind.io/post/hotkeys/</guid>
       <description>&lt;p&gt;There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>cooking with datapasta</title>
-      <link>/post/cooking-with-datapasta/</link>
+      <link>http://jenrichmond.rbind.io/post/cooking-with-datapasta/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/cooking-with-datapasta/</guid>
+      <guid>http://jenrichmond.rbind.io/post/cooking-with-datapasta/</guid>
       <description>&lt;p&gt;Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>calculating age</title>
-      <link>/post/calculating-age/</link>
+      <link>http://jenrichmond.rbind.io/post/calculating-age/</link>
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/calculating-age/</guid>
+      <guid>http://jenrichmond.rbind.io/post/calculating-age/</guid>
       <description>&lt;p&gt;I have been playing with a new (not actually new, but new to R) dataset this week.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>fomo on #useR2018</title>
-      <link>/post/fomo-on-user2018/</link>
+      <link>http://jenrichmond.rbind.io/post/fomo-on-user2018/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/fomo-on-user2018/</guid>
+      <guid>http://jenrichmond.rbind.io/post/fomo-on-user2018/</guid>
       <description>&lt;p&gt;I have been travelling for the last few weeks, first to a teaching conference at Duke called PsychOne, and then to the International Congress on Infant Studies (ICIS) in Philadelphia. There was a surprising amount of #rstats at ICIS which was awesome. Everyone is talking about reproducible science and preregistration and best practices that will improve our field. There is definitely another blog post needed to consolidate my notes from ICIS, but for now, I want to write about #useR2018 (a conference I didn&amp;rsquo;t get to go to).&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Curious</title>
-      <link>/post/curious-rmarkdown/</link>
+      <link>http://jenrichmond.rbind.io/post/curious-rmarkdown/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/curious-rmarkdown/</guid>
+      <guid>http://jenrichmond.rbind.io/post/curious-rmarkdown/</guid>
       <description>
 
 
@@ -534,10 +545,10 @@ I knew there was a time when I would encounter an R problem that needed the powe
     
     <item>
       <title></title>
-      <link>/post/2018-08-30-hidden-stars-of-the-tidyverse/</link>
+      <link>http://jenrichmond.rbind.io/post/2018-08-30-hidden-stars-of-the-tidyverse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-08-30-hidden-stars-of-the-tidyverse/</guid>
+      <guid>http://jenrichmond.rbind.io/post/2018-08-30-hidden-stars-of-the-tidyverse/</guid>
       <description></description>
     </item>
     

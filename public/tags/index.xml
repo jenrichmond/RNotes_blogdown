@@ -2,147 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on R notes to myself</title>
-    <link>/tags/</link>
+    <link>http://jenrichmond.rbind.io/tags/</link>
     <description>Recent content in Tags on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jenrichmond.rbind.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>analysis</title>
-      <link>/tags/analysis/</link>
+      <link>http://jenrichmond.rbind.io/tags/analysis/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/analysis/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lmm</title>
-      <link>/tags/lmm/</link>
+      <link>http://jenrichmond.rbind.io/tags/lmm/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/lmm/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/lmm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidyr</title>
-      <link>/tags/tidyr/</link>
+      <link>http://jenrichmond.rbind.io/tags/tidyr/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidyr/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/tidyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>anova</title>
-      <link>/tags/anova/</link>
+      <link>http://jenrichmond.rbind.io/tags/anova/</link>
       <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/anova/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/anova/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stats</title>
-      <link>/tags/stats/</link>
+      <link>http://jenrichmond.rbind.io/tags/stats/</link>
       <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/stats/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/stats/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dplyr</title>
-      <link>/tags/dplyr/</link>
+      <link>http://jenrichmond.rbind.io/tags/dplyr/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/dplyr/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/dplyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wrangling</title>
-      <link>/tags/wrangling/</link>
+      <link>http://jenrichmond.rbind.io/tags/wrangling/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/wrangling/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/wrangling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ttest</title>
-      <link>/tags/ttest/</link>
+      <link>http://jenrichmond.rbind.io/tags/ttest/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/ttest/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/ttest/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tips</title>
-      <link>/tags/tips/</link>
+      <link>http://jenrichmond.rbind.io/tags/tips/</link>
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tips/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/tips/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ggplot</title>
-      <link>/tags/ggplot/</link>
+      <link>http://jenrichmond.rbind.io/tags/ggplot/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/ggplot/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/ggplot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>purrr</title>
-      <link>/tags/purrr/</link>
+      <link>http://jenrichmond.rbind.io/tags/purrr/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/purrr/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/purrr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reprex</title>
-      <link>/tags/reprex/</link>
+      <link>http://jenrichmond.rbind.io/tags/reprex/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/reprex/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/reprex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stringr</title>
-      <link>/tags/stringr/</link>
+      <link>http://jenrichmond.rbind.io/tags/stringr/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/stringr/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/stringr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
+      <link>http://jenrichmond.rbind.io/tags/tidyverse/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidyverse/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/tidyverse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>datapasta</title>
-      <link>/tags/datapasta/</link>
+      <link>http://jenrichmond.rbind.io/tags/datapasta/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/datapasta/</guid>
+      <guid>http://jenrichmond.rbind.io/tags/datapasta/</guid>
       <description></description>
     </item>
     

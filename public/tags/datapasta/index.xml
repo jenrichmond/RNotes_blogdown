@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>datapasta on R notes to myself</title>
-    <link>/tags/datapasta/</link>
+    <link>http://jenrichmond.rbind.io/tags/datapasta/</link>
     <description>Recent content in datapasta on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/datapasta/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jenrichmond.rbind.io/tags/datapasta/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>cooking with datapasta</title>
-      <link>/post/cooking-with-datapasta/</link>
+      <link>http://jenrichmond.rbind.io/post/cooking-with-datapasta/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/cooking-with-datapasta/</guid>
+      <guid>http://jenrichmond.rbind.io/post/cooking-with-datapasta/</guid>
       <description>&lt;p&gt;Another day&amp;hellip; another data set. This time I am trying to get EMG data from LabChart into R. LabChart is the software we use to record EMG data and do the first steps of data cleaning/processing. At the moment a good chunk of the cleaning process involves Excel macros, so my goal is to replicate what we have traditionally done in Excel in R, so that it is more automated and more reproducible.&lt;/p&gt;</description>
     </item>
     

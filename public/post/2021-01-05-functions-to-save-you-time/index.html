@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>functions to save you time</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/owl.carousel.css">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/owl.theme.css">
+
+
+  <link href="http://jenrichmond.rbind.io/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="http://jenrichmond.rbind.io/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://jenrichmond.rbind.io/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="http://jenrichmond.rbind.io/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="http://jenrichmond.rbind.io/about/">About</a></li>
+      
+        <li><a href="http://jenrichmond.rbind.io/post/">Blog</a></li>
+      
+        <li><a href="http://jenrichmond.rbind.io/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="http://jenrichmond.rbind.io/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>functions to save you time</h1>
+         
+<script src="index_files/header-attrs/header-attrs.js"></script>
+<link href="index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<p>Last year my R resolution was to google less. I think I succeeded (kinda). I wrote a few posts in my IDHTG series.</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://jenrichmond.rbind.io/post/counting-things/">counting things</a></li>
+<li><a href="http://jenrichmond.rbind.io/post/recoding-variables/">recoding variable</a></li>
+<li><a href="http://jenrichmond.rbind.io/post/working-with-factors/">work with factors</a></li>
+<li><a href="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/">annotating plots</a></li>
+<li><a href="http://jenrichmond.rbind.io/post/idhtg-how-to-use-colour-palettes-with-ggplot/">use colour palettes</a></li>
+</ol>
+<p>I don’t necessary remember exactly how to recode variables or to make factors behave, but I know I have notes in my blog about those things to refer to, so that makes the googling much faster.</p>
+<p>My time-saving resolution for 2021 is to write functions that save me time. There are things that I google every time because the code is almost impossible to remember. In the spirit of the <code>ggeasy</code> package (my new favourite) my plan is to start by writing wrapper functions for frequently used ggplot things.</p>
+<p>I’m going to keep adding to this post throughout the year as I write functions to save me time.</p>
+<div id="january" class="section level1">
+<h1>January</h1>
+<div id="ggplot-theme" class="section level3">
+<h3>1. ggplot theme</h3>
+<p>When making plots I want a theme that is really similar to theme_classic() but I want the fonts to be bigger and for there to be more whitespace. I like theme_apa() a lot, but that requires that I have remembered to load library(papaja), which I don’t work with every day. So I want to make a theme_jen() that can live in my .RProfile file (access that with usethis::edit_r_profile) and be autoloaded every time I restart R.</p>
+<p>This <a href="https://rpubs.com/mclaire19/ggplot2-custom-themes">post from Maddie Pickins</a> was really helpful in working out how to write a custom theme and <a href="http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/#changing-the-plot-margin">this one</a> helped me learn about margins and solve my white space problem.</p>
+<p>Here is my custom theme…</p>
+<pre class="r"><code>theme_jen &lt;- function () {
+  
+  # define font up front
+  font &lt;- &quot;Helvetica&quot;  
+  # this theme uses theme_bw as the base 
+    
+  theme_bw() %+replace%   
+    theme(
+      #get rid of grid lines/borders
+      panel.border = element_blank(), 
+      panel.grid.major = element_blank(), 
+      panel.grid.minor = element_blank(), 
+      # add white space top, right, bottom, left
+      plot.margin = unit(c(1, 1, 1, 1), &quot;cm&quot;), 
+      # custom axis title/text/lines
+      axis.title = element_text(            
+        family = font,                     
+        size = 14),               
+      axis.text = element_text(              
+        family = font,                       
+        size = 12),   
+       # margin pulls text away from axis
+      axis.text.x = element_text(           
+        margin=margin(5, b = 10)),
+      # black lines
+      axis.line = element_line(colour = &quot;black&quot;, size = rel(1)), 
+      # custom plot titles, subtitles, captions
+      plot.title = element_text(             
+        family = font,              
+        size = 18,
+        hjust = -0.1,
+        vjust = 4),
+      plot.subtitle = element_text(          
+        family = font,                   
+        size = 14, 
+        hjust = 0,
+        vjust = 3),
+      plot.caption = element_text(           
+        family = font,                   
+        size = 10,
+        hjust = 1,
+        vjust = 2), 
+      # custom legend 
+      legend.title = element_text(          
+        family = font,           
+        size = 10,                
+        hjust = 0), 
+      legend.text = element_text(          
+        family = font,               
+        size = 8,                     
+        hjust = 0), 
+      #no background on legend
+      legend.key = element_blank(),   
+      # white background on plot
+      strip.background = element_rect(fill = &quot;white&quot;,  
+        colour = &quot;black&quot;, size = rel(2)), complete = TRUE)
+}</code></pre>
+</div>
+<div id="a-ggeasy-esque-wrapper" class="section level3">
+<h3>2. a ggeasy-esque wrapper</h3>
+<p>My new favourite package is <code>ggeasy</code>. It makes all the things you want to do in ggplot super EASY. For example, if you want to remove the legend, instead of …</p>
+<blockquote>
+<p><code>+ theme(legend.title = element_blank())</code></p>
+</blockquote>
+<p>you can use …</p>
+<blockquote>
+<p><code>+ easy_remove_legend</code></p>
+</blockquote>
+<p>One the things I google all the time is how to get the bars to sit on the x axis.</p>
+<p>Here is some Tidy Tuesday data to illustrate</p>
+<pre class="r"><code>library(tidytuesdayR)
+library(tidyverse)
+library(ggeasy)
+
+tt &lt;- tt_load(&quot;2021-01-05&quot;)</code></pre>
+<pre><code>## 
+##  Downloading file 1 of 1: `transit_cost.csv`</code></pre>
+<pre class="r"><code>cost &lt;- tt$transit_cost</code></pre>
+<pre class="r"><code>cost %&gt;%
+  group_by(country) %&gt;%
+  summarise(meancost = mean(cost_km_millions)) %&gt;%
+  arrange(-meancost) %&gt;%
+  head(5) %&gt;%
+  ggplot(aes(x = reorder(country, meancost), y = meancost, fill = country)) +
+  geom_col() +
+  labs(y= &quot;Average cost per km (million)&quot;, x = &quot;Country&quot;, 
+       title = &quot;Countries with the most expensive transit projects&quot;, 
+       caption = &quot;why is the US so $$$$?&quot;) +
+  theme_jen() +
+  easy_remove_legend()</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Here I have applied my custom theme and used ggeasy::easy_remove_legend(). Now I want the bars to sit on the x axis. I google this EVERYTIME <code>scale_y_continuous(expand = c(0.0))</code>, so lets wrap it in a function I might remember.</p>
+<pre class="r"><code>easy_expand_y_axis &lt;- function () 
+  
+{
+      scale_y_continuous(expand = c(0, 0))
+  
+}</code></pre>
+<p>Now I can use my function, just like the functions from ggeasy.</p>
+<pre class="r"><code>cost %&gt;%
+  group_by(country) %&gt;%
+  summarise(meancost = mean(cost_km_millions)) %&gt;%
+  arrange(-meancost) %&gt;%
+  head(5) %&gt;%
+  ggplot(aes(x = reorder(country, meancost), y = meancost, fill = country)) +
+  geom_col() +
+  labs(y= &quot;Average cost per km (million)&quot;, x = &quot;Country&quot;, 
+       title = &quot;Countries with the most expensive transit projects&quot;, 
+       caption = &quot;why is the US so $$$$?&quot;) +
+  theme_jen() +
+  easy_remove_legend() +
+  easy_expand_y_axis()</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>ggsave(here::here(&quot;static&quot;, &quot;img&quot;, &quot;cost.png&quot;))</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<p>I am not sure where people generally keep these kinds of functions so that they are available to you whenever you want. Eventually, it probably makes sense to bundle them in a package, but for now I just put them in my .Rprofile file so that they load every time I start R. I guess that isn’t great if I want to share code with other people, but it will do for now.</p>
+</div>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="http://jenrichmond.rbind.io/js/jquery.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/bootstrap.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/jquery.cookie.js"> </script>
+<script src="http://jenrichmond.rbind.io/js/ekko-lightbox.js"></script>
+<script src="http://jenrichmond.rbind.io/js/jquery.scrollTo.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/masonry.pkgd.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/imagesloaded.pkgd.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/owl.carousel.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/front.js"></script>
+
+</body>
+</html>
