@@ -189,35 +189,37 @@ Now for the hard bit, fingers crossed. I'm following the [instructions here](htt
 1. Refresh the browser on your forked repo and check that the README now includes your changes.
 
 
-
-
-
 2. Navigate to the original repo (where you created the fork in the first place) and choose the Pull requests tab. 
 
-```{r}
-knitr::include_graphics("pr1.png"))
+```{r echo=FALSE}
+knitr::include_graphics("pr1.png")
 ```
 
-3. Choose New pull request and the the "compare across forks" option
+3. Choose New pull request and the "compare across forks" option
 
-```{r}
-knitr::include_graphics("pr2.png"))
+```{r echo=FALSE}
+knitr::include_graphics("pr2.png")
 ```
 4. Choose your fork as the head repository to compare and see whether your changes can be merged automatically. Click Create pull request. 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("pr3.png")
 ```
 
 5. Write a note to the repo owner as an issue. 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("pr4.png")
 ```
 
 6. Wait and see if they like your changes :)
 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("pr5.png")
 ```
+
+
+7. Celebrate!
+
+<iframe src="https://giphy.com/embed/3oz8xRF0v9WMAUVLNK" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/studiosoriginals-3oz8xRF0v9WMAUVLNK">via GIPHY</a></p>
