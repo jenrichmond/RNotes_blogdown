@@ -144,9 +144,19 @@ https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues
 
 Forking is the process of creating a copy of a repo owned by someone else in your github account. There is a button on the top right corner of every github repo that allows you to Fork a copy. 
 
+```{r echo=FALSE}
+knitr::include_graphics("fork.png")
+```
+
 ### Step 2: clone the repo
 
-Once you have a copy of the repo in your github account, use the green button to clone the forked copy on to your machine. You can copy the url and within RStudio use File-New project-From Version control. Or in the terminal use... 
+Once you have a copy of the repo in your github account, use the green button to clone the forked copy on to your machine. 
+
+```{r echo=FALSE}
+knitr::include_graphics("clone.png")
+```
+
+You can copy the url and within RStudio use File-New project-From Version control. Or in the terminal use... 
 
 1. `pwd` to print your working directory and then 
 2. `cd` to navigate to the folder where you want to clone 
@@ -179,7 +189,6 @@ git commit -m "adding bird images to README"
 git push
 
 ```
-
 
 
 ### Step 5: make a pull request
