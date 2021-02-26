@@ -1,12 +1,12 @@
 ---
-title: pretty summary tables
+title: across and summary tables
 author: Jen Richmond
-date: '2021-02-25'
+date: '2021-02-26'
 slug: []
 categories: []
-image: "img/debugging.jpg"
 tags: []
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
