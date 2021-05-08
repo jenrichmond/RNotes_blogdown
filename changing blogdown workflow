@@ -1,0 +1,6 @@
+cd content/post
+
+for f in $(ls *md); do     # loop through all Rmd
+  mkdir -p ${f%.*}/;        # takes way the extension, and makes the folder
+  mv $f ${f%.*}/index.Rmd;  # moved file into folder and renames it to index.Rmd
+done

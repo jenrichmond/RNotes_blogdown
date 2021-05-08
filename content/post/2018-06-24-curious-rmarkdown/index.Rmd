@@ -13,7 +13,6 @@ output:
 
 What a treat it was to finally meet [Charles Gray](https://twitter.com/cantabile) when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips. 
 
-<!--more-->
 
 We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document. 
 
@@ -38,6 +37,7 @@ Using a combination of square and round brackets. Put the text you want to appea
 `[text for the link](url to link to)`
 
 i.e.
+
 `[Hadley Wickham RforDataScience](http://r4ds.had.co.nz/)`
 
 [Hadley Wickham RforDataScience](http://r4ds.had.co.nz/)

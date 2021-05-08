@@ -4,6 +4,7 @@
 .Ruserdata
 .DS_Store
 Thumbs.db
+"\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"
 /blogdown
 data/pcr_testing_table2_age_group.csv
 .DS_Store # if a windows user, Thumbs.db instead
