@@ -4,12 +4,13 @@ author: Jen Richmond
 date: '2018-08-27'
 slug: dirty-data
 categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
-I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned. 
+I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Here are notes on useful things I learned recently. 
 
-<!--more-->
 
 #### Quick summaries
 

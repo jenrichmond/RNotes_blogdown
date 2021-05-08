@@ -15,8 +15,8 @@ I have been playing with a new (not actually new, but new to R) dataset this wee
 
 #### Successes: 
 
-1. I loaded the data in using `read_csv`. *** see ERRATUM below
-2. I fixed some weird data type assumptions. 
+1. I loaded the data in using `read_csv`. 
+2. I made dates into dates. 
 
 * The interview group is listed as 1s and 2s in the file so R thought those were  integers. So I used `as.factor` to convert.
 

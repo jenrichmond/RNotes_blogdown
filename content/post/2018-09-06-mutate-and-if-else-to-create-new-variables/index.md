@@ -18,7 +18,8 @@ Most recently I needed to extract a Stimulus number from a variable called Comme
 
 This chunk takes the cleanedup data, groups by Participant, Block, and Trial, pipes to a mutate function which adds a new column called Stimulus that lists the values in the 8th position [[8]] of the CommentName Variable (that is the comment that specifies the Model/Emotion condition). Then it pipes that into another mutate creating a new columns called Model and Emotion that include values of child/adult and happy/angry, depending on the Stimulus value.  
 
-```{r eval = FALSE}
+
+```r
 trialtype <- cleanedup %>%
   group_by(Participant, Block, Trial) %>%
   
@@ -33,7 +34,6 @@ trialtype <- cleanedup %>%
                     ifelse(Stimulus == "426790", "happy",
                     ifelse(Stimulus == "426783", "happy",
                     ifelse(Stimulus == "426784", "angry", "no")))))
-
 ```
 
 #### update August 2019..... case_when

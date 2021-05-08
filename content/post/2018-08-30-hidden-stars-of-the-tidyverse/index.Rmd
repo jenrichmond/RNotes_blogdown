@@ -5,21 +5,12 @@ date: '2018-08-30'
 slug: lesser-known-stars-of-the-tidyverse
 categories: []
 output:
-  blogdown::html_page:
-    toc: true
-tags: 
-  - tidyverse
-  - wrangling
-  - dplyr
-  - purrr
-  - ggplot
-  - stringr
-  - reprex
----
+  html_document:
+    keep_md: yes
 
-[Emily Robinson](@robinson_es) has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes...
+[Emily Robinson](@robinson_es) writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes...
 
-<!--more-->
+
 
 ### 1.use `as_tibble()`
 

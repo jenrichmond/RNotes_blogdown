@@ -23,13 +23,15 @@ The simplest option; use when your .csv files contain ID/participant and all liv
 
 Get list of .csv files called files. The code below looks for files that have .csv as part of the filename in the the working directory 
 
-```{r eval = FALSE}
+
+```r
 files <- dir(pattern = "*.csv")
 files
 ```
 The code below takes that list of files, pipes it to a map function that runs read_csv on each file, then pipes that to a  rbind function that reduces those many files into a one dataframe called data. 
 
-```{r eval = FALSE}
+
+```r
 data1 <- files %>%
   map(read_csv) %>% 
   reduce(rbind)
@@ -50,21 +52,22 @@ First define the stuff:
 
 Then use those values to import data in same way. 
 
-```{r eval = FALSE}
+
+```r
 data_path <- "./Datafiles"   
 files <- dir(data_path, pattern = "*clean.csv") 
 
 data2A <- files %>%
   map(~ read_csv(file.path(data_path, .))) %>% 
   reduce(rbind)
-
 ```
 
 ##### Option 2B
 
 This is the same as above, except for spelling out the function(x). The ~ above is jsut a shortcut for the anonymous function(x).
 
-```{r eval = FALSE}
+
+```r
 data_path <- "./Datafiles"   
 files <- dir(data_path, pattern = "*clean.csv") 
 
@@ -72,7 +75,6 @@ files <- dir(data_path, pattern = "*clean.csv")
 data2B <- files %>%
   map(function(x) read_csv(file.path(data_path, x))) %>%  
   reduce(rbind)
-
 ```
 
 ##### Option 3
@@ -81,8 +83,8 @@ This is more complicated but is essential if your .csv files don't contain an ID
 
 To keep info about each .csv, define the stuff (data_path and files), then use dataframe() to create a dataframe containing the a single variable = files, pipe that to a mutate function creating a new variable that contains each file's contents. Yes this is crazy, it actually puts the entire contents of the file in a single variable.  Use unnest() to turn that crazy single column into a useful thing. 
 
-```{r eval = FALSE}
 
+```r
 data_path <- "./Datafiles"   
 files <- dir(data_path, pattern = "*clean.csv") 
 

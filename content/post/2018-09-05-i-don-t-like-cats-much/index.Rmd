@@ -3,8 +3,9 @@ title: I don’t like cats much
 author: Jen Richmond
 date: '2018-09-05'
 slug: i-don-t-like-cats-much
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 I don't love cats. I am not a member of @RCatLadies. So the fact that Tidyverse packages for dealing with factors and functional programming have cat-related names (`forcats` and `purrr`) does not endear them to me. 
@@ -47,6 +48,7 @@ https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/
 
 
 #### [Miles McBain](@MilesMcBain) says...
+
 You can use dplyr::bind_rows() instead of reduce(rbind()). BUT if you want them all in one frame at the end you probably just want purrr::map_dfr(), which is a map and bind combo function. So many options! that's actually half the problem with going #noloops. My most commonly used fns in purrr are map(), pmap(), walk(), iwalk() and every() maybe that helps narrow it down a bit.
 
 #### [Hendrik vanB](@hendrikvanb) says... 
