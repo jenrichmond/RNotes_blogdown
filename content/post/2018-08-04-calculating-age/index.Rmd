@@ -13,7 +13,6 @@ output:
 I have been playing with a new (not actually new, but new to R) dataset this week. 
 
 
-
 #### Successes: 
 
 1. I loaded the data in using `read_csv`. *** see ERRATUM below
@@ -25,23 +24,15 @@ I have been playing with a new (not actually new, but new to R) dataset this wee
 dataframe$variable <- as.factor(dataframe$variable) 
 
 ```
-___
 
+I used `lubridate` package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. 
 
-`read_csv` did weird things with dates, importing them as factors. People say that `read_csv` makes fewer weird assumptions than `read.csv` but I am not yet convinced. I used `lubridate` package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM
-___
 
 ```  
 mutate(DOB = dmy(DOB), Test_Date= dmy(Test_Date))
  
 ```    
-___
 
-##### ERRATUM
-
-My bad... the dates as factors issue was caused by `read.csv` NOT `read_csv`. When I posted this to twitter, [Alison Hill](https://twitter.com/apreshill) helpfully pointed out that there is no way to read in a factor by default in readr. So this is an example of how `read_csv` does a "better" job than `read.csv`. Better in the sense that is automatically imports everything that isn't a number as a character rather than assuming things are factors. I still need to use `lubridate` to convert character to dates (DOB Test_Date) and integers to factors (InterviewGroup) though.
-  
-___
 
 #### Challenges
 
@@ -49,6 +40,7 @@ Now that I have dates that are dates, I'd like to calculate how old these kids a
 
 ```
 mutate(agedays = (Test_Date-DOB))    
+
 ```
 
 I mostly work with infants and preschoolers so I really want age in Weeks or Months, not Days or Years. Turns out this is a bit challenging. I could just estimate age in months by dividing the Days by 30, which works, kind of. The result is in time format but still in days.  
@@ -60,9 +52,12 @@ This function on github has potential.
 https://gist.github.com/mmparker/7254445
 
 It does a really nice job of calculating age even when I use my date variables.  
+
 ```
 mutate(ageyear = calc_age(DOB, Test_Date))
+
 ```
+
 BUT.... the output is years. 
 
 Trying to work out how to adapt this function for my purpose sent me down a little rabbit hole re what is a function and how you make one. 
@@ -71,7 +66,7 @@ This one is pretty simple, a good introduction, me  thinks...
 
 #### Function to calculate age: 
 
-___
+
 ```
 calc_age <- function(birthDate, refDate = Sys.Date()) {
 
@@ -85,7 +80,7 @@ calc_age <- function(birthDate, refDate = Sys.Date()) {
 } 
 
 ```
-___
+
 
 
 My understanding is that this piece of code creates a function called `calc_age` that take inputs of birthDate and refDate, although if you skip the refDate input it will default to Sys.Date, which would be useful if you wanted to know what age was today. Using my birthday as input...
@@ -100,7 +95,7 @@ Yup, I'm still 40.
 
 The nuts and bolts are between the curly brackets. This function requires the lubridate package, and defines the "period" as an interval between birthDate and refDate, specifying that it is a period (rather than an interval or duration) 
 
-___
+
 #### NOTE
 
 >lubridate object classes  
@@ -109,7 +104,6 @@ ___
 3. intervals, which represent a starting and ending point.  
 (from http://r4ds.had.co.nz/dates-and-times.html#time-spans) 
 
-___
 
 `lubridate` is smart with dates right? I should be able to just change the unit = months and it would work? Sadly, no. 
 
