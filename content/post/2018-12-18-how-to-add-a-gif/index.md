@@ -16,9 +16,12 @@ I have just finished the vizwhiz module for #RYouWithMe and to top off the serie
 
 Just so I'll remember for next time, here is a step by step how to...
 
-```{r}
+
+```r
 knitr::include_graphics("beachwiz.gif")
 ```
+
+![](beachwiz.gif)<!-- -->
 
 
 
@@ -54,15 +57,21 @@ raintemp %>%
  ggsave("beaches.png")
 ```
 
-```{r}
+
+```r
 knitr::include_graphics("beaches.png")
 ```
 
+<img src="beaches.png" width="977" />
+
 3. Find a gif you like and save it as a .gif file. Read the image files into Rstudio.  
 
-```{r}
+
+```r
 knitr::include_graphics("ladywiz.gif")
 ```
+
+![](ladywiz.gif)<!-- -->
 
 
 ```

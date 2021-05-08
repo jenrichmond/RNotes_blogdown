@@ -21,9 +21,12 @@ On twitter yesterday [Alison Hill](@apreshill), [Adam Gruer](@AdamGruer), [Zoe M
 
 But it was THIS slide from Irene that REALLY fixed my problem. 
 
-```{r}
+
+```r
 knitr::include_graphics("paths.jpg")
 ```
+
+<img src="paths.jpg" width="540" />
 
 
 
@@ -55,9 +58,12 @@ Ideally you want to be a bit more organised than that and it is better practice 
 
 I am starting a new project and trying to set up my folder organisation as I mean to continue. I have a folder that contains an .Rproj file, and subfiles for data, markdowns, and output. 
 
-```{r}
+
+```r
 knitr::include_graphics("folder.png")
 ```
+
+<img src="folder.png" width="1280" />
 
 
 
