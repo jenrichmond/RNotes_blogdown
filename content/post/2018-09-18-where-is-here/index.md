@@ -19,9 +19,12 @@ As I add new projects to my rstats portfolio and work collaboratively on project
 I aspire to have organized folders that [Jen Thompson](@jent103) would be proud of, but that is going involve getting my head around directories.
 
 
-```{r}
+
+```r
 knitr::include_graphics("organized.png")
 ```
+
+<img src="organized.png" width="1280" />
 
 
 
@@ -31,9 +34,12 @@ Sidenote- check out [slides from Jen Thompson's awesome RMed2018 talk](bit.ly/jl
 
 I learned about this package from one of Jenny Bryan's many talks/ twitter posts. I so strongly associate it with Jenny (she even has an [Ode to Here post](https://github.com/jennybc/here_here) on her blog) that I mistakenly thought that she wrote it, but no. 
 
-```{r}
+
+```r
 knitr::include_graphics("here.png")
 ```
+
+<img src="here.png" width="1280" />
 It was actually developed by [Kirill Muller](@krlmlr), a data scientist from Switzerland. 
 
 Here is how it works. 

@@ -24,13 +24,12 @@ NOTE May2021: The psycho package has been updated and the code below may not wor
 
 Yes I know that I should be doing linear mixed models instead, so lets see whether his `psycho` package really makes it as easy as promised. 
 
-```{r message=FALSE, warning=FALSE}
 
+```r
 library(lme4)
 library(lmerTest)
 library(tidyverse)
 library(psycho)
-
 ```
 
 ### ANOVA Recap
@@ -70,14 +69,16 @@ The advantage of LMM, in addition to allowing us to control for random effects o
 
 Lets plot responses to the competitor displaying happy vs. angry expressions. 
 
-```{r message=FALSE, warning=FALSE}
+
+```r
 EMGdata <- read_csv("BronteEMG.csv")
 
 EMGdata_competitor <- EMGdata %>%
   filter(role == "Competitor", emotion != "NEUTRAL") 
 ```
 
-```{r}
+
+```r
 EMGdata_competitor %>%
   group_by(emotion, muscle) %>%
   summarise(meanresponse = mean(response, na.rm = TRUE)) %>%
@@ -86,8 +87,13 @@ EMGdata_competitor %>%
   facet_wrap(~muscle) +
   scale_y_continuous(expand = c(0, 0),                    
                      limits = c(-0.05, 0.25))
+```
 
 ```
+## `summarise()` has grouped output by 'emotion'. You can override using the `.groups` argument.
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 Looks like a emotion x muscle interaction :)
  
 #### New way: Linear Mixed Models
@@ -98,11 +104,21 @@ Instead of calling aov(), we now use lmer() from the lme4 package. Again we assi
 
 #### Fit the model
 
-```{r warning=FALSE}
 
+```r
 lmm_EMG <- lmer(response ~ emotion + muscle + emotion*muscle + (1|Participant), data=EMGdata_competitor)
 
 anova(lmm_EMG)
+```
+
+```
+## Type III Analysis of Variance Table with Satterthwaite's method
+##                 Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+## emotion        0.23791 0.23791     1 79.159  3.3608 0.07053 .
+## muscle         0.10038 0.10038     1 75.082  1.4180 0.23748  
+## emotion:muscle 0.27447 0.27447     1 75.082  3.8772 0.05264 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ### EMG + psycho
@@ -115,19 +131,22 @@ The `psycho` package allows you to test the fit of the model and generates a des
 
 
 
-```{r eval = FALSE, eval = FALSE}
+
+```r
 library(psycho)
 
 results <- psycho::analyze(lmm_EMG)
 ```
 
-```{r eval = FALSE, eval = FALSE}
+
+```r
 summary(results)
 ```
 
 This LMM practically writes itself! Use print(results) to generate an almost manuscript ready description of the model. 
 
-```{r eval = FALSE}
+
+```r
 print(results)
 ```
 
@@ -135,7 +154,8 @@ Here we are most interested in the interaction, so we can use `get_contrasts` fo
 
 #### `get_contrasts`
 
-```{r eval = FALSE}
+
+```r
 results <- get_contrasts(lmm_EMG, "emotion*muscle")
 
 print(results$contrasts)
@@ -143,7 +163,8 @@ print(results$contrasts)
 #note default is Tukey correction
 ```
 
-```{r eval = FALSE}
+
+```r
 print(results$means) #get estimated marginal means
 ```
 
@@ -194,15 +215,18 @@ Because we are most interested in whether there is a differential muscle activit
 
 Note when you are running LMM and planning to compare models, you should add REML= FALSE to the end of the code. Changes the internal workings in mysterious ways. 
 
-```{r}
+
+```r
 model_target <- lmer(response ~ emotion + muscle + emotion*muscle + (1|Participant), data=EMGdata_competitor, REML= FALSE)
 ```
 
-```{r}
+
+```r
 model_null <- lmer(response ~ emotion + muscle + (1|Participant), data=EMGdata_competitor, REML= FALSE)
 ```
 
-```{r eval = FALSE}
+
+```r
 anova(model_null, model_target)
 ```
 Interpretation= when the AIC (Akaike information criterion) is lower, the model fits the data better. Here we can say that the emotion * muscle interaction is important, because there the model_target is a better fit of the data than model_null is. 
@@ -226,16 +250,20 @@ The `lmerTest` approach uses Satterthwaite's method (as does SAS software) to es
 
 This example illustrates the difference in output when you run anova() on model before and after loading library(lmerTest)
 
-```{r}
+
+```r
 knitr::include_graphics("lmerTest.jpg")
 ```
+
+<img src="lmerTest.jpg" width="480" />
 
 
 ### EMG + lmerTest
 
 Using the lmerTest approach, we would load library(lmerTest) first, then run the model including all interesting fixed and random effects. Then call anova() and/or summary() to get Fs and ps and/or Estimates. 
 
-```{r}
+
+```r
 library(lmerTest)
 
 model_lmerTest <- lmer(response ~ emotion + muscle + emotion*muscle + (1|Participant), data=EMGdata_competitor)
@@ -243,12 +271,58 @@ model_lmerTest <- lmer(response ~ emotion + muscle + emotion*muscle + (1|Partici
 
 Then get anova() and/or summary() to get Fs and Ps, and beta estimates. 
 
-```{r}
+
+```r
 anova(model_lmerTest)
 ```
 
-```{r}
+```
+## Type III Analysis of Variance Table with Satterthwaite's method
+##                 Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+## emotion        0.23791 0.23791     1 79.159  3.3608 0.07053 .
+## muscle         0.10038 0.10038     1 75.082  1.4180 0.23748  
+## emotion:muscle 0.27447 0.27447     1 75.082  3.8772 0.05264 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+```r
 summary(model_lmerTest)
+```
+
+```
+## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+## lmerModLmerTest]
+## Formula: response ~ emotion + muscle + emotion * muscle + (1 | Participant)
+##    Data: EMGdata_competitor
+## 
+## REML criterion at convergence: 48.2
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.86009 -0.40051 -0.01831  0.37171  2.89182 
+## 
+## Random effects:
+##  Groups      Name        Variance Std.Dev.
+##  Participant (Intercept) 0.01489  0.1220  
+##  Residual                0.07079  0.2661  
+## Number of obs: 106, groups:  Participant, 28
+## 
+## Fixed effects:
+##                          Estimate Std. Error       df t value Pr(>|t|)    
+## (Intercept)               0.19192    0.05628 94.48281   3.410 0.000957 ***
+## emotionHAPPY             -0.19736    0.07342 77.13899  -2.688 0.008798 ** 
+## muscleCHEEK              -0.16335    0.07241 75.08189  -2.256 0.026998 *  
+## emotionHAPPY:muscleCHEEK  0.20358    0.10339 75.08189   1.969 0.052636 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Correlation of Fixed Effects:
+##             (Intr) emHAPPY mCHEEK
+## emotinHAPPY -0.638               
+## muscleCHEEK -0.643  0.493        
+## eHAPPY:CHEE  0.451 -0.704  -0.700
 ```
 
 ### THOUGHTS about lmerTest

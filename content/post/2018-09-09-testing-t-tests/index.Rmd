@@ -42,17 +42,15 @@ t.test(dataframe$outcome ~ dataframe$group, paired=FALSE)
 The AFL data that comes with Dani's book includes attendance and score information for home and away teams over regular and finals games for years and years. Disclaimer- I know nothing about AFL. 
 
 #### Load packages
-```
-library(tidyverse)
-library(lsr)
-```
 
-```{r include=FALSE}
+
+```{r}
 library(tidyverse)
 library(lsr)
 ```
 
 #### Read the data
+
 Remember: `lsr` package does not like tibbles. Best to use `read.csv` or `as.dataframe` to make sure you are working with a df. 
 
 ```{r}

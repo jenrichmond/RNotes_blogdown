@@ -57,9 +57,12 @@ This baby monkey imitation paper might be my favorite example. It could be becau
 I like this table and can see how it is helpful to the reader to see the coefficients for each model. 
 
 
-```{r}
+
+```r
 knitr::include_graphics("monkey table.png")
 ```
+
+<img src="monkey table.png" width="1280" />
 
 
 
@@ -104,16 +107,22 @@ My conclusion is that most people just report coefficients (and they talk about 
 
 Here is the plot and analysis output:
 
-```{r}
+
+```r
 knitr::include_graphics("browcheek.jpg")
 ```
 
+<img src="browcheek.jpg" width="1050" />
 
 
 
-```{r}
+
+
+```r
 knitr::include_graphics("output.png")
 ```
+
+<img src="output.png" width="684" />
 
 ___
 
