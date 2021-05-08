@@ -102,91 +102,14 @@
       <div class="content-column-content">
          <h1>Use map to read many csv files</h1>
          <p>Dipping my toes in purrr here and replicating options from a <a href="https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R">super useful blog post</a> I found by <a href="@clauswilke">ClausWilke</a></p>
-
 <h4 id="how-to-use-map-to-read-in-and-bind-together-several-csv-files">How to use map() to read in and bind together several .csv files</h4>
-
 <h5 id="option-1">Option 1</h5>
-
 <p>The simplest option; use when your .csv files contain ID/participant and all live your working directory</p>
-
 <p>Get list of .csv files called files. The code below looks for files that have .csv as part of the filename in the the working directory</p>
-
-<pre><code class="language-r">files &lt;- dir(pattern = &quot;*.csv&quot;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">files <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dir</span>(pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;*.csv&#34;</span>)
 files
-</code></pre>
-
-<p>The code below takes that list of files, pipes it to a map function that runs read_csv on each file, then pipes that to a  rbind function that reduces those many files into a one dataframe called data.</p>
-
-<pre><code class="language-r">data1 &lt;- files %&gt;%
-  map(read_csv) %&gt;% 
-  reduce(rbind)
-</code></pre>
-
-<p>NOTE this method doesn&rsquo;t retain any info from individual files, so it is important that the individual .csv files contain an ID column like participant already.</p>
-
-<h5 id="option-2a">Option 2A</h5>
-
-<p>This is bit more complicated, use when your .csv files contain ID/participant and all live in a subfolder (i.e. Datafiles) of your working directory</p>
-
-<p>The code below does the same but is useful if you want to specify where the data is.</p>
-
-<p>First define the stuff:</p>
-
-<ul>
-<li>data_path = where the data is</li>
-<li>files = the names in that directory</li>
-</ul>
-
-<p>Then use those values to import data in same way.</p>
-
-<pre><code class="language-r">data_path &lt;- &quot;./Datafiles&quot;   
-files &lt;- dir(data_path, pattern = &quot;*clean.csv&quot;) 
-
-data2A &lt;- files %&gt;%
-  map(~ read_csv(file.path(data_path, .))) %&gt;% 
-  reduce(rbind)
-
-</code></pre>
-
-<h5 id="option-2b">Option 2B</h5>
-
-<p>This is the same as above, except for spelling out the function(x). The ~ above is jsut a shortcut for the anonymous function(x).</p>
-
-<pre><code class="language-r">data_path &lt;- &quot;./Datafiles&quot;   
-files &lt;- dir(data_path, pattern = &quot;*clean.csv&quot;) 
-
-
-data2B &lt;- files %&gt;%
-  map(function(x) read_csv(file.path(data_path, x))) %&gt;%  
-  reduce(rbind)
-
-</code></pre>
-
-<h5 id="option-3">Option 3</h5>
-
-<p>This is more complicated but is essential if your .csv files don&rsquo;t contain an ID/participant column yet.</p>
-
-<p>To keep info about each .csv, define the stuff (data_path and files), then use dataframe() to create a dataframe containing the a single variable = files, pipe that to a mutate function creating a new variable that contains each file&rsquo;s contents. Yes this is crazy, it actually puts the entire contents of the file in a single variable.  Use unnest() to turn that crazy single column into a useful thing.</p>
-
-<pre><code class="language-r">
-data_path &lt;- &quot;./Datafiles&quot;   
-files &lt;- dir(data_path, pattern = &quot;*clean.csv&quot;) 
-
-data3 &lt;- data_frame(filename = files) %&gt;%
-  mutate(file_contents = map(filename,      
-           ~ read_csv(file.path(data_path, .))) 
-  )
-
-data3useful &lt;- unnest(data3)
-</code></pre>
-
-<p><strong>NOTE</strong></p>
-
-<ul>
-<li><p>when .csv files have a Participant/ID variable it is easiest to use Option 1.</p></li>
-
-<li><p>when .csv files come straight from <code>datapasta</code> and don&rsquo;t include participant info, need to use Option 3.</p></li>
-</ul>
+</code></pre></div><pre><code>## character(0)
+</code></pre><p>The code below takes that list of files, pipes it to a map function that runs read_csv on each file, then pipes that to a  rbind function that reduces those many files into a one dataframe called data.</p>
          
       </div>
     </div>

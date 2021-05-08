@@ -102,6 +102,7 @@
       <div class="content-column-content">
          <h1>Just Three Things</h1>
          
+<script src="http://jenrichmond.rbind.io/post/just-three-things/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>I love me a good #rstats screencast. <a href="@drob">David Robinson</a> has been screencasting his #TidyTuesday efforts for the past few months and while it is GREAT to <a href="https://www.youtube.com/channel/UCeiiqmVK07qhY-wvg3IZiZQ">watch a master at work</a>, I just don’t have time to watch someone code for an hour, in order to extract a handful of tips.</p>
@@ -116,11 +117,11 @@ A little while ago I showed <a href="https://twitter.com/_inundata?ref_src=twsrc
 <p>The question is which 3 things will I start with?</p>
 <p>Here is the video</p>
 <pre class="r"><code>blogdown::shortcode(&quot;youtube&quot;, &quot;vWvtFSQXTLE&quot;)</code></pre>
-
+<p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/vWvtFSQXTLE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
-
+</p>
 <div id="janitorclean_names" class="section level2">
 <h2>1. janitor::clean_names()</h2>
 <p>The <code>janitor</code> package is full of helpful tricks and <code>clean_names</code> is one of things that is at the top of every one of my analyses by default. It automatically converts all of your variable names to lower case, and puts underscores in the gaps. Awesome.</p>
@@ -133,7 +134,8 @@ library(janitor)</code></pre>
 <div id="then-read-the-data-and-check-names" class="section level4">
 <h4>Then read the data and check names</h4>
 <pre class="r"><code>beaches &lt;- read_csv(&quot;sydneybeaches.csv&quot;)</code></pre>
-<pre><code>## Parsed with column specification:
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   BeachId = col_double(),
 ##   Region = col_character(),

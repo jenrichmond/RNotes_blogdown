@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>my first pull request</title>
+<meta name="description" content="R notes to myself">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/owl.carousel.css">
+<link rel="stylesheet" href="http://jenrichmond.rbind.io/css/owl.theme.css">
+
+
+  <link href="http://jenrichmond.rbind.io/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="http://jenrichmond.rbind.io/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://jenrichmond.rbind.io/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="http://jenrichmond.rbind.io/">R notes to myself</a></h1>
+    
+      <p class="sidebar-p">I am an academic @ UNSW Sydney, mother, and juggler. Learning new things and writing about it. Thoughts probably not suitable for public consumption.</p>
+    
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="http://jenrichmond.rbind.io/about/">About</a></li>
+      
+        <li><a href="http://jenrichmond.rbind.io/post/">Blog</a></li>
+      
+        <li><a href="http://jenrichmond.rbind.io/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  <a href="https://twitter.com/JenRichmondPhD" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  <a href="mailto:jrichmond@psy.unsw.edu.au" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://github.com/jenrichmond" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2018 Jenny Richmond PhD
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="http://jenrichmond.rbind.io/">R notes to myself</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>my first pull request</h1>
+         
+<script src="index_files/header-attrs/header-attrs.js"></script>
+<link href="index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<p>There are so many lovely packages for colour palettes (see links at the bottom of <a href="http://jenrichmond.rbind.io/post/idhtg-how-to-use-colour-palettes-with-ggplot/">this post</a> for more).</p>
+<p>This new one called <code>feather</code> by <a href="https://shandiyabalasubramaniam.weebly.com/">Shandiya Balasubramanium</a> is inspired by Australian birds and is delightful.</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+Today I built my first R package! Meet feather: a set of colour palettes inspired by the plumage of Australian birds. It's a work in progress and a bit rough around the edges, but I'm pretty proud of it<a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a> <a href="https://twitter.com/hashtag/WildOz?src=hash&amp;ref_src=twsrc%5Etfw">#WildOz</a> <a href="https://twitter.com/hashtag/DataVisualization?src=hash&amp;ref_src=twsrc%5Etfw">#DataVisualization</a> <a href="https://t.co/9kjavQ4Q50">https://t.co/9kjavQ4Q50</a>
+</p>
+— Shandiya Balasubramaniam (<span class="citation">@ShandiyaB</span>) <a href="https://twitter.com/ShandiyaB/status/1347116050714816513?ref_src=twsrc%5Etfw">January 7, 2021</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>The vignette doesn’t have any pictures of the birds though, so I thought it might be a good opportunity to help <a href="https://twitter.com/ShandiyaB">Shandiya</a> out and try my first pull request. I am documenting the process here, so I can refer back to it for next time.</p>
+<div id="trying-out-the-feather-package" class="section level1">
+<h1>Trying out the feather package</h1>
+<p>I’ve installed the feather package from github…</p>
+<pre class="r"><code>devtools::install_github(&quot;shandiya/feather&quot;)</code></pre>
+<p>… and loaded the palette names</p>
+<pre class="r"><code>library(feather)
+
+names(feather_palettes)</code></pre>
+<pre><code>## [1] &quot;pardalote&quot;               &quot;plains_wanderer&quot;        
+## [3] &quot;bee_eater&quot;               &quot;rose_crowned_fruit_dove&quot;
+## [5] &quot;eastern_rosella&quot;</code></pre>
+<p>You can print each palette by using the <code>get_pal()</code> function and the <code>print_pal()</code> function. There is the palette for the Eastern Rosella</p>
+<pre class="r"><code>er &lt;- get_pal(&quot;eastern_rosella&quot;)
+
+print_pal(er)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="adding-bird-images-for-each-palette" class="section level1">
+<h1>Adding bird images for each palette</h1>
+<div id="eastern-rosella" class="section level2">
+<h2>Eastern Rosella</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Platycercus_eximius_diemenensis_male.jpg/800px-Platycercus_eximius_diemenensis_male.jpg" width="75%" height="75%" /></p>
+<p>Image credit: <a href="https://www.jjharrison.com.au/">JJ Harrison</a>. This file is licensed under the <a href="https://en.wikipedia.org/wiki/Creative_Commons">Creative Commons</a> <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported license</a>. Image source: <a href="https://commons.wikimedia.org/wiki/File:Platycercus_eximius_diemenensis_male.jpg">Wikimedia Commons</a>.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="plains-wanderer" class="section level2">
+<h2>Plains wanderer</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Pedionomus_torquatus%2C_NSW_1.jpg/1024px-Pedionomus_torquatus%2C_NSW_1.jpg" width="75%" height="75%" /></p>
+<p>Image credit: <a href="https://www.flickr.com/photos/patrick_k59/14368940377/">Patrick_K59</a>. This file is licensed under the CC BY 2.0, <a href="https://commons.wikimedia.org/w/index.php?curid=34831381" class="uri">https://commons.wikimedia.org/w/index.php?curid=34831381</a>. Image source: <a href="https://commons.wikimedia.org/wiki/File:Pedionomus_torquatus,_NSW_1.jpg">Wikimedia Commons</a>.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="pardalote" class="section level2">
+<h2>Pardalote</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pardalotus_with_nesting_material.jpg/1024px-Pardalotus_with_nesting_material.jpg" width="75%" height="75%" /></p>
+<p>Image credit: <a href="https://commons.wikimedia.org/w/index.php?curid=1535942">Fir0002 - Own work, GFDL 1.2</a>. This file is licensed under the
+<a href="https://en.wikipedia.org/wiki/Creative_Commons">Creative Commons</a>, <a href="https://creativecommons.org/licenses/by-nc/3.0/">Attribution NonCommercial Unported 3.0</a>. Image source: <a href="https://commons.wikimedia.org/wiki/File:Pardalotus_with_nesting_material.jpg">Wikimedia Commons</a>.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="rose-crowned-fruit-dove" class="section level2">
+<h2>Rose crowned fruit dove</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Rose-Crowned_Fruit_Dove.jpg/800px-Rose-Crowned_Fruit_Dove.jpg" width="60%" height="60%" /></p>
+<p>Image credit: <a href="http://bjornfree.com/galleries.html">Bjørn Christian Tørrissen</a>, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=6874281" class="uri">https://commons.wikimedia.org/w/index.php?curid=6874281</a></p>
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="bee-eater" class="section level2">
+<h2>Bee eater</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Merops_ornatus_-_Centenary_Lakes.jpg/800px-Merops_ornatus_-_Centenary_Lakes.jpg" width="50%" height="50%" /></p>
+<p>Image credit: <a href="https://www.jjharrison.com.au/">JJ Harrison</a>. This file is licensed under the <a href="https://en.wikipedia.org/wiki/Creative_Commons">Creative Commons</a> <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported license</a>. Image source: <a href="https://commons.wikimedia.org/wiki/File:Merops_ornatus_-_Centenary_Lakes.jpg">Wikimedia Commons</a>.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="contributing-to-a-package-with-a-pull-request" class="section level1">
+<h1>Contributing to a package with a pull request</h1>
+<p>When making a pull request you are asking the person who wrote the package (or who owns the repo) to pull the changes you have made into the original repo.</p>
+<p><a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork" class="uri">https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork</a></p>
+<div id="step-1-fork-the-repo" class="section level3">
+<h3>Step 1: fork the repo</h3>
+<p>Forking is the process of creating a copy of a repo owned by someone else in your github account. There is a button on the top right corner of every github repo that allows you to Fork a copy.</p>
+<p><img src="fork.png" width="390" /></p>
+</div>
+<div id="step-2-clone-the-repo" class="section level3">
+<h3>Step 2: clone the repo</h3>
+<p>Once you have a copy of the repo in your github account, use the green button to clone the forked copy on to your machine.</p>
+<p><img src="clone.png" width="390" /></p>
+<p>You can copy the url and within RStudio use File-New project-From Version control. Or in the terminal use…</p>
+<ol style="list-style-type: decimal">
+<li><code>pwd</code> to print your working directory and then</li>
+<li><code>cd</code> to navigate to the folder where you want to clone</li>
+<li><code>git clone "paste URL"</code> to clone the repo into that location</li>
+</ol>
+<pre><code>
+pwd 
+
+cd Users/jenny/Desktop/git
+
+git clone &quot;paste URL here&quot;
+</code></pre>
+</div>
+<div id="step-3-make-changes-to-your-local-copy" class="section level3">
+<h3>Step 3: make changes to your local copy</h3>
+<p>Once you clone the repo to your machine, you can make changes. I open the README.Rmd file added the images linked above. I knitted the README to check it that it looked OK and saved the file.</p>
+</div>
+<div id="step-4-push-your-changes-to-your-forked-copy" class="section level3">
+<h3>Step 4: push your changes to your forked copy</h3>
+<p>Once I had the README looking like I wanted, I pushed my changes to the forked copy in my repo using these commands in the terminal.</p>
+<pre><code>git add .
+
+git commit -m &quot;adding bird images to README&quot;
+
+git push
+</code></pre>
+</div>
+<div id="step-5-make-a-pull-request" class="section level3">
+<h3>Step 5: make a pull request</h3>
+<p>Now for the hard bit, fingers crossed. I’m following the <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork">instructions here</a>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Refresh the browser on your forked repo and check that the README now includes your changes.</p></li>
+<li><p>Navigate to the original repo (where you created the fork in the first place) and choose the Pull requests tab.</p></li>
+</ol>
+<p><img src="pr1.png" width="944" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Choose New pull request and the “compare across forks” option</li>
+</ol>
+<p><img src="pr2.png" width="941" />
+4. Choose your fork as the head repository to compare and see whether your changes can be merged automatically. Click Create pull request.</p>
+<p><img src="pr3.png" width="880" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Write a note to the repo owner as an issue.</li>
+</ol>
+<p><img src="pr4.png" width="814" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Wait and see if they like your changes :)</li>
+</ol>
+<p><img src="pr5.png" width="712" /></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Celebrate!</li>
+</ol>
+<iframe src="https://giphy.com/embed/3oz8xRF0v9WMAUVLNK" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/studiosoriginals-3oz8xRF0v9WMAUVLNK">via GIPHY</a>
+</p>
+</div>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="http://jenrichmond.rbind.io/js/jquery.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/bootstrap.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/jquery.cookie.js"> </script>
+<script src="http://jenrichmond.rbind.io/js/ekko-lightbox.js"></script>
+<script src="http://jenrichmond.rbind.io/js/jquery.scrollTo.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/masonry.pkgd.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/imagesloaded.pkgd.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/owl.carousel.min.js"></script>
+<script src="http://jenrichmond.rbind.io/js/front.js"></script>
+
+</body>
+</html>

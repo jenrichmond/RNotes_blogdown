@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>purrr on R notes to myself</title>
@@ -17,7 +17,7 @@
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>http://jenrichmond.rbind.io/post/lesser-known-stars-of-the-tidyverse/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&amp;hellip;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;@robinson_es&#34;&gt;Emily Robinson&lt;/a&gt; has just joined DataCamp and writes a great blog called &lt;a href=&#34;http://www.hookedondata.org&#34;&gt;www.hookedondata.org&lt;/a&gt;. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides &lt;a href=&#34;http://www.tiny.cc/nyrtalk&#34;&gt;www.tiny.cc/nyrtalk&lt;/a&gt; and my notes&amp;hellip;&lt;/p&gt;</description>
     </item>
     
   </channel>

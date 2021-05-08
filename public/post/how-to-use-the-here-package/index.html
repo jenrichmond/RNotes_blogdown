@@ -102,6 +102,7 @@
       <div class="content-column-content">
          <h1>how to use the `here` package</h1>
          
+<script src="http://jenrichmond.rbind.io/post/how-to-use-the-here-package/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>I’m still working on getting my head around where R thinks we work and how to tell it where my stuff lives (aka working directories).</p>
@@ -114,10 +115,7 @@ hi <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw"
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>But it was THIS slide from Irene that REALLY fixed my problem.</p>
-<div class="figure">
-<img src="/post/2018-10-14-where-does-my-stuff-live_files/paths.jpg" />
-
-</div>
+<p><img src="/post/2018-10-14-where-does-my-stuff-live_files/paths.jpg" /></p>
 <p>I do love me a .Rmd file but did you know that most of what makes file paths stems from in R difficult is that when you are working in a .Rmd, R makes your working directory the folder that markdown lives in, but if you are working in a script (.R) the default working directory is the top level of the project file?</p>
 <p>MIND BLOWN.</p>
 <p>So, if you are working in a markdown file, the <code>here</code> package is helpful in overcoming that not so useful default behaviour and makes it easy to define file paths relative to the top level of your project file.</p>
@@ -134,10 +132,7 @@ hi <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw"
 <h4>Then use an organised file structure + <code>here</code> package</h4>
 <p>Ideally you want to be a bit more organised than that and it is better practice to have your data live in a folder the is separate from your analysis scripts, which are in a folder separate from your output files.</p>
 <p>I am starting a new project and trying to set up my folder organisation as I mean to continue. I have a folder that contains an .Rproj file, and subfiles for data, markdowns, and output.</p>
-<div class="figure">
-<img src="/post/2018-10-14-where-does-my-stuff-live_files/folder.png" />
-
-</div>
+<p><img src="/post/2018-10-14-where-does-my-stuff-live_files/folder.png" /></p>
 <div id="how-to-work-out-where-you-are" class="section level5">
 <h5>how to work out where you are</h5>
 <p>My analysis scripts (.Rmd files) live in a folder called markdown. So when you ask R what the working directory is, it defaults to that folder. This makes it difficult to tell R where your data files live.</p>

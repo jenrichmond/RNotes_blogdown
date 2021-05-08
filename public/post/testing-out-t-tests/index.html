@@ -102,6 +102,7 @@
       <div class="content-column-content">
          <h1>testing out t-tests</h1>
          
+<script src="http://jenrichmond.rbind.io/post/testing-out-t-tests/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>I was trying to work out how to do t-tests using my own data and the <code>lsr</code> package but ended up working with Dani’s AFL data from her book while trying to work out why R insisted that my outcome variable wasn’t numeric (it definitely was). Turns out that the <code>lsr</code> package doesn’t deal well with tibbles (which are created by default when you use read_csv to get your data) but if you use read.csv or specify as.dataframe, it works beautifully (and produces much more digestable output than the t.test function).</p>
@@ -110,7 +111,8 @@
 <p>Here is what I learned about t-tests from doing the analysis below.</p>
 <div id="from-the-lsr-package" class="section level4">
 <h4>From the <code>lsr</code> package</h4>
-<p>I like that the <code>lsr</code> has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires. The output from the <code>lsr</code> is also REALLY nice. It includes useful things like Cohens D by default. Important to make sure you are working with a dataframe though. The code is old and doesn’t deal with tibbles.</p>
+<p>I like that the <code>lsr</code> has separate functions for each kind of t-test. I can see how that will make it easier for students to think about the differences between each test, and the arguments that each one requires.
+The output from the <code>lsr</code> is also REALLY nice. It includes useful things like Cohens D by default. Important to make sure you are working with a dataframe though. The code is old and doesn’t deal with tibbles.</p>
 </div>
 <div id="code-for-one-sample-paired-and-independent-samples-t-tests-using-lsr" class="section level4">
 <h4>Code for one sample, paired, and independent samples t-tests using <code>lsr</code></h4>
@@ -328,7 +330,7 @@ data = homeawaygames
   summarise(meanpeople = mean(attendance)) %&gt;%
   ggplot(aes(x = game_type, y= meanpeople)) +
   geom_col()</code></pre>
-<p><img src="/post/2018-09-09-testing-t-tests_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/testing-out-t-tests/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <div id="the-lsr-independent-samples-t-test" class="section level5">
 <h5>The <code>lsr</code> independent samples t test</h5>
 <p>R t-test uses the Welch method (for unequal variance) by default. Need to change var.equal = TRUE to use Student t-test method.</p>
@@ -343,6 +345,8 @@ data = homeawaygames
   data = homeawaygames,
   var.equal = FALSE
 )</code></pre>
+<pre><code>## Warning in independentSamplesTTest(formula = attendance ~ game_type, data =
+## homeawaygames, : group variable is not a factor</code></pre>
 <pre><code>## 
 ##    Welch&#39;s independent samples t-test 
 ## 
@@ -368,6 +372,8 @@ data = homeawaygames
 ##    estimated effect size (Cohen&#39;s d):  1.665</code></pre>
 <p>Independent samples t test the <code>lsr</code> way (shortform)</p>
 <pre class="r"><code>independentSamplesTTest(attendance ~ game_type, homeawaygames)</code></pre>
+<pre><code>## Warning in independentSamplesTTest(attendance ~ game_type, homeawaygames): group
+## variable is not a factor</code></pre>
 <pre><code>## 
 ##    Welch&#39;s independent samples t-test 
 ## 

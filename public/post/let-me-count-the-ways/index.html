@@ -102,28 +102,8 @@
       <div class="content-column-content">
          <h1>let me count the ways</h1>
          
+<script src="http://jenrichmond.rbind.io/post/let-me-count-the-ways/index_files/header-attrs/header-attrs.js"></script>
 
-<div id="TOC">
-<ul>
-<li><a href="#psycho-package"><code>psycho</code> package</a><ul>
-<li><a href="#anova-recap">ANOVA Recap</a></li>
-<li><a href="#emg-psycho">EMG + psycho</a></li>
-<li><a href="#psycho-steps">psycho steps</a></li>
-<li><a href="#thoughts-about-psycho">THOUGHTS about psycho</a></li>
-</ul></li>
-<li><a href="#likelihood-ratio-tests">Likelihood Ratio Tests</a><ul>
-<li><a href="#lets-go-hiking">Lets go hiking</a></li>
-<li><a href="#emg-lrt">EMG + LRT</a></li>
-<li><a href="#thoughts-about-lrt">THOUGHTS about LRT</a></li>
-</ul></li>
-<li><a href="#lmertest-package"><code>lmerTest</code> package</a><ul>
-<li><a href="#is-lrt-anticonservative">is LRT anticonservative?</a></li>
-<li><a href="#emg-lmertest">EMG + lmerTest</a></li>
-<li><a href="#thoughts-about-lmertest">THOUGHTS about lmerTest</a></li>
-</ul></li>
-<li><a href="#next-how-to-write-about-lmm">Next: “how to write about LMM”</a></li>
-</ul>
-</div>
 
 <p>When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.</p>
 <p><a href="https://dominiquemakowski.github.io/">Domnique Makowski</a> has an excellent blog post that comes up at the top of the search results when you google “how to do repeated measures ANOVA in R”.</p>
@@ -175,7 +155,9 @@ EMGdata_competitor &lt;- EMGdata %&gt;%
   facet_wrap(~muscle) +
   scale_y_continuous(expand = c(0, 0),                    
                      limits = c(-0.05, 0.25))</code></pre>
-<p><img src="/post/2018-09-24-let-me-count-the-ways_files/figure-html/unnamed-chunk-3-1.png" width="672" /> Looks like a emotion x muscle interaction :)</p>
+<pre><code>## `summarise()` has grouped output by &#39;emotion&#39;. You can override using the `.groups` argument.</code></pre>
+<p><img src="http://jenrichmond.rbind.io/post/let-me-count-the-ways/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+Looks like a emotion x muscle interaction :)</p>
 </div>
 <div id="new-way-linear-mixed-models" class="section level4">
 <h4>New way: Linear Mixed Models</h4>
@@ -198,69 +180,33 @@ anova(lmm_EMG)</code></pre>
 </div>
 <div id="emg-psycho" class="section level3">
 <h3>EMG + psycho</h3>
+<p>NOTE: psycho doesn’t seem to have an analyze function anymore…</p>
 <div id="the-analyze-function" class="section level4">
 <h4>The <code>analyze</code> function</h4>
 <p>The <code>psycho</code> package allows you to test the fit of the model and generates a description of the results using an <code>analyze</code> and then <code>summary</code> and <code>print</code> functions.</p>
 <pre class="r"><code>library(psycho)
-results &lt;- analyze(lmm_EMG)</code></pre>
-<pre><code>## Warning: &#39;r.squaredGLMM&#39; now calculates a revised statistic. See the help
-## page.</code></pre>
+
+results &lt;- psycho::analyze(lmm_EMG)</code></pre>
 <pre class="r"><code>summary(results)</code></pre>
-<pre><code>##                                          Variable       Coef         SE
-## (Intercept)                           (Intercept)  0.1919177 0.05627950
-## emotionHAPPY                         emotionHAPPY -0.1973593 0.07341657
-## muscleCHEEK                           muscleCHEEK -0.1633468 0.07241334
-## emotionHAPPY:muscleCHEEK emotionHAPPY:muscleCHEEK  0.2035775 0.10338793
-##                                  t       df           p   Coef_std
-## (Intercept)               3.410081 94.48281 0.000956721  0.4364963
-## emotionHAPPY             -2.688211 77.13899 0.008797648 -0.6620162
-## muscleCHEEK              -2.255755 75.08189 0.026998252 -0.5479257
-## emotionHAPPY:muscleCHEEK  1.969064 75.08189 0.052636001  0.6828745
-##                             SE_std Effect_Size     CI_lower   CI_higher
-## (Intercept)              0.1887823        &lt;NA&gt;  0.082725149  0.30144809
-## emotionHAPPY             0.2462664      medium -0.339908396 -0.05402995
-## muscleCHEEK              0.2429012      medium -0.304286200 -0.02240735
-## emotionHAPPY:muscleCHEEK 0.3468015      medium  0.002351645  0.40480333</code></pre>
 <p>This LMM practically writes itself! Use print(results) to generate an almost manuscript ready description of the model.</p>
 <pre class="r"><code>print(results)</code></pre>
-<pre><code>## The overall model predicting response (formula = response ~ emotion + muscle + emotion * muscle + (1 | Participant)) has an total explanatory power (conditional R2) of 22.73%, in which the fixed effects explain 6.48% of the variance (marginal R2). The model&#39;s intercept is at 0.19 (SE = 0.056, 95% CI [0.083, 0.30]). Within this model:
-##    - The effect of emotionHAPPY is significant (beta = -0.20, SE = 0.073, 95% CI [-0.34, -0.054], t(77) = -2.69, p &lt; .01) and can be considered as medium (std. beta = -0.66, std. SE = 0.25).
-##    - The effect of muscleCHEEK is significant (beta = -0.16, SE = 0.072, 95% CI [-0.30, -0.022], t(75) = -2.26, p &lt; .05) and can be considered as medium (std. beta = -0.55, std. SE = 0.24).
-##    - The effect of emotionHAPPY:muscleCHEEK is significant (beta = 0.20, SE = 0.10, 95% CI [0.0024, 0.40], t(75) = 1.97, p = 0.05�) and can be considered as medium (std. beta = 0.68, std. SE = 0.35).</code></pre>
 <p>Here we are most interested in the interaction, so we can use <code>get_contrasts</code> for the interaction term, add them to the results and print them too.</p>
 </div>
 <div id="get_contrasts" class="section level4">
 <h4><code>get_contrasts</code></h4>
 <pre class="r"><code>results &lt;- get_contrasts(lmm_EMG, &quot;emotion*muscle&quot;)
-print(results$contrasts)</code></pre>
-<pre><code>##                    Contrast   Difference         SE       df     t.ratio
-## 1   ANGRY,BROW - HAPPY,BROW  0.197359266 0.07348138 77.39796  2.68584041
-## 2  ANGRY,BROW - ANGRY,CHEEK  0.163346775 0.07241334 75.35489  2.25575531
-## 3  ANGRY,BROW - HAPPY,CHEEK  0.157128552 0.07348138 77.39796  2.13834508
-## 4  HAPPY,BROW - ANGRY,CHEEK -0.034012491 0.07348138 77.39796 -0.46287222
-## 5  HAPPY,BROW - HAPPY,CHEEK -0.040230714 0.07379277 75.35489 -0.54518507
-## 6 ANGRY,CHEEK - HAPPY,CHEEK -0.006218223 0.07348138 77.39796 -0.08462311
-##      p.value
-## 1 0.04301329
-## 2 0.11787330
-## 3 0.15022769
-## 4 0.96688804
-## 5 0.94756741
-## 6 0.99978085</code></pre>
-<pre class="r"><code>#note default is Tukey correction</code></pre>
+
+print(results$contrasts)
+
+#note default is Tukey correction</code></pre>
 <pre class="r"><code>print(results$means) #get estimated marginal means</code></pre>
-<pre><code>##   emotion muscle         Mean         SE       df    CI_lower CI_higher
-## 1   ANGRY   BROW  0.191917672 0.05630582 94.57849  0.08013007 0.3037053
-## 2   HAPPY   BROW -0.005441594 0.05735259 95.27434 -0.11929665 0.1084135
-## 3   ANGRY  CHEEK  0.028570897 0.05630582 94.57849 -0.08321671 0.1403585
-## 4   HAPPY  CHEEK  0.034789120 0.05735259 95.27434 -0.07906594 0.1486442</code></pre>
 </div>
 </div>
 <div id="psycho-steps" class="section level3">
 <h3>psycho steps</h3>
 <ol style="list-style-type: decimal">
 <li><p>define the model and and run it</p>
-<p>model &lt;- lmer(outcome ~ fixed_effects + (1|random_effect), data=dataset)</p></li>
+<pre><code>model &lt;- lmer(outcome ~ fixed_effects + (1|random_effect), data=dataset)</code></pre></li>
 </ol>
 <p>2a. then anova(model)</p>
 <p>2b. OR summary(model)</p>
@@ -303,9 +249,9 @@ print(results$contrasts)</code></pre>
 ## Models:
 ## model_null: response ~ emotion + muscle + (1 | Participant)
 ## model_target: response ~ emotion + muscle + emotion * muscle + (1 | Participant)
-##              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(&gt;Chisq)  
-## model_null    5 46.288 59.605 -18.144   36.288                           
-## model_target  6 44.358 60.339 -16.179   32.358 3.9295      1    0.04745 *
+##              npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)  
+## model_null      5 46.288 59.605 -18.144   36.288                       
+## model_target    6 44.358 60.339 -16.179   32.358 3.9295  1    0.04745 *
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Interpretation= when the AIC (Akaike information criterion) is lower, the model fits the data better. Here we can say that the emotion * muscle interaction is important, because there the model_target is a better fit of the data than model_null is.</p>
@@ -328,10 +274,7 @@ print(results$contrasts)</code></pre>
 <p>In this paper, the authors argue that of course researchers using LMM want some indication of the significance of their effect but that a LRT approach is anti-conservative. They designed the <code>lmerTest</code> package to provide an alternative.</p>
 <p>The <code>lmerTest</code> approach uses Satterthwaite’s method (as does SAS software) to estimate degrees of freedom and make it possible for both anova() and summary() functions on lmer objects to include p values.</p>
 <p>This example illustrates the difference in output when you run anova() on model before and after loading library(lmerTest)</p>
-<div class="figure">
-<img src="/post/2018-09-24-let-me-count-the-ways_files/lmerTest.jpg" />
-
-</div>
+<p><img src="/post/2018-09-24-let-me-count-the-ways_files/lmerTest.jpg" /></p>
 </div>
 <div id="emg-lmertest" class="section level3">
 <h3>EMG + lmerTest</h3>
@@ -351,8 +294,7 @@ model_lmerTest &lt;- lmer(response ~ emotion + muscle + emotion*muscle + (1|Part
 <pre class="r"><code>summary(model_lmerTest)</code></pre>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
-## Formula: 
-## response ~ emotion + muscle + emotion * muscle + (1 | Participant)
+## Formula: response ~ emotion + muscle + emotion * muscle + (1 | Participant)
 ##    Data: EMGdata_competitor
 ## 
 ## REML criterion at convergence: 48.2

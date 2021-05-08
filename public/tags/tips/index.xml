@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tips on R notes to myself</title>
@@ -6,20 +6,10 @@
     <description>Recent content in tips on R notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://jenrichmond.rbind.io/tags/tips/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>creating data using rep()</title>
-      <link>http://jenrichmond.rbind.io/post/creating-data-using-rep/</link>
-      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/post/creating-data-using-rep/</guid>
-      <description>The frequency with which my data is missing important information when it gets to R is a bit embarrassing. I&amp;rsquo;m sure as I learn what kind of information R needs I&amp;rsquo;ll get better at this but for the moment using functions like rep() to create variables like trial number or block has been super useful.
-Alison Smith has a great blog called Very Statisticious and her post about simulating data is super helpful.</description>
-    </item>
     
     <item>
       <title>hotkeys</title>
@@ -31,16 +21,13 @@ Alison Smith has a great blog called Very Statisticious and her post about simul
     </item>
     
     <item>
-      <title>Curious</title>
+      <title>curious</title>
       <link>http://jenrichmond.rbind.io/post/curious-rmarkdown/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>http://jenrichmond.rbind.io/post/curious-rmarkdown/</guid>
-      <description>
-
-
-&lt;p&gt;What a treat it was to finally meet &lt;a href=&#34;https://twitter.com/cantabile&#34;&gt;Charles Gray&lt;/a&gt; when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.&lt;/p&gt;
-</description>
+      <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
+We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</description>
     </item>
     
   </channel>

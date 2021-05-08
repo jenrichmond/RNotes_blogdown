@@ -101,196 +101,148 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>dirty data</h1>
-         <p>I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out www.DataCamp.com has a course called exactly that. Here are notes on useful things I learned.</p>
-
+         <p>I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Turns out <a href="http://www.DataCamp.com">www.DataCamp.com</a> has a course called exactly that. Here are notes on useful things I learned.</p>
 <h4 id="quick-summaries">Quick summaries</h4>
-
 <p><code>class()</code> will let you know whether you are working with a dataframe or not</p>
-
 <p><code>dim()</code> gives you a little info about the dimensions of your data by telling you how many rows nd columns you have</p>
-
 <p><code>names()</code> will print the column names</p>
-
 <p><code>str()</code> aka structure and <code>glimpse()</code>, from dplyr, give you slightly different versions of hte same thing, a list of variables, each with a data type and a preview of the data</p>
-
 <p><code>summary()</code> will give you a &ldquo;sometimes useful, sometimes not&rdquo; summary of each variable. You get a distribution of numeric things and frequencies of categorical things, but it doesn&rsquo;t group_by like you would like it to.</p>
-
 <p><code>skim()</code> from the <code>skimr</code> package gives a slightly more meaningful summary that includes summary stats for each variable by data type, details about missing values and draws the cutest little histograms you have EVER seen.</p>
-
 <p><code>head()</code> and <code>tail()</code> will show you the top and bottom 6 rows, you can add an argument and specify how many rows you want to see. i.e. head(data, n=12) would show the top 12 rows.</p>
-
 <p><code>print()</code> will show you all the data in the console, which could be useful depending how big your data is.</p>
-
 <h4 id="quick-plots">Quick plots</h4>
-
 <p>If <code>skim()</code> doesn&rsquo;t do it for you, there are fast ways to visualise your data without diving head first into ggplot</p>
-
 <p>Histogram: to get an idea of the distribution of data in a particular variable use. Can use optional breaks argument to specify how many buckets the data are broken into.</p>
-
 <blockquote>
 <p>hist(dataset$variable1, breaks = 20)</p>
 </blockquote>
-
 <p>Scatterplot: to plot the relation between variable 1 and 2 from the dataset use</p>
-
 <blockquote>
 <p>plot(dataset$variable1 , dataset$variable2)</p>
 </blockquote>
-
 <h3 id="tidyr">tidyr</h3>
-
 <p>How do we know data is not tidy? Often because columns are values not variables names.</p>
-
 <h4 id="from-wide-to-long">From wide to long</h4>
-
 <p>Use gather(data, key, value, &hellip;)</p>
-
 <ol>
-<li><p>data = the dataframe you want to morph from wide to long</p></li>
-
-<li><p>key = the name of the new column that is levels of what is represented in the wide format as many columns</p></li>
-
-<li><p>value = the name of the column that will contain the values</p></li>
-
-<li><p>&hellip; = columns to gather, or leave (use -column to gather all except that one)</p></li>
+<li>
+<p>data = the dataframe you want to morph from wide to long</p>
+</li>
+<li>
+<p>key = the name of the new column that is levels of what is represented in the wide format as many columns</p>
+</li>
+<li>
+<p>value = the name of the column that will contain the values</p>
+</li>
+<li>
+<p>&hellip; = columns to gather, or leave (use -column to gather all except that one)</p>
+</li>
 </ol>
-
 <h4 id="from-long-to-wide">From long to wide</h4>
-
 <p>Use spread(data, key, value)</p>
-
 <ol>
-<li><p>data = the dataframe you want to morph from long to wide</p></li>
-
-<li><p>key = the name of the column that contains the key</p></li>
-
-<li><p>value = the name of the column contains the values</p></li>
+<li>
+<p>data = the dataframe you want to morph from long to wide</p>
+</li>
+<li>
+<p>key = the name of the column that contains the key</p>
+</li>
+<li>
+<p>value = the name of the column contains the values</p>
+</li>
 </ol>
-
 <h4 id="separate-one-column-into-many">Separate one column into many</h4>
-
 <p>Use separate(data, col, into)</p>
-
 <ol>
-<li><p>data = dataframe</p></li>
-
-<li><p>col = name of column to separate</p></li>
-
-<li><p>into = character vector of new column [note- these need quotes]</p></li>
+<li>
+<p>data = dataframe</p>
+</li>
+<li>
+<p>col = name of column to separate</p>
+</li>
+<li>
+<p>into = character vector of new column [note- these need quotes]</p>
+</li>
 </ol>
-
 <blockquote>
 <p>separate(treatments, year_no, c(&ldquo;year&rdquo;, &ldquo;month&rdquo;))</p>
 </blockquote>
-
 <p><code>separate()</code> assumes you want to split on a space, period, forward slash or dash. You can give it an extra argument sep = &ldquo;-&rdquo; to specify what to separate on.</p>
-
 <h4 id="unite-many-columns-into-one">Unite many columns into one</h4>
-
 <p>Use unite(data, col, &hellip;)</p>
-
 <ol>
-<li><p>data = dataframe</p></li>
-
-<li><p>col = name of column to separate</p></li>
-
-<li><p>&hellip; = bare names of columns to unite</p></li>
+<li>
+<p>data = dataframe</p>
+</li>
+<li>
+<p>col = name of column to separate</p>
+</li>
+<li>
+<p>&hellip; = bare names of columns to unite</p>
+</li>
 </ol>
-
 <h3 id="common-sources-of-mess">Common sources of mess</h3>
-
 <ol>
-<li><p>column headers are values, not variable names &mdash; fix it by using the <code>gather()</code> function to combine the many columns into one</p></li>
-
-<li><p>variables are stored in both rows and columns &mdash; fix it by using the <code>spread()</code> function to combine the many columns into one</p></li>
-
-<li><p>multiple variables are stored in one column &mdash; fix it by using the <code>separate()</code> function to split a column into many</p></li>
+<li>
+<p>column headers are values, not variable names &mdash; fix it by using the <code>gather()</code> function to combine the many columns into one</p>
+</li>
+<li>
+<p>variables are stored in both rows and columns &mdash; fix it by using the <code>spread()</code> function to combine the many columns into one</p>
+</li>
+<li>
+<p>multiple variables are stored in one column &mdash; fix it by using the <code>separate()</code> function to split a column into many</p>
+</li>
 </ol>
-
 <p>Other problems
 4. single observational unit stored in multiple tables
 5. multiple types of observational units are stored in the same table</p>
-
 <h3 id="preparing-data-for-analysis">Preparing data for analysis</h3>
-
 <h4 id="data-type-conversions">Data type conversions</h4>
-
 <p>Changing the data type is called coercing.</p>
-
 <p>as.character</p>
-
 <p>as.numeric</p>
-
 <p>as.integer</p>
-
 <p>as.factor</p>
-
 <p>as.logical</p>
-
 <p>Use <code>class()</code> to learn what kind of data you are dealing with.</p>
-
 <h4 id="lubridate">lubridate</h4>
-
 <p>Often R thinks that dates are strings, so functions from the lubridate package are useful for coercing them to date format.</p>
-
 <p>i.e. ymd(&ldquo;2015-August-25&rdquo;) will parse a string and return a date in standard YMD format</p>
-
 <h4 id="stringr">stringr</h4>
-
 <p><code>str_trim(&quot;   string with lots of white space    &quot;)</code> trims away white space from character input</p>
-
 <p><code>str_pad()</code> adds padding to the left or right of the string</p>
-
 <p>i.e. this example takes an ID number, makes it 7 digits wide by padding the left side with 0s, result = 0024493</p>
-
 <blockquote>
 <p>str_pad(&ldquo;24493&rdquo;, width= 7, side = left, pad = 0)</p>
 </blockquote>
-
 <p><code>str_detect(data, &quot;stringname&quot;)</code> determine whether a particular string is present, returns TRUE, FALSE</p>
-
 <p><code>str_replace(data, &quot;string1&quot;, &quot;string2&quot;)</code> find instances of string1, replace with string2</p>
-
 <p><code>tolower()</code> and <code>toupper()</code> are functions from baseR that convert strings to all lower case or all uppercase.</p>
-
 <h4 id="missing-and-special-values">missing and special values</h4>
-
 <p>Use is.na() to check for NAs; will give TRUE or FALSE for each observation.</p>
-
 <blockquote>
 <p>is.na(dataframe)</p>
 </blockquote>
-
 <p>Are there any() NAs?; will give TRUE if there are any NAs</p>
-
 <blockquote>
 <p>any(is.na(dataframe))</p>
 </blockquote>
-
 <p>How many NAs? Use sum to count. This works because TRUE is represented as 1 and FALSE as 0.</p>
-
 <blockquote>
 <p>sum(is.na(dataframe))</p>
 </blockquote>
-
 <p>Don&rsquo;t forget that <code>summary()</code> also counts how many NAs in each variable as does <code>skim()</code></p>
-
 <h5 id="dealing-with-missing-values-rowwise">Dealing with missing values rowwise</h5>
-
 <blockquote>
 <p>complete.cases(dataframe)</p>
 </blockquote>
-
 <p>complete cases will give a TRUE FALSE for each row according to whether there are any missing values. You can subset the data, keeping only complete cases using&hellip;</p>
-
 <blockquote>
 <p>dataframe[complete.cases(dataframe), ]</p>
 </blockquote>
-
 <p>OR use <code>na.omit(dataframe)</code> to keep only NA free data.</p>
-
 <h5 id="outliers-and-errors">Outliers and errors</h5>
-
 <p>Use boxplots, summary stats, and histogram to view outliers.</p>
          
       </div>

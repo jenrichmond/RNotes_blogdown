@@ -102,6 +102,7 @@
       <div class="content-column-content">
          <h1>insights from the RMarkdown whisperer</h1>
          
+<script src="http://jenrichmond.rbind.io/post/insights-from-the-markdown-whisperer/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>I had the pleasure of attending <a href="@apreshill">Alison Hill’s</a> <a href="https://ysc-rmarkdown.netlify.com/">RMarkdown workshop</a> in Canberra on Monday and I came away with so many tips and tricks! It was brillant.</p>
@@ -184,9 +185,9 @@ Find the <code>content/authors/admin</code> folder and replace the avatar.jpg wi
 <div id="push-changes-to-git" class="section level4">
 <h4>6. Push changes to git</h4>
 <p>Once you have made some changes to your site, you want to push them back to git. Make sure your R is talking to git by using the <code>usethis</code> package to set up your git config.</p>
-<pre class="r"><code>library(usethis)</code></pre>
-<pre><code>## Warning: package &#39;usethis&#39; was built under R version 3.5.2</code></pre>
-<pre class="r"><code>use_git_config(user.name = &quot;Your Name&quot;, user.email = &quot;your@email.com&quot;)</code></pre>
+<pre class="r"><code>library(usethis)
+
+use_git_config(user.name = &quot;Your Name&quot;, user.email = &quot;your@email.com&quot;)</code></pre>
 <p>Then find the Git pull down (next to the Addins) and choose commit. Select the checkboxes for files that you want to commit, write an informative commit message, press the commit button and then the push button. Enter your git credentials.</p>
 <blockquote>
 <p><strong>UPDATE APRIL2020</strong>: if you don’t have a Git pull down, usethis has a solution for that too. Try use_git(), it will ask you if it is ok to commit the files you have changed and then if it is ok to restart R. Once it restarts, you should now have a Git pulldown next to your addins. As always, connecting a new machine to git is a nightmare. In this case, I had most success with instructions 17.5.2 from happygitwithr.com.</p>

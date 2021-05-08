@@ -101,66 +101,53 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>lesser known stars of the tidyverse</h1>
-         <p><a href="@robinson_es">Emily Robinson</a> has just joined DataCamp and writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes&hellip;</p>
-
-<h3 id="1-use-as-tibble">1.use <code>as_tibble()</code></h3>
-
+         <p><a href="@robinson_es">Emily Robinson</a> has just joined DataCamp and writes a great blog called <a href="http://www.hookedondata.org">www.hookedondata.org</a>. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides <a href="http://www.tiny.cc/nyrtalk">www.tiny.cc/nyrtalk</a> and my notes&hellip;</p>
+<h3 id="1use-as_tibble">1.use <code>as_tibble()</code></h3>
 <p>Tibble = modern dataframe. Use instead of printing your dataset to the console.</p>
-
 <p><code>as_tibble()</code> will only print the first 10 rows and columns that fit on the screen.</p>
-
 <h3 id="2-examine-your-nas">2. examine your NAs</h3>
-
 <p><code>is.na()</code> returns TRUE or FALSE, TRUE is 1 and FALSE is 0, which means you can use sum to count the number of NAs in a given variable.</p>
-
 <blockquote>
 <p>summarise(numberNA = sum(is.na(variable))</p>
 </blockquote>
-
 <p>What about all variables? Purrr can help. <code>map_df()</code> maps a function across all variables and gives a dataframe (hence the df) back.   The dot says this is where the column/function should go; the tilde ~ stands for anonymous function.</p>
-
 <blockquote>
 <p>map_df(~sum(is.na(.)))</p>
 </blockquote>
-
 <p>What if cells are empty rather than NA? You can convert empty cells to NA using <code>na.if()</code></p>
-
 <blockquote>
-<p>na_if(&ldquo;&rdquo;)</p>
+<p>na_if(&quot;&quot;)</p>
 </blockquote>
-
 <h3 id="3-look-at-numeric-variables">3. look at numeric variables</h3>
-
 <p>Look just a numeric columns with <code>select_if(is.numeric)</code> then pipe in to a <code>skim()</code> to get mean, SD, missing, and little histograms.</p>
-
 <h3 id="4-examine-data-in-a-single-column">4. examine data in a single column</h3>
-
 <p>When you have more than 1 piece of information in a column, using stringr package <code>str_split(column, &quot;,&quot;)</code> to split the string at the point where the , is.</p>
-
 <p>In ggplot, mhen x axis labels are all bunchy, use <code>coord_flip()</code> to fip the graph on its side. Also if you want to sort the bars, use <code>fct_reorder()</code> from <code>forcat</code> to sort by n.</p>
-
 <h3 id="5-make-a-mimimal-reproducible-example">5. make a mimimal reproducible example</h3>
-
 <p>When you want help, if it helpful to helpers if you create a minimal reproudicule example so that they can see and run the code using your data.</p>
-
 <p>Optional. Use <code>as.tribble()</code> to make a fake data set, if there is a reason you can&rsquo;t show helpers real data.</p>
-
 <ol>
-<li><p>Use <code>reprex()</code> to find problems that may prevent helpers from running your code for reasons that aren&rsquo;t related to why your code won&rsquo;t run for you.</p></li>
-
-<li><p>Use <code>reprex()</code> to post your question/issue</p></li>
+<li>
+<p>Use <code>reprex()</code> to find problems that may prevent helpers from running your code for reasons that aren&rsquo;t related to why your code won&rsquo;t run for you.</p>
+</li>
+<li>
+<p>Use <code>reprex()</code> to post your question/issue</p>
+</li>
 </ol>
-
-<h2 id="emily-s-favourite-resources">Emily&rsquo;s favourite resources</h2>
-
+<h2 id="emilys-favourite-resources">Emily&rsquo;s favourite resources</h2>
 <ol>
-<li><p>www.r4ds.co.nz R for Data Science</p></li>
-
-<li><p>Twitter #rstats</p></li>
-
-<li><p>Rstats cheat sheets</p></li>
-
-<li><p>www.DataCamp.com</p></li>
+<li>
+<p><a href="http://www.r4ds.co.nz">www.r4ds.co.nz</a> R for Data Science</p>
+</li>
+<li>
+<p>Twitter #rstats</p>
+</li>
+<li>
+<p>Rstats cheat sheets</p>
+</li>
+<li>
+<p><a href="http://www.DataCamp.com">www.DataCamp.com</a></p>
+</li>
 </ol>
          
       </div>

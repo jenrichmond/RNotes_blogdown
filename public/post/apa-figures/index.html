@@ -102,6 +102,7 @@
       <div class="content-column-content">
          <h1>apa figures</h1>
          
+<script src="http://jenrichmond.rbind.io/post/apa-figures/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>As I write my first paper reporting data analysis coming out of R (woot!!!), here are some notes summarising all the googling I have done this morning about how to produce APA style figures in ggplot.</p>
@@ -122,7 +123,8 @@ library(papaja)</code></pre>
 <h3>Read in data</h3>
 <pre class="r"><code>plotdata &lt;- read_csv(here(&quot;plotdata.csv&quot;))</code></pre>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
-<pre><code>## Parsed with column specification:
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   X1 = col_double(),
 ##   direction = col_character(),
@@ -136,14 +138,14 @@ library(papaja)</code></pre>
 ## )</code></pre>
 <pre class="r"><code>head(plotdata)</code></pre>
 <pre><code>## # A tibble: 6 x 9
-##      X1 direction group    detailtype  mean stdev     n stderr groupnew    
-##   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;       
-## 1     1 future    control  episodic    9.46  4.04    28  0.764 control gro…
-## 2     2 future    control  semantic    4.57  2.35    28  0.444 control gro…
-## 3     3 future    inducti… episodic    9.38  3.62    29  0.672 induction g…
-## 4     4 future    inducti… semantic    4.69  2.85    29  0.530 induction g…
-## 5     5 past      control  episodic   11.2   6.67    28  1.26  control gro…
-## 6     6 past      control  semantic    5.5   5.53    28  1.05  control gro…</code></pre>
+##      X1 direction group     detailtype  mean stdev     n stderr groupnew       
+##   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;          
+## 1     1 future    control   episodic    9.46  4.04    28  0.764 control group  
+## 2     2 future    control   semantic    4.57  2.35    28  0.444 control group  
+## 3     3 future    induction episodic    9.38  3.62    29  0.672 induction group
+## 4     4 future    induction semantic    4.69  2.85    29  0.530 induction group
+## 5     5 past      control   episodic   11.2   6.67    28  1.26  control group  
+## 6     6 past      control   semantic    5.5   5.53    28  1.05  control group</code></pre>
 </div>
 <div id="basic-ggplot-columns" class="section level1">
 <h1>Basic ggplot (columns)</h1>
@@ -152,7 +154,7 @@ library(papaja)</code></pre>
   ggplot(aes(x= detailtype, y = mean, fill = direction)) +
     geom_col(position = &quot;dodge&quot;) +
   facet_wrap(~ groupnew)</code></pre>
-<p><img src="/post/2019-06-26-apa-figures_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/apa-figures/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <div id="add-error-bars" class="section level3">
 <h3>Add error bars</h3>
 <pre class="r"><code>plotdata %&gt;%
@@ -162,7 +164,7 @@ library(papaja)</code></pre>
                   size=.3,    # Thinner lines
                     width=.2,
                       position=position_dodge(.9))</code></pre>
-<p><img src="/post/2019-06-26-apa-figures_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/apa-figures/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="apa-ise" class="section level3">
 <h3>APA-ise</h3>
@@ -175,7 +177,7 @@ library(papaja)</code></pre>
                     width=.2,
                       position=position_dodge(.9)) +
   theme_apa(base_size = 14)</code></pre>
-<p><img src="/post/2019-06-26-apa-figures_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/apa-figures/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="fix-x-and-y-axis" class="section level3">
 <h3>Fix x and y axis</h3>
@@ -189,7 +191,7 @@ library(papaja)</code></pre>
                       position=position_dodge(.9)) +
   theme_apa(base_size = 14) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, 15))</code></pre>
-<p><img src="/post/2019-06-26-apa-figures_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/apa-figures/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="fix-axis-labels" class="section level3">
 <h3>Fix axis labels</h3>
@@ -204,7 +206,7 @@ library(papaja)</code></pre>
   theme_apa(base_size = 14) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
    labs(x=&quot;Detail type&quot;, y=&quot;Mean number of details \n produced&quot;)</code></pre>
-<p><img src="/post/2019-06-26-apa-figures_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/apa-figures/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="make-grey-scale" class="section level3">
 <h3>Make grey scale</h3>
@@ -220,7 +222,7 @@ library(papaja)</code></pre>
   scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
    labs(x=&quot;Detail type&quot;, y=&quot;Mean number of details \n produced&quot;) +
   scale_fill_grey(start = 0.40, end = 0.6) </code></pre>
-<p><img src="/post/2019-06-26-apa-figures_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="http://jenrichmond.rbind.io/post/apa-figures/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="save-as-png-to-add-to-your-paper" class="section level3">
 <h3>Save as png to add to your paper</h3>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>analysis on R notes to myself</title>
@@ -17,26 +17,9 @@
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>http://jenrichmond.rbind.io/post/let-me-count-the-ways/</guid>
-      <description>psycho package ANOVA Recap EMG + psycho psycho steps THOUGHTS about psycho  Likelihood Ratio Tests Lets go hiking EMG + LRT THOUGHTS about LRT  lmerTest package is LRT anticonservative? EMG + lmerTest THOUGHTS about lmerTest  Next: “how to write about LMM”   When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.</description>
-    </item>
-    
-    <item>
-      <title>next up anova</title>
-      <link>http://jenrichmond.rbind.io/post/next-up-anova/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/post/next-up-anova/</guid>
-      <description>In the kind of research that we do, t-tests can only take you so far. Most often we design factorial experiments where we are interested in both main effects and interactions. Because we work with infants and young children, who are both expensive to recruit/test and notoriously variable in their behaviour, we try to design experiments that use within-subjects designs; each child gives us more than one data point and we need to use repeated-measures analyses.</description>
-    </item>
-    
-    <item>
-      <title>using R for analysis</title>
-      <link>http://jenrichmond.rbind.io/post/using-r-for-analysis/</link>
-      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/post/using-r-for-analysis/</guid>
-      <description>I am feeling more confident about my resolution to get rid of Excel and only use R for data wrangling and visualisation. Next steps&amp;hellip; analysis.
-I&amp;rsquo;m starting simple (I presume) with t-tests. Mostly commonly I want to determine whether there is a difference in the performance of independent groups of kids, or a difference between kids&amp;rsquo; performance on two different conditions, or whether kids are just guessing (i.e. whether their performance differs significantly chance).</description>
+      <description>When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.
+Domnique Makowski has an excellent blog post that comes up at the top of the search results when you google “how to do repeated measures ANOVA in R”.
+He lures you in with a post that seems like it is going to solve all your problems and then and BAM… starts the post by saying “DON’T do it”.</description>
     </item>
     
   </channel>

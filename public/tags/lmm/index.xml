@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lmm on R notes to myself</title>
@@ -17,7 +17,9 @@
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>http://jenrichmond.rbind.io/post/let-me-count-the-ways/</guid>
-      <description>psycho package ANOVA Recap EMG + psycho psycho steps THOUGHTS about psycho  Likelihood Ratio Tests Lets go hiking EMG + LRT THOUGHTS about LRT  lmerTest package is LRT anticonservative? EMG + lmerTest THOUGHTS about lmerTest  Next: “how to write about LMM”   When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.</description>
+      <description>When we want to learn how to do something new in R, we all start by googling it. Having worked out simple ANOVA, next on my list is repeated measures.
+Domnique Makowski has an excellent blog post that comes up at the top of the search results when you google “how to do repeated measures ANOVA in R”.
+He lures you in with a post that seems like it is going to solve all your problems and then and BAM… starts the post by saying “DON’T do it”.</description>
     </item>
     
   </channel>

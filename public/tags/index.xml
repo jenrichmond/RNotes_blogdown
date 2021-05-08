@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on R notes to myself</title>
@@ -30,65 +30,11 @@
     </item>
     
     <item>
-      <title>tidyr</title>
-      <link>http://jenrichmond.rbind.io/tags/tidyr/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/tags/tidyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>anova</title>
-      <link>http://jenrichmond.rbind.io/tags/anova/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/tags/anova/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>stats</title>
-      <link>http://jenrichmond.rbind.io/tags/stats/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/tags/stats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>dplyr</title>
       <link>http://jenrichmond.rbind.io/tags/dplyr/</link>
-      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>http://jenrichmond.rbind.io/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>wrangling</title>
-      <link>http://jenrichmond.rbind.io/tags/wrangling/</link>
-      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/tags/wrangling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttest</title>
-      <link>http://jenrichmond.rbind.io/tags/ttest/</link>
-      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/tags/ttest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tips</title>
-      <link>http://jenrichmond.rbind.io/tags/tips/</link>
-      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://jenrichmond.rbind.io/tags/tips/</guid>
       <description></description>
     </item>
     
@@ -134,6 +80,24 @@
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>http://jenrichmond.rbind.io/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wrangling</title>
+      <link>http://jenrichmond.rbind.io/tags/wrangling/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jenrichmond.rbind.io/tags/wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>http://jenrichmond.rbind.io/tags/tips/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jenrichmond.rbind.io/tags/tips/</guid>
       <description></description>
     </item>
     

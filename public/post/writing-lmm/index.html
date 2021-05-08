@@ -102,6 +102,7 @@
       <div class="content-column-content">
          <h1>Writing about LMM</h1>
          
+<script src="http://jenrichmond.rbind.io/post/writing-lmm/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>Learning new things is HARD. Stats methods are particularly hard because it not just about running the test. You have to…</p>
@@ -151,11 +152,9 @@ That’s really nice Jessica! My rules: make sure to describe the full specifica
 <ol style="list-style-type: decimal">
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5057109/">Kaburu, S. S., Paukner, A., Simpson, E. A., Suomi, S. J., &amp; Ferrari, P. F. (2016). Neonatal imitation predicts infant rhesus macaque (Macaca mulatta) social and anxiety-related behaviours at one year. Scientific Reports, 6, 34997.</a></li>
 </ol>
-<p>This baby monkey imitation paper might be my favorite example. It could be because the format of Scientific Reports is nice, but I think the reporting about what they did and what they found is clear. I like this table and can see how it is helpful to the reader to see the coefficients for each model.</p>
-<div class="figure">
-<img src="/post/2018-09-25-writing-lmm_files/monkey%20table.png" />
-
-</div>
+<p>This baby monkey imitation paper might be my favorite example. It could be because the format of Scientific Reports is nice, but I think the reporting about what they did and what they found is clear.
+I like this table and can see how it is helpful to the reader to see the coefficients for each model.</p>
+<p><img src="/post/2018-09-25-writing-lmm_files/monkey%20table.png" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/15475441.2018.1463850">Nordmeyer, A. E., &amp; Frank, M. C. (2018). Early Understanding of Pragmatic Principles in Children’s Judgments of Negative Sentences. Language Learning and Development, 1-17.</a></li>
 </ol>
@@ -168,8 +167,10 @@ That’s really nice Jessica! My rules: make sure to describe the full specifica
 <div id="first-you-need-to-explain-why-you-are-using-lmm" class="section level5">
 <h5>1. First, you need to explain why you are using LMM…</h5>
 <p>…rather than some more well known analysis like repeated-measures ANOVA.</p>
-<p><strong>THEORETICAL REASON</strong> - experimental psychologists average across potentially important things (participants, stimuli, items, scenarios, confederates) ALL THE TIME. In doing so, we are assuming that they don’t make a difference to our participants’ behaviour. For example, the identities of the confederates that happened to be the competitor vs. collaborator for any individual child shouldn’t matter, because all the confederates were following the experiment script and behaving in the same way. In theory it shouldn’t matter, but human behavior is complex and it probably does matter, maybe just a little bit. It would be nice to be able to parse that portion of the variance. LMM is nice in that it allows you to control for the potential influence of all of these things by including additional random effects. The simplest thing to do is to add random effects of participant i.e. (1|Participant) but you could also include random effects of (1|Identity) or (1|Stimulus) or (1|Scenario).</p>
-<p><strong>PRACTICAL REASON</strong> - you might have run a within-subjects study but can’t do repeated measures ANOVA, because if you had to exclude all the kids who were missing data for one or more conditions, you would be left with N= 8 (well not quite that bad, but psychophysiology + kids …you know what I mean).</p>
+<p><strong>THEORETICAL REASON</strong>
+- experimental psychologists average across potentially important things (participants, stimuli, items, scenarios, confederates) ALL THE TIME. In doing so, we are assuming that they don’t make a difference to our participants’ behaviour. For example, the identities of the confederates that happened to be the competitor vs. collaborator for any individual child shouldn’t matter, because all the confederates were following the experiment script and behaving in the same way. In theory it shouldn’t matter, but human behavior is complex and it probably does matter, maybe just a little bit. It would be nice to be able to parse that portion of the variance. LMM is nice in that it allows you to control for the potential influence of all of these things by including additional random effects. The simplest thing to do is to add random effects of participant i.e. (1|Participant) but you could also include random effects of (1|Identity) or (1|Stimulus) or (1|Scenario).</p>
+<p><strong>PRACTICAL REASON</strong>
+- you might have run a within-subjects study but can’t do repeated measures ANOVA, because if you had to exclude all the kids who were missing data for one or more conditions, you would be left with N= 8 (well not quite that bad, but psychophysiology + kids …you know what I mean).</p>
 </div>
 <div id="you-also-need-to-describe-how-you-did-the-analysis" class="section level5">
 <h5>2. You also need to describe how you did the analysis…</h5>
@@ -189,14 +190,8 @@ That’s really nice Jessica! My rules: make sure to describe the full specifica
 <h5>4. Then you need to describe the findings.</h5>
 <p>My conclusion is that most people just report coefficients (and they talk about them much like you would main effects and interactions in a repeated-measures ANOVA). There is the occasional nod to Likelihood Ratio Tests, i.e. they might say that the model with the interaction term included did not improve the fit, so they stuck with only main effects, but I didn’t see a lot of people comparing a model that includes all the interesting things and one that doesn’t.</p>
 <p>Here is the plot and analysis output:</p>
-<div class="figure">
-<img src="/post/2018-09-25-writing-lmm_files/browcheek.jpg" />
-
-</div>
-<div class="figure">
-<img src="/post/2018-09-25-writing-lmm_files/output.png" />
-
-</div>
+<p><img src="/post/2018-09-25-writing-lmm_files/browcheek.jpg" /></p>
+<p><img src="/post/2018-09-25-writing-lmm_files/output.png" /></p>
 <hr />
 <p>There were significant main effects of emotion (beta = -0.20, t = -2.69, p = .009) and muscle (beta = -0.16, t = -2.26, p = .03), along with an emotion by muscle interaction that approached significance (beta = -0.20, t = 1.97, p = .05), reflecting the fact that while there was differential Brow activity in response to angry and happy faces displayed by a competitor, Cheek activity did not differ as a function of emotion.</p>
 </div>
