@@ -15,20 +15,19 @@ knitr::opts_chunk$set(echo = TRUE)
 Thanks to [Tom Mock](@thomas_mock
 ) for saving me from this blogpost on twitter. I was monster number 6... beginning to convince myself that there were gremlins in the `across()` function. 
 
-In fact, I had forgotten the golden rule: 
-
-> don't make objects with the same names a functions. 
-
-That is for another post...
-
 ```{r echo=FALSE}
 knitr::include_graphics("debugging.jpg")
 ```
 
+In fact, I had forgotten the golden rule: 
+
+> don't make objects that have the same names a functions 
+
+That is for another post...
 
 # the across() function
 
-I have been playing with the new `across()` function in `dplyr` which is a magical solution when you are looking to get several summary statistic across a range of variables. BUT.... working out how to get those summary stats nicely formatted in a table is a bit of a challenge. 
+I have been playing with the new `across()` function in `dplyr` which is a magical solution when you are looking to get several summary statistics across a range of variables. BUT.... working out how to get those summary stats nicely formatted in a table is a bit of a challenge. 
 
 # load packages
 
@@ -62,6 +61,10 @@ df %>%
   gt()
 ```
 
+<br>
+<br>
+
+
 I want to get summary stats for bill and flipper length (mean, sd, min, and max) and have them display in a nice table like this. But this manual dataframe construction is a bit silly and not at all reproducable. 
 
 > Is there an easy way to get summary stats in this format so they are compatible with the gt package? 
@@ -83,6 +86,10 @@ penguins %>%
 
 
 ```
+
+<br>
+<br>
+
 The summarise function spits out summary stats in a SUPER wide format. 
 
 # create summary stats using `across()`
@@ -96,6 +103,8 @@ penguins %>%
   gt()
 ```
 
+<br>
+<br>
 
 # skimr
 
@@ -108,6 +117,10 @@ skimtable <- penguins %>%
 
 skimtable
 ```
+
+<br>
+<br>
+
 
 For my purpose it is more than I need though. There is some selecting and renaming to do after the fact.
 
@@ -127,6 +140,9 @@ skimtable_renamed %>%
   gt()
 ```
 
+<br>
+<br>
+
 
 # tableone package
 
@@ -142,6 +158,9 @@ CreateTableOne(vars = variables, data = penguins)
 
 ```
 
+<br>
+<br>
+
 # summarise + across + pivot ?
 
 Ideally, I want to be able to use `summarise()` and `across()` and somehow make the wide output long. The problem is that `pivot_longer()` will take more than 1 "names_to" argument, but not more than a single "values_to" argument. 
@@ -156,3 +175,4 @@ penguins %>%
       
 ```
   
+... but not sure if that is possible. 
