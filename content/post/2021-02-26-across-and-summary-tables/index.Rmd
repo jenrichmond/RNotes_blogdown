@@ -2,7 +2,7 @@
 title: across and summary tables
 author: Jen Richmond
 date: '2021-02-26'
-image: "debugging.jpg"
+image: "img/debugging.jpg"
 categories: []
 tags: []
 output:
