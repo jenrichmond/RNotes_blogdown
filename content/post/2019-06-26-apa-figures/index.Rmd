@@ -119,6 +119,7 @@ plotdata %>%
 ### Save as png to add to your paper
 
 Use ggsave("nameoffile.png") to save the last plot as png. 
+
 ```{r}
 ggsave("plotforpaper.png")
 ```

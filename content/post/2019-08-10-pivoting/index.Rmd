@@ -13,6 +13,12 @@ output:
 
 Cute #rstats monster art by the amazing [Allison Horst](https://github.com/allisonhorst/stats-illustrations). 
 
+
+```{r}
+knitr::include_graphics("gatherspread.jpeg")
+```
+
+
 ![](/post/2019-08-10-pivoting_files/gatherspread.jpeg)
 
 I have been using `gather()` and `spread()` a lot lately. I'm on the tidy data train; long data is essential for ggplot etc, but sometimes you want to do calculations row wise, which is kinda complicated.
@@ -32,6 +38,7 @@ The raw response rates are interesting, but there is MASSIVE variability. Some m
 It is helpful to express each type of response as a proportion of the total. That is hard to do because it involves row wise calculations for each participant. So instead, I have been spreading the data wide so that the count of each kind of response ends up in a different column, then calculating totals and proportions and then gathering the data long again. 
 
 #### Here is how that works... 
+
 This chunk makes a new df called loco_wide by taking the loco df, ditching the old numbered resp_type variable then spreading the new wordy resptypes across columns. 
 
 Using `na_replace()` from the `narniar` package, all the NAs are replaced with 0.  Then use `mutate()` to make a new total column that adds affirmative + descriptive + action-directed responses, and makes three new proportion columns. Then select just pp columns and the new proportion variables. 
@@ -79,7 +86,11 @@ devtools::install_github("tidyverse/tidyr")
 
 The new functions are called `pivot_longer()` (which replaces gather) and `pivot_wider()` (which replaces spread). 
 
-![](/post/2019-08-10-pivoting_files/meme pivot.jpeg)
+```{r}
+knitr::include_graphics("meme pivot.jpeg")
+```
+
+
 
 Lets try them out to make the loco data wide. For `pivot_wider()`, we need to know the df that we want to make wide, names_from = the column that contains the names to spread, values_from = the dv that you want to spread across columns. 
 

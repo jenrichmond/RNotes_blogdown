@@ -5,7 +5,9 @@ date: '2020-08-31'
 slug: group-by-and-summarise
 categories: []
 image: "img/penguin.png"
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 

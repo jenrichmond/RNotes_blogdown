@@ -7,8 +7,9 @@ image: "img/lubridate_ymd.png"
 
 date: '2020-09-26'
 slug: lubridate-month-wday
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 > Art by Allison Horst @allison_horst

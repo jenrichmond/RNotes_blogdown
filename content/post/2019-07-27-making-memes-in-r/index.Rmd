@@ -65,6 +65,7 @@ Check out the [meme vignette](https://cran.r-project.org/web/packages/meme/vigne
 
 
 ### install package
+
 ```{r eval = FALSE}
 devtools::install_github("GuangchuangYu/meme")
 ```

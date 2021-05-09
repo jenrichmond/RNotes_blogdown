@@ -3,8 +3,9 @@ title: calculating z scores
 author: ''
 date: '2020-07-16'
 slug: calculating-z-scores
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 

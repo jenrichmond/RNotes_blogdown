@@ -3,8 +3,9 @@ title: what did we just do?
 author: ''
 date: '2019-11-17'
 slug: git-success
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 I started a blog post and pushed it to the git repo that contains my blog. Charles forked my repo, cloned it to her machine, contributed to the post, and then pushed the updates to her forked copy of the repo. 
@@ -22,6 +23,6 @@ We were victorious!!
 # what did we learn?
 
 
-```{r echo=FALSE, out.width= "700px"}
-knitr::include_graphics("im/g/myrepo.png")
+```{r out.width= "700px"}
+knitr::include_graphics("myrepo.png")
 ``` 

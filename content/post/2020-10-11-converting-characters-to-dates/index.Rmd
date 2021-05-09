@@ -5,9 +5,10 @@ date: '2020-10-11'
 slug: converting-characters-to-dates
 
 image: "img/r_rollercoaster.png"
+output:
+  html_document:
+    keep_md: yes
 
-categories: []
-tags: []
 ---
 
 > Art by Allison Horst @allison_horst

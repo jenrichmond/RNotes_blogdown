@@ -5,9 +5,10 @@ date: '2020-10-14'
 slug: idhtg-how-to-annotate-plots
 
 image: "img/annotate.png"
+output:
+  html_document:
+    keep_md: yes
 
-categories: []
-tags: []
 ---
 
 A new post in my I Don't Have to Google (IDHTG) series. I've been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!  

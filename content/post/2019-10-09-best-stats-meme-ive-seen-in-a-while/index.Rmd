@@ -3,8 +3,9 @@ title: best stats meme ive seen in a while
 author: ''
 date: '2019-10-09'
 slug: best-stats-meme-ive-seen-in-a-while
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 Just putting this here because I'm sure it will come in handy some day.  

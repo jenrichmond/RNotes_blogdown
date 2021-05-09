@@ -22,11 +22,14 @@ When [Charles](@cantabile) was visiting for #RCurious in June, she had written h
 Is this infinite moon reader thing magical or all hype? 
 What does it mean by live preview? Maybe I don't have to `blogdown::serve_site()` in order to see updates on my post.
 
-![](/post/2019-01-03-infinite-moon-reader_files/CopyOfmoon.jpg)
+```{r}
+knitr::include_graphics("CopyOfmoon.jpg")
+```
 
 
 
 ### How to use infinite moon reader
+
 > NOTE: here I am talking about blogging etc, not about xaringan slides (which is definitely on my 2019 to learn list)
 
 #### Step 1. 

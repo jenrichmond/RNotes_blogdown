@@ -5,10 +5,10 @@ date: '2020-10-18'
 slug: parsing-dates-automatically
 
 image: "img/gs.png"
+output:
+  html_document:
+    keep_md: yes
 
-categories: []
-draft: FALSE
-tags: []
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}

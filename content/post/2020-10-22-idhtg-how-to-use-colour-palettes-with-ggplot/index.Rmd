@@ -4,8 +4,9 @@ author: ''
 date: '2020-10-22'
 slug: idhtg-how-to-use-colour-palettes-with-ggplot
 image: "img/brewer.jpeg"
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 If I had a dollar for everytime I have googled how to change the colours in my ggplot...it is clearly time for a "I don't have to google" post about it. 
