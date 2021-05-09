@@ -1,0 +1,51 @@
+---
+title: group_by and summarise
+author: ''
+date: '2020-08-31'
+slug: group-by-and-summarise
+categories: []
+image: "img/penguin.png"
+output:
+  html_document:
+    keep_md: yes
+---
+
+
+Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data. 
+
+Details of the palmer penguin data, with art by Allison Horst, can be [found here](https://github.com/allisonhorst/palmerpenguins).
+
+![](https://github.com/allisonhorst/palmerpenguins/raw/master/man/figures/lter_penguins.png)
+
+### load packages
+
+
+```{r message=FALSE, warning=FALSE}
+library(palmerpenguins) 
+library(tidyverse)
+
+```
+### read in data
+```{r}
+
+penguins <- penguins
+
+glimpse(penguins)
+
+```
+
+### use group_by() and summarise() to get standard error by condition (aka species)
+```{r}
+
+penguins %>%
+  group_by(species) %>%
+  summarise(mean = mean(flipper_length_mm, na.rm = TRUE), 
+            n = n(), 
+            stdev = sd(flipper_length_mm, na.rm = TRUE), 
+            stderr = stdev/sqrt(n)) 
+```
+
+
+
+
+

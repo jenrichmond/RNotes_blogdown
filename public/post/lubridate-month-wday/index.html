@@ -101,70 +101,50 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>lubridate month() &#43; wday()</h1>
-         
-
-
-<blockquote>
-<p>Art by Allison Horst <span class="citation">@allison_horst</span></p>
+         <blockquote>
+<p>Art by Allison Horst @allison_horst</p>
 </blockquote>
 <p>When I am trying to work out a problem with R, I generally skip the package documentation, I avoid stack overflow, and I go straight for a blog post written by someone who has just learned what I am trying to learn.</p>
-<p>I think when you have just learned something, you are in THE BEST PLACE to teach someone else. You are acutely aware of what it feels like to not “get it”. You have only very recently worked out the pinch points and stumbling blocks, so you are well positioned to write in a way that allows another beginner to avoid all that.</p>
+<p>I think when you have just learned something, you are in THE BEST PLACE to teach someone else. You are acutely aware of what it feels like to not &ldquo;get it&rdquo;.  You have only very recently worked out the pinch points and stumbling blocks, so you are well positioned to write in a way that allows another beginner to avoid all that.</p>
 <p>In contrast, package documentation is written by the developer who knows WAY TOO MUCH about the intricacies of how it works under the hood to have much empathy for someone who knows nothing. And stack overflow is full of experts who suffer from the curse of knowledge and deliver base R solutions in a condescending tone.</p>
-<div class="figure">
-<img src="https://miro.medium.com/max/1000/0*qC0M4JWVSUDmotjJ.jpg" alt="" />
-<p class="caption">the curse of knowledge</p>
-</div>
-<p>When I found <a href="https://juliasilge.com/blog/lubridate-london-stage/">Julia’s Silge’s post about lubridate</a> I was immediately excited because I knew that I could learn A LOT about how lubridate works by finding an interesting dataset and emulating her post.</p>
+<p><img src="https://miro.medium.com/max/1000/0*qC0M4JWVSUDmotjJ.jpg" alt="the curse of knowledge"></p>
+<p>When I found <a href="https://juliasilge.com/blog/lubridate-london-stage/">Julia&rsquo;s Silge&rsquo;s post about lubridate</a> I was immediately excited because I knew that I could learn A LOT about how lubridate works by finding an interesting dataset and emulating her post.</p>
 <p>COVID cases have been really low in NSW in the last couple of weeks after a bit of a spike back in July-August, but the Chief Health Officer has been warning about not becoming complacent because testing rates have also been declining.</p>
 <p><a href="https://data.nsw.gov.au/nsw-covid-19-data/tests">This data</a> comes from NSW health and contains the number of tests conducted throughout NSW each day by age group during the pandemic. There should be date data to deal with.</p>
-<div id="load-packages" class="section level1">
-<h1>load packages</h1>
-<pre class="r"><code>library(tidyverse)
-library(here)
-library(ggeasy) # for easy ggplot editing
-library(harrypotter) # for palettes
-options(scipen = 999)</code></pre>
-<pre class="r"><code>library(lubridate)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:here&#39;:
+<h1 id="load-packages">load packages</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+<span style="color:#a6e22e">library</span>(here)
+<span style="color:#a6e22e">library</span>(ggeasy) <span style="color:#75715e"># for easy ggplot editing</span>
+<span style="color:#a6e22e">library</span>(harrypotter) <span style="color:#75715e"># for palettes</span>
+<span style="color:#a6e22e">options</span>(scipen <span style="color:#f92672">=</span> <span style="color:#ae81ff">999</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(lubridate)
+</code></pre></div><pre><code>## 
+## Attaching package: 'lubridate'
+</code></pre><pre><code>## The following objects are masked from 'package:base':
 ## 
-##     here</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     date</code></pre>
-<p>I usually ask .Rmd to not even show me these package loading messages by setting the chunk options to <code>warning = FALSE, messages = FALSE</code>, but this warning could be the source of some issues I have had with lubridate in the past.</p>
+##     date, intersect, setdiff, union
+</code></pre><p>I usually ask .Rmd to not even show me these package loading messages by setting the chunk options to <code>warning = FALSE, messages = FALSE</code>, but this warning could be the source of some issues I have had with lubridate in the past.</p>
 <p>The lubridate package has a <code>here()</code> function that messes with the <code>here()</code> function from the <code>here</code> package. If you are going to use <code>lubridate</code> and <code>here</code> in the same analysis, you need to remember to use <code>here::here()</code> to avoid problems.</p>
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">pic.twitter.com/UqnfPtcTl4</a>
-</p>
-— Jesse Mostipak (<span class="citation">@kierisi</span>) <a href="https://twitter.com/kierisi/status/1245532577932414976?ref_src=twsrc%5Etfw">April 2, 2020</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">pic.twitter.com/UqnfPtcTl4</a></p>&mdash; Jesse Mostipak (@kierisi) <a href="https://twitter.com/kierisi/status/1245532577932414976?ref_src=twsrc%5Etfw">April 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <blockquote>
-<p>apparently the next version of lubridate won’t have a here() function, when is that coming out?</p>
+<p>apparently the next version of lubridate won&rsquo;t have a here() function, when is that coming out?</p>
 </blockquote>
-</div>
-<div id="read-in-the-data" class="section level1">
-<h1>read in the data</h1>
-<pre class="r"><code>tests &lt;- read_csv(&quot;testing_agg.csv&quot;)</code></pre>
-</div>
-<div id="check-data-types" class="section level1">
-<h1>check data types</h1>
-<pre class="r"><code>glimpse(tests)</code></pre>
-<pre><code>## Rows: 1,635
+<h1 id="read-in-the-data">read in the data</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">tests <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;testing_agg.csv&#34;</span>)
+</code></pre></div><h1 id="check-data-types">check data types</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">glimpse</span>(tests)
+</code></pre></div><pre><code>## Rows: 1,635
 ## Columns: 3
-## $ test_date  &lt;date&gt; 2020-03-09, 2020-03-09, 2020-03-09, 2020-03-09, 2020…
-## $ age_group  &lt;chr&gt; &quot;AgeGroup_0-9&quot;, &quot;AgeGroup_10-19&quot;, &quot;AgeGroup_20-29&quot;, &quot;…
-## $ test_count &lt;dbl&gt; 238, 386, 688, 779, 621, 582, 344, 261, 207, 383, 803…</code></pre>
-<p>Nice! the date column is in date format, that doesn’t always happen with my data in the wild.</p>
+## $ test_date  &lt;date&gt; 2020-03-09, 2020-03-09, 2020-03-09, 2020-03-09, 2020-03-09…
+## $ age_group  &lt;chr&gt; &quot;AgeGroup_0-9&quot;, &quot;AgeGroup_10-19&quot;, &quot;AgeGroup_20-29&quot;, &quot;AgeGro…
+## $ test_count &lt;dbl&gt; 238, 386, 688, 779, 621, 582, 344, 261, 207, 383, 803, 917,…
+</code></pre><p>Nice! the date column is in date format, that doesn&rsquo;t always happen with my data in the wild.</p>
 <blockquote>
 <p>why does R sometimes auto-recognise dates and other times not?</p>
 </blockquote>
-<p>Lets look at the first few rows of the dataframe. Looks like we have test counts each day for separate age groups. I’m not interested in age at the moment, but I would like to know how testing rates have changed over the past few months.</p>
-<pre class="r"><code>head(tests)</code></pre>
-<pre><code>## # A tibble: 6 x 3
+<p>Lets look at the first few rows of the dataframe.  Looks like we have test counts each day for separate age groups. I&rsquo;m not interested in age at the moment, but I would like to know how testing rates have changed over the past few months.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(tests)
+</code></pre></div><pre><code>## # A tibble: 6 x 3
 ##   test_date  age_group      test_count
 ##   &lt;date&gt;     &lt;chr&gt;               &lt;dbl&gt;
 ## 1 2020-03-09 AgeGroup_0-9          238
@@ -172,30 +152,26 @@ literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">p
 ## 3 2020-03-09 AgeGroup_20-29        688
 ## 4 2020-03-09 AgeGroup_30-39        779
 ## 5 2020-03-09 AgeGroup_40-49        621
-## 6 2020-03-09 AgeGroup_50-59        582</code></pre>
-<p>Start by making a dataframe with getting the total tests conducted each day across age groups.</p>
-<pre class="r"><code>total_tests &lt;- tests %&gt;% 
-  group_by(test_date) %&gt;%
-  summarise(test_count = sum(test_count))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-</div>
-<div id="getting-monthsdays" class="section level1">
-<h1>getting months/days</h1>
-<p>lubridate has functions that will pull the day, month or year from a variable in date format. Following in Julia’s footsteps here.</p>
-<pre class="r"><code>today() </code></pre>
-<pre><code>## [1] &quot;2020-10-22&quot;</code></pre>
-<pre class="r"><code>year(today())</code></pre>
-<pre><code>## [1] 2020</code></pre>
-<pre class="r"><code>month(today())</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>day(today())</code></pre>
-<pre><code>## [1] 22</code></pre>
-<p>Lets use the <code>month()</code> function to count how many tests have been conducted in each month since the beginning of the pandemic.</p>
-<pre class="r"><code>total_tests %&gt;% 
-  group_by(month(test_date, label = TRUE)) %&gt;%
-  summarise(month_tests = sum(test_count))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 7 x 2
+## 6 2020-03-09 AgeGroup_50-59        582
+</code></pre><p>Start by making a dataframe with getting the total tests conducted each day across age groups.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">total_tests <span style="color:#f92672">&lt;-</span> tests <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(test_date) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(test_count <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(test_count))
+</code></pre></div><h1 id="getting-monthsdays">getting months/days</h1>
+<p>lubridate has functions that will pull the day, month or year from a variable in date format. Following in Julia&rsquo;s footsteps here.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">today</span>() 
+</code></pre></div><pre><code>## [1] &quot;2021-05-09&quot;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">year</span>(<span style="color:#a6e22e">today</span>())
+</code></pre></div><pre><code>## [1] 2021
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">month</span>(<span style="color:#a6e22e">today</span>())
+</code></pre></div><pre><code>## [1] 5
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">day</span>(<span style="color:#a6e22e">today</span>())
+</code></pre></div><pre><code>## [1] 9
+</code></pre><p>Lets use the <code>month()</code> function to count how many tests have been conducted in each month since the beginning of the pandemic.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">total_tests <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(<span style="color:#a6e22e">month</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(month_tests <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(test_count))
+</code></pre></div><pre><code>## # A tibble: 7 x 2
 ##   `month(test_date, label = TRUE)` month_tests
 ##   &lt;ord&gt;                                  &lt;dbl&gt;
 ## 1 Mar                                   106256
@@ -204,121 +180,114 @@ literally no chill tonight. or ever, really. <a href="https://t.co/UqnfPtcTl4">p
 ## 4 Jun                                   388739
 ## 5 Jul                                   622984
 ## 6 Aug                                   721733
-## 7 Sep                                   210431</code></pre>
-<p>It looks like we really stepped up the testing in July and August but the NSW Chief Health Officer is right, September rates are really low. Lets plot that…use label = TRUE to include month names rather than numbers.</p>
+## 7 Sep                                   210431
+</code></pre><p>It looks like we really stepped up the testing in July and August but the NSW Chief Health Officer is right, September rates are really low. Lets plot that&hellip;use label = TRUE to include month names rather than numbers.</p>
 <p>Make a new df that summarises the total tests conducted each month.</p>
-<pre class="r"><code>month_summary &lt;- total_tests %&gt;% 
-  group_by(month(test_date, label = TRUE)) %&gt;%
-  summarise(total_tests = sum(test_count)) %&gt;%
-  rename(covid_month = &#39;month(test_date, label = TRUE)&#39;)</code></pre>
-<div id="plot-total-tests-by-month" class="section level3">
-<h3>plot total tests by month</h3>
-<pre class="r"><code>month_summary %&gt;%
-  ggplot(aes(x = covid_month, y = total_tests, fill = covid_month)) +
-  geom_col() +
-  scale_fill_hp_d(option = &quot;LunaLovegood&quot;) +
-  scale_y_continuous(limits = c(0, 800000), expand = c(0,0)) +
-  labs(title = &quot;Total number of COVID tests conducted in NSW \n each month&quot;, x = &quot;Month&quot;, y = &quot;Total tests&quot;, caption = &quot;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&quot;) +
-  theme_classic() +
-  easy_remove_legend() </code></pre>
-<p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>Yikes September total tests are REALLY low, there is still a few days left but still…</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">month_summary <span style="color:#f92672">&lt;-</span> total_tests <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(<span style="color:#a6e22e">month</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(total_tests <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(test_count)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">rename</span>(covid_month <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;month(test_date, label = TRUE)&#39;</span>)
+</code></pre></div><h3 id="plot-total-tests-by-month">plot total tests by month</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">month_summary <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> covid_month, y <span style="color:#f92672">=</span> total_tests, fill <span style="color:#f92672">=</span> covid_month)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_continuous</span>(limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">800000</span>), expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total number of COVID tests conducted in NSW \n each month&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Month&#34;</span>, y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total tests&#34;</span>, caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_classic</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">easy_remove_legend</span>() 
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/lubridate-month-wday/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Yikes September total tests are REALLY low, there is still a few days left but still&hellip;</p>
 <p>The health officials are always talking about variability in the number of new cases might be related to when the tests are conducted. I wonder whether there is a pattern in the number of tests conducted across the week. <code>lubridate</code> has a <code>wday()</code> function that works a lot like <code>month()</code> to allow you to summarise by day of the week.</p>
 <p>Make a new df that summarises the mean number of tests conducted each day of the week.</p>
-<pre class="r"><code>wday_summary &lt;- total_tests %&gt;% 
-  group_by(wday(test_date, label = TRUE)) %&gt;%
-  summarise(mean_tests = mean(test_count)) %&gt;%
-  rename(covid_day = &#39;wday(test_date, label = TRUE)&#39;)</code></pre>
-</div>
-<div id="plot-mean-tests-each-week-day" class="section level3">
-<h3>plot mean tests each week day</h3>
-<pre class="r"><code>wday_summary %&gt;%
-  ggplot(aes(x = covid_day, y = mean_tests, fill = covid_day)) +
-  geom_col() +
-  scale_fill_hp_d(option = &quot;HermioneGranger&quot;) +
-  scale_y_continuous(limits = c(0, 20000), expand = c(0,0)) +
-  labs(title = &quot;Mean number of COVID tests conducted in NSW \n each weekday&quot;, x = &quot;Week day&quot;, y = &quot;Total tests&quot;, caption = &quot;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&quot;) +
-  theme_classic() +
-  easy_remove_legend()</code></pre>
-<p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">wday_summary <span style="color:#f92672">&lt;-</span> total_tests <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(<span style="color:#a6e22e">wday</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(mean_tests <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(test_count)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">rename</span>(covid_day <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wday(test_date, label = TRUE)&#39;</span>)
+</code></pre></div><h3 id="plot-mean-tests-each-week-day">plot mean tests each week day</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">wday_summary <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> covid_day, y <span style="color:#f92672">=</span> mean_tests, fill <span style="color:#f92672">=</span> covid_day)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HermioneGranger&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_continuous</span>(limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20000</span>), expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mean number of COVID tests conducted in NSW \n each weekday&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Week day&#34;</span>, y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total tests&#34;</span>, caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_classic</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">easy_remove_legend</span>()
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/lubridate-month-wday/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Looks like testing rates decline across the working week, and are definitely much lower in the weekend. I wonder whether that pattern has changed across the pandemic.</p>
-<p>Make a new df that summarises the number of tests conducted by day of the week for each month. Use <code>week_start = getOption("lubridate.week.start", 1)</code> to make Monday the start of the week.</p>
-<pre class="r"><code>wday_month_summary &lt;- total_tests %&gt;% 
-  mutate(covid_day = wday(test_date,  week_start = getOption(&quot;lubridate.week.start&quot;, 1), label = TRUE)) %&gt;%
-  mutate(covid_month = month(test_date, label = TRUE)) %&gt;%
-  group_by(covid_day, covid_month) %&gt;%
-  summarise(mean_tests = mean(test_count, na.rm = TRUE))</code></pre>
-</div>
-<div id="plot-mean-tests-each-week-day-by-month" class="section level3">
-<h3>plot mean tests each week day by month</h3>
-<pre class="r"><code>wday_month_summary %&gt;%
-  ggplot(aes(x = covid_day, y = mean_tests, fill = covid_day)) +
-  geom_col() +
- scale_fill_hp_d(option = &quot;DracoMalfoy&quot;) +
-  facet_wrap(~covid_month) +
-  scale_y_continuous(limits = c(0, 35000), expand = c(0,0)) +
-  labs(title = &quot;Mean number of COVID tests conducted in NSW \n each week day across the pandemic&quot;, 
-       x = &quot;Week day&quot;, y = &quot;Total tests&quot;, 
-       caption = &quot;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&quot;) +
-  easy_remove_legend()</code></pre>
-<p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Make a new df that summarises the number of tests conducted by day of the week for each month. Use  <code>week_start = getOption(&quot;lubridate.week.start&quot;, 1)</code> to make Monday the start of the week.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">wday_month_summary <span style="color:#f92672">&lt;-</span> total_tests <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(covid_day <span style="color:#f92672">=</span> <span style="color:#a6e22e">wday</span>(test_date,  week_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">getOption</span>(<span style="color:#e6db74">&#34;lubridate.week.start&#34;</span>, <span style="color:#ae81ff">1</span>), label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(covid_month <span style="color:#f92672">=</span> <span style="color:#a6e22e">month</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(covid_day, covid_month) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(mean_tests <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(test_count, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))
+</code></pre></div><h3 id="plot-mean-tests-each-week-day-by-month">plot mean tests each week day by month</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">wday_month_summary <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> covid_day, y <span style="color:#f92672">=</span> mean_tests, fill <span style="color:#f92672">=</span> covid_day)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>() <span style="color:#f92672">+</span>
+ <span style="color:#a6e22e">scale_fill_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DracoMalfoy&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span>covid_month) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_continuous</span>(limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">35000</span>), expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mean number of COVID tests conducted in NSW \n each week day across the pandemic&#34;</span>, 
+       x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Week day&#34;</span>, y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total tests&#34;</span>, 
+       caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">easy_remove_legend</span>()
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/lubridate-month-wday/index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p><code>geom_col()</code> makes it difficult to see how testing rates might have changed across the pandemic. Lets look at just July - September.</p>
-</div>
-<div id="plot-mean-tests-each-week-day-july---sept" class="section level3">
-<h3>plot mean tests each week day July - Sept</h3>
-<pre class="r"><code>wday_month_summary %&gt;%
-  filter(covid_month %in% c(&quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;)) %&gt;%
-  ggplot(aes(x = covid_day, y = mean_tests, 
-             colour = covid_month, group = covid_month)) +
-  geom_point(size = 3) +
-  geom_line() +
- scale_colour_hp_d(option = &quot;RonWeasley&quot;) +
-  scale_y_continuous(limits = c(0, 35000), expand = c(0,0)) +
-  labs(title = &quot;Mean number of COVID tests conducted in NSW \n each weekday in the past 3 months&quot;, x = &quot;Week day&quot;, y = &quot;Mean tests&quot;, caption = &quot;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&quot;) +
-  theme_classic() +
- theme(
-    legend.position = c(.98, .98),
-    legend.justification = c(&quot;right&quot;, &quot;top&quot;),
-    legend.box.just = &quot;right&quot;,
-    legend.margin = margin(6, 6, 6, 6)
-    )</code></pre>
-<p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Interesting… looks like testing rates in Sept are the same as in Aug (but lower than July) early in the week, but fewer people are being tested as the week goes on.</p>
-</div>
-<div id="how-many-fewer-tests-are-we-doing-each-day-in-sept-relative-to-july-levels" class="section level3">
-<h3>How many fewer tests are we doing each day in Sept relative to July levels?</h3>
+<h3 id="plot-mean-tests-each-week-day-july---sept">plot mean tests each week day July - Sept</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">wday_month_summary <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(covid_month <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Jul&#34;</span>, <span style="color:#e6db74">&#34;Aug&#34;</span>, <span style="color:#e6db74">&#34;Sep&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> covid_day, y <span style="color:#f92672">=</span> mean_tests, 
+             colour <span style="color:#f92672">=</span> covid_month, group <span style="color:#f92672">=</span> covid_month)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_line</span>() <span style="color:#f92672">+</span>
+ <span style="color:#a6e22e">scale_colour_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;RonWeasley&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_continuous</span>(limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">35000</span>), expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mean number of COVID tests conducted in NSW \n each weekday in the past 3 months&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Week day&#34;</span>, y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mean tests&#34;</span>, caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_classic</span>() <span style="color:#f92672">+</span>
+ <span style="color:#a6e22e">theme</span>(
+    legend.position <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">.98</span>, <span style="color:#ae81ff">.98</span>),
+    legend.justification <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;right&#34;</span>, <span style="color:#e6db74">&#34;top&#34;</span>),
+    legend.box.just <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;right&#34;</span>,
+    legend.margin <span style="color:#f92672">=</span> <span style="color:#a6e22e">margin</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">6</span>)
+    )
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/lubridate-month-wday/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Interesting&hellip; looks like testing rates in Sept are the same as in Aug (but lower than July) early in the week, but fewer people are being tested as the week goes on.</p>
+<h3 id="how-many-fewer-tests-are-we-doing-each-day-in-sept-relative-to-july-levels">How many fewer tests are we doing each day in Sept relative to July levels?</h3>
 <p>Using the <code>day()</code> function instead of <code>wday()</code> to plot the tests each day across the month.</p>
-<pre class="r"><code>total_tests %&gt;% 
-  filter(month(test_date, label = TRUE) %in% c(&quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;)) %&gt;%
-  ggplot(aes(x = day(test_date), y = test_count, fill = wday(test_date, label = TRUE, week_start = getOption(&quot;lubridate.week.start&quot;, 1)))) +
-  geom_col() +
-  facet_wrap(~month(test_date, label = TRUE)) +
-  scale_fill_hp_d(option = &quot;LunaLovegood&quot;) +
-  scale_y_continuous(limits = c(0, 40000), expand = c(0,0)) +
-  labs(title = &quot;Daily COVID tests conducted in NSW in July-Sept&quot;, x = &quot;Month&quot;, y = &quot;Tests per day&quot;, caption = &quot;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&quot;) +
-  theme_classic() +
-  easy_remove_legend_title()</code></pre>
-<p><img src="/post/2020-09-26-emulate-a-rlady_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">total_tests <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">month</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Jul&#34;</span>, <span style="color:#e6db74">&#34;Aug&#34;</span>, <span style="color:#e6db74">&#34;Sep&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">day</span>(test_date), y <span style="color:#f92672">=</span> test_count, fill <span style="color:#f92672">=</span> <span style="color:#a6e22e">wday</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, week_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">getOption</span>(<span style="color:#e6db74">&#34;lubridate.week.start&#34;</span>, <span style="color:#ae81ff">1</span>)))) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span><span style="color:#a6e22e">month</span>(test_date, label <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_continuous</span>(limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">40000</span>), expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Daily COVID tests conducted in NSW in July-Sept&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Month&#34;</span>, y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tests per day&#34;</span>, caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data downloaded from https://data.nsw.gov.au/nsw-covid-19-data (28-9-2020)&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_classic</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">easy_remove_legend_title</span>()
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/lubridate-month-wday/index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Oh!!!</p>
 <p>The data I downloaded 28-9-2020 is incomplete. Even though the website says this data is updated every day, the total tests for Sept are bad because we only have data up until 11-9-2020.</p>
-</div>
-</div>
-<div id="what-have-i-learned-about-lubridate-thus-far" class="section level1">
-<h1>What have I learned about lubridate thus far</h1>
+<h1 id="what-have-i-learned-about-lubridate-thus-far">What have I learned about lubridate thus far</h1>
 <ul>
-<li>sometimes R automatically recognises your date variables as dates, but I’m not sure why this happens really infrequently with my real world data- probably related to d-m-y format not being the R default
+<li>
+<p>sometimes R automatically recognises your date variables as dates, but I&rsquo;m not sure why this happens really infrequently with my real world data- probably related to d-m-y format not being the R default</p>
 <ul>
 <li>how to make it more likely that R will read my dates as dates</li>
 <li>how to convert dates that R thinks are characters into date format</li>
-</ul></li>
-<li>lubridate functions like <code>day()</code>, <code>w_day()</code>, <code>month()</code> and <code>year()</code>, make it easy to work with date components as ordinal factors
+</ul>
+</li>
+<li>
+<p>lubridate functions like <code>day()</code>, <code>w_day()</code>, <code>month()</code> and <code>year()</code>, make it easy to work with date components as ordinal factors</p>
 <ul>
 <li>use <code>label = TRUE</code> when using these functions to use labels rather than numeric values</li>
-<li>use <code>week_start = getOption("lubridate.week.start", 1)</code> to change the default from the week starting on Sunday to starting on Monday</li>
-</ul></li>
-<li>lubridate still clashes with the here package; if you are using both you need to specify <code>here::here()</code>. Find out when lubridate will no longer have a <code>here()</code> function.</li>
+<li>use <code>week_start = getOption(&quot;lubridate.week.start&quot;, 1)</code> to change the default from the week starting on Sunday to starting on Monday</li>
 </ul>
-</div>
+</li>
+<li>
+<p>lubridate still clashes with the here package; if you are using both you need to specify <code>here::here()</code>. Find out when lubridate will no longer have a <code>here()</code> function.</p>
+</li>
+</ul>
 
          
       </div>

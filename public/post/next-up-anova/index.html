@@ -101,94 +101,53 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>next up anova</h1>
-         
-
-<p>In the kind of research that we do, t-tests can only take you so far. Most often we design factorial experiments where we are interested in both main effects and interactions.  Because we work with infants and young children, who are both expensive to recruit/test and notoriously variable in their behaviour, we try to design experiments that use within-subjects designs; each child gives us more than one data point and we need to use repeated-measures analyses.</p>
-
+         <p>In the kind of research that we do, t-tests can only take you so far. Most often we design factorial experiments where we are interested in both main effects and interactions.  Because we work with infants and young children, who are both expensive to recruit/test and notoriously variable in their behaviour, we try to design experiments that use within-subjects designs; each child gives us more than one data point and we need to use repeated-measures analyses.</p>
 <p>Next I need learn how to conduct ANOVA in R.</p>
-
 <p>Notes from &ldquo;Learning Statistics with R book&rdquo; <a href="https://compcogscisydney.org/learning-statistics-with-r/">find it here</a>.</p>
-
 <h4 id="using-the-aov-function">Using the aov() function</h4>
-
 <p>The <code>aov()</code> function expects two things</p>
-
 <ol>
-<li><p>the formula- specify which variable is your outcome and which are your grouping variables</p></li>
-
-<li><p>the data- which dataframe are you analysing</p></li>
+<li>
+<p>the formula- specify which variable is your outcome and which are your grouping variables</p>
+</li>
+<li>
+<p>the data- which dataframe are you analysing</p>
+</li>
 </ol>
-
 <h5 id="an-example">An example</h5>
-
 <p>In a clinical trial where you are looking to see if the drug improved mood scores you might specify&hellip;</p>
-
 <pre><code>aov(formula = mood ~ drug, data = clinicaltrial)
 
-</code></pre>
-
-<p>As always,you can shortcut that by saying</p>
-
+</code></pre><p>As always,you can shortcut that by saying</p>
 <pre><code>aov(mood ~ drug, clinicaltrial)
 
-</code></pre>
-
-<p>Or by specifying which variables to analyse using data$column .</p>
-
+</code></pre><p>Or by specifying which variables to analyse using data$column .</p>
 <pre><code>aov(clinicaltrial$mood ~ clinicaltrial$drug)
 
-</code></pre>
-
-<p>It is a good idea to assign your analysis to an object&hellip;</p>
-
+</code></pre><p>It is a good idea to assign your analysis to an object&hellip;</p>
 <pre><code>myANOVA &lt;- aov(mood ~ drug, clinicaltrial)
 
-</code></pre>
-
-<p>&hellip; so that you can then use print(myANOVA) to get terms, sums of squares, degrees of freedom, or probably more usfully, use summary(myANOVA) to get F and p values.</p>
-
+</code></pre><p>&hellip; so that you can then use print(myANOVA) to get terms, sums of squares, degrees of freedom, or probably more usfully, use summary(myANOVA) to get F and p values.</p>
 <h4 id="effect-size">Effect size</h4>
-
 <p>Need to get effect sizes? In the <code>lsr</code> package there is a function called <code>etasquared()</code>. To get eta or partial eta squared values to report in your paper&hellip;</p>
-
 <pre><code>etasquared(myANOVA)
-</code></pre>
-
-<h4 id="so-you-have-a-significant-effect-what-now">So you have a significant effect, what now?</h4>
-
+</code></pre><h4 id="so-you-have-a-significant-effect-what-now">So you have a significant effect, what now?</h4>
 <p>If there are more than 2 groups, you need to do follow up analyses to determine what is going on.</p>
-
 <p>Option 1.</p>
-
 <p>Create subsets of data and do t-tests on all combinations.</p>
-
 <p>Option 2</p>
-
 <p>Conduct pairwise t-tests: R has a function <code>pairwise.t.test()</code> but apparently you can&rsquo;t just hand it an aov object and have it know what to do with it. So, the very kind Dani has created another function in the <code>lsr</code> package called <code>posthocPairwiseT()</code> that, given your myANOVA object will just run all the tests for you.</p>
-
 <p>Note: the default correction is Holm, so if you don&rsquo;t specify a correction it will do that by default. If you don&rsquo;t want correction you need to specify p.adjust.method = &ldquo;none&rdquo;</p>
-
 <h6 id="corrections-for-multiple-comparisons">Corrections for multiple comparisons</h6>
-
 <p>We all know that many many t-tests can get you into trouble. If you are going to do it, you should correct for the fact that you are doing it.</p>
-
 <p><strong>Bonferroni corrections</strong></p>
-
 <p>So nice! the <code>posthocPairwiseT()</code> has an argument so you can call to say p.adjust.method = &ldquo;bonferroni&rdquo;</p>
-
 <pre><code>posthocPairwiseR(myANOVA, p.adjust.method = &quot;bonferroni&quot;)
-</code></pre>
-
-<p><strong>Holm corrections</strong></p>
-
+</code></pre><p><strong>Holm corrections</strong></p>
 <p>I&rsquo;m going to be honest and say my stats education has let me down. I have NEVER heard of a Holm correction, but according to Dani it is the best one, so what is it? Apparently it acts like you are doing your multiple tests sequentially and sorts your p-values.  The biggest one stays the same, the next one is doubled, then the third is tripled. It has the benefit of having a lower Type II error rate than Bonferroni but the same Type I error rate. NOTE to SELF: no need to ever use Bonferroni again.</p>
-
 <p>Again in <code>lsr</code> Holm is the default, so you don&rsquo;t have to specify a p.adjust.method</p>
-
 <pre><code>posthocPairwiseR(myANOVA)
-</code></pre>
-
-<p>Next post&hellip; ANOVA assumptions</p>
+</code></pre><p>Next post&hellip; ANOVA assumptions</p>
 
          
       </div>

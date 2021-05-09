@@ -101,118 +101,102 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>lubridate parsing dates automatically</h1>
-         
-
-
-<p>I’ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset…</p>
-<pre class="r"><code># read data from Tidy Tuesday
-penguins_raw &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&#39;) %&gt;%
+         <p>I&rsquo;ve been looking at old Tidy Tuesday datasets this week to try and work out why sometimes date data is automatically parsed as dates, like in the palmer penguin dataset&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># read data from Tidy Tuesday</span>
+penguins_raw <span style="color:#f92672">&lt;-</span> readr<span style="color:#f92672">::</span><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins_raw.csv&#39;</span>) <span style="color:#f92672">%&gt;%</span>
   clean_names
 
-# check class
-class(penguins_raw$date_egg)</code></pre>
-<pre><code>## [1] &quot;Date&quot;</code></pre>
-<pre class="r"><code># pull first date observation
-penguins_raw$date_egg[[1]]</code></pre>
-<pre><code>## [1] &quot;2007-11-11&quot;</code></pre>
-<p>And other times R thinks dates are characters, like in the marbles data.</p>
-<pre class="r"><code># read data from Tidy Tuesday
-marbles &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-02/marbles.csv&#39;)
+<span style="color:#75715e"># check class</span>
+<span style="color:#a6e22e">class</span>(penguins_raw<span style="color:#f92672">$</span>date_egg)
+</code></pre></div><pre><code>## [1] &quot;Date&quot;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># pull first date observation</span>
+penguins_raw<span style="color:#f92672">$</span>date_egg[[1]]
+</code></pre></div><pre><code>## [1] &quot;2007-11-11&quot;
+</code></pre><p>And other times R thinks dates are characters, like in the marbles data.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># read data from Tidy Tuesday</span>
+marbles <span style="color:#f92672">&lt;-</span> readr<span style="color:#f92672">::</span><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-02/marbles.csv&#39;</span>)
 
-# check class
-class(marbles$date)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code># pull first date observation
-marbles$date[[1]]</code></pre>
-<pre><code>## [1] &quot;15-Feb-20&quot;</code></pre>
-<p>I have already learned <a href="http://jenrichmond.rbind.io/post/converting-characters-to-dates/">how to use dmy()</a> and could convert the marble dates into date format pretty easily but…</p>
-<pre class="r"><code># convert date to dmy
-marbles$date &lt;- dmy(marbles$date)
-# check class again
-class(marbles$date)</code></pre>
-<pre><code>## [1] &quot;Date&quot;</code></pre>
-<p>… why doesn’t R recognise them as dates automatically?</p>
-<p>In the marbles data, the raw dates are in day-month-year format (i.e. 15-Feb-20). I like this format (because I live in Australia and it is consistent with how we write dates here), but maybe R prefers <a href="https://en.wikipedia.org/wiki/ISO_8601#:~:text=Although%20the%20standard%20allows%20both,YYYY%2DMM%20format%20is%20allowed1">ISO 8601</a> format (i.e. YYYY-MM-DD) and will only parse dates in that format?</p>
-<p>To test this hypothesis, I made a google form that asked respondents to enter their birthday 3 times…</p>
+<span style="color:#75715e"># check class</span>
+<span style="color:#a6e22e">class</span>(marbles<span style="color:#f92672">$</span>date)
+</code></pre></div><pre><code>## [1] &quot;character&quot;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># pull first date observation</span>
+marbles<span style="color:#f92672">$</span>date[[1]]
+</code></pre></div><pre><code>## [1] &quot;15-Feb-20&quot;
+</code></pre><p>I have already learned <a href="http://jenrichmond.rbind.io/post/converting-characters-to-dates/">how to use dmy()</a> and could convert the marble dates into date format pretty easily but&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># convert date to dmy</span>
+marbles<span style="color:#f92672">$</span>date <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dmy</span>(marbles<span style="color:#f92672">$</span>date)
+<span style="color:#75715e"># check class again</span>
+<span style="color:#a6e22e">class</span>(marbles<span style="color:#f92672">$</span>date)
+</code></pre></div><pre><code>## [1] &quot;Date&quot;
+</code></pre><p>&hellip; why doesn&rsquo;t R recognise them as dates automatically?</p>
+<p>In the marbles data, the raw dates are in day-month-year format (i.e. 15-Feb-20). I like this format (because I live in Australia and it is consistent with how we write dates here), but maybe R prefers <a href="https://en.wikipedia.org/wiki/ISO_8601#:~:text=Although%20the%20standard%20allows%20both,YYYY%2DMM%20format%20is%20allowed1">ISO 8601</a> format (i.e. YYYY-MM-DD) and will only parse dates in that format?</p>
+<p>To test this hypothesis, I made a google form that asked respondents to enter their birthday 3 times&hellip;</p>
 <ul>
 <li>first, however they wanted</li>
 <li>second, using a date template</li>
 <li>third, in yyyy-mm-dd format</li>
 </ul>
-<pre class="r"><code># read data from googlesheets
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># read data from googlesheets</span>
 
-bday &lt;- read_sheet(&quot;https://docs.google.com/spreadsheets/d/18OaHGFe33kvbB3GMCDHdXrmudnR7zEm4Swr-0_JEw4U/edit#gid=1811856339&quot;) </code></pre>
-<pre><code>## Using an auto-discovered, cached token.
-## To suppress this message, modify your code or options to clearly consent to the use of a cached token.
-## See gargle&#39;s &quot;Non-interactive auth&quot; vignette for more details:
-## https://gargle.r-lib.org/articles/non-interactive-auth.html
-## The googlesheets4 package is using a cached token for jennyrichmond@gmail.com.</code></pre>
-<pre class="r"><code>glimpse(bday)</code></pre>
-<pre><code>## Rows: 21
+bday <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sheet</span>(<span style="color:#e6db74">&#34;https://docs.google.com/spreadsheets/d/18OaHGFe33kvbB3GMCDHdXrmudnR7zEm4Swr-0_JEw4U/edit#gid=1811856339&#34;</span>) 
+
+<span style="color:#a6e22e">glimpse</span>(bday)
+</code></pre></div><pre><code>## Rows: 21
 ## Columns: 4
-## $ timestamp     &lt;dttm&gt; 2020-10-12 22:02:34, 2020-10-12 22:18:19, 2020-10…
-## $ free_date     &lt;list&gt; [&quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;,…
-## $ template_date &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…
-## $ iso_date      &lt;chr&gt; &quot;1978-06-30&quot;, &quot;2011-02-17&quot;, &quot;2014-03-25&quot;, &quot;1977-07…</code></pre>
-<p>Well that didn’t turn out as I had expected. The free date entry parses as a list! When you let people enter date without any instructions you end up with data that is REALLY hard to parse.</p>
+## $ timestamp     &lt;dttm&gt; 2020-10-12 22:02:34, 2020-10-12 22:18:19, 2020-10-12 22…
+## $ free_date     &lt;list&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;1977/…
+## $ template_date &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981-09…
+## $ iso_date      &lt;chr&gt; &quot;1978-06-30&quot;, &quot;2011-02-17&quot;, &quot;2014-03-25&quot;, &quot;1977-07-11&quot;, …
+</code></pre><p>Well that didn&rsquo;t turn out as I had expected. The free date entry parses as a list! When you let people enter date without any instructions you end up with data that is REALLY hard to parse.</p>
 <p>The template date is recognised as dttm (datetime format) and appears in R as yyyy-mm-dd, even though in the google sheet it appears in AUS date format (dd-mm-yyyy).</p>
 <p>Most surprising to me is that the data that I asked respondants to enter in ISO format (yyyy-mm-dd) is parsed as characters NOT dates.</p>
 <p>Hmmmmm..</p>
-<div id="what-happens-if-change-the-date-format-in-googlesheets" class="section level3">
-<h3>what happens if change the date format in googlesheets?</h3>
+<h3 id="what-happens-if-change-the-date-format-in-googlesheets">what happens if change the date format in googlesheets?</h3>
 <p>Maybe the number formating in google sheets makes a difference. Here I have copied the iso column into a different sheet and used Format-Number-Date to change the format to be Date in googlesheets.</p>
-<pre class="r"><code># read data from google sheets
-bday_copy &lt;- read_sheet(&quot;https://docs.google.com/spreadsheets/d/12xGBGjoCll8TbT6PpbhVksZGPavAVJqWGUOsWEPSS9c/edit#gid=0&quot;) </code></pre>
-<pre><code>## Reading from &#39;date copy&#39;</code></pre>
-<pre><code>## </code></pre>
-<pre class="r"><code>glimpse(bday_copy)</code></pre>
-<pre><code>## Rows: 21
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># read data from google sheets</span>
+bday_copy <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sheet</span>(<span style="color:#e6db74">&#34;https://docs.google.com/spreadsheets/d/12xGBGjoCll8TbT6PpbhVksZGPavAVJqWGUOsWEPSS9c/edit#gid=0&#34;</span>) 
+</code></pre></div><pre><code>## Reading from &quot;date copy&quot;
+</code></pre><pre><code>## Range &quot;Sheet1&quot;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">glimpse</span>(bday_copy)
+</code></pre></div><pre><code>## Rows: 21
 ## Columns: 1
-## $ iso_date_copy &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…</code></pre>
-<p>Ahhhh so googlesheet dates in date format will read as dates in R. Good to know…</p>
-<p>Now I’m kinda interested, what about .csv or .xlsx format??</p>
-</div>
-<div id="what-happens-if-i-download-the-the-bday-sheet-and-read-it-in-as-a-.csv" class="section level3">
-<h3>What happens if I download the the bday sheet and read it in as a .csv?</h3>
-<pre class="r"><code># read data from csv
-bday_csv &lt;- read_csv(&quot;bday_csv.csv&quot;)
+## $ iso_date_copy &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981-09…
+</code></pre><p>Ahhhh so googlesheet dates in date format will read as dates in R. Good to know&hellip;</p>
+<p>Now I&rsquo;m kinda interested, what about .csv or .xlsx format??</p>
+<h3 id="what-happens-if-i-download-the-the-bday-sheet-and-read-it-in-as-a-csv">What happens if I download the the bday sheet and read it in as a .csv?</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># read data from csv</span>
+bday_csv <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;bday_csv.csv&#34;</span>)
 
-glimpse(bday_csv)</code></pre>
-<pre><code>## Rows: 21
+<span style="color:#a6e22e">glimpse</span>(bday_csv)
+</code></pre></div><pre><code>## Rows: 21
 ## Columns: 4
-## $ timestamp     &lt;chr&gt; &quot;12/10/2020 22:02:35&quot;, &quot;12/10/2020 22:18:20&quot;, &quot;12/…
-## $ free_date     &lt;chr&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;…
-## $ template_date &lt;chr&gt; &quot;30/06/1978&quot;, &quot;17/02/2011&quot;, &quot;25/03/2014&quot;, &quot;11/07/1…
-## $ iso_date      &lt;date&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…</code></pre>
-<p>What? the template date is characters, but the ISO formatted date is a date….</p>
-</div>
-<div id="what-about-excel" class="section level1">
-<h1>What about excel?</h1>
-<pre class="r"><code># read data from xl
-bday_xl &lt;- read_excel(&quot;bday_xl.xlsx&quot;)
+## $ timestamp     &lt;chr&gt; &quot;12/10/2020 22:02:35&quot;, &quot;12/10/2020 22:18:20&quot;, &quot;12/10/202…
+## $ free_date     &lt;chr&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;1977/7…
+## $ template_date &lt;chr&gt; &quot;30/06/1978&quot;, &quot;17/02/2011&quot;, &quot;25/03/2014&quot;, &quot;11/07/1977&quot;, …
+## $ iso_date      &lt;date&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981-09…
+</code></pre><p>What? the template date is characters, but the ISO formatted date is a date&hellip;.</p>
+<h1 id="what-about-excel">What about excel?</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># read data from xl</span>
+bday_xl <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_excel</span>(<span style="color:#e6db74">&#34;bday_xl.xlsx&#34;</span>)
 
-glimpse(bday_xl)</code></pre>
-<pre><code>## Rows: 21
+<span style="color:#a6e22e">glimpse</span>(bday_xl)
+</code></pre></div><pre><code>## Rows: 21
 ## Columns: 4
-## $ timestamp     &lt;dttm&gt; 2020-10-12 22:02:34, 2020-10-12 22:18:19, 2020-10…
-## $ free_date     &lt;chr&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;…
-## $ template_date &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1…
-## $ iso_date      &lt;chr&gt; &quot;1978-06-30&quot;, &quot;2011-02-17&quot;, &quot;2014-03-25&quot;, &quot;1977-07…</code></pre>
-<p>Well that is weird… from .xlsx the template date is dttm but the ISO formatted date is characters- which is the OPPOSITE to what happens with the same data read from a .csv file.</p>
-</div>
-<div id="when-will-r-recognise-my-dates-as-dates" class="section level1">
-<h1>When will R recognise my dates as dates?</h1>
-<p>Bottom line, it depends… where you are reading data from makes a difference. R is more likely to read your dates if the variable in googlesheets or excel is in date format, but from .csv, it seems to like ISO format (yyyy-mm-dd).</p>
-</div>
-<div id="free-entry-dates" class="section level1">
-<h1>Free entry dates</h1>
+## $ timestamp     &lt;dttm&gt; 2020-10-12 22:02:34, 2020-10-12 22:18:19, 2020-10-12 22…
+## $ free_date     &lt;chr&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;1977/7…
+## $ template_date &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981-09…
+## $ iso_date      &lt;chr&gt; &quot;1978-06-30&quot;, &quot;2011-02-17&quot;, &quot;2014-03-25&quot;, &quot;1977-07-11&quot;, …
+</code></pre><p>Well that is weird&hellip; from .xlsx the template date is dttm but the ISO formatted date is characters- which is the OPPOSITE to what happens with the same data read from a .csv file.</p>
+<h1 id="when-will-r-recognise-my-dates-as-dates">When will R recognise my dates as dates?</h1>
+<p>Bottom line, it depends&hellip; where you are reading data from makes a difference.  R is more likely to read your dates if the variable in googlesheets or excel is in date format, but from .csv, it seems to like ISO format (yyyy-mm-dd).</p>
+<h1 id="free-entry-dates">Free entry dates</h1>
 <p>OK what you do with the free date data, when you have forgotten to restrict the way that your participants enter their date.</p>
-<p>Let’s make a new df that includes just the free date and template date variables.</p>
-<pre class="r"><code>free_template &lt;- bday %&gt;%
-  select(free_date, template_date)</code></pre>
-<p>Can <code>lubridate</code> help parse dates that are in a million different formats?</p>
-<pre class="r"><code>head(free_template$free_date)</code></pre>
-<pre><code>## [[1]]
+<p>Let&rsquo;s make a new df that includes just the free date and template date variables.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">free_template <span style="color:#f92672">&lt;-</span> bday <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(free_date, template_date)
+</code></pre></div><p>Can <code>lubridate</code> help parse dates that are in a million different formats?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(free_template<span style="color:#f92672">$</span>free_date)
+</code></pre></div><pre><code>## [[1]]
 ## [1] &quot;30 June 1978&quot;
 ## 
 ## [[2]]
@@ -228,32 +212,29 @@ glimpse(bday_xl)</code></pre>
 ## [1] &quot;4 Sep 1981&quot;
 ## 
 ## [[6]]
-## [1] &quot;11/7/1987&quot;</code></pre>
-<p>Actually, there aren’t a million formats. There are probably only 3 …</p>
+## [1] &quot;11/7/1987&quot;
+</code></pre><p>Actually, there aren&rsquo;t a million formats. There are probably only 3 &hellip;</p>
 <ul>
 <li>dmy</li>
 <li>ymd</li>
 <li>mdy</li>
 </ul>
-<p>… and you can use <code>parse_date_time()</code> to let R know that it should try to parse dates in all 3 formats.</p>
-<pre class="r"><code>free_template &lt;- free_template %&gt;%
-  mutate(free_date_parsed = parse_date_time(free_date, c(&quot;ymd&quot;, &quot;mdy&quot;, &quot;dmy&quot;)))</code></pre>
-<pre><code>## Warning: Problem with `mutate()` input `free_date_parsed`.
-## ℹ  1 failed to parse.
-## ℹ Input `free_date_parsed` is `parse_date_time(free_date, c(&quot;ymd&quot;, &quot;mdy&quot;, &quot;dmy&quot;))`.</code></pre>
-<pre><code>## Warning: 1 failed to parse.</code></pre>
-<pre class="r"><code>glimpse(free_template)</code></pre>
-<pre><code>## Rows: 21
+<p>&hellip; and you can use <code>parse_date_time()</code> to let R know that it should try to parse dates in all 3 formats.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">free_template <span style="color:#f92672">&lt;-</span> free_template <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(free_date_parsed <span style="color:#f92672">=</span> <span style="color:#a6e22e">parse_date_time</span>(free_date, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;ymd&#34;</span>, <span style="color:#e6db74">&#34;mdy&#34;</span>, <span style="color:#e6db74">&#34;dmy&#34;</span>)))
+</code></pre></div><pre><code>## Warning: 1 failed to parse.
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">glimpse</span>(free_template)
+</code></pre></div><pre><code>## Rows: 21
 ## Columns: 3
-## $ free_date        &lt;list&gt; [&quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 201…
-## $ template_date    &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11…
-## $ free_date_parsed &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11…</code></pre>
-<p>Wow- that is pretty impressive, only 1 failed to parse. The only date that failed was the one entry that didn’t have a year (i.e. Aug 21). But were there any errors?</p>
-<p>Let’s compare the free_date to the template_date. If there is any time between them, something went wrong with the <code>parse_date_time()</code>. Use mutate to make a new variable subtracting one date from the other.</p>
-<pre class="r"><code># make a new variable to check whether there is any difference between free and template date
-free_template %&gt;%
-  mutate(date_check = free_date_parsed - template_date)</code></pre>
-<pre><code>## # A tibble: 21 x 4
+## $ free_date        &lt;list&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;19…
+## $ template_date    &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981…
+## $ free_date_parsed &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981…
+</code></pre><p>Wow- that is pretty impressive, only 1 failed to parse. The only date that failed was the one entry that didn&rsquo;t have a year (i.e. Aug 21). But were there any errors?</p>
+<p>Let&rsquo;s compare the free_date to the template_date. If there is any time between them, something went wrong with the <code>parse_date_time()</code>. Use mutate to make a new variable subtracting one date from the other.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># make a new variable to check whether there is any difference between free and template date</span>
+free_template <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(date_check <span style="color:#f92672">=</span> free_date_parsed <span style="color:#f92672">-</span> template_date)
+</code></pre></div><pre><code>## # A tibble: 21 x 4
 ##    free_date template_date       free_date_parsed    date_check     
 ##    &lt;list&gt;    &lt;dttm&gt;              &lt;dttm&gt;              &lt;drtn&gt;         
 ##  1 &lt;chr [1]&gt; 1978-06-30 00:00:00 1978-06-30 00:00:00          0 secs
@@ -266,49 +247,45 @@ free_template %&gt;%
 ##  8 &lt;chr [1]&gt; 1967-07-06 00:00:00 2067-07-06 00:00:00 3155760000 secs
 ##  9 &lt;chr [1]&gt; 1979-05-02 00:00:00 1979-05-02 00:00:00          0 secs
 ## 10 &lt;chr [1]&gt; 1982-03-28 00:00:00 1982-03-28 00:00:00          0 secs
-## # … with 11 more rows</code></pre>
-<pre class="r"><code>glimpse(free_template)</code></pre>
-<pre><code>## Rows: 21
+## # … with 11 more rows
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">glimpse</span>(free_template)
+</code></pre></div><pre><code>## Rows: 21
 ## Columns: 3
-## $ free_date        &lt;list&gt; [&quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 201…
-## $ template_date    &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11…
-## $ free_date_parsed &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11…</code></pre>
-<p>Mostly there is 0 sec difference between the new free_dates and the template date- yay! The only instance where it made an error was the case where the year was only 2 digits.</p>
-<pre class="r"><code>bday$free_date[[8]]</code></pre>
-<pre><code>## [1] &quot;6th july 67&quot;</code></pre>
-<p>Of interest, placing a ’ in the missing digit space on a year, makes the date parse just fine.</p>
-<pre class="r"><code>bday$free_date[[10]]</code></pre>
-<pre><code>## [1] &quot;March 28, ‘82&quot;</code></pre>
-</div>
-<div id="excel-behaving-badly" class="section level1">
-<h1>excel behaving badly</h1>
-<p>I haven’t encountered this yet, but if there is a function in the <code>janitor</code> package to deal with a problem it must be common. Apparently sometimes <a href="https://blog.exploratory.io/how-to-convert-excel-numeric-dates-to-date-data-type-in-r-5b100547007f">dates from excel import into R as numeric</a></p>
-<p>Use <code>janitor::excel_numeric_to_date()</code> to convert…</p>
-</div>
-<div id="what-have-i-learned-about-lubridate-now" class="section level1">
-<h1>What have I learned about lubridate now?</h1>
+## $ free_date        &lt;list&gt; &quot;30 June 1978&quot;, &quot;17 Feb, 2011&quot;, &quot;March 25 2014&quot;, &quot;19…
+## $ template_date    &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981…
+## $ free_date_parsed &lt;dttm&gt; 1978-06-30, 2011-02-17, 2014-03-25, 1977-07-11, 1981…
+</code></pre><p>Mostly there is 0 sec difference between the new free_dates and the template date- yay!  The only instance where it made an error was the case where the year was only 2 digits.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bday<span style="color:#f92672">$</span>free_date[[8]]
+</code></pre></div><pre><code>## [1] &quot;6th july 67&quot;
+</code></pre><p>Of interest, placing a ' in the missing digit space on a year, makes the date parse just fine.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bday<span style="color:#f92672">$</span>free_date[[10]]
+</code></pre></div><pre><code>## [1] &quot;March 28, ‘82&quot;
+</code></pre><h1 id="excel-behaving-badly">excel behaving badly</h1>
+<p>I haven&rsquo;t encountered this yet, but if there is a function in the <code>janitor</code> package to deal with a problem it must be common. Apparently sometimes <a href="https://blog.exploratory.io/how-to-convert-excel-numeric-dates-to-date-data-type-in-r-5b100547007f">dates from excel import into R as numeric</a></p>
+<p>Use <code>janitor::excel_numeric_to_date()</code> to convert&hellip;</p>
+<h1 id="what-have-i-learned-about-lubridate-now">What have I learned about lubridate now?</h1>
 <ul>
 <li>getting R to automatically recognise your dates as dates is a bit of a crap shoot
 <ul>
 <li>depends on where you are reading your data from (googlesheets, csv, excel) and how much leeway you gave your participants when they were entering them</li>
-</ul></li>
+</ul>
+</li>
 <li>best to not allow participants free reign over their date entry
 <ul>
 <li>but if you do, <code>parse_date_time()</code> does a decent job of pulling different formats into a consistent one</li>
-</ul></li>
 </ul>
-</div>
-<div id="what-do-i-still-have-to-learn" class="section level1">
-<h1>What do I still have to learn?</h1>
+</li>
+</ul>
+<h1 id="what-do-i-still-have-to-learn">What do I still have to learn?</h1>
 <ul>
 <li>another thing that <code>lubridate</code> helps you do is deal with doing math with dates
 <ul>
 <li>how much time is there between x date and x date?</li>
 <li>what will the date be 100 days from now?</li>
-</ul></li>
-<li>I don’t know what the difference is between a duration, a period, and an interval, but apparently its a thing… that is next on my list.</li>
 </ul>
-</div>
+</li>
+<li>I don&rsquo;t know what the difference is between a duration, a period, and an interval, but apparently its a thing&hellip; that is next on my list.</li>
+</ul>
 
          
       </div>

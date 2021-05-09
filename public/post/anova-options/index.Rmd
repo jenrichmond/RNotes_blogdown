@@ -63,6 +63,7 @@ The ezANOVA() function asks you to specify...
 - return_aov = TRUE
 
 ##### ezANOVA formula
+
 ```{r eval= FALSE}
 ez1 <- ezANOVA(data = data_long, 
                dv = outcome, 
@@ -95,6 +96,7 @@ afex is nice because it includes generalised eta sq in output table. It also has
 ##### afex formula
 
 ```{r eval = FALSE}
+
 afex1 <- aov_ez("participant", "outcome", 
                 data_long, 
                 between = "b1", 

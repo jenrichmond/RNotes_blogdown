@@ -101,150 +101,104 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>ggplot tricks</h1>
-         
-
-
-<p>Here are some ggplot tricks that I shared at the R-Ladies Sydney June Show and Tell.</p>
-<div id="why-is-my-internet-speed-so-terrible" class="section level1">
-<h1>Why is my internet speed so terrible?</h1>
+         <p>Here are some ggplot tricks that I shared at the R-Ladies Sydney June Show and Tell.</p>
+<h1 id="why-is-my-internet-speed-so-terrible">Why is my internet speed so terrible?</h1>
 <p>Working from home and pivoting to teaching online has made me realise that my wifi connection is really bad, particularly when it rains. I have been teaching new honours students R and needed a little dataset to demo how to get data into R, so made a google form and put it out on twitter to confirm to myself that my connection really is worse than most other people. You can contribute to the <a href="www.tinyurl.com/howcrappyisyourinternet">data here</a>.</p>
-</div>
-<div id="packages-for-reading-data-into-r" class="section level1">
-<h1>Packages for reading data into R</h1>
-<pre class="r"><code>library(tidyverse) # includes readr for .csv files
-library(readxl) #for excel files
-library(googlesheets4) #read straight from google sheets
-library(datapasta) # for pasting data into R
-library(janitor) # quick name cleaning</code></pre>
-<div id="read-csv-or-xlsx" class="section level4">
-<h4>1. read csv or xlsx</h4>
+<h1 id="packages-for-reading-data-into-r">Packages for reading data into R</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse) <span style="color:#75715e"># includes readr for .csv files</span>
+<span style="color:#a6e22e">library</span>(readxl) <span style="color:#75715e">#for excel files</span>
+<span style="color:#a6e22e">library</span>(googlesheets4) <span style="color:#75715e">#read straight from google sheets</span>
+<span style="color:#a6e22e">library</span>(datapasta) <span style="color:#75715e"># for pasting data into R</span>
+<span style="color:#a6e22e">library</span>(janitor) <span style="color:#75715e"># quick name cleaning</span>
+</code></pre></div><h4 id="1-read-csv-or-xlsx">1. read csv or xlsx</h4>
 <p>The standard way to get data into R is to read a file that you have downloaded.</p>
 <p>Read a .csv file</p>
-<pre class="r"><code>speed1 &lt;- read_csv(&quot;crappy_internet.csv&quot;)</code></pre>
-<p>Read an excel file</p>
-<pre class="r"><code> speed2 &lt;- read_excel(&quot;crappy_internet.xlsx&quot;)</code></pre>
-</div>
-<div id="direct-from-google-docs" class="section level4">
-<h4>2. direct from google docs</h4>
-<p>But the <code>googlesheets4</code> package allows you to authenticate your google account and read data straight from from googlesheets using only the url. More info here <a href="https://googlesheets4.tidyverse.org/" class="uri">https://googlesheets4.tidyverse.org/</a></p>
-<pre class="r"><code>speed3 &lt;- read_sheet(&quot;https://docs.google.com/spreadsheets/d/1yyl4fNMErNQ5mQaYgc2ELF7zF6cEPcfRNUtWr56nkg8/edit#gid=552570759&quot;) %&gt;%
-  clean_names()</code></pre>
-<pre><code>## Using an auto-discovered, cached token.
-## To suppress this message, modify your code or options to clearly consent to the use of a cached token.
-## See gargle&#39;s &quot;Non-interactive auth&quot; vignette for more details:
-## https://gargle.r-lib.org/articles/non-interactive-auth.html
-## The googlesheets4 package is using a cached token for jennyrichmond@gmail.com.</code></pre>
-</div>
-<div id="datapasta" class="section level4">
-<h4>3. datapasta</h4>
-<p>Alternatively, you can copy and “paste” the data into R using the datapasta package. Find the <a href="https://cran.r-project.org/web/packages/datapasta/vignettes/how-to-datapasta.html">vignette here</a></p>
-<pre class="r"><code>speed4 &lt;- # select your data and do Ctrl-C, put your cursor here, and choose Addins, paste as dataframe, and then run the chunk</code></pre>
-</div>
-</div>
-<div id="packages-for-plotting" class="section level1">
-<h1>Packages for plotting</h1>
-<pre class="r"><code>library(ggbeeswarm) # add noise to point plots
-library(ggeasy) # easy wrappers for difficult to remember ggplot things
-library(papaja) # this is mostly a package for writing APA formatted manuscripts, but it also includes a ggplot theme that is nice</code></pre>
-<div id="first-make-the-data-long" class="section level3">
-<h3>First make the data long</h3>
-<pre class="r"><code>speedlong &lt;- speed3 %&gt;%
-  select(where_do_you_live, is_it_raining, ends_with(&quot;speed&quot;)) %&gt;%
-  pivot_longer(names_to = &quot;updown&quot;, values_to = &quot;speed&quot;, download_speed:upload_speed)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speed1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;crappy_internet.csv&#34;</span>)
+</code></pre></div><p>Read an excel file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"> speed2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_excel</span>(<span style="color:#e6db74">&#34;crappy_internet.xlsx&#34;</span>)
+</code></pre></div><h4 id="2-direct-from-google-docs">2. direct from google docs</h4>
+<p>But the <code>googlesheets4</code> package allows you to authenticate your google account and read data straight from from googlesheets using only the url. More info here <a href="https://googlesheets4.tidyverse.org/">https://googlesheets4.tidyverse.org/</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speed3 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sheet</span>(<span style="color:#e6db74">&#34;https://docs.google.com/spreadsheets/d/1yyl4fNMErNQ5mQaYgc2ELF7zF6cEPcfRNUtWr56nkg8/edit#gid=552570759&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">clean_names</span>()
+</code></pre></div><h4 id="3-datapasta">3. datapasta</h4>
+<p>Alternatively, you can copy and &ldquo;paste&rdquo; the data into R using the datapasta package. Find the <a href="https://cran.r-project.org/web/packages/datapasta/vignettes/how-to-datapasta.html">vignette here</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speed4 <span style="color:#f92672">&lt;-</span> <span style="color:#75715e"># select your data and do Ctrl-C, put your cursor here, and choose Addins, paste as dataframe, and then run the chunk</span>
+</code></pre></div><h1 id="packages-for-plotting">Packages for plotting</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(ggbeeswarm) <span style="color:#75715e"># add noise to point plots</span>
+<span style="color:#a6e22e">library</span>(ggeasy) <span style="color:#75715e"># easy wrappers for difficult to remember ggplot things</span>
+<span style="color:#a6e22e">library</span>(papaja) <span style="color:#75715e"># this is mostly a package for writing APA formatted manuscripts, but it also includes a ggplot theme that is nice</span>
+</code></pre></div><h3 id="first-make-the-data-long">First make the data long</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">&lt;-</span> speed3 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(where_do_you_live, is_it_raining, <span style="color:#a6e22e">ends_with</span>(<span style="color:#e6db74">&#34;speed&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">pivot_longer</span>(names_to <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;updown&#34;</span>, values_to <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;speed&#34;</span>, download_speed<span style="color:#f92672">:</span>upload_speed)
 
-speedlong$is_it_raining &lt;- fct_relevel(speedlong$is_it_raining, c(&quot;Yes&quot;, &quot;No&quot;))</code></pre>
-</div>
-<div id="plot-up-and-download-speeds." class="section level3">
-<h3>Plot up and download speeds.</h3>
+speedlong<span style="color:#f92672">$</span>is_it_raining <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">fct_relevel</span>(speedlong<span style="color:#f92672">$</span>is_it_raining, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Yes&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>))
+</code></pre></div><h3 id="plot-up-and-download-speeds">Plot up and download speeds.</h3>
 <p>There is 1 lucky person in the dataset who apparently has download speeds of &gt; 150 mb/s, just filtering them out of each plot.</p>
-<div id="geom_point" class="section level4">
-<h4>1. geom_point()</h4>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed)) +
-  geom_point(size = 3) </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/pointplot-1.png" width="672" /></p>
+<h4 id="1-geom_point">1. geom_point()</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>) 
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/pointplot-1.png" width="672" /></p>
 <p>This plot is ok, but all the points are on top of each other.
 Use the ggbeeswarm package to add a little noise.</p>
-</div>
-<div id="geom_beeswarm" class="section level4">
-<h4>2. geom_beeswarm()</h4>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed)) +
-  geom_beeswarm(size = 3) </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/ggbeeswarm-1.png" width="672" />
-Beeswarm is better but I’d like more noise.</p>
-</div>
-<div id="geom_quasirandom" class="section level4">
-<h4>3. geom_quasirandom()</h4>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed)) +
-  geom_quasirandom(width = 0.2, size = 3)</code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/quasirandom-1.png" width="672" /></p>
+<h4 id="2-geom_beeswarm">2. geom_beeswarm()</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_beeswarm</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>) 
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/ggbeeswarm-1.png" width="672" />
+Beeswarm is better but I&rsquo;d like more noise.</p>
+<h4 id="3-geom_quasirandom">3. geom_quasirandom()</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_quasirandom</span>(width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/quasirandom-1.png" width="672" /></p>
 <p>Now I want to know which of these points were collected when it was raining.</p>
-</div>
-<div id="colouring-the-points" class="section level4">
-<h4>4. colouring the points</h4>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed, colour = is_it_raining)) +
-  geom_quasirandom(width = 0.2, size = 3)</code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/colourrain-1.png" width="672" /></p>
-</div>
-<div id="facet_wrap" class="section level4">
-<h4>5. facet_wrap()</h4>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed, colour = is_it_raining)) +
-  geom_quasirandom(width = 0.2, size = 3) +
-  facet_wrap(~ is_it_raining)</code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/facet-rain-1.png" width="672" /></p>
-</div>
-</div>
-<div id="making-ggplot-easy" class="section level2">
-<h2>Making ggplot easy</h2>
+<h4 id="4-colouring-the-points">4. colouring the points</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed, colour <span style="color:#f92672">=</span> is_it_raining)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_quasirandom</span>(width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/colourrain-1.png" width="672" /></p>
+<h4 id="5-facet_wrap">5. facet_wrap()</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed, colour <span style="color:#f92672">=</span> is_it_raining)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_quasirandom</span>(width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> is_it_raining)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/facet-rain-1.png" width="672" /></p>
+<h2 id="making-ggplot-easy">Making ggplot easy</h2>
 <p>Now this version has lots of duplicated information. We probably don’t need the legend. How to remove the legend is something I have to google EVERY TIME. The ggplot solution is <code>+ theme(legend.title = element_blank())</code> — hard to remember</p>
-<div id="easily-remove-the-legend" class="section level4">
-<h4>6. easily remove the legend</h4>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed, colour = is_it_raining)) +
-  geom_quasirandom(width = 0.2, size = 3) +
-  facet_wrap(~ is_it_raining) +
-  easy_remove_legend() </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/easynolegend-1.png" width="672" /></p>
-</div>
-<div id="fix-the-formatting" class="section level4">
-<h4>7. fix the formatting</h4>
+<h4 id="6-easily-remove-the-legend">6. easily remove the legend</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed, colour <span style="color:#f92672">=</span> is_it_raining)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_quasirandom</span>(width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> is_it_raining) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">easy_remove_legend</span>() 
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/easynolegend-1.png" width="672" /></p>
+<h4 id="7-fix-the-formatting">7. fix the formatting</h4>
 <p>I really dislike the grey default of ggplot. Use theme_apa() to get nice formatting</p>
-<pre class="r"><code>speedlong %&gt;%
-  filter(speed &lt; 100) %&gt;%
- ggplot(aes(x = updown, y = speed, colour = is_it_raining)) +
-  geom_quasirandom(width = 0.2, size = 3) +
-  facet_wrap(~ is_it_raining) +
-  theme_apa() + 
-  easy_remove_legend() </code></pre>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/figure-html/apa-plot-1.png" width="672" /></p>
-</div>
-</div>
-<div id="getting-plots-out-of-ggplot" class="section level2">
-<h2>Getting plots out of ggplot</h2>
-<div id="option-1-ggsave" class="section level4">
-<h4>Option 1: ggsave()</h4>
-<p>Put ggsave(“nameofplot.png”) at the end of each chunk and it will export the most recent plot.</p>
-<pre class="r"><code>ggsave(&quot;testplot.png&quot;)</code></pre>
-</div>
-<div id="option-2-rmarkdown-magic" class="section level4">
-<h4>Option 2: RMarkdown magic</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">speedlong <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(speed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+ <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> updown, y <span style="color:#f92672">=</span> speed, colour <span style="color:#f92672">=</span> is_it_raining)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_quasirandom</span>(width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> is_it_raining) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_apa</span>() <span style="color:#f92672">+</span> 
+  <span style="color:#a6e22e">easy_remove_legend</span>() 
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/ggplot-tricks/index_files/figure-html/apa-plot-1.png" width="672" /></p>
+<h2 id="getting-plots-out-of-ggplot">Getting plots out of ggplot</h2>
+<h4 id="option-1-ggsave">Option 1: ggsave()</h4>
+<p>Put ggsave(&ldquo;nameofplot.png&rdquo;) at the end of each chunk and it will export the most recent plot.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggsave</span>(<span style="color:#e6db74">&#34;testplot.png&#34;</span>)
+</code></pre></div><h4 id="option-2-rmarkdown-magic">Option 2: RMarkdown magic</h4>
 <p>Use fig.path in your RMarkdown setup chunk (the one that looks like this at the top of your .Rmd) to export all your plots to a figures folder.</p>
-<p><img src="/post/2020-07-04-ggplot-tricks_files/Screen%20Shot%202020-07-04%20at%202.36.00%20pm.png" /></p>
-<p>This is where chunk labels are important. If your chunks are not labelled the exported files will be called “unnamed-chunk-somenumber.png” BUT if you label the chunk the file name of the exported plot will be meaningful.</p>
+<p>![](/post/2020-07-04-ggplot-tricks_files/Screen Shot 2020-07-04 at 2.36.00 pm.png)</p>
+<p>This is where chunk labels are important. If your chunks are not labelled the exported files will be called &ldquo;unnamed-chunk-somenumber.png&rdquo; BUT if you label the chunk the file name of the exported plot will be meaningful.</p>
 <p>Check out the <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">RMarkdown reference guide for details</a></p>
-</div>
-</div>
-</div>
 
          
       </div>

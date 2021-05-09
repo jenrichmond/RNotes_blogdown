@@ -104,37 +104,32 @@
          <p>I have been playing with a new (not actually new, but new to R) dataset this week.</p>
 <h4 id="successes">Successes:</h4>
 <ol>
-<li>I loaded the data in using <code>read_csv</code>. *** see ERRATUM below</li>
-<li>I fixed some weird data type assumptions.</li>
+<li>I loaded the data in using <code>read_csv</code>.</li>
+<li>I made dates into dates.</li>
 </ol>
 <ul>
 <li>The interview group is listed as 1s and 2s in the file so R thought those were  integers. So I used <code>as.factor</code> to convert.</li>
 </ul>
 <pre><code>dataframe$variable &lt;- as.factor(dataframe$variable) 
 
-</code></pre><hr>
-<p><code>read_csv</code> did weird things with dates, importing them as factors. People say that <code>read_csv</code> makes fewer weird assumptions than <code>read.csv</code> but I am not yet convinced. I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too. **** see ERRATUM</p>
-<hr>
+</code></pre><p>I used <code>lubridate</code> package to specify that DOB and Test_date were dates with Day Month Year (dmy) format. It was pretty clever and dealt nicely with some inconsistencies in date format too.</p>
 <pre><code>mutate(DOB = dmy(DOB), Test_Date= dmy(Test_Date))
  
-</code></pre><hr>
-<h5 id="erratum">ERRATUM</h5>
-<p>My bad&hellip; the dates as factors issue was caused by <code>read.csv</code> NOT <code>read_csv</code>. When I posted this to twitter, <a href="https://twitter.com/apreshill">Alison Hill</a> helpfully pointed out that there is no way to read in a factor by default in readr. So this is an example of how <code>read_csv</code> does a &ldquo;better&rdquo; job than <code>read.csv</code>. Better in the sense that is automatically imports everything that isn&rsquo;t a number as a character rather than assuming things are factors. I still need to use <code>lubridate</code> to convert character to dates (DOB Test_Date) and integers to factors (InterviewGroup) though.</p>
-<hr>
-<h4 id="challenges">Challenges</h4>
+</code></pre><h4 id="challenges">Challenges</h4>
 <p>Now that I have dates that are dates, I&rsquo;d like to calculate how old these kids are. Just subtracting DOB from Test_Date does OK, except that it calculates age in Days.</p>
 <pre><code>mutate(agedays = (Test_Date-DOB))    
+
 </code></pre><p>I mostly work with infants and preschoolers so I really want age in Weeks or Months, not Days or Years. Turns out this is a bit challenging. I could just estimate age in months by dividing the Days by 30, which works, kind of. The result is in time format but still in days.</p>
 <p>Help google!!</p>
 <p>This function on github has potential.</p>
 <p><a href="https://gist.github.com/mmparker/7254445">https://gist.github.com/mmparker/7254445</a></p>
 <p>It does a really nice job of calculating age even when I use my date variables.</p>
 <pre><code>mutate(ageyear = calc_age(DOB, Test_Date))
+
 </code></pre><p>BUT&hellip;. the output is years.</p>
 <p>Trying to work out how to adapt this function for my purpose sent me down a little rabbit hole re what is a function and how you make one.</p>
 <p>This one is pretty simple, a good introduction, me  thinks&hellip;</p>
 <h4 id="function-to-calculate-age">Function to calculate age:</h4>
-<hr>
 <pre><code>calc_age &lt;- function(birthDate, refDate = Sys.Date()) {
 
     require(lubridate)
@@ -146,13 +141,11 @@
 
 } 
 
-</code></pre><hr>
-<p>My understanding is that this piece of code creates a function called <code>calc_age</code> that take inputs of birthDate and refDate, although if you skip the refDate input it will default to Sys.Date, which would be useful if you wanted to know what age was today. Using my birthday as input&hellip;</p>
+</code></pre><p>My understanding is that this piece of code creates a function called <code>calc_age</code> that take inputs of birthDate and refDate, although if you skip the refDate input it will default to Sys.Date, which would be useful if you wanted to know what age was today. Using my birthday as input&hellip;</p>
 <pre><code>calc_age(&quot;1978/06/30&quot;)
 </code></pre><p>&hellip;gives answer = 40</p>
 <p>Yup, I&rsquo;m still 40.</p>
 <p>The nuts and bolts are between the curly brackets. This function requires the lubridate package, and defines the &ldquo;period&rdquo; as an interval between birthDate and refDate, specifying that it is a period (rather than an interval or duration)</p>
-<hr>
 <h4 id="note">NOTE</h4>
 <blockquote>
 <p>lubridate object classes</p>
@@ -163,7 +156,6 @@
 <li>intervals, which represent a starting and ending point.<br>
 (from <a href="http://r4ds.had.co.nz/dates-and-times.html#time-spans">http://r4ds.had.co.nz/dates-and-times.html#time-spans</a>)</li>
 </ol>
-<hr>
 <p><code>lubridate</code> is smart with dates right? I should be able to just change the unit = months and it would work? Sadly, no.</p>
 <p>I need help&hellip;</p>
 <h3 id="update">UPDATE</h3>

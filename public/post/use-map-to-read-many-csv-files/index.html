@@ -108,8 +108,56 @@
 <p>Get list of .csv files called files. The code below looks for files that have .csv as part of the filename in the the working directory</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">files <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dir</span>(pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;*.csv&#34;</span>)
 files
-</code></pre></div><pre><code>## character(0)
-</code></pre><p>The code below takes that list of files, pipes it to a map function that runs read_csv on each file, then pipes that to a  rbind function that reduces those many files into a one dataframe called data.</p>
+</code></pre></div><p>The code below takes that list of files, pipes it to a map function that runs read_csv on each file, then pipes that to a  rbind function that reduces those many files into a one dataframe called data.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data1 <span style="color:#f92672">&lt;-</span> files <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">map</span>(read_csv) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">reduce</span>(rbind)
+</code></pre></div><p>NOTE this method doesn&rsquo;t retain any info from individual files, so it is important that the individual .csv files contain an ID column like participant already.</p>
+<h5 id="option-2a">Option 2A</h5>
+<p>This is bit more complicated, use when your .csv files contain ID/participant and all live in a subfolder (i.e. Datafiles) of your working directory</p>
+<p>The code below does the same but is useful if you want to specify where the data is.</p>
+<p>First define the stuff:</p>
+<ul>
+<li>data_path = where the data is</li>
+<li>files = the names in that directory</li>
+</ul>
+<p>Then use those values to import data in same way.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data_path <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;./Datafiles&#34;</span>   
+files <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dir</span>(data_path, pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;*clean.csv&#34;</span>) 
+
+data2A <span style="color:#f92672">&lt;-</span> files <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">map</span>(<span style="color:#f92672">~</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#a6e22e">file.path</span>(data_path, .))) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">reduce</span>(rbind)
+</code></pre></div><h5 id="option-2b">Option 2B</h5>
+<p>This is the same as above, except for spelling out the function(x). The ~ above is jsut a shortcut for the anonymous function(x).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data_path <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;./Datafiles&#34;</span>   
+files <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dir</span>(data_path, pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;*clean.csv&#34;</span>) 
+
+
+data2B <span style="color:#f92672">&lt;-</span> files <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">function</span>(x) <span style="color:#a6e22e">read_csv</span>(<span style="color:#a6e22e">file.path</span>(data_path, x))) <span style="color:#f92672">%&gt;%</span>  
+  <span style="color:#a6e22e">reduce</span>(rbind)
+</code></pre></div><h5 id="option-3">Option 3</h5>
+<p>This is more complicated but is essential if your .csv files don&rsquo;t contain an ID/participant column yet.</p>
+<p>To keep info about each .csv, define the stuff (data_path and files), then use dataframe() to create a dataframe containing the a single variable = files, pipe that to a mutate function creating a new variable that contains each file&rsquo;s contents. Yes this is crazy, it actually puts the entire contents of the file in a single variable.  Use unnest() to turn that crazy single column into a useful thing.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data_path <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;./Datafiles&#34;</span>   
+files <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dir</span>(data_path, pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;*clean.csv&#34;</span>) 
+
+data3 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data_frame</span>(filename <span style="color:#f92672">=</span> files) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(file_contents <span style="color:#f92672">=</span> <span style="color:#a6e22e">map</span>(filename,      
+           <span style="color:#f92672">~</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#a6e22e">file.path</span>(data_path, .))) 
+  )
+
+data3useful <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">unnest</span>(data3)
+</code></pre></div><p><strong>NOTE</strong></p>
+<ul>
+<li>
+<p>when .csv files have a Participant/ID variable it is easiest to use Option 1.</p>
+</li>
+<li>
+<p>when .csv files come straight from <code>datapasta</code> and don&rsquo;t include participant info, need to use Option 3.</p>
+</li>
+</ul>
          
       </div>
     </div>

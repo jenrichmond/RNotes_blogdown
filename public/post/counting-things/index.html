@@ -101,80 +101,55 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>IDHTG counting things</h1>
-         
-
-<div id="TOC">
-<ul>
-<li><a href="#count-distinct-values">count distinct values</a></li>
-<li><a href="#counting-by-levels">counting by levels</a></li>
-</ul>
-</div>
-
-<p>Sometimes things that are really easy to do in excel are not so intuitive in R. Like counting things. Because most of the time I am working with data in long format, you can end up with hundreds of observations, so functions like length() aren’t useful. Today I just wanted to check how many participants were in this dataset and it took me some significant googling.</p>
-<div id="load-packages" class="section level5">
-<h5>load packages</h5>
-<pre class="r"><code>library(tidyverse)
-library(ggbeeswarm)
-library(janitor)</code></pre>
-</div>
-<div id="create-a-little-df" class="section level5">
-<h5>create a little df</h5>
-<pre class="r"><code>df &lt;- data.frame(&quot;pp_no&quot; = 1:16, 
-                 &quot;group&quot; = c(&quot;control&quot;, &quot;control&quot;,&quot;control&quot;,&quot;control&quot;, &quot;exp&quot;, &quot;exp&quot;, &quot;exp&quot;, &quot;exp&quot;),
-                &quot;delay&quot; = c(&quot;short&quot;,&quot;long&quot;), 
-                &quot;condition&quot; = c(&quot;easy&quot;, &quot;easy&quot;, &quot;difficult&quot;, &quot;difficult&quot;),
-                &quot;score&quot; = c(82, 75, 76, 72, 86, 89, 85, 87, 87, 76, 78, 85, 97, 87, 94, 87))</code></pre>
-</div>
-<div id="count-distinct-values" class="section level3">
-<h3>count distinct values</h3>
-<p>Having data in long format makes it difficult to count things because values repeat. You are really wanting to count how many distinct values there are. My intuition is to use the <code>distinct()</code> function from dplyr, but it SELECTS distinct rows, but doesn’t count them.</p>
+         <p>Sometimes things that are really easy to do in excel are not so intuitive in R. Like counting things. Because most of the time I am working with data in long format, you can end up with hundreds of observations, so functions like length() aren&rsquo;t useful. Today I just wanted to check how many participants were in this dataset and it took me some significant googling.</p>
+<h5 id="load-packages">load packages</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+<span style="color:#a6e22e">library</span>(ggbeeswarm)
+<span style="color:#a6e22e">library</span>(janitor)
+</code></pre></div><h5 id="create-a-little-df">create a little df</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#e6db74">&#34;pp_no&#34;</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">16</span>, 
+                 <span style="color:#e6db74">&#34;group&#34;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;control&#34;</span>, <span style="color:#e6db74">&#34;control&#34;</span>,<span style="color:#e6db74">&#34;control&#34;</span>,<span style="color:#e6db74">&#34;control&#34;</span>, <span style="color:#e6db74">&#34;exp&#34;</span>, <span style="color:#e6db74">&#34;exp&#34;</span>, <span style="color:#e6db74">&#34;exp&#34;</span>, <span style="color:#e6db74">&#34;exp&#34;</span>),
+                <span style="color:#e6db74">&#34;delay&#34;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;short&#34;</span>,<span style="color:#e6db74">&#34;long&#34;</span>), 
+                <span style="color:#e6db74">&#34;condition&#34;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;easy&#34;</span>, <span style="color:#e6db74">&#34;easy&#34;</span>, <span style="color:#e6db74">&#34;difficult&#34;</span>, <span style="color:#e6db74">&#34;difficult&#34;</span>),
+                <span style="color:#e6db74">&#34;score&#34;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">82</span>, <span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">76</span>, <span style="color:#ae81ff">72</span>, <span style="color:#ae81ff">86</span>, <span style="color:#ae81ff">89</span>, <span style="color:#ae81ff">85</span>, <span style="color:#ae81ff">87</span>, <span style="color:#ae81ff">87</span>, <span style="color:#ae81ff">76</span>, <span style="color:#ae81ff">78</span>, <span style="color:#ae81ff">85</span>, <span style="color:#ae81ff">97</span>, <span style="color:#ae81ff">87</span>, <span style="color:#ae81ff">94</span>, <span style="color:#ae81ff">87</span>))
+</code></pre></div><h3 id="count-distinct-values">count distinct values</h3>
+<p>Having data in long format makes it difficult to count things because values repeat. You are really wanting to count how many distinct values there are. My intuition is to use the <code>distinct()</code> function from dplyr, but it SELECTS distinct rows, but doesn&rsquo;t count them.</p>
 <p>It is the <code>n_distinct()</code> function will give you a count of the distinct values in a variable</p>
-<pre class="r"><code>n_distinct(df$pp_no)</code></pre>
-<pre><code>## [1] 16</code></pre>
-<p>In order to count the number of participants in each group, you need to combine <code>group_by</code> and summarise, with n_distinct like this</p>
-<pre class="r"><code>df %&gt;%
-  group_by(group) %&gt;%
-  summarise(pp_count = n_distinct(pp_no))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 2 x 2
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">n_distinct</span>(df<span style="color:#f92672">$</span>pp_no)
+</code></pre></div><pre><code>## [1] 16
+</code></pre><p>In order to count the number of participants in each group, you need to combine <code>group_by</code> and summarise, with n_distinct like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(group) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(pp_count <span style="color:#f92672">=</span> <span style="color:#a6e22e">n_distinct</span>(pp_no))
+</code></pre></div><pre><code>## # A tibble: 2 x 2
 ##   group   pp_count
-##   &lt;fct&gt;      &lt;int&gt;
+##   &lt;chr&gt;      &lt;int&gt;
 ## 1 control        8
-## 2 exp            8</code></pre>
-</div>
-<div id="counting-by-levels" class="section level3">
-<h3>counting by levels</h3>
+## 2 exp            8
+</code></pre><h3 id="counting-by-levels">counting by levels</h3>
 <p>The other counting thing I do a lot if counting observations by group (or other categorical variable). Although there is a few lines of code, combining <code>group_by()</code> and <code>summarise()</code> is useful because you create a df that can combines both the count and other summary stats.</p>
-<div id="option-1-group_by-x-summarise" class="section level4">
-<h4>option 1: group_by x summarise</h4>
-<pre class="r"><code>df %&gt;%
-  group_by(delay) %&gt;%
-  summarise(count = n(), mean_score = mean(score))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 2 x 3
+<h4 id="option-1-group_by-x-summarise">option 1: group_by x summarise</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(delay) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(count <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>(), mean_score <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(score))
+</code></pre></div><pre><code>## # A tibble: 2 x 3
 ##   delay count mean_score
-##   &lt;fct&gt; &lt;int&gt;      &lt;dbl&gt;
+##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
 ## 1 long      8       82.2
-## 2 short     8       85.6</code></pre>
-</div>
-<div id="option-2-table" class="section level4">
-<h4>option 2: table()</h4>
+## 2 short     8       85.6
+</code></pre><h4 id="option-2-table">option 2: table()</h4>
 <p>If you just want a fast count, <code>table()</code> by categorical variable will count observations by condition</p>
-<pre class="r"><code>table(df$delay)</code></pre>
-<pre><code>## 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">table</span>(df<span style="color:#f92672">$</span>delay)
+</code></pre></div><pre><code>## 
 ##  long short 
-##     8     8</code></pre>
-</div>
-<div id="option-3-janitortabyl" class="section level4">
-<h4>option 3: janitor::tabyl</h4>
+##     8     8
+</code></pre><h4 id="option-3-janitortabyl">option 3: janitor::tabyl</h4>
 <p>When things are less evenly distributed <code>janitor::tabyl()</code> is useful because it gives % as well as n</p>
-<pre class="r"><code>janitor::tabyl(df$delay)</code></pre>
-<pre><code>##  df$delay n percent
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">janitor<span style="color:#f92672">::</span><span style="color:#a6e22e">tabyl</span>(df<span style="color:#f92672">$</span>delay)
+</code></pre></div><pre><code>##  df$delay n percent
 ##      long 8     0.5
-##     short 8     0.5</code></pre>
-</div>
-</div>
-
+##     short 8     0.5
+</code></pre>
          
       </div>
     </div>

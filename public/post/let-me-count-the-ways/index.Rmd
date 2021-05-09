@@ -7,10 +7,6 @@ categories: []
 output:
   html_document:
     keep_md: yes
-    toc: true
-tags:
-  - analysis
-  - lmm
   
 ---
 
@@ -22,7 +18,9 @@ He lures you in with a [post that seems like it is going to solve all your probl
 
 HAHAHAHAHA- got me....
 
-## `psycho` package
+## `psycho` package 
+
+NOTE May2021: The psycho package has been updated and the code below may not work anymore https://github.com/easystats/easystats/issues/58
 
 Yes I know that I should be doing linear mixed models instead, so lets see whether his `psycho` package really makes it as easy as promised. 
 
@@ -117,13 +115,13 @@ The `psycho` package allows you to test the fit of the model and generates a des
 
 
 
-```{r eval = FALSE}
+```{r eval = FALSE, eval = FALSE}
 library(psycho)
 
 results <- psycho::analyze(lmm_EMG)
 ```
 
-```{r eval = FALSE}
+```{r eval = FALSE, eval = FALSE}
 summary(results)
 ```
 
@@ -204,7 +202,7 @@ model_target <- lmer(response ~ emotion + muscle + emotion*muscle + (1|Participa
 model_null <- lmer(response ~ emotion + muscle + (1|Participant), data=EMGdata_competitor, REML= FALSE)
 ```
 
-```{r}
+```{r eval = FALSE}
 anova(model_null, model_target)
 ```
 Interpretation= when the AIC (Akaike information criterion) is lower, the model fits the data better. Here we can say that the emotion * muscle interaction is important, because there the model_target is a better fit of the data than model_null is. 
@@ -228,7 +226,10 @@ The `lmerTest` approach uses Satterthwaite's method (as does SAS software) to es
 
 This example illustrates the difference in output when you run anova() on model before and after loading library(lmerTest)
 
-![](/post/2018-09-24-let-me-count-the-ways_files/lmerTest.jpg)
+```{r}
+knitr::include_graphics("lmerTest.jpg")
+```
+
 
 ### EMG + lmerTest
 

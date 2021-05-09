@@ -101,145 +101,128 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>IDHTG how to annotate plots</h1>
-         
-
-
-<p>A new post in my I Don’t Have to Google (IDHTG) series. I’ve been wanting to work out how to add annotations to plots for a while and this plot from the <span class="citation">@WeAreRladies</span> account this week got me inspired!</p>
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies. One curator tweeted over 200 times! 🤯 <a href="https://t.co/F49YddjxUx">pic.twitter.com/F49YddjxUx</a>
-</p>
-— We are R-Ladies (<span class="citation">@WeAreRLadies</span>) <a href="https://twitter.com/WeAreRLadies/status/1313178171219619840?ref_src=twsrc%5Etfw">October 5, 2020</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p><br></p>
+         <p>A new post in my I Don&rsquo;t Have to Google (IDHTG) series. I&rsquo;ve been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies. One curator tweeted over 200 times! 🤯 <a href="https://t.co/F49YddjxUx">pic.twitter.com/F49YddjxUx</a></p>&mdash; We are R-Ladies (@WeAreRLadies) <a href="https://twitter.com/WeAreRLadies/status/1313178171219619840?ref_src=twsrc%5Etfw">October 5, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<br>
 <p>Giorgia, who is curating WeAreRLadies this week, suggested checking out <a href="https://cedricscherer.netlify.app/2019/05/17/the-evolution-of-a-ggplot-ep.-1/">this blog post</a> by Cedric Scherer. It is a great illustration of how you might start with a basic box plot and turn it into something that looks REALLY fancy, step by step.</p>
 <p>Lets plot some penguin data to practice.</p>
-<div id="load-packages" class="section level1">
-<h1>load packages</h1>
-<pre class="r"><code>library(tidyverse)
-library(palmerpenguins)</code></pre>
-</div>
-<div id="read-data" class="section level1">
-<h1>read data</h1>
-<pre class="r"><code>penguins &lt;- penguins</code></pre>
-</div>
-<div id="plot-body-mass-by-flipper-length" class="section level1">
-<h1>plot body mass by flipper length</h1>
+<h1 id="load-packages">load packages</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+<span style="color:#a6e22e">library</span>(palmerpenguins)
+</code></pre></div><h1 id="read-data">read data</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">penguins <span style="color:#f92672">&lt;-</span> penguins
+</code></pre></div><h1 id="plot-body-mass-by-flipper-length">plot body mass by flipper length</h1>
 <p>Add text to a ggplot using annotate(), just define x and y coordinates and what you want the label to say.</p>
-<pre class="r"><code>g_text &lt;- penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  annotate(&quot;text&quot;, x = 180, y = 6000, label = &quot;Add text here&quot;) +
-  annotate(&quot;text&quot;, x = 220, y = 3000, label = &quot;More text here&quot;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">g_text <span style="color:#f92672">&lt;-</span> penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">annotate</span>(<span style="color:#e6db74">&#34;text&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#ae81ff">180</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">6000</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Add text here&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">annotate</span>(<span style="color:#e6db74">&#34;text&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#ae81ff">220</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;More text here&#34;</span>)
   
   
-g_text</code></pre>
-<p><img src="/post/2020-10-14-idhtg-how-to-annotate-plots_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+g_text
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 To add arrows, first make a tibble that has x1, x2, y1, and y2 coordinates for where you want the curved line to start and stop. On my penguin plot I want two arrows, one in the top left and another in the bottom right.</p>
-<pre class="r"><code>arrows &lt;- 
-  tibble(
-    x1 = c(187, 212),
-    x2 = c(205, 204),
-    y1 = c(6000, 3000), 
-    y2 = c(5500, 3500)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">arrows <span style="color:#f92672">&lt;-</span> 
+  <span style="color:#a6e22e">tibble</span>(
+    x1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">187</span>, <span style="color:#ae81ff">212</span>),
+    x2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">205</span>, <span style="color:#ae81ff">204</span>),
+    y1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">6000</span>, <span style="color:#ae81ff">3000</span>), 
+    y2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">5500</span>, <span style="color:#ae81ff">3500</span>)
   )
 
-arrows</code></pre>
-<pre><code>## # A tibble: 2 x 4
+arrows
+</code></pre></div><pre><code>## # A tibble: 2 x 4
 ##      x1    x2    y1    y2
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1   187   205  6000  5500
-## 2   212   204  3000  3500</code></pre>
-<p>Then use geom_curve() to add arrows, adjusting and adjusting and adjusting until they fall where you want them.</p>
-<pre class="r"><code>g_text +
-  geom_curve(
-    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
-    arrow = arrow(length = unit(0.08, &quot;inch&quot;)), size = 0.5,
-    color = &quot;gray20&quot;, curvature = -0.3)</code></pre>
-<p><img src="/post/2020-10-14-idhtg-how-to-annotate-plots_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+## 2   212   204  3000  3500
+</code></pre><p>Then use geom_curve() to add arrows, adjusting and adjusting and adjusting until they fall where you want them.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">g_text <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_curve</span>(
+    data <span style="color:#f92672">=</span> arrows, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x1, y <span style="color:#f92672">=</span> y1, xend <span style="color:#f92672">=</span> x2, yend <span style="color:#f92672">=</span> y2),
+    arrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrow</span>(length <span style="color:#f92672">=</span> <span style="color:#a6e22e">unit</span>(<span style="color:#ae81ff">0.08</span>, <span style="color:#e6db74">&#34;inch&#34;</span>)), size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>,
+    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray20&#34;</span>, curvature <span style="color:#f92672">=</span> <span style="color:#ae81ff">-0.3</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 We should probably make the annotations meaningful.</p>
-<pre class="r"><code>penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  annotate(&quot;text&quot;, x = 180, y = 6000, label = &quot;Gentoo penguins \n are much larger&quot;) +
-  annotate(&quot;text&quot;, x = 223, y = 3000, label = &quot;It is hard to differentiate \n Chinstrap and Adelie&quot;) +
-  geom_curve(
-    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
-    arrow = arrow(length = unit(0.08, &quot;inch&quot;)), size = 0.5,
-    color = &quot;gray20&quot;, curvature = -0.3)</code></pre>
-<p><img src="/post/2020-10-14-idhtg-how-to-annotate-plots_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">annotate</span>(<span style="color:#e6db74">&#34;text&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#ae81ff">180</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">6000</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Gentoo penguins \n are much larger&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">annotate</span>(<span style="color:#e6db74">&#34;text&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#ae81ff">223</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;It is hard to differentiate \n Chinstrap and Adelie&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_curve</span>(
+    data <span style="color:#f92672">=</span> arrows, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x1, y <span style="color:#f92672">=</span> y1, xend <span style="color:#f92672">=</span> x2, yend <span style="color:#f92672">=</span> y2),
+    arrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrow</span>(length <span style="color:#f92672">=</span> <span style="color:#a6e22e">unit</span>(<span style="color:#ae81ff">0.08</span>, <span style="color:#e6db74">&#34;inch&#34;</span>)), size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>,
+    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray20&#34;</span>, curvature <span style="color:#f92672">=</span> <span style="color:#ae81ff">-0.3</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>And Miss 9 thought the colour pallete could do with some work. The Luna Lovegood palette from the <a href="https://github.com/aljrico/harrypotter">harrypotter package</a> is her favourite.</p>
-<pre class="r"><code>library(harrypotter)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(harrypotter)
 
-penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  annotate(&quot;text&quot;, x = 180, y = 6000, label = &quot;Gentoo penguins \n are much larger&quot;) +
-  annotate(&quot;text&quot;, x = 223, y = 3000, label = &quot;It is hard to differentiate \n Chinstrap and Adelie&quot;) +
-  geom_curve(
-    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
-    arrow = arrow(length = unit(0.08, &quot;inch&quot;)), size = 0.5,
-    color = &quot;gray20&quot;, curvature = -0.3) +
-  scale_colour_hp_d(option = &quot;LunaLovegood&quot;)</code></pre>
-<p><img src="/post/2020-10-14-idhtg-how-to-annotate-plots_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-</div>
-<div id="i-love-twitter-intro-to-ggannotate" class="section level1">
-<h1>I love twitter… intro to ggannotate</h1>
+penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">annotate</span>(<span style="color:#e6db74">&#34;text&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#ae81ff">180</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">6000</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Gentoo penguins \n are much larger&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">annotate</span>(<span style="color:#e6db74">&#34;text&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#ae81ff">223</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;It is hard to differentiate \n Chinstrap and Adelie&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_curve</span>(
+    data <span style="color:#f92672">=</span> arrows, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x1, y <span style="color:#f92672">=</span> y1, xend <span style="color:#f92672">=</span> x2, yend <span style="color:#f92672">=</span> y2),
+    arrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrow</span>(length <span style="color:#f92672">=</span> <span style="color:#a6e22e">unit</span>(<span style="color:#ae81ff">0.08</span>, <span style="color:#e6db74">&#34;inch&#34;</span>)), size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>,
+    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray20&#34;</span>, curvature <span style="color:#f92672">=</span> <span style="color:#ae81ff">-0.3</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_colour_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<h1 id="i-love-twitter-intro-to-ggannotate">I love twitter&hellip; intro to ggannotate</h1>
 <p>One of the best things about blogging about what you learn is that you can give it away and then people let you know about new/different/easier ways to do what you just learned to do.</p>
 <p>I shared this post on Twitter and within a few minutes Matt Cowgill let me know that he has been working on a package called <a href="https://github.com/MattCowgill/ggannotate">ggannotate</a> which lets you add notes and arrows to your ggplot, using a point and click interface via a Shiny app.</p>
 <p>How cool is that??</p>
 <p>You can install the package from github using this line of code</p>
-<p><code>remotes::install_github("mattcowgill/ggannotate")</code></p>
-<pre class="r"><code>library(ggannotate)</code></pre>
-<p>Start with an annotation free plot…</p>
-<pre class="r"><code>penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  scale_colour_hp_d(option = &quot;LunaLovegood&quot;)</code></pre>
-<p><img src="/post/2020-10-14-idhtg-how-to-annotate-plots_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>To use ggannotate you can…</p>
-<ol style="list-style-type: decimal">
+<p><code>remotes::install_github(&quot;mattcowgill/ggannotate&quot;)</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(ggannotate)
+</code></pre></div><p>Start with an annotation free plot&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_colour_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>To use ggannotate you can&hellip;</p>
+<ol>
 <li>select the ggplot code and use the Addins pulldown to open the ggannotate tool OR</li>
 <li>assign your ggplot to an object (maybe called plot) and then call ggannotate::ggannotate(plot) OR</li>
 </ol>
-<pre class="r"><code>plot &lt;- penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  scale_colour_hp_d(option = &quot;LunaLovegood&quot;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plot <span style="color:#f92672">&lt;-</span> penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_colour_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>)
 
-ggannotate(plot)</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<span style="color:#a6e22e">ggannotate</span>(plot)
+</code></pre></div><ol start="3">
 <li>you can wrap your ggplot code in a ggannotate call like this</li>
 </ol>
-<pre class="r"><code>ggannotate(penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  scale_colour_hp_d(option = &quot;LunaLovegood&quot;))</code></pre>
-<p>Each option will open a shiny app that you can use to point and click where you want your annotations/curves and then copy the code back into your markdown. The downside is that at this stage you need to add each annotation and curve separately and the code that the tool generates is longer than if you had done it manually. But you don’t have to write it so I guess that doesn’t matter!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggannotate</span>(penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_colour_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>))
+</code></pre></div><p>Each option will open a shiny app that you can use to point and click where you want your annotations/curves and then copy the code back into your markdown. The downside is that at this stage you need to add each annotation and curve separately and the code that the tool generates is longer than if you had done it manually. But you don&rsquo;t have to write it so I guess that doesn&rsquo;t matter!</p>
 <p>Matt said that adding multiple annotations in single call is in the works, so watch this space.</p>
-<pre class="r"><code>penguins %&gt;%
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  scale_colour_hp_d(option = &quot;LunaLovegood&quot;) +
-  geom_text(data = data.frame(x = 188.437797399636, y = 5990.9008070379, label = &quot;Gentoo penguins are much larger&quot;),
-mapping = aes(x = x, y = y, label = label),
-size = 3.86605783866058, alpha = 1, inherit.aes = FALSE) +
-  geom_text(data = data.frame(x = 219.749643585604, y = 3366.61344597189, label = &quot;It is hard to differentiate \n Chinstrap and Gentoo&quot;),
-mapping = aes(x = x, y = y, label = label),
-size = 3.86605783866058, alpha = 1, inherit.aes = FALSE) +
-  geom_curve(data = data.frame(x = 199.308325132123, y = 6014.12458899424, xend = 208.642800032846, yend = 5781.88676943088),
-mapping = aes(x = x, y = y, xend = xend, yend = yend),
-curvature = -0.515, arrow = arrow(30L, unit(0.1, &quot;inches&quot;),
-&quot;last&quot;, &quot;closed&quot;),
-alpha = 1, inherit.aes = FALSE) +
-  geom_curve(data = data.frame(x = 211.833063606511, y = 3320.16588205921, xend = 203.443851986874, yend = 3680.13450238243),
-mapping = aes(x = x, y = y, xend = xend, yend = yend),
-curvature = -0.59, arrow = arrow(30L, unit(0.1, &quot;inches&quot;),
-&quot;last&quot;, &quot;closed&quot;),
-alpha = 1, inherit.aes = FALSE)</code></pre>
-<p><img src="/post/2020-10-14-idhtg-how-to-annotate-plots_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> flipper_length_mm, y <span style="color:#f92672">=</span> body_mass_g, colour <span style="color:#f92672">=</span> species)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_colour_hp_d</span>(option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LunaLovegood&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_text</span>(data <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">188.437797399636</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">5990.9008070379</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Gentoo penguins are much larger&#34;</span>),
+mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x, y <span style="color:#f92672">=</span> y, label <span style="color:#f92672">=</span> label),
+size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.86605783866058</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, inherit.aes <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_text</span>(data <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">219.749643585604</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3366.61344597189</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;It is hard to differentiate \n Chinstrap and Gentoo&#34;</span>),
+mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x, y <span style="color:#f92672">=</span> y, label <span style="color:#f92672">=</span> label),
+size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.86605783866058</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, inherit.aes <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_curve</span>(data <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">199.308325132123</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">6014.12458899424</span>, xend <span style="color:#f92672">=</span> <span style="color:#ae81ff">208.642800032846</span>, yend <span style="color:#f92672">=</span> <span style="color:#ae81ff">5781.88676943088</span>),
+mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x, y <span style="color:#f92672">=</span> y, xend <span style="color:#f92672">=</span> xend, yend <span style="color:#f92672">=</span> yend),
+curvature <span style="color:#f92672">=</span> <span style="color:#ae81ff">-0.515</span>, arrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrow</span>(<span style="color:#ae81ff">30L</span>, <span style="color:#a6e22e">unit</span>(<span style="color:#ae81ff">0.1</span>, <span style="color:#e6db74">&#34;inches&#34;</span>),
+<span style="color:#e6db74">&#34;last&#34;</span>, <span style="color:#e6db74">&#34;closed&#34;</span>),
+alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, inherit.aes <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_curve</span>(data <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">211.833063606511</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3320.16588205921</span>, xend <span style="color:#f92672">=</span> <span style="color:#ae81ff">203.443851986874</span>, yend <span style="color:#f92672">=</span> <span style="color:#ae81ff">3680.13450238243</span>),
+mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> x, y <span style="color:#f92672">=</span> y, xend <span style="color:#f92672">=</span> xend, yend <span style="color:#f92672">=</span> yend),
+curvature <span style="color:#f92672">=</span> <span style="color:#ae81ff">-0.59</span>, arrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrow</span>(<span style="color:#ae81ff">30L</span>, <span style="color:#a6e22e">unit</span>(<span style="color:#ae81ff">0.1</span>, <span style="color:#e6db74">&#34;inches&#34;</span>),
+<span style="color:#e6db74">&#34;last&#34;</span>, <span style="color:#e6db74">&#34;closed&#34;</span>),
+alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, inherit.aes <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
+</code></pre></div><p><img src="http://jenrichmond.rbind.io/post/idhtg-how-to-annotate-plots/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 
          
       </div>

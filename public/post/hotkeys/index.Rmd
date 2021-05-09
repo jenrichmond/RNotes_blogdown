@@ -4,14 +4,15 @@ author: ''
 date: '2018-08-15'
 slug: hotkeys
 categories: []
-tags: 
-- tips
+output:
+  html_document:
+    keep_md: yes
 ---
 
 
 There are some commands that as I get more and more familiar with Rstudio I find myself typing again and again. 
 
-<!--more-->
+
 
 Keyboard shortcuts are helpful (disclaimer: these mac versions).
 

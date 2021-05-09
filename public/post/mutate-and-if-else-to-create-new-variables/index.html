@@ -102,38 +102,27 @@
       <div class="content-column-content">
          <h1>mutate &#43; if else = new conditional variable</h1>
          <p>I keep googling <a href="https://rstudio-pubs-static.s3.amazonaws.com/116317_e6922e81e72e4e3f83995485ce686c14.html#/1">these slides</a> by <a href="@daranzolin">David Ranzolin</a> each time I try to combine mutate with ifelse to create a new variable that is conditional on values in other variables.</p>
-
 <p>Most recently I needed to extract a Stimulus number from a variable called CommentName, and then turn those numbers into levels of Model and Emotion in separate columns.</p>
-
 <h4 id="ugly-but-functional-code-below">Ugly but functional code below</h4>
-
 <p>This chunk takes the cleanedup data, groups by Participant, Block, and Trial, pipes to a mutate function which adds a new column called Stimulus that lists the values in the 8th position [[8]] of the CommentName Variable (that is the comment that specifies the Model/Emotion condition). Then it pipes that into another mutate creating a new columns called Model and Emotion that include values of child/adult and happy/angry, depending on the Stimulus value.</p>
-
-<pre><code class="language-r">trialtype &lt;- cleanedup %&gt;%
-  group_by(Participant, Block, Trial) %&gt;%
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">trialtype <span style="color:#f92672">&lt;-</span> cleanedup <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(Participant, Block, Trial) <span style="color:#f92672">%&gt;%</span>
   
-  mutate(Stimulus = CommentName[[8]]) %&gt;%
+  <span style="color:#a6e22e">mutate</span>(Stimulus <span style="color:#f92672">=</span> CommentName[[8]]) <span style="color:#f92672">%&gt;%</span>
   
-  mutate(Model = ifelse(Stimulus == &quot;426789&quot;, &quot;child&quot;,
-                    ifelse(Stimulus == &quot;426790&quot;, &quot;child&quot;,
-                    ifelse(Stimulus == &quot;426783&quot;, &quot;adult&quot;,
-                    ifelse(Stimulus == &quot;426784&quot;, &quot;adult&quot;, &quot;no&quot;))))) %&gt;%
+  <span style="color:#a6e22e">mutate</span>(Model <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426789&#34;</span>, <span style="color:#e6db74">&#34;child&#34;</span>,
+                    <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426790&#34;</span>, <span style="color:#e6db74">&#34;child&#34;</span>,
+                    <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426783&#34;</span>, <span style="color:#e6db74">&#34;adult&#34;</span>,
+                    <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426784&#34;</span>, <span style="color:#e6db74">&#34;adult&#34;</span>, <span style="color:#e6db74">&#34;no&#34;</span>))))) <span style="color:#f92672">%&gt;%</span>
   
-  mutate(Emotion = ifelse(Stimulus == &quot;426789&quot;, &quot;angry&quot;,
-                    ifelse(Stimulus == &quot;426790&quot;, &quot;happy&quot;,
-                    ifelse(Stimulus == &quot;426783&quot;, &quot;happy&quot;,
-                    ifelse(Stimulus == &quot;426784&quot;, &quot;angry&quot;, &quot;no&quot;)))))
-
-</code></pre>
-
-<h4 id="update-august-2019-case-when">update August 2019&hellip;.. case_when</h4>
-
+  <span style="color:#a6e22e">mutate</span>(Emotion <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426789&#34;</span>, <span style="color:#e6db74">&#34;angry&#34;</span>,
+                    <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426790&#34;</span>, <span style="color:#e6db74">&#34;happy&#34;</span>,
+                    <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426783&#34;</span>, <span style="color:#e6db74">&#34;happy&#34;</span>,
+                    <span style="color:#a6e22e">ifelse</span>(Stimulus <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;426784&#34;</span>, <span style="color:#e6db74">&#34;angry&#34;</span>, <span style="color:#e6db74">&#34;no&#34;</span>)))))
+</code></pre></div><h4 id="update-august-2019-case_when">update August 2019&hellip;.. case_when</h4>
 <p>ifelse works fine for creating new conditional variables when all the information you need to create that variable is in 1 column. But in the TwoRooms data I have been dealing with recently, I have separate columns that contain FALSE or NA according to whether the kid failed because they didn&rsquo;t remember, they chose incorrectly, or they didn&rsquo;t justify their decision by referring to the future. In order to pass the task they kinda have to remember, then choose, then justify, so I need the failure reason to default to that order. If they remember, but then don&rsquo;t choose correctly and don&rsquo;t justfy, I need the failure reason to be &ldquo;choice&rdquo;. If they dont remember, but choose correctly and but don&rsquo;t justify their decision by referring to the future (which would be weird), I need it to say they failed because of memory.</p>
-
 <p><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a> evaluates arguments in order, which is helpful.</p>
-
 <p>Here we create a new column using mutate, the values of which are either memory, choice, or justification, depending on whether P1memory, P1choice, or P1future (in that order) are == FALSE. SUPER helpful!!</p>
-
 <pre><code>whyfailP1 &lt;- gatherP1fail %&gt;%
   filter(pass == FALSE) %&gt;%
   arrange(Group) %&gt;%

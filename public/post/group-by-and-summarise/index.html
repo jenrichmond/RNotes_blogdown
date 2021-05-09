@@ -101,49 +101,40 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>group_by and summarise</h1>
-         
-
-
-<p>Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.</p>
+         <p>Some students have been asking me how they can calcuate means and standard errors by condition. Here is a quick example using the palmer penguin data.</p>
 <p>Details of the palmer penguin data, with art by Allison Horst, can be <a href="https://github.com/allisonhorst/palmerpenguins">found here</a>.</p>
-<p><img src="https://github.com/allisonhorst/palmerpenguins/raw/master/man/figures/lter_penguins.png" /></p>
-<div id="load-packages" class="section level3">
-<h3>load packages</h3>
-<pre class="r"><code>library(palmerpenguins) 
-library(tidyverse)</code></pre>
-</div>
-<div id="read-in-data" class="section level3">
-<h3>read in data</h3>
-<pre class="r"><code>penguins &lt;- penguins
+<p><img src="https://github.com/allisonhorst/palmerpenguins/raw/master/man/figures/lter_penguins.png" alt=""></p>
+<h3 id="load-packages">load packages</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(palmerpenguins) 
+<span style="color:#a6e22e">library</span>(tidyverse)
+</code></pre></div><h3 id="read-in-data">read in data</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">penguins <span style="color:#f92672">&lt;-</span> penguins
 
-glimpse(penguins)</code></pre>
-<pre><code>## Rows: 344
-## Columns: 7
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie…
-## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, To…
-## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, …
-## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, …
-## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 19…
-## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, …
-## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female…</code></pre>
-</div>
-<div id="use-group_by-and-summarise-to-get-standard-error-by-condition-aka-species" class="section level3">
-<h3>use group_by() and summarise() to get standard error by condition (aka species)</h3>
-<pre class="r"><code>penguins %&gt;%
-  group_by(species) %&gt;%
-  summarise(mean = mean(flipper_length_mm, na.rm = TRUE), 
-            n = n(), 
-            stdev = sd(flipper_length_mm, na.rm = TRUE), 
-            stderr = stdev/sqrt(n)) </code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 3 x 5
+<span style="color:#a6e22e">glimpse</span>(penguins)
+</code></pre></div><pre><code>## Rows: 344
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+</code></pre><h3 id="use-group_by-and-summarise-to-get-standard-error-by-condition-aka-species">use group_by() and summarise() to get standard error by condition (aka species)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">penguins <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(species) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(mean <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(flipper_length_mm, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>), 
+            n <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>(), 
+            stdev <span style="color:#f92672">=</span> <span style="color:#a6e22e">sd</span>(flipper_length_mm, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>), 
+            stderr <span style="color:#f92672">=</span> stdev<span style="color:#f92672">/</span><span style="color:#a6e22e">sqrt</span>(n)) 
+</code></pre></div><pre><code>## # A tibble: 3 x 5
 ##   species    mean     n stdev stderr
 ##   &lt;fct&gt;     &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Adelie     190.   152  6.54  0.530
 ## 2 Chinstrap  196.    68  7.13  0.865
-## 3 Gentoo     217.   124  6.48  0.582</code></pre>
-</div>
-
+## 3 Gentoo     217.   124  6.48  0.582
+</code></pre>
          
       </div>
     </div>

@@ -7,6 +7,7 @@ categories: []
 output:
   html_document:
     keep_md: yes
+---
 
 [Emily Robinson](@robinson_es) writes a great blog called www.hookedondata.org. She talked at the 2018 New York R conference recently and shared some of her favourite (less well known) stars of the Tidyverse. Here are her slides www.tiny.cc/nyrtalk and my notes...
 

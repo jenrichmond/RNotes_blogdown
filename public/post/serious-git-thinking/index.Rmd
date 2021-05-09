@@ -4,8 +4,9 @@ author: ''
 date: '2019-11-12'
 slug: serious-git-thinking
 image: "img/Octocat.png"
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 I have been a git user for 513 days. 

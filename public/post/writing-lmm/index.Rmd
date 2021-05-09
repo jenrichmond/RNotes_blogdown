@@ -57,7 +57,11 @@ This baby monkey imitation paper might be my favorite example. It could be becau
 I like this table and can see how it is helpful to the reader to see the coefficients for each model. 
 
 
-![](/post/2018-09-25-writing-lmm_files/monkey table.png)
+```{r}
+knitr::include_graphics("monkey table.png")
+```
+
+
 
 
 
@@ -100,9 +104,16 @@ My conclusion is that most people just report coefficients (and they talk about 
 
 Here is the plot and analysis output:
 
-![](/post/2018-09-25-writing-lmm_files/browcheek.jpg)
+```{r}
+knitr::include_graphics("browcheek.jpg")
+```
 
-![](/post/2018-09-25-writing-lmm_files/output.png)
+
+
+
+```{r}
+knitr::include_graphics("output.png")
+```
 
 ___
 

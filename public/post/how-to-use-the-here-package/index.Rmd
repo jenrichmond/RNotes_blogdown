@@ -21,7 +21,11 @@ On twitter yesterday [Alison Hill](@apreshill), [Adam Gruer](@AdamGruer), [Zoe M
 
 But it was THIS slide from Irene that REALLY fixed my problem. 
 
-![](/post/2018-10-14-where-does-my-stuff-live_files/paths.jpg)
+```{r}
+knitr::include_graphics("paths.jpg")
+```
+
+
 
 I do love me a .Rmd  file but did you know that most of what makes file paths stems from in R difficult is that when you are working in a .Rmd, R makes your working directory the folder that markdown lives in, but if you are working in a script (.R) the default working directory is the top level of the project file? 
 
@@ -32,6 +36,7 @@ So, if you are working in a markdown file, the `here` package is helpful in over
 Let me summarise my understanding so that we are all clear. 
 
 #### First always use projects
+
 The best way to make sure you and R are working in the same place is to use Projects and to always open your analysis via a .Rproj file. That way you will always be working in the same directory as your .Rproj file. 
 
 You can check where you are by calling `getwd`. RStudio also tells you the working directory right below the Console tab. If you are disagree with R about where you are working you can choose Session--Set Working Directory from the pull down menu to change it. 
@@ -50,7 +55,11 @@ Ideally you want to be a bit more organised than that and it is better practice 
 
 I am starting a new project and trying to set up my folder organisation as I mean to continue. I have a folder that contains an .Rproj file, and subfiles for data, markdowns, and output. 
 
-![](/post/2018-10-14-where-does-my-stuff-live_files/folder.png)
+```{r}
+knitr::include_graphics("folder.png")
+```
+
+
 
 ##### how to work out where you are
 

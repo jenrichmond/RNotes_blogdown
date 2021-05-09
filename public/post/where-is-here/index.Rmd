@@ -18,7 +18,12 @@ As I add new projects to my rstats portfolio and work collaboratively on project
 
 I aspire to have organized folders that [Jen Thompson](@jent103) would be proud of, but that is going involve getting my head around directories.
 
-![file organisation to aspire to from Jen Thompson](/post/2018-09-18-where-is-here_files/organized .png)
+
+```{r}
+knitr::include_graphics("organized.png")
+```
+
+
 
 Sidenote- check out [slides from Jen Thompson's awesome RMed2018 talk](bit.ly/jlt-rmed2018) about reproducible clinical projects
 
@@ -26,8 +31,9 @@ Sidenote- check out [slides from Jen Thompson's awesome RMed2018 talk](bit.ly/jl
 
 I learned about this package from one of Jenny Bryan's many talks/ twitter posts. I so strongly associate it with Jenny (she even has an [Ode to Here post](https://github.com/jennybc/here_here) on her blog) that I mistakenly thought that she wrote it, but no. 
 
-![Ode to Here](/post/2018-09-18-where-is-here_files/here.png)
-
+```{r}
+knitr::include_graphics("here.png")
+```
 It was actually developed by [Kirill Muller](@krlmlr), a data scientist from Switzerland. 
 
 Here is how it works. 
@@ -86,6 +92,7 @@ I've also seen `here()` used to save out of ggplot. I am assuming this says save
 
 ```
 ggsave(here("figs", "cleveland-alloc.png"))
+
 ```
 
 How have you used `here()` ?

@@ -6,7 +6,11 @@ slug: []
 image: "img/er.jpg"
 categories: []
 tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -82,22 +86,6 @@ print_pal(pw)
 ```
 
 
-
-## Pardalote
-
-```{r echo=FALSE, out.height='75%', out.width='75%'}
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pardalotus_with_nesting_material.jpg/1024px-Pardalotus_with_nesting_material.jpg")
-```
-
-Image credit: [Fir0002 - Own work, GFDL 1.2](https://commons.wikimedia.org/w/index.php?curid=1535942). This file is licensed under the
-[Creative Commons](https://en.wikipedia.org/wiki/Creative_Commons), [Attribution NonCommercial Unported 3.0](https://creativecommons.org/licenses/by-nc/3.0/). Image source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pardalotus_with_nesting_material.jpg). 
-
-
-```{r echo=FALSE}
-p <- get_pal("pardalote")
-
-print_pal(p)
-```
 
 
 

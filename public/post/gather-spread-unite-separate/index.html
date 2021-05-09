@@ -101,58 +101,31 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>gather spread unite separate</h1>
-         
-
-<p>This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The <code>tidyr</code> package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &ldquo;SPSS format&rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&hellip;. handy.</p>
-
+         <p>This content has appeared before in a dirty data post, but I still find myself googling these functions. So they deserve a post of their own. The <code>tidyr</code> package has several functions that allow you to reshape your data. They are surprisely useful; I have found myself gathering a lot, mostly to get data from &ldquo;SPSS format&rdquo; into something that ggplot will handle. I have also discovered the flexibility with which you can spread the data on a particular variable, do a set of computations, and then gather it back for plotting&hellip;. handy.</p>
 <h4 id="from-wide-to-long">From wide to long</h4>
-
 <p>Use gather(data, key, value, …)</p>
-
 <p>data = the dataframe you want to morph from wide to long</p>
-
 <p>key = the name of the new column that is levels of what is represented in the wide format as many columns</p>
-
 <p>value = the name of the column that will contain the values</p>
-
 <p>… = columns to gather, or leave (use -column to gather all except that one)</p>
-
 <p>Kudos to Garrick Aden-Buie for creating these gganimation gif to illustrate tidyr processes</p>
-
 <p><a href="https://raw.githubusercontent.com/gadenbuie/tidy-animated-verbs/master/images/tidyr-spread-gather.gif">https://raw.githubusercontent.com/gadenbuie/tidy-animated-verbs/master/images/tidyr-spread-gather.gif</a></p>
-
 <h4 id="from-long-to-wide">From long to wide</h4>
-
 <p>Use spread(data, key, value)</p>
-
 <p>data = the dataframe you want to morph from long to wide</p>
-
 <p>key = the name of the column that contains the key</p>
-
 <p>value = the name of the column contains the values</p>
-
 <h4 id="separate-one-column-into-many">Separate one column into many</h4>
-
 <p>Use separate(data, col, into)</p>
-
 <p>data = dataframe</p>
-
 <p>col = name of column to separate</p>
-
 <p>into = character vector of new column [note- these need quotes]</p>
-
 <p>separate(treatments, year_no, c(“year”, “month”))</p>
-
 <p>separate() assumes you want to split on a space, period, forward slash or dash. You can give it an extra argument sep = “-” to specify what to separate on.</p>
-
 <h4 id="unite-many-columns-into-one">Unite many columns into one</h4>
-
 <p>Use unite(data, col, …)</p>
-
 <p>data = dataframe</p>
-
 <p>col = name of column to separate</p>
-
 <p>… = bare names of columns to unite</p>
 
          
