@@ -586,7 +586,8 @@ Successes:  I loaded the data in using read_csv. I made dates into dates.   The 
       
       <guid>http://jenrichmond.rbind.io/post/curious-rmarkdown/</guid>
       <description>What a treat it was to finally meet Charles Gray when she was in Sydney last week. She ran her R-Curious workshop for us and I picked up so many useful markdown tips.
-We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.</description>
+We worked from an Rmarkdown document in the workshop so we could edit the code and add our own notes but we could also how Charles had used specific markdown formatting to produce the document.
+Because it was a &amp;ldquo;lets start at the very beginning&amp;rdquo; workshop, made me realise that when you teach yourself how to code, there are basic (but quite useful) that you don&amp;rsquo;t end up learning via osmosis.</description>
     </item>
     
   </channel>
