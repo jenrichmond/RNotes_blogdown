@@ -36,8 +36,8 @@ This [post from Maddie Pickins](https://rpubs.com/mclaire19/ggplot2-custom-theme
 
 Here is my custom theme... 
 
-```{r eval = FALSE}
 
+```r
 theme_jen <- function () {
   
   # define font up front
@@ -95,8 +95,6 @@ theme_jen <- function () {
       strip.background = element_rect(fill = "white",  
         colour = "black", size = rel(2)), complete = TRUE)
 }
-
-
 ```
 
 
@@ -114,18 +112,27 @@ One the things I google all the time is how to get the bars to sit on the x axis
 
 Here is some Tidy Tuesday data to illustrate
 
-```{r message=FALSE, warning=FALSE}
+
+```r
 library(tidytuesdayR)
 library(tidyverse)
 library(ggeasy)
 
 tt <- tt_load("2021-01-05")
+```
 
+```
+## 
+## 	Downloading file 1 of 1: `transit_cost.csv`
+```
+
+```r
 cost <- tt$transit_cost
 ```
 
 
-```{r message=FALSE, warning=FALSE}
+
+```r
 cost %>%
   group_by(country) %>%
   summarise(meancost = mean(cost_km_millions)) %>%
@@ -140,21 +147,24 @@ cost %>%
   easy_remove_legend()
 ```
 
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
 Here I have applied my custom theme and used ggeasy::easy_remove_legend(). Now I want the bars to sit on the x axis. I google this EVERYTIME `scale_y_continuous(expand = c(0.0))`, so lets wrap it in a function I might remember. 
 
-```{r eval = FALSE}
+
+```r
 easy_expand_y_axis <- function () 
   
 {
       scale_y_continuous(expand = c(0, 0))
   
 }
-
 ```
 
 Now I can use my function, just like the functions from ggeasy. 
 
-```{r message=FALSE, warning=FALSE}
+
+```r
 cost %>%
   group_by(country) %>%
   summarise(meancost = mean(cost_km_millions)) %>%
@@ -170,8 +180,15 @@ cost %>%
   easy_expand_y_axis()
 ```
 
-```{r}
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+
+```r
 ggsave(here::here("static", "img", "cost.png"))
+```
+
+```
+## Saving 7 x 5 in image
 ```
 
 

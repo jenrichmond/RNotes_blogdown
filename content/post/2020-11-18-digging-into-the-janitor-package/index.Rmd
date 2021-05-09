@@ -4,8 +4,9 @@ author: ''
 date: '2020-11-18'
 slug: digging-into-the-janitor-package
 image: "img/dirty_penguin.jpg"
-categories: []
-tags: []
+output:
+  html_document:
+    keep_md: yes
 ---
 
 
