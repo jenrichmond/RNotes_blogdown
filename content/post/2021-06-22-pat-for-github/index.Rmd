@@ -28,9 +28,17 @@ install.packages("gitcreds")
 
 library(gitcreds)
 
-gitcreds_set("pasteyourtokeninquoteshere")
+gitcreds_set(url = "https://github.com")
 
 ```
+
+Then it will ask you to Enter password or token...
+
+
+```{r}
+knitr::include_graphics("gitcreds.png")
+```
+
 
 # check that it works
 
