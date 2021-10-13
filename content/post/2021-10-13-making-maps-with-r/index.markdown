@@ -3,7 +3,7 @@ title: making maps with R
 author: Jen Richmond
 date: '2021-10-13'
 slug: []
-image: "map.png"
+image: "/map.png"
 categories: []
 tags: []
 ---
@@ -12,8 +12,8 @@ For code club this week we were working with the Tidy Tuesday data about registe
 
 # first google
 
-When I am trying something completely new in R, I generally google **"how to do X in R blog"**. Rather than looking for packages or documentation, I look for "walk through" style blog posts, preferably written by other beginners, or people I know to be really good R teachers. This time my search pulled up [this post](https://www.littlemissdata.com/blog/maps) by Little Miss Data aka [Laura Ellis](@littlemissdata). I "know" Laura from #rstats twitter and her blog is awesome, so seemed like a good place to start. 
-That post turned out to be about the `ggmap` package, which if you are looking to plot things on a city map might be useful. Not so good for plotting a US map though. Laura's blog has a search function (I need to upgrade my blog so I can search it) though and when I [searched the blog for "map"](https://www.littlemissdata.com/search?q=map) it turns out that she has lots of map-related posts, including [this one](https://www.littlemissdata.com/blog/usmap?rq=map) about easy US maps.
+When I am trying something completely new in R, I generally google *"how to do X in R blog"*. Rather than looking for packages or documentation, I look for "walk through" style blog posts, preferably written by other beginners, or people I know to be really good R teachers. This time my search pulled up [this post](https://www.littlemissdata.com/blog/maps) by Little Miss Data aka [Laura Ellis](@littlemissdata). I "know" Laura from #rstats twitter and her blog is awesome, so seemed like a good place to start. 
+That post turned out to be about the `ggmap` package, which if you are looking to plot things on a city map might be useful. Not so good for plotting a US map though. Laura's blog has a search function (I need to upgrade my blog so I can search it) though and when I searched the blog for "map", it turns out that she has [lots of map-related posts](https://www.littlemissdata.com/search?q=map), including [this one](https://www.littlemissdata.com/blog/usmap?rq=map) about easy US maps.
 
 The post uses the [usmap package](https://cran.r-project.org/web/packages/usmap/vignettes/mapping.html), which is pretty easy to work with. 
 
@@ -56,7 +56,7 @@ nurses <- clean_names(nurses)
 
 ### make it smaller
 
-Using the `glimpse()` function, I can see that there are 22 variables in this dataset. I think that hourly_wage_median is probably the most interesting variable to look at by state. So I am going to select just state, year, and median wage. 
+Using the `glimpse()` function, I can see that there are 22 variables in this dataset. 
 
 ```r
 glimpse(nurses)
@@ -89,6 +89,9 @@ glimpse(nurses)
 ## $ yearly_total_employed_state_aggregate        <dbl> 1903210, 296300, 2835110,…
 ```
 
+I think that hourly_wage_median is probably the most interesting variable to look at by state. So I am going to select just state, year, and median wage. 
+
+
 ```r
 wages <- nurses %>%
  select(state, year, hourly_wage_median) 
@@ -117,7 +120,7 @@ wages2020 <- wages %>%
 
 ### get a map template
 
-Now for the map. The usmap package has a map template that pulls Alaska and Hawaii into a convienent, if not geographically accurate, location on the map. 
+Now for the map. The `usmap` package has a map template that pulls Alaska and Hawaii into a convenient, if not geographically accurate, location on the map. 
 
 
 ```r
@@ -125,9 +128,10 @@ plot_usmap()
 ```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
 ### fill with your data
 
-You can fill the states by a variable by telling the function what data and values should be mapped. Here I am using the patchwork package to display two plots side by side. 
+You can fill the states by a particular variable by telling the function what data and values should be mapped. Here I am plotting 1998 and 2020 median wage data separately and using the `patchwork` package to display two plots side by side. 
 
 
 
@@ -145,12 +149,12 @@ p1 + p2
 
 A few issues to fix... 
 - the colour palette isn't great
-- the legend is missing
+- the legend is obscuring the map
 - we could do with labels/titles
 
 The nice thing about `usmap` objects is that they are ggplot compatible, so you can customise colours/legends/labels as you would any other ggplot. 
 
-Here I am using `scale_fill_continuous()` to change the colours to be from white to red, adding a name/label to the legend, and adjust the limits so that the colour scale is comparable across 1998 and 2020. I am also moving the legend to the right, using `easy_move_legend()` from the `ggeasy` package. I am adding a title to each plot using `labs()` and putting a box around each map the `theme()` function.  
+Here I am using `scale_fill_continuous()` to change the colours to be from white to red, adding a name (aka label) to the legend, and adjusting the limits so that the colour scale is comparable across 1998 and 2020. I am also moving the legend to the right, using `easy_move_legend()` from the `ggeasy` package. I am adding a title to each plot using `labs()` and putting a box around each map the `theme()` function.  
 
 
 
@@ -180,7 +184,7 @@ p3 + p4
 
 ### try different palettes
 
-I did a little googling about continuous colour palettes and found that you can `use scale_viridis_c()` to get a different effect. 
+OK the shades of red plot is a little hard to look at so I did a little googling about other options for continuous colour palettes. I found that `scale_viridis_c()` gets quite a nice effect.  
 
 
 ```r
@@ -204,7 +208,10 @@ p5 + p6
 ```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
-There are lots of different palette packages that have continuous palettes. I learned about a new one at Code Club today called [PNWColors](https://github.com/jakelawlor/PNWColors) that is inspired by Pacific North West landscapes. 
+
+
+
+But don't limit yourself to ggplot defaults; there are lots of different palette packages that have continuous palettes. I learned about a new one at Code Club today called [PNWColors](https://github.com/jakelawlor/PNWColors) that is inspired by Pacific North West landscapes. 
 
 Here I am setting the "pal" and using that to define colours within a `scale_fill_gradientn()` instead of `scale_fill_continous()`.
 
@@ -238,17 +245,15 @@ p7 + p8
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 
-Wow, that pretty nicely captures the massive change in registered nurses wages from 1998 to 2020. What about if we wanted to see what was happening in between... enter gganimate.
+Ooooo,  that pretty nicely captures the massive change in registered nurses wages from 1998 to 2020. What about if we wanted to see what was happening in between... enter...
 
 
 ### gganimate
 
-First make a static plot that contains the data over all years. Here I am going to use the wage dataframe (rather than the ones filtered for just 1998 and 2020)
+The `gganimate` package makes it pretty easy to illustrate transitions (like changes across time) in your plot. Start by making a static plot that contains the data over all years. Here I am going to use the wage dataframe (rather than the ones filtered for just 1998 and 2020).
 
 
 ```r
-library(gganimate)
-
 plot <- plot_usmap(data = wages, values = "hourly_wage_median", labels=FALSE) +
  scale_fill_gradientn(colours = pal, 
                        name = "median",
@@ -262,7 +267,7 @@ plot
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
-Then to that plot I am going to use labs to add a title that will count up each year. It is important to make the frame_time an integer here so that you don't get in between year states in your animation. Then I am adding transition_time(year), which will make a separate plot for each year that can be animated together. 
+Then to that plot I am going to use `labs()` to add a title that will count up each year. It is important to make the frame_time an integer here so that you don't get in between year states in your animation. Then I am adding `transition_time(year)`, which will make a separate plot for each year that can be animated together. 
 
 
 
