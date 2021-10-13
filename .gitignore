@@ -9,3 +9,5 @@ Thumbs.db
 data/pcr_testing_table2_age_group.csv
 .DS_Store # if a windows user, Thumbs.db instead
 public/ # if using Netlify
+/public/
+/resources/

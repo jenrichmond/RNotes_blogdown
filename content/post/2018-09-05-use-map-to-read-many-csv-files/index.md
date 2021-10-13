@@ -13,8 +13,6 @@ Dipping my toes in purrr here and replicating options from a [super useful blog 
 
 
 
-<!--more-->
-
 #### How to use map() to read in and bind together several .csv files
 
 ##### Option 1 
@@ -103,3 +101,4 @@ data3useful <- unnest(data3)
 
 - when .csv files come straight from `datapasta` and don't include participant info, need to use Option 3. 
 
+# update with a concrete example
