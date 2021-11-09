@@ -17,6 +17,6 @@ options(blogdown.new_bundle = TRUE,        # force making page bundle (i.e folde
         blogdown.subdir	 = "post")         # subfolder for posts to be placed in
 
 # fix Hugo version
-options(blogdown.hugo.version = "0.69.0")
+options(blogdown.hugo.version = "0.89.2")
 
 options(blogdown.method = "markdown")

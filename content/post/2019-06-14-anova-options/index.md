@@ -1,0 +1,189 @@
+---
+title: rm anova options
+author: ''
+date: '2019-06-14'
+slug: anova-options
+categories: []
+tags: []
+output:
+  html_document:
+    keep_md: yes
+---
+
+I've been analysing some future thinking data and playing around with packages that can do repeated ANOVA (I know, I should do LMM). There is more than one way to skin a cat and the differences come down to two things. 
+
+1.   the intuitiveness of the function arguments
+2.   the readibility of the output 
+
+Some checks to do before you start
+- all of these packages assume that you within and between subjects variables are factors, but also that your participant id is a factor
+
+### A few favourites
+
+#### Option 1: old school aov()
+
+This code comes from the ANOVA cookbook
+
+http://www.cookbook-r.com/Statistical_analysis/ANOVA/#more-anovas-with-within-subjects-variables
+
+##### aovFormula
+
+For a mixed RM with 1 between and 2 within you would use...
+
+```r
+# for mixed RM with 1 between and 2 within
+aov1 <- aov(outcome ~ b1 * w1 * w2 +  Error(participant/(w1 *w2)) + b1, data = data_long)
+```
+
+
+The output from `aov()` is an object that you then run `summary()` on. Its a good idea to use `options(scipen = 999)` to get nonscientific notation, and `options(digits = 4)` to get fewer dps in that chunk. 
+
+
+The standard `aov()` output isnt that pretty but you can use the `broom` package to pull the output into a tidy df.
+
+https://cran.r-project.org/web/packages/broom/vignettes/broom.html
+
+- tidy() constructs a data frame 
+- augment() add columns to the original data that was modeled
+- glance() constructs a concise one-row summary of the model
+
+
+### Option 2: ezANOVA from ez package
+
+ezANOVA easy wrapper for car package aov function
+
+The ezANOVA() function asks you to specify...
+
+- data= 
+- dv= 
+- wid = participants id
+- within = if more than 1 use list .(factor1 , factor2)
+- between = 
+- type =  type 2 is best when design is unbalanced, spss does type 3 by default-not recommended.
+- detailed = TRUE
+- return_aov = TRUE
+
+##### ezANOVA formula
+
+
+```r
+ez1 <- ezANOVA(data = data_long, 
+               dv = outcome, 
+               wid = participant, 
+               within = .(w1, w2), 
+               between = b1, 
+               type = 2, 
+               detailed = TRUE, 
+               return_aov = TRUE)
+```
+
+The output is a list, which include a dataframe of ANOVA details. It gives a nice warning if your design is unbalanced and uses type 2 sums of squares by default (recommended for unbalanced). 
+
+You can call ez1$ANOVA to have it print the ANOVA dataframe and write_csv() to save it. 
+
+Including return_aov = TRUE also gives an aov object which might be useful in getting partial eta squared from the etasquared() function from the `heplots` package.
+
+For some reason, when I tried using tidy() from broom on the ez1 object, it didn't work.
+
+### Option 3: afex package
+
+afex = Analysis of Factorial Experiments
+
+https://github.com/singmann/afex
+
+https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html
+
+afex is nice because it includes generalised eta sq in output table. It also has plotting of ANOVA analysis embedded in the package via the afex_plot() function
+
+##### afex formula
+
+
+```r
+afex1 <- aov_ez("participant", "outcome", 
+                data_long, 
+                between = "b1", 
+                within = c("w1", "w2"))
+
+afex1
+```
+
+You can print the output by simply typing afex1, or get a "nice" table using nice(afex1), you can also turn that nice table into a df, and them use kable to make it really nice :)
+
+
+```r
+nice(afex1) #make a nice table
+
+niceafex <- nice(afex1) #make it a dataframe
+
+kable(niceafex) %>%
+  kable_styling() #print it in table format
+```
+
+#### how to get contrasts
+
+The `emmeans` (estimated marginal means) package is useful for following up effects with planned constrasts. 
+
+Get marginal means for a main effect by running the `emmeans` function on your anova object and specifying the effect with a tilde. Then get paired contrasts by running the `pairs` function on the emms
+
+##### main effects
+
+```r
+emm <- emmeans(afex1, ~ maineffect)
+
+pairs(emmm)
+```
+
+##### simple interaction
+
+
+```r
+emm2 <- emmeans(afex1, "effect1", by = "effect2")
+
+pairs(emm2)
+```
+
+Find more complex interaction contrasts in the [emmeans vignette](https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html)
+
+#### ANOVA plotting
+afex package also allows for ANOVA plotting
+
+Need to specify...
+
+- x = what you want on x axis
+- trace = what you want connected by lines
+- panel = what you want as subplots
+
+
+
+```r
+afex_plot(afex1, x = "b1", trace= "b1", panel= "w2")
+```
+
+### Comparing formulas + outputs
+
+
+```r
+aov1 <- aov(outcome ~ b1 * w1 * w2 +  Error(participant/(w1 *w2)) + b1, data = data_long)
+
+ez1 <- ezANOVA(data = data_long, 
+               dv = outcome, 
+               wid = participant, 
+               within = .(w1, w2), 
+               between = b1, 
+               type = 2, 
+               detailed = TRUE, 
+               return_aov = TRUE)
+
+afex1 <- aov_ez("participant", "outcome", 
+                data_long, 
+                between = "b1", 
+                within = c("w1", "w2"))
+```
+
+
+The old school aov() is best if you want to be consistent in the way formulas are set up for linear models, but for new users it is not very intuiative. I like ezANOVA, especially because it makes the user specify everything and it includes generalised eta sq in the output by default.  It does move away from the standard linear model function construction, which might may it hard for new learners to transfer R skills across methods, but it emulates SPSS more closely, asking for within, between etc which is probably good for students new to R. 
+
+afex also doesn't adhere to the lm formula style, but it is really simple. The output is the same as ezANOVA but additional plotting functionality embedded is definitely helpful. I REALLY like the nice() function for formatting things. 
+
+> take home: afex is the favourite :)
+

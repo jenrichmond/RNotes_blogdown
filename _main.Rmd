@@ -1,0 +1,33 @@
+---
+site: blogdown:::blogdown_site
+---
+
+<!--chapter:end:index.Rmd-->
+
+---
+title: rmd post template
+author: ''
+date: '2018-09-08'
+slug: rmd-post-template
+draft: "TRUE"
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 1
+categories: []
+tags: []
+---
+
+### HEADING
+Add text
+
+
+```{r echo=TRUE}
+library(tidyverse)
+library(lsr)
+```
+
+
+<!--chapter:end:2018-09-08-rmarkdown-template.Rmd-->
+

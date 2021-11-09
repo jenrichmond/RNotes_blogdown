@@ -1,0 +1,212 @@
+---
+title: IDHTG how to annotate plots
+author: ''
+date: '2020-10-14'
+slug: idhtg-how-to-annotate-plots
+
+image: "img/annotate.png"
+output:
+  html_document:
+    keep_md: yes
+
+---
+
+A new post in my I Don't Have to Google (IDHTG) series. I've been wanting to work out how to add annotations to plots for a while and this plot from the @WeAreRladies account this week got me inspired!  
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I also looked at activity by week. You can see that there are some weeks when there was a break between curators. You can also see curators are totally different - both in terms of number of tweets and the number of retweets and replies. One curator tweeted over 200 times! 🤯 <a href="https://t.co/F49YddjxUx">pic.twitter.com/F49YddjxUx</a></p>&mdash; We are R-Ladies (@WeAreRLadies) <a href="https://twitter.com/WeAreRLadies/status/1313178171219619840?ref_src=twsrc%5Etfw">October 5, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<br>
+
+Giorgia, who is curating WeAreRLadies this week, suggested checking out [this blog post](https://cedricscherer.netlify.app/2019/05/17/the-evolution-of-a-ggplot-ep.-1/) by Cedric Scherer. It is a great illustration of how you might start with a basic box plot and turn it into something that looks REALLY fancy, step by step. 
+
+Lets plot some penguin data to practice.
+
+# load packages
+
+
+```r
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# read data
+
+```r
+penguins <- penguins
+```
+
+# plot body mass by flipper length
+
+Add text to a ggplot using annotate(), just define x and y coordinates and what you want the label to say. 
+
+
+```r
+g_text <- penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  annotate("text", x = 180, y = 6000, label = "Add text here") +
+  annotate("text", x = 220, y = 3000, label = "More text here")
+  
+  
+g_text
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+To add arrows, first make a tibble that has x1, x2, y1, and y2 coordinates for where you want the curved line to start and stop. On my penguin plot I want two arrows, one in the top left and another in the bottom right. 
+
+
+```r
+arrows <- 
+  tibble(
+    x1 = c(187, 212),
+    x2 = c(205, 204),
+    y1 = c(6000, 3000), 
+    y2 = c(5500, 3500)
+  )
+
+arrows
+```
+
+```
+## # A tibble: 2 x 4
+##      x1    x2    y1    y2
+##   <dbl> <dbl> <dbl> <dbl>
+## 1   187   205  6000  5500
+## 2   212   204  3000  3500
+```
+
+Then use geom_curve() to add arrows, adjusting and adjusting and adjusting until they fall where you want them. 
+
+
+```r
+g_text +
+  geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.08, "inch")), size = 0.5,
+    color = "gray20", curvature = -0.3)
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+We should probably make the annotations meaningful. 
+
+
+```r
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  annotate("text", x = 180, y = 6000, label = "Gentoo penguins \n are much larger") +
+  annotate("text", x = 223, y = 3000, label = "It is hard to differentiate \n Chinstrap and Adelie") +
+  geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.08, "inch")), size = 0.5,
+    color = "gray20", curvature = -0.3)
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
+
+And Miss 9 thought the colour pallete could do with some work. The Luna Lovegood palette from the [harrypotter package](https://github.com/aljrico/harrypotter) is her favourite. 
+
+
+
+```r
+library(harrypotter)
+
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  annotate("text", x = 180, y = 6000, label = "Gentoo penguins \n are much larger") +
+  annotate("text", x = 223, y = 3000, label = "It is hard to differentiate \n Chinstrap and Adelie") +
+  geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.08, "inch")), size = 0.5,
+    color = "gray20", curvature = -0.3) +
+  scale_colour_hp_d(option = "LunaLovegood")
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+
+# I love twitter... intro to ggannotate
+
+One of the best things about blogging about what you learn is that you can give it away and then people let you know about new/different/easier ways to do what you just learned to do. 
+
+I shared this post on Twitter and within a few minutes Matt Cowgill let me know that he has been working on a package called [ggannotate](https://github.com/MattCowgill/ggannotate) which lets you add notes and arrows to your ggplot, using a point and click interface via a Shiny app. 
+
+How cool is that??
+
+You can install the package from github using this line of code
+
+`remotes::install_github("mattcowgill/ggannotate")`
+
+
+```r
+library(ggannotate)
+```
+
+Start with an annotation free plot...
+
+
+```r
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood")
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+To use ggannotate you can...
+
+1. select the ggplot code and use the Addins pulldown to open the ggannotate tool OR
+2. assign your ggplot to an object (maybe called plot) and then call ggannotate::ggannotate(plot) OR
+
+
+```r
+plot <- penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood")
+
+ggannotate(plot)
+```
+
+3. you can wrap your ggplot code in a ggannotate call like this
+
+
+```r
+ggannotate(penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood"))
+```
+
+Each option will open a shiny app that you can use to point and click where you want your annotations/curves and then copy the code back into your markdown. The downside is that at this stage you need to add each annotation and curve separately and the code that the tool generates is longer than if you had done it manually. But you don't have to write it so I guess that doesn't matter!
+
+Matt said that adding multiple annotations in single call is in the works, so watch this space. 
+
+
+```r
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_hp_d(option = "LunaLovegood") +
+  geom_text(data = data.frame(x = 188.437797399636, y = 5990.9008070379, label = "Gentoo penguins are much larger"),
+mapping = aes(x = x, y = y, label = label),
+size = 3.86605783866058, alpha = 1, inherit.aes = FALSE) +
+  geom_text(data = data.frame(x = 219.749643585604, y = 3366.61344597189, label = "It is hard to differentiate \n Chinstrap and Gentoo"),
+mapping = aes(x = x, y = y, label = label),
+size = 3.86605783866058, alpha = 1, inherit.aes = FALSE) +
+  geom_curve(data = data.frame(x = 199.308325132123, y = 6014.12458899424, xend = 208.642800032846, yend = 5781.88676943088),
+mapping = aes(x = x, y = y, xend = xend, yend = yend),
+curvature = -0.515, arrow = arrow(30L, unit(0.1, "inches"),
+"last", "closed"),
+alpha = 1, inherit.aes = FALSE) +
+  geom_curve(data = data.frame(x = 211.833063606511, y = 3320.16588205921, xend = 203.443851986874, yend = 3680.13450238243),
+mapping = aes(x = x, y = y, xend = xend, yend = yend),
+curvature = -0.59, arrow = arrow(30L, unit(0.1, "inches"),
+"last", "closed"),
+alpha = 1, inherit.aes = FALSE)
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+

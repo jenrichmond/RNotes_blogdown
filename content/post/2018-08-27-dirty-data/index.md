@@ -1,0 +1,176 @@
+---
+title: dirty data
+author: Jen Richmond
+date: '2018-08-27'
+slug: dirty-data
+categories: []
+output:
+  html_document:
+    keep_md: yes
+---
+
+I have been doing lots of data wrangling recently and decided a needed a quick rundown of data cleaning in R. Here are notes on useful things I learned recently. 
+
+
+#### Quick summaries
+
+`class()` will let you know whether you are working with a dataframe or not
+
+`dim()` gives you a little info about the dimensions of your data by telling you how many rows nd columns you have
+
+`names()` will print the column names
+
+`str()` aka structure and `glimpse()`, from dplyr, give you slightly different versions of hte same thing, a list of variables, each with a data type and a preview of the data
+
+`summary()` will give you a "sometimes useful, sometimes not" summary of each variable. You get a distribution of numeric things and frequencies of categorical things, but it doesn't group_by like you would like it to. 
+
+`skim()` from the `skimr` package gives a slightly more meaningful summary that includes summary stats for each variable by data type, details about missing values and draws the cutest little histograms you have EVER seen. 
+
+`head()` and `tail()` will show you the top and bottom 6 rows, you can add an argument and specify how many rows you want to see. i.e. head(data, n=12) would show the top 12 rows. 
+
+`print()` will show you all the data in the console, which could be useful depending how big your data is. 
+
+#### Quick plots
+
+If `skim()` doesn't do it for you, there are fast ways to visualise your data without diving head first into ggplot
+
+Histogram: to get an idea of the distribution of data in a particular variable use. Can use optional breaks argument to specify how many buckets the data are broken into. 
+
+> hist(dataset$variable1, breaks = 20)
+
+Scatterplot: to plot the relation between variable 1 and 2 from the dataset use
+
+> plot(dataset$variable1 , dataset$variable2) 
+
+### tidyr 
+
+How do we know data is not tidy? Often because columns are values not variables names. 
+
+#### From wide to long 
+
+Use gather(data, key, value, ...) 
+
+1. data = the dataframe you want to morph from wide to long
+
+2. key = the name of the new column that is levels of what is represented in the wide format as many columns
+
+3. value = the name of the column that will contain the values
+
+4. ... = columns to gather, or leave (use -column to gather all except that one)
+
+#### From long to wide 
+
+Use spread(data, key, value) 
+
+1. data = the dataframe you want to morph from long to wide
+
+2. key = the name of the column that contains the key 
+
+3. value = the name of the column contains the values
+
+#### Separate one column into many 
+
+Use separate(data, col, into) 
+
+1. data = dataframe
+
+2. col = name of column to separate
+
+3. into = character vector of new column [note- these need quotes]
+
+> separate(treatments, year_no, c("year", "month"))
+
+`separate()` assumes you want to split on a space, period, forward slash or dash. You can give it an extra argument sep = "-" to specify what to separate on. 
+
+#### Unite many columns into one 
+
+Use unite(data, col, ...) 
+
+1. data = dataframe
+
+2. col = name of column to separate
+
+3. ... = bare names of columns to unite
+
+
+### Common sources of mess
+
+1. column headers are values, not variable names --- fix it by using the `gather()` function to combine the many columns into one
+
+2. variables are stored in both rows and columns --- fix it by using the `spread()` function to combine the many columns into one
+
+3. multiple variables are stored in one column --- fix it by using the `separate()` function to split a column into many
+
+Other problems
+4. single observational unit stored in multiple tables
+5. multiple types of observational units are stored in the same table
+
+### Preparing data for analysis
+
+#### Data type conversions
+
+Changing the data type is called coercing. 
+
+as.character
+
+as.numeric
+
+as.integer
+
+as.factor
+
+as.logical
+
+Use `class()` to learn what kind of data you are dealing with. 
+
+#### lubridate
+
+Often R thinks that dates are strings, so functions from the lubridate package are useful for coercing them to date format. 
+
+i.e. ymd("2015-August-25") will parse a string and return a date in standard YMD format
+
+#### stringr
+
+`str_trim("   string with lots of white space    ")` trims away white space from character input
+
+`str_pad()` adds padding to the left or right of the string 
+
+i.e. this example takes an ID number, makes it 7 digits wide by padding the left side with 0s, result = 0024493
+
+> str_pad("24493", width= 7, side = left, pad = 0) 
+
+`str_detect(data, "stringname")` determine whether a particular string is present, returns TRUE, FALSE 
+
+`str_replace(data, "string1", "string2")` find instances of string1, replace with string2 
+
+`tolower()` and `toupper()` are functions from baseR that convert strings to all lower case or all uppercase. 
+
+#### missing and special values
+
+Use is.na() to check for NAs; will give TRUE or FALSE for each observation.
+
+> is.na(dataframe) 
+
+Are there any() NAs?; will give TRUE if there are any NAs
+
+> any(is.na(dataframe))
+
+How many NAs? Use sum to count. This works because TRUE is represented as 1 and FALSE as 0. 
+
+>sum(is.na(dataframe))
+
+Don't forget that `summary()` also counts how many NAs in each variable as does `skim()`
+
+##### Dealing with missing values rowwise
+
+> complete.cases(dataframe) 
+
+complete cases will give a TRUE FALSE for each row according to whether there are any missing values. You can subset the data, keeping only complete cases using...
+
+> dataframe[complete.cases(dataframe), ]
+
+OR use `na.omit(dataframe)` to keep only NA free data. 
+
+##### Outliers and errors
+
+Use boxplots, summary stats, and histogram to view outliers. 

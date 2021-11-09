@@ -1,0 +1,206 @@
+---
+title: cleaning penguins with the janitor package
+author: ''
+date: '2020-11-18'
+slug: digging-into-the-janitor-package
+image: "img/dirty_penguin.jpg"
+output:
+  html_document:
+    keep_md: yes
+---
+
+
+The janitor package by [Sam Firke](https://github.com/sfirke/janitor) contains probably my FAVOURITE R function: `clean_names()`. By default when I am reading data into R, I pipe `clean_names()` onto the end of my `read_csv()`. I never have to look at inconsistently formatted variable names. But janitor package includes lots of other useful functions that make it easier to deal with dirty data and count stuff. 
+
+```
+new_df <- read_csv(here("data", "df.csv") %>%
+        clean_names())
+        
+```        
+
+# Exploring package functions
+
+Are you keen to dig into the little known functions of a package that you use all the time? Here is a tip: in console type the name of the package with a double colon (i.e. janitor::), all the functions in the package will pop up and you can explore them by scrolling up and down the list. 
+
+Alternatively you can load the package in the console and then use `ls("package:packgename")` to get a list of all the objects in the package. 
+
+```{r message=FALSE, warning=FALSE}
+library(janitor)
+
+ls("package:janitor")
+```
+
+
+Lets try a few these functions. 
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse) # so I have dplyr
+library(janitor)  
+library(palmerpenguins) # to get penguin data
+library(kableExtra) # for nice tables
+library(gt) # for really nice tables
+```
+
+# read some dirty data
+
+The penguin data isn't very dirty out of the package, but I added some funky things for illustrative purposes. 
+
+
+```{r message=FALSE, warning=FALSE}
+
+dirty <- read_csv("penguin_raw_dirty.csv")
+```
+
+
+# 1. clean_names()
+
+The penguin variable names are not great. A nasty mix of capital and little letters, gaps and brackets- not fun to type over and over again. 
+```{r}
+
+names(dirty)
+
+```
+
+`clean_names()` will take all the variable names and make them lower case and replace gaps/brackets with underscores. 
+
+```{r}
+clean <- dirty %>%
+  clean_names()
+
+names(clean)
+```
+
+
+# 2. remove_empty()
+
+Sometimes dirty data contains whole rows or columns that are empty. You can quickly remove them with `remove_empty()`. By default it is a "quiet" function, but specify quiet = FALSE and it will give you a little feedback about what it has done. 
+
+```{r}
+empty <- clean %>%
+  remove_empty(which = c("rows", "cols"), quiet = FALSE)
+
+```
+
+# 3. get dupes()
+
+Lets imagine an RA made a mistake and entered the data for a couple of penguins twice. `get_dupes()` will tell you if there are duplicate entries in your dataset. 
+
+```{r}
+empty %>%
+  get_dupes(sample_number, species)
+
+```
+
+Then you can remove the duplicates with the `distinct()` function from `dplyr`. It only keeps distinct observations.
+
+```{r}
+dupes_gone <- empty %>%
+  distinct()
+
+dupes_gone %>%
+  get_dupes(sample_number, species)
+```
+
+# 4. tabyl()
+
+But perhaps the most surprisingly awesome function in the janitor package is `tabyl()`. Counting things in R is surprisingly hard [see post](http://jenrichmond.rbind.io/post/counting-things/), but `tabyl()` is a huge help. 
+
+Advantages...
+
+- works with %>%
+- takes a dataframe 
+- outputs a dataframe
+- is compatible with other table packages like `kableExtra` and `gt`
+
+### one variable (gets you %)
+
+```{r}
+
+dupes_gone %>%
+  tabyl(species) 
+
+```
+
+### two variables
+
+```{r}
+ 
+dupes_gone %>%
+  tabyl(species, sex)
+```
+Hmmmm why is there a "." column? Turns out for one penguin their sex is entered as "." instead of NA. 
+
+Use `na_if()` from `dplyr` to convert pesky values to NA.
+
+```{r}
+
+dupes_gone$sex <-  na_if(dupes_gone$sex, ".")
+
+dupes_gone %>%
+  tabyl(species, sex)
+
+```
+
+### three variables
+
+```{r}
+dupes_gone %>%
+  tabyl(species, sex, island) 
+
+```
+
+
+### adorn_ ing things
+
+#### totals by row and/or col
+
+```{r}
+
+dupes_gone %>%
+  tabyl(species, sex) %>%
+  adorn_totals(c("row", "col"))
+
+```
+
+#### percentages 
+```{r}
+dupes_gone %>%
+  tabyl(species, sex) %>%
+  adorn_percentages("row")
+```
+
+#### percent formatting
+```{r}
+  dupes_gone %>%
+  tabyl(species, sex) %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting()
+```
+
+
+
+# 5. tabyl + other nice tables (kableExtra, gt)
+
+The nice thing is that the output of `tabyl()` can be assigned as a dataframe object in your environment OR you can pipe on a `kable()`...
+```{r}
+dupes_gone %>%
+  tabyl(species, sex) %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting() %>%
+  kable() 
+```
+
+... or a `gt()` to get a really nicely formatted summary table
+
+```{r}
+dupes_gone %>%
+  tabyl(species, sex) %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting() %>%
+  gt()
+```
+
+
+
+
